@@ -11,8 +11,5 @@ export interface Meal {
 export namespace Meal {
 	export function is(value: Meal): value is Meal {
 		return typeof value == "object" && typeof value.name == "string" && typeof value.optional == "boolean"
-		// Array.isArray(value)										//  Fungerar icke..
-		// ? value.every(v => Alternative.is(v))	//  -''-
-		// : Alternative.is(value.alternatives)		//  -''-
 	}
 }

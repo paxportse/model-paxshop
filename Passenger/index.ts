@@ -1,24 +1,13 @@
-import { Alternative } from "../Flight/Meal/Alternative"
-import { Seat } from "../Flight/Seat"
 import { Luggage } from "../Luggage"
 import { AgeGroup as PassengerAgeGroup } from "./AgeGroup"
+import { Itinerary } from "./Itinerary"
 import { Name as PassengerName } from "./Name"
 
 export interface Passenger {
 	name: PassengerName
 	ageGroup: PassengerAgeGroup
-	seat?: Seat.Positioned
-	meal?: Alternative | Alternative[]
-
-	departure?: {
-		seat: Seat.Positioned
-		meal?: Alternative | Alternative[]
-	}[]
-	return?: {
-		seat: Seat.Positioned
-		meal?: Alternative | Alternative[]
-	}[]
-
+	departure?: Itinerary
+	return?: Itinerary
 	luggage?: Luggage
 	total?: number
 }
@@ -29,12 +18,13 @@ export namespace Passenger {
 			typeof value == "object" &&
 			PassengerName.is(value.name) &&
 			AgeGroup.is(value.ageGroup) &&
-			(value.seat == undefined || Seat.Positioned.is(value.seat))
+			(value.departure == undefined || Itinerary.is(value.departure)) &&
+			(value.return == undefined || Itinerary.is(value.return))
 		)
 	}
-	export function seated(passenger: Passenger | Passenger[]): boolean {
-		return Array.isArray(passenger) ? passenger.every(seated) : !!passenger.seat // Ändra detta..
-	}
+	// export function seated(passenger: Passenger | Passenger[]): boolean {
+	// 	return Array.isArray(passenger) ? passenger.every(seated) : !!passenger.seat // Ändra detta..
+	// }
 	export function addedLuggage(passenger: Passenger | Passenger[]): boolean {
 		return Array.isArray(passenger) ? passenger.every(addedLuggage) : !!passenger.luggage
 	}

@@ -1,6 +1,6 @@
 import { Cosmetic } from "./Cosmetic"
 import { Flight } from "./Flight"
-import { Itinerary } from "./Itinerary"
+import { Itinerary } from "./BookingOptions"
 import { Luggage } from "./Luggage"
 import { Passenger } from "./Passenger"
 
