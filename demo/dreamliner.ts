@@ -38,7 +38,6 @@ export const dreamliner: model.Flight = {
 	],
 	rows: [
 		{
-			layout: [2, 3, 2],
 			groups: [
 				{
 					seats: [
@@ -72,7 +71,6 @@ export const dreamliner: model.Flight = {
 			exit: true,
 		},
 		{
-			layout: [2, 3, 2],
 			groups: [
 				{
 					seats: [
@@ -101,7 +99,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [2, 3, 2],
 			groups: [
 				{
 					seats: [
@@ -126,7 +123,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [2, 3, 2],
 			groups: [
 				{
 					seats: [
@@ -151,11 +147,9 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [2, 3, 2],
 			exit: false,
 		},
 		{
-			layout: [2, 3, 2],
 			groups: [
 				{
 					seats: [
@@ -180,7 +174,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [2, 3, 2],
 			groups: [
 				{
 					seats: [
@@ -205,7 +198,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [2, 3, 2],
 			groups: [
 				{
 					seats: [
@@ -225,7 +217,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -252,7 +243,6 @@ export const dreamliner: model.Flight = {
 			exit: true,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -279,7 +269,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -306,7 +295,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -333,7 +321,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -360,35 +347,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [3, 3, 3],
-			groups: [
-				{
-					seats: [
-						{ status: "available", class: "economy", price: { amount: 150, currency: "SEK" } },
-						{ status: "available", class: "economy", price: { amount: 150, currency: "SEK" } },
-						{ status: "available", class: "economy", price: { amount: 150, currency: "SEK" } },
-					],
-				},
-				{
-					seats: [
-						{ status: "available", class: "economy", price: { amount: 150, currency: "SEK" } },
-						{ status: "available", class: "economy", price: { amount: 150, currency: "SEK" } },
-						{ status: "available", class: "economy", price: { amount: 150, currency: "SEK" } },
-					],
-				},
-				{
-					seats: [
-						{ status: "available", class: "economy", price: { amount: 150, currency: "SEK" } },
-						{ status: "available", class: "economy", price: { amount: 150, currency: "SEK" } },
-						{ status: "available", class: "economy", price: { amount: 150, currency: "SEK" } },
-					],
-				},
-			],
-			exit: false,
-			wing: true,
-		},
-		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -416,7 +374,6 @@ export const dreamliner: model.Flight = {
 			wing: true,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -444,7 +401,6 @@ export const dreamliner: model.Flight = {
 			wing: true,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -472,7 +428,6 @@ export const dreamliner: model.Flight = {
 			wing: true,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -500,7 +455,33 @@ export const dreamliner: model.Flight = {
 			wing: true,
 		},
 		{
-			layout: [3, 3, 3],
+			groups: [
+				{
+					seats: [
+						{ status: "available", class: "economy", price: { amount: 150, currency: "SEK" } },
+						{ status: "available", class: "economy", price: { amount: 150, currency: "SEK" } },
+						{ status: "available", class: "economy", price: { amount: 150, currency: "SEK" } },
+					],
+				},
+				{
+					seats: [
+						{ status: "available", class: "economy", price: { amount: 150, currency: "SEK" } },
+						{ status: "available", class: "economy", price: { amount: 150, currency: "SEK" } },
+						{ status: "available", class: "economy", price: { amount: 150, currency: "SEK" } },
+					],
+				},
+				{
+					seats: [
+						{ status: "available", class: "economy", price: { amount: 150, currency: "SEK" } },
+						{ status: "available", class: "economy", price: { amount: 150, currency: "SEK" } },
+						{ status: "available", class: "economy", price: { amount: 150, currency: "SEK" } },
+					],
+				},
+			],
+			exit: false,
+			wing: true,
+		},
+		{
 			groups: [
 				{
 					seats: [
@@ -527,7 +508,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -554,7 +534,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -581,7 +560,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -608,7 +586,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -635,7 +612,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -662,7 +638,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -683,7 +658,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -710,7 +684,6 @@ export const dreamliner: model.Flight = {
 			exit: true,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -737,7 +710,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -764,7 +736,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -791,7 +762,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -818,7 +788,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -845,7 +814,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -872,7 +840,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -899,7 +866,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -926,7 +892,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				{
 					seats: [
@@ -953,7 +918,6 @@ export const dreamliner: model.Flight = {
 			exit: false,
 		},
 		{
-			layout: [3, 3, 3],
 			groups: [
 				undefined,
 				{

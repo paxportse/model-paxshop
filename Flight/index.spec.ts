@@ -19,7 +19,6 @@ describe("model.Flight", () => {
 		],
 		rows: [
 			{
-				layout: [2, 3, 2],
 				groups: [
 					{
 						seats: [
