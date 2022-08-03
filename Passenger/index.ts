@@ -4,9 +4,9 @@ import { Itinerary as PassengerItinerary } from "./Itinerary"
 import { Name as PassengerName } from "./Name"
 
 export interface Passenger {
-	name: PassengerName
+	name: Passenger.Name
 	ageGroup: Passenger.AgeGroup
-	departure?: Passenger.Itinerary
+	departure: Passenger.Itinerary
 	return?: Passenger.Itinerary
 	luggage?: Luggage
 	total?: number
@@ -18,13 +18,14 @@ export namespace Passenger {
 			typeof value == "object" &&
 			Passenger.Name.is(value.name) &&
 			AgeGroup.is(value.ageGroup) &&
-			(value.departure == undefined || Itinerary.is(value.departure)) &&
+			Itinerary.is(value.departure) &&
 			(value.return == undefined || Itinerary.is(value.return))
 		)
 	}
-	// export function seated(passenger: Passenger | Passenger[]): boolean {
-	// 	return Array.isArray(passenger) ? passenger.every(seated) : !!passenger.seat // Ändra detta..
-	// }
+	export function seated(passenger: Passenger | Passenger[]): boolean {
+		return Array.isArray(passenger) ? passenger.every(seated) : Array.isArray(passenger.departure) ? passenger.departure.every((flight: any) => !!flight.seat) : !!passenger.departure
+		//!!passenger.seat // Ändra detta..
+	}
 	export function addedLuggage(passenger: Passenger | Passenger[]): boolean {
 		return Array.isArray(passenger) ? passenger.every(addedLuggage) : !!passenger.luggage
 	}

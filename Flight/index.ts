@@ -12,6 +12,17 @@ export interface Flight {
 	rows: Row[]
 }
 export namespace Flight {
+	export function is(value: Flight | any): value is Flight {
+		return (
+			typeof value == "object" &&
+			typeof value.from == "string" &&
+			typeof value.to == "string" &&
+			isoly.DateTime.is(value.departure) &&
+			isoly.DateTime.is(value.arrival) &&
+			(value.meal == undefined || Meal.is(value.meal)) &&
+			value.rows.every(Row.is)
+		)
+	}
 	export function prices(flight: Flight): number[] {
 		return [
 			...new Set(

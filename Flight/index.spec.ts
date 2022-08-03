@@ -49,6 +49,9 @@ describe("model.Flight", () => {
 			},
 		],
 	}
+	it("is", () => {
+		expect(model.Flight.is(layout)).toEqual(true)
+	})
 	it("prices", () => {
 		expect(model.Flight.prices(layout)).toEqual([50, 100, 150, 250, 350, 400, 1250])
 	})

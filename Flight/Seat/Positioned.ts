@@ -8,7 +8,6 @@ export interface Positioned extends Base {
 	position: Position
 }
 export namespace Positioned {
-	// någonting knas här, felsök
 	export function is(value: Positioned | any): value is Positioned {
 		return typeof value == "object" && value.row.number > 0 && Base.is(value)
 	}
