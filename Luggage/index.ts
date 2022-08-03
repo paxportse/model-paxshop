@@ -14,9 +14,9 @@ export namespace Luggage {
 			typeof value == "object" &&
 			typeof value.name == "string" &&
 			typeof value.weight == "number" &&
-			typeof value.price == "object" &&
-			typeof value.luggageTotal == "object" &&
-			typeof value.description == "string"
+			(value.price == undefined || Price.is(value.price)) &&
+			(value.luggageTotal == undefined || Price.is(value.luggageTotal)) &&
+			(value.description == undefined || typeof value.description == "string")
 		)
 	}
 	// export function total(departVal: number, returnVal: number, currency: isoly.Currency): void {

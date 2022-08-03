@@ -15,8 +15,8 @@ export namespace Summary {
 		return (
 			typeof value == "object" &&
 			Seat.is(value.seat) &&
-			Luggage.is(value.luggage) &&
-			Meal.is(value.meal) &&
+			(value.luggage == undefined || Luggage.is(value.luggage)) &&
+			(value.meal == undefined || Meal.is(value.meal)) &&
 			Price.is(value.price)
 		)
 	}

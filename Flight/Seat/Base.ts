@@ -17,7 +17,7 @@ export namespace Base {
 		return (
 			typeof value == "object" &&
 			Status.is(value.status) &&
-			// Class.is(value.class) &&
+			Class.is(value.class) &&
 			Price.is(value.price) &&
 			(value.wide == undefined || typeof value.wide == "boolean") &&
 			(value.legroom == undefined || typeof value.legroom == "boolean") &&
