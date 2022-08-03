@@ -8,6 +8,8 @@ export interface Group {
 export namespace Group {
 	export const types = [Seat] as const
 	export function is(value: Group | any): value is Group {
-		return value.seats.every(Seat.is) && typeof value.toilet == "boolean"
+		return (
+			value.seats.every((seat: any) => Seat.is(seat)) && (value.toilet == undefined || typeof value.toilet == "boolean")
+		)
 	}
 }

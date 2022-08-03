@@ -1,4 +1,4 @@
-import { Base as Seat } from "../Seat/Base"
+// import { Base as Seat } from "../Seat/Base"
 import { Group } from "./Group"
 
 export interface Base {
@@ -11,9 +11,11 @@ export namespace Base {
 	export function is(value: Base | any): value is Base {
 		return (
 			typeof value == "object" &&
-			Array.isArray(value.groups) &&
-			value.groups.every(value.seats.every(Seat.is)) &&
-			(value.exit == "undefined" || typeof value.exit == "boolean")
+			(value.groups == undefined ||
+				(Array.isArray(value.groups) && value.groups.every((group: any) => Group.is(group)))) &&
+			(value.exit == undefined || typeof value.exit == "boolean") &&
+			(value.wing == undefined || typeof value.wing == "boolean") &&
+			(value.toilet == undefined || typeof value.toilet == "boolean")
 		)
 	}
 }
