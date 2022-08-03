@@ -11,9 +11,10 @@ export namespace Price {
 	export function is(value: any | Price): value is Price {
 		return (
 			typeof value == "object" &&
-			typeof value.offer == "number" &&
-			typeof value.description == "string" &&
-			isoly.Currency.is(value.currency)
+			typeof value.amount == "number" &&
+			isoly.Currency.is(value.currency) &&
+			(value.offer == undefined || typeof value.offer == "number") &&
+			(value.description == undefined || typeof value.description == "string")
 		)
 	}
 	export function amount(price: Price): number {

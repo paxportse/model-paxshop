@@ -1,4 +1,3 @@
-// import { dreamliner } from "../demo/dreamliner"
 import * as model from "../index"
 
 describe("model.Passenger", () => {

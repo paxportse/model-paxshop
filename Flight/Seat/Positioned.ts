@@ -8,8 +8,9 @@ export interface Positioned extends Base {
 	position: Position
 }
 export namespace Positioned {
+	// någonting knas här, felsök
 	export function is(value: Positioned | any): value is Positioned {
-		return typeof value == "object" && value.index > 0 && Base.is(value)
+		return typeof value == "object" && value.row.number > 0 && Base.is(value)
 	}
 	export function selectable(seat: Positioned, passenger: Passenger): boolean {
 		return seat.status == "available" && (passenger.ageGroup == "adult" || !seat.row.exit)

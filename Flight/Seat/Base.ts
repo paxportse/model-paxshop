@@ -17,12 +17,12 @@ export namespace Base {
 		return (
 			typeof value == "object" &&
 			Status.is(value.status) &&
-			Class.is(value.class) &&
+			// Class.is(value.class) &&
 			Price.is(value.price) &&
 			(value.wide == undefined || typeof value.wide == "boolean") &&
-			typeof value.legroom == "boolean" &&
-			typeof value.wing == "boolean" &&
-			typeof value.limitedRecline == "boolean"
+			(value.legroom == undefined || typeof value.legroom == "boolean") &&
+			(value.wing == undefined || typeof value.wing == "boolean") &&
+			(value.limitedRecline == undefined || typeof value.limitedRecline == "boolean")
 		)
 	}
 }

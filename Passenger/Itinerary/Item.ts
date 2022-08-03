@@ -8,10 +8,11 @@ export interface Item {
 
 export namespace Item {
 	export function is(value: Item | any): value is Item {
+		let meal: any
 		return (
 			typeof value == "object" &&
 			Seat.Positioned.is(value.seat) &&
-			(value.meal == undefined || Alternative.is(value.meal))
+			((meal = value.meal) == undefined || Alternative.is(meal) || (Array.isArray(meal) && meal.every(Alternative.is)))
 		)
 	}
 }
