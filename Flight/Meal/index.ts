@@ -1,10 +1,10 @@
-import { Alternative } from "./Alternative"
+import { Alternative as MealAlternative } from "./Alternative"
 // import { Option } from "./Option"
 
 export interface Meal {
 	name: string
 	optional?: boolean
-	alternatives: Alternative[]
+	alternatives: Meal.Alternative[]
 	//options?: Option[] // Vad används denna till?
 }
 
@@ -18,4 +18,6 @@ export namespace Meal {
 			value.alternatives.every(alternative => Alternative.is(alternative))
 		)
 	}
+	export type Alternative = MealAlternative
+	export const Alternative = MealAlternative
 }
