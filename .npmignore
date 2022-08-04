@@ -1,5 +1,8 @@
 .vscode
 **/*.spec.js
 **/*.spec.ts
+**/*.snap
+**/*.ts
 coverage
 .env
+demo
