@@ -3,6 +3,7 @@
 **/*.spec.ts
 **/*.snap
 **/*.ts
+!**/*.d.ts
 coverage
 .env
 demo
