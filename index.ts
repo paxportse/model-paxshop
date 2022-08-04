@@ -4,7 +4,8 @@ import { BookingSpecifier } from "./BookingSpecifier"
 import { Client } from "./Client"
 import { Cosmetic } from "./Cosmetic"
 import { Flight } from "./Flight"
+import { Seat } from "./Flight/Seat"
 import { Luggage } from "./Luggage"
 import { Passenger } from "./Passenger"
 
-export { Cosmetic, Flight, Booking, BookingOptions, BookingSpecifier, Client, Luggage, Passenger }
+export { Cosmetic, Flight, Booking, BookingOptions, BookingSpecifier, Client, Luggage, Passenger, Seat }
