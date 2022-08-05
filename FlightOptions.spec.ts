@@ -9,10 +9,12 @@ describe("model.Flight", () => {
 		arrival: "2022-09-28T10:02:00.000Z",
 		meals: [
 			{
+				reference: "ref-234",
 				name: "Breakfast",
 				alternatives: [{ name: "Fancy" }, { name: "Basic" }],
 			},
 			{
+				reference: "ref-754",
 				name: "Dinner",
 				alternatives: [{ name: "Chicken" }, { name: "Fish" }],
 			},

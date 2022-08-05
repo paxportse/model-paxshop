@@ -4,13 +4,14 @@ describe("model.Name", () => {
 	const bookingOptions: model.BookingOptions = {
 		departure: [
 			{
-				reference: "AA",
+				reference: "BA",
 				from: "ARN",
 				to: "LHR",
 				departure: "2022-09-28T10:02:00.000Z",
 				arrival: "2022-09-28T12:22:00.000Z",
 				meals: [
 					{
+						reference: "ref-454",
 						name: "Dinner",
 						optional: true,
 						alternatives: [
@@ -61,13 +62,14 @@ describe("model.Name", () => {
 		],
 		return: [
 			{
-				reference: "AA",
+				reference: "FA",
 				from: "LHR",
 				to: "ARN",
 				departure: "2022-10-18T10:10:00.000Z",
 				arrival: "2022-10-18T22:22:00.000Z",
 				meals: [
 					{
+						reference: "ref-5464",
 						name: "Dinner",
 						optional: true,
 						alternatives: [
