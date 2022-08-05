@@ -5,6 +5,7 @@ describe("model.Name", () => {
 		reference: "ABC123",
 		passengers: [
 			{
+				reference: "p01",
 				name: { first: "Olle", last: "Olsson" },
 				ageGroup: "adult",
 				departure: [

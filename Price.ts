@@ -20,8 +20,24 @@ export namespace Price {
 	export function amount(price: Price): number {
 		return price.offer ?? price.amount
 	}
-	export function total(numbers: number[]): number {
-		return numbers.reduce((sum, n) => sum + n, 0)
+	/**
+	 * @param prices length > 0 and same currency
+	 * @returns total price and offer and concatenated descriptions
+	 */
+	export function total(prices: Price[]): Price {
+		return {
+			amount: prices.reduce((s, p) => s + p.amount, 0),
+			currency: prices[0].currency,
+			offer: prices.some(p => p.offer == undefined) ? prices.reduce((s, p) => s + amount(p), 0) : undefined,
+			description: [...new Set(prices.reduce((s, p) => (p.description ? [...s, p.description] : s), []))].join("\n"),
+		}
+	}
+	export function multiply(price: Price, quantity = 1): Price {
+		return {
+			...price,
+			amount: price.amount * quantity,
+			offer: price.offer && price.offer * quantity,
+		}
 	}
 	export function percentageDiscount(price: Price, reduction: number): Price {
 		return { ...price, offer: price.amount / (1 - reduction) }

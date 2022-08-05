@@ -116,17 +116,17 @@ describe("model.Name", () => {
 		],
 		luggage: [
 			{
+				reference: "l02",
 				name: "Extra weight",
 				weight: 20,
 				price: { amount: 100, currency: "SEK" },
-				luggageTotal: { amount: 3000, currency: "SEK" },
 				description: "Lite text",
 			},
 			{
+				reference: "l03",
 				name: "Extra weight",
 				weight: 30,
 				price: { amount: 200, currency: "SEK" },
-				luggageTotal: { amount: 4000, currency: "SEK" },
 				description: "Lite text",
 			},
 		],
