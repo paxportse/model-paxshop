@@ -16,8 +16,7 @@ export namespace Booking {
 			value.passengers.every(Passenger.is) &&
 			Array.isArray(value.departure) &&
 			value.departure.every((leg: any) => Flight.is(leg)) &&
-			Array.isArray(value.return) &&
-			value.return.every((leg: any) => Flight.is(leg))
+			(value.return == undefined || (Array.isArray(value.return) && value.return.every((leg: any) => Flight.is(leg))))
 		)
 	}
 }

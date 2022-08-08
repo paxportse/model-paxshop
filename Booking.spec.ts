@@ -56,5 +56,10 @@ describe("model.Name", () => {
 	it("is", () => {
 		expect(model.Booking.is(booking)).toEqual(true)
 	})
-	
+	it("reference is not number", () => {
+		expect(model.Booking.is({ ...booking, reference: 12 })).toEqual(false)
+	})
+	it("return is undefined", () => {
+		expect(model.Booking.is({ ...booking, return: undefined })).toEqual(true)
+	})
 })

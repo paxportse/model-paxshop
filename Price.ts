@@ -25,12 +25,16 @@ export namespace Price {
 	 * @returns total price and offer and concatenated descriptions
 	 */
 	export function total(prices: Price[]): Price {
-		return {
+		return (({ offer, ...price }) => (offer != undefined ? { offer, ...price } : price))({
 			amount: prices.reduce((s, p) => s + p.amount, 0),
 			currency: prices[0].currency,
-			offer: prices.some(p => p.offer == undefined) ? prices.reduce((s, p) => s + amount(p), 0) : undefined,
+			offer: prices.every(p => p.offer == undefined)
+				? undefined
+				: prices.some(p => p.offer == undefined)
+				? prices.reduce((s, p) => s + amount(p), 0)
+				: undefined,
 			description: [...new Set(prices.reduce((s, p) => (p.description ? [...s, p.description] : s), []))].join("\n"),
-		}
+		})
 	}
 	export function multiply(price: Price, quantity = 1): Price {
 		return {
@@ -40,7 +44,7 @@ export namespace Price {
 		}
 	}
 	export function percentageDiscount(price: Price, reduction: number): Price {
-		return { ...price, offer: price.amount / (1 - reduction) }
+		return { ...price, offer: isoly.Currency.multiply(price.currency, price.amount, 1 - reduction) }
 	}
 	export function reductionDiscount(price: Price, reduction: number): Price {
 		return { ...price, offer: price.amount - reduction }
