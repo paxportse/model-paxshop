@@ -1,8 +1,8 @@
-import { dreamliner } from "../demo/dreamliner"
-import * as model from "../index"
+import * as model from "./index"
 
 describe("model.Flight", () => {
-	const layout: model.Flight = {
+	const layout: model.FlightOptions = {
+		reference: "AA",
 		from: "ARN",
 		to: "LHR",
 		departure: "2022-09-28T07:22:00.000Z",
@@ -17,7 +17,7 @@ describe("model.Flight", () => {
 				alternatives: [{ name: "Chicken" }, { name: "Fish" }],
 			},
 		],
-		rows: [
+		seating: [
 			{
 				groups: [
 					{
@@ -51,11 +51,5 @@ describe("model.Flight", () => {
 	}
 	it("is", () => {
 		expect(model.Flight.is(layout)).toEqual(true)
-	})
-	it("prices", () => {
-		expect(model.Flight.prices(layout)).toEqual([50, 100, 150, 250, 350, 400, 1250])
-	})
-	it("prices dreamliner", () => {
-		expect(model.Flight.prices(dreamliner)).toEqual([150, 175, 200, 300, 400])
 	})
 })

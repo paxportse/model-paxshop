@@ -10,7 +10,6 @@ export interface Passenger {
 	departure?: Passenger.Itinerary
 	return?: Passenger.Itinerary
 	luggage?: Luggage[]
-	total?: number
 }
 
 export namespace Passenger {
@@ -27,8 +26,8 @@ export namespace Passenger {
 	export function seated(passenger: Passenger | Passenger[]): boolean {
 		return Array.isArray(passenger)
 			? passenger.every(seated)
-			: !!passenger.departure?.every((item: PassengerItinerary.Item | undefined) => !!item?.seat) &&
-					(passenger.return?.every((item: PassengerItinerary.Item | undefined) => !!item?.seat) ?? true)
+			: !!passenger.departure?.every((item: PassengerItinerary.Leg | undefined) => !!item?.seat) &&
+					(passenger.return?.every((item: PassengerItinerary.Leg | undefined) => !!item?.seat) ?? true)
 	}
 	export function hasLuggage(passenger: Passenger | Passenger[]): boolean {
 		return Array.isArray(passenger) ? passenger.every(hasLuggage) : !!passenger.luggage
@@ -48,7 +47,7 @@ export namespace Passenger {
 	export const Itinerary = PassengerItinerary
 	export type Itinerary = PassengerItinerary
 	export namespace Itinerary {
-		export type Item = PassengerItinerary.Item
+		export type Item = PassengerItinerary.Leg
 	}
 	export const Name = PassengerName
 	export type Name = PassengerName

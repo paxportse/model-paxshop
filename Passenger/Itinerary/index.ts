@@ -1,23 +1,24 @@
-import { Item as ItineraryItem } from "./Item"
+import { Leg as ItineraryLeg } from "./Leg"
 
-export type Itinerary = (Itinerary.Item | undefined)[]
+export type Itinerary = (Itinerary.Leg | undefined)[]
 
 export namespace Itinerary {
 	export function is(value: Itinerary | any): value is Itinerary {
-		return Array.isArray(value) && value.every(item => item == undefined || Itinerary.Item.is(item))
+		return Array.isArray(value) && value.every(leg => leg == undefined || Itinerary.Leg.is(leg))
 	}
 	export function update(itinerary: Itinerary, changes: Itinerary | undefined): Itinerary {
 		return changes
 			? itinerary.map(
-					(item, index) =>
-						item &&
-						(({ seat, meal }) => (meal ? { seat, meal } : { seat }))({
-							seat: changes[index]?.seat ?? item.seat,
-							meal: changes[index]?.meal ?? item.meal,
+					(leg, index) =>
+						leg &&
+						(({ meal, ...leg }) => (meal ? { ...leg, meal } : { ...leg }))({
+							reference: leg.reference,
+							seat: changes[index]?.seat ?? leg.seat,
+							meal: changes[index]?.meal ?? leg.meal,
 						})
 			  )
 			: itinerary
 	}
-	export type Item = ItineraryItem
-	export const Item = ItineraryItem
+	export type Leg = ItineraryLeg
+	export const Leg = ItineraryLeg
 }

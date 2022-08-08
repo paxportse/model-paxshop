@@ -4,6 +4,7 @@ describe("model.Name", () => {
 	const bookingOptions: model.BookingOptions = {
 		departure: [
 			{
+				reference: "AA",
 				from: "ARN",
 				to: "LHR",
 				departure: "2022-09-28T10:02:00.000Z",
@@ -18,7 +19,7 @@ describe("model.Name", () => {
 						],
 					},
 				],
-				rows: [
+				seating: [
 					{
 						groups: [
 							{
@@ -60,6 +61,7 @@ describe("model.Name", () => {
 		],
 		return: [
 			{
+				reference: "AA",
 				from: "LHR",
 				to: "ARN",
 				departure: "2022-10-18T10:10:00.000Z",
@@ -74,7 +76,7 @@ describe("model.Name", () => {
 						],
 					},
 				],
-				rows: [
+				seating: [
 					{
 						groups: [
 							{
@@ -137,7 +139,4 @@ describe("model.Name", () => {
 	it("is return undefined", () => {
 		expect(model.BookingOptions.is({ ...bookingOptions, return: undefined })).toEqual(true)
 	})
-	// it("is luggage not undefined", () => {  // Varför fungerar inte denna som jag tänker?
-	// 	expect(model.BookingOptions.is({ ...bookingOptions, luggage: undefined })).toEqual(false)
-	// })
 })

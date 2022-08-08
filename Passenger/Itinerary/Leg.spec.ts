@@ -1,7 +1,8 @@
-import * as model from "./Item"
+import * as model from "./Leg"
 
-describe("model.Item", () => {
-	const item: model.Item = {
+describe("model.Leg", () => {
+	const leg: model.Leg = {
+		reference: "leg01",
 		seat: {
 			row: { number: 1 },
 			position: "A",
@@ -11,6 +12,6 @@ describe("model.Item", () => {
 		},
 	}
 	it("is", () => {
-		expect(model.Item.is(item)).toEqual(true)
+		expect(model.Leg.is(leg)).toEqual(true)
 	})
 })

@@ -10,6 +10,7 @@ describe("model.Name", () => {
 				ageGroup: "adult",
 				departure: [
 					{
+						reference: "AAAsd2",
 						seat: {
 							status: "occupied",
 							class: "economy",
@@ -21,6 +22,7 @@ describe("model.Name", () => {
 				],
 				return: [
 					{
+						reference: "AAAsd2",
 						seat: {
 							status: "occupied",
 							class: "economy",
@@ -30,6 +32,24 @@ describe("model.Name", () => {
 						},
 					},
 				],
+			},
+		],
+		departure: [
+			{
+				reference: "AA",
+				from: "ARN",
+				to: "LHR",
+				departure: "2022-09-28T07:22:00.000Z",
+				arrival: "2022-09-28T10:02:00.000Z",
+			},
+		],
+		return: [
+			{
+				reference: "AA",
+				from: "ARN",
+				to: "LHR",
+				departure: "2022-09-28T07:22:00.000Z",
+				arrival: "2022-09-28T10:02:00.000Z",
 			},
 		],
 	}

@@ -1,4 +1,4 @@
-import { Price } from "../../Price"
+import { Price } from "../Price"
 
 export interface Alternative {
 	name?: string

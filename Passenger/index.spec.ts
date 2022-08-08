@@ -7,6 +7,7 @@ describe("model.Passenger", () => {
 		ageGroup: "child",
 		departure: [
 			{
+				reference: "d02",
 				seat: {
 					row: { number: 1 },
 					position: "A",
@@ -18,6 +19,7 @@ describe("model.Passenger", () => {
 		],
 		return: [
 			{
+				reference: "d03",
 				seat: {
 					row: { number: 1 },
 					position: "B",
@@ -56,19 +58,21 @@ describe("model.Passenger", () => {
 		expect(model.Passenger.update(passenger, { luggage })).toEqual({ ...passenger, luggage })
 	})
 	it("update meal", () => {
-		const meal: model.Meal.Alternative = {
-			name: "chicken",
-			price: { amount: 100, currency: "SEK" },
-			default: false,
-			description: "Lite text",
-		}
+		const meal: model.Meal.Alternative[] = [
+			{
+				name: "chicken",
+				price: { amount: 100, currency: "SEK" },
+				default: false,
+				description: "Lite text",
+			},
+		]
 		expect(model.Passenger.update(passenger, { departure: [{ meal }] })).toEqual({
 			...passenger,
 			departure: [{ ...passenger.departure?.[0], meal }],
 		})
 	})
 	it("update seat", () => {
-		const seat: model.Seat.Positioned = {
+		const seat: model.Layout.Seat.Positioned = {
 			row: { number: 1 },
 			position: "H",
 			status: "occupied",
