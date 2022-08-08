@@ -56,31 +56,5 @@ describe("model.Name", () => {
 	it("is", () => {
 		expect(model.Booking.is(booking)).toEqual(true)
 	})
-	it("is", () => {
-		expect(
-			model.Booking.is({
-				reference: "AAAA34",
-				passengers: [
-					{
-						name: {
-							first: "Pelle",
-							last: "Karlsson",
-						},
-						ageGroup: "child",
-						departure: [
-							{
-								seat: {
-									status: "occupied",
-									class: "economy",
-									price: { amount: 100, currency: "SEK" },
-									row: { number: 1 },
-									postion: "A",
-								},
-							},
-						],
-					},
-				],
-			})
-		).toEqual(true)
-	})
+	
 })
