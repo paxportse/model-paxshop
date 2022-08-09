@@ -23,16 +23,16 @@ export namespace Passenger {
 			(value.return == undefined || Itinerary.is(value.return))
 		)
 	}
-	export function seated(passenger: Passenger | Passenger[]): boolean {
+	export function seated(passenger: Readonly<Passenger> | Readonly<Passenger>[]): boolean {
 		return Array.isArray(passenger)
 			? passenger.every(seated)
 			: !!passenger.departure?.every((item: PassengerItinerary.Leg | undefined) => !!item?.seat) &&
 					(passenger.return?.every((item: PassengerItinerary.Leg | undefined) => !!item?.seat) ?? true)
 	}
-	export function hasLuggage(passenger: Passenger | Passenger[]): boolean {
+	export function hasLuggage(passenger: Readonly<Passenger> | Readonly<Passenger>[]): boolean {
 		return Array.isArray(passenger) ? passenger.every(hasLuggage) : !!passenger.luggage
 	}
-	export function update(passenger: Passenger, changes: Partial<Passenger>): Passenger {
+	export function update(passenger: Readonly<Passenger>, changes: Partial<Passenger>): Passenger {
 		return {
 			...passenger,
 			...changes,

@@ -5,10 +5,7 @@ import { BookingOptions } from "../BookingOptions"
 import { BookingSpecifier } from "../BookingSpecifier"
 
 export class Booking extends rest.Collection<gracely.Error> {
-	test(): boolean {
-		return true
-	}
-	fetch(specifier: BookingSpecifier): Promise<(modelBooking & { options: BookingOptions }) | gracely.Error> {
+	fetch(specifier: BookingSpecifier): Promise<Readonly<modelBooking & { options: BookingOptions }> | gracely.Error> {
 		return this.client.get<modelBooking & { options: BookingOptions }>(`booking/${specifier.reference}`)
 	}
 }
