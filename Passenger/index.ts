@@ -47,7 +47,7 @@ export namespace Passenger {
 	export const Itinerary = PassengerItinerary
 	export type Itinerary = PassengerItinerary
 	export namespace Itinerary {
-		export type Item = PassengerItinerary.Leg
+		export type Leg = PassengerItinerary.Leg
 	}
 	export const Name = PassengerName
 	export type Name = PassengerName

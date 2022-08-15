@@ -2,6 +2,19 @@
 
 exports[`model.Client booking.fetch: booking-AAAA12 1`] = `
 Object {
+  "departure": Array [
+    Object {
+      "arrival": "2022-08-20T16:34:00.000Z",
+      "departure": "2022-08-20T13:37:00.000Z",
+      "from": "ARN",
+      "meals": Array [
+        "celebration",
+      ],
+      "plane": "bombardier",
+      "reference": "FL-001",
+      "to": "LHR",
+    },
+  ],
   "options": Object {
     "departure": Array [
       Object {
@@ -31,7 +44,8 @@ Object {
             "name": "Celebration",
           },
         ],
-        "rows": Array [
+        "reference": "FL-001",
+        "seating": Array [
           Object {
             "groups": Array [
               Object {
@@ -801,6 +815,804 @@ Object {
       },
     ],
     "luggage": Array [],
+    "return": Array [
+      Object {
+        "arrival": "2022-08-22T19:51:00.000Z",
+        "departure": "2022-08-22T16:29:00.000Z",
+        "from": "LHR",
+        "meals": Array [
+          Object {
+            "alternatives": Array [
+              Object {
+                "description": "Some chocolate and so on.",
+                "name": "Sparkling wine & Chocolate",
+                "price": Object {
+                  "amount": 200,
+                  "currency": "SEK",
+                },
+              },
+              Object {
+                "description": "Some champagne and so on.",
+                "name": "Champagne & Chocolate",
+                "price": Object {
+                  "amount": 300,
+                  "currency": "SEK",
+                },
+              },
+            ],
+            "name": "Celebration",
+          },
+        ],
+        "reference": "FL-002",
+        "seating": Array [
+          Object {
+            "groups": Array [
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "first-class",
+                    "legroom": true,
+                    "price": Object {
+                      "amount": 400,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "first-class",
+                    "legroom": true,
+                    "price": Object {
+                      "amount": 400,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "first-class",
+                    "legroom": true,
+                    "price": Object {
+                      "amount": 400,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+            ],
+          },
+          Object {
+            "groups": Array [
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "first-class",
+                    "legroom": true,
+                    "price": Object {
+                      "amount": 400,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "first-class",
+                    "legroom": true,
+                    "price": Object {
+                      "amount": 400,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "first-class",
+                    "legroom": true,
+                    "price": Object {
+                      "amount": 400,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+            ],
+          },
+          Object {
+            "groups": Array [
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "first-class",
+                    "legroom": true,
+                    "price": Object {
+                      "amount": 400,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+              Object {
+                "toilet": true,
+              },
+            ],
+          },
+          Object {},
+          Object {
+            "groups": Array [
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "premium-economy",
+                    "price": Object {
+                      "amount": 300,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "premium-economy",
+                    "price": Object {
+                      "amount": 300,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "premium-economy",
+                    "price": Object {
+                      "amount": 300,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "premium-economy",
+                    "price": Object {
+                      "amount": 300,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+            ],
+          },
+          Object {
+            "groups": Array [
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "premium-economy",
+                    "price": Object {
+                      "amount": 300,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "premium-economy",
+                    "price": Object {
+                      "amount": 300,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "premium-economy",
+                    "price": Object {
+                      "amount": 300,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "premium-economy",
+                    "price": Object {
+                      "amount": 300,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+            ],
+          },
+          Object {
+            "groups": Array [
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "premium-economy",
+                    "price": Object {
+                      "amount": 300,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "premium-economy",
+                    "price": Object {
+                      "amount": 300,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "premium-economy",
+                    "price": Object {
+                      "amount": 300,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "premium-economy",
+                    "price": Object {
+                      "amount": 300,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+            ],
+          },
+          Object {
+            "groups": Array [
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "premium-economy",
+                    "price": Object {
+                      "amount": 300,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "premium-economy",
+                    "price": Object {
+                      "amount": 300,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "premium-economy",
+                    "price": Object {
+                      "amount": 300,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "premium-economy",
+                    "price": Object {
+                      "amount": 300,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+            ],
+          },
+          Object {
+            "groups": Array [
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+            ],
+          },
+          Object {
+            "groups": Array [
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+            ],
+          },
+          Object {
+            "groups": Array [
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+            ],
+          },
+          Object {
+            "groups": Array [
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+            ],
+          },
+          Object {
+            "exit": true,
+            "groups": Array [
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "legroom": true,
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "legroom": true,
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "legroom": true,
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "legroom": true,
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+            ],
+          },
+          Object {
+            "groups": Array [
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+            ],
+          },
+          Object {
+            "groups": Array [
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+            ],
+          },
+          Object {
+            "groups": Array [
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+            ],
+          },
+          Object {
+            "groups": Array [
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+            ],
+          },
+          Object {
+            "groups": Array [
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+            ],
+          },
+          Object {
+            "groups": Array [
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "economy",
+                    "price": Object {
+                      "amount": 200,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+        "to": "ARN",
+      },
+    ],
   },
   "passengers": Array [
     Object {
@@ -813,5 +1625,18 @@ Object {
     },
   ],
   "reference": "AAAA12",
+  "return": Array [
+    Object {
+      "arrival": "2022-08-22T19:51:00.000Z",
+      "departure": "2022-08-22T16:29:00.000Z",
+      "from": "LHR",
+      "meals": Array [
+        "celebration",
+      ],
+      "plane": "bombardier",
+      "reference": "FL-002",
+      "to": "ARN",
+    },
+  ],
 }
 `;

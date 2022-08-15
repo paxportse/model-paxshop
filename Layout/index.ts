@@ -6,6 +6,11 @@ export namespace Layout {
 	export function is(value: Layout | any): value is Layout {
 		return Array.isArray(value) && value.every(Row.is)
 	}
+	export function reserve(layout: Readonly<Layout>, seat: Seat.Positioned): Layout {
+		const result: Layout = [...layout]
+		result[seat.row.number - 1] = Row.reserve(result[seat.row.number - 1], seat.position)
+		return result
+	}
 	export type Row = LayoutRow
 	export const Row = LayoutRow
 	export type Seat = LayoutSeat

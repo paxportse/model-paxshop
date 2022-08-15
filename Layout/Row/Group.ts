@@ -12,4 +12,26 @@ export namespace Group {
 			value.seats.every((seat: any) => Seat.is(seat)) && (value.toilet == undefined || typeof value.toilet == "boolean")
 		)
 	}
+	export function isArrayOfGroups(value: (Group | any)[]): value is Group[] {
+		return Array.isArray(value) && value.every(group => group == undefined || Group.is(group))
+	}
+
+	export function reserve(groups: (Group | undefined)[], position: Seat.Position): (Group | undefined)[] {
+		let index = Seat.Position.types.indexOf(position)
+		let seatFound = false
+		return groups.map(g => {
+			let resultGroup: Group | undefined
+			let seats = g?.seats
+			if (seats && index < seats.length && !seatFound) {
+				seatFound = true
+				seats = [...seats]
+				seats[index] = { ...seats[index], status: "unavailable" } as any
+				resultGroup = { ...g, seats }
+			} else {
+				index -= g?.seats?.length ?? 0
+				resultGroup = g
+			}
+			return resultGroup
+		})
+	}
 }

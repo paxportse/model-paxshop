@@ -18,6 +18,6 @@ describe("model.Flight.Row.Positioned", () => {
 		expect(Positioned.is({ ...positioned, number: 0 })).toEqual(false)
 	})
 	it("is undefined", () => {
-		expect(Positioned.is({ ...positioned, number: undefined })).toEqual(true)
+		expect(Positioned.is({ ...positioned, number: undefined })).toEqual(false)
 	})
 })
