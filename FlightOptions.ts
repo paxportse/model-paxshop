@@ -18,14 +18,7 @@ export namespace FlightOptions {
 		)
 	}
 	export function reserve(flight: Readonly<FlightOptions>, leg: Passenger.Itinerary.Leg | undefined): FlightOptions {
-		const seat = leg?.seat
-		let layout: Layout
-		if (seat) {
-			layout = Layout.reserve(flight.seating, seat)
-		} else {
-			layout = flight.seating
-		}
-		return { ...flight, seating: layout }
+		return { ...flight, seating: leg?.seat ? Layout.reserve(flight.seating, leg.seat) : flight.seating }
 	}
 	export function isAvailable(flight: Readonly<FlightOptions>, leg: Readonly<Passenger.Itinerary.Leg>): boolean {
 		const seat = leg.seat

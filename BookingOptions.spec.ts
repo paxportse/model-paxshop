@@ -352,63 +352,17 @@ describe("model.Name", () => {
 			},
 		],
 	}
-	const bookingTestCheck: model.Booking = {
-		reference: "AABA12",
-		passengers: [
-			{
-				reference: "p-00B",
-				name: { first: "Pecka", last: "Karlsson" },
-				ageGroup: "adult",
-				departure: [
-					{
-						reference: "FL-001",
-						seat: {
-							row: { number: 1 },
-							position: "A",
-							status: "available",
-							class: "business",
-							price: { amount: 400, currency: "SEK" },
-						},
-					},
-				],
-				luggage: [
-					{
-						reference: "lug-006",
-						name: "Extra Bag",
-						weight: 20,
-						price: { amount: 300, currency: "SEK" },
-						description: "Extra bag with the maximum weight of 20kg",
-					},
-				],
-			},
-		],
-		departure: [
-			{
-				reference: "FL-001",
-				from: "ARN",
-				to: "LHR",
-				departure: "2022-08-20T13:37:00.000Z",
-				arrival: "2022-08-20T16:34:00.000Z",
-			},
-		],
-		return: [
-			{
-				reference: "FL-002",
-				from: "LHR",
-				to: "ARN",
-				departure: "2022-10-18T10:10:00.000Z",
-				arrival: "2022-10-18T22:22:00.000Z",
-			},
-		],
-	}
 	it("is", () => {
 		expect(model.BookingOptions.is(bookingOptions)).toEqual(true)
+	})
+	it("reserve", () => {
+		expect(model.BookingOptions.reserve(bookingOptions, booking)).toEqual(updatedBookingOptions)
 	})
 	it("isAvailable", () => {
 		expect(model.BookingOptions.isAvailable(bookingOptions, booking)).toEqual(true)
 	})
-	it("reserve", () => {
-		expect(model.BookingOptions.reserve(bookingOptions, booking)).toEqual(updatedBookingOptions)
+	it("isAvailable, false", () => {
+		expect(model.BookingOptions.isAvailable(updatedBookingOptions, booking)).toEqual(false)
 	})
 	it("isArrayOfLuggage", () => {
 		expect(model.Luggage.isArrayOfLuggage(bookingOptions.luggage)).toEqual(true)

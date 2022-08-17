@@ -20,18 +20,18 @@ export namespace Group {
 		let index = Seat.Position.types.indexOf(position)
 		let seatFound = false
 		return groups.map(g => {
-			let resultGroup: Group | undefined
+			let result: Group | undefined
 			let seats = g?.seats
 			if (seats && index < seats.length && !seatFound) {
 				seatFound = true
 				seats = [...seats]
 				seats[index] = { ...seats[index], status: "unavailable" } as any
-				resultGroup = { ...g, seats }
+				result = { ...g, seats }
 			} else {
 				index -= g?.seats?.length ?? 0
-				resultGroup = g
+				result = g
 			}
-			return resultGroup
+			return result
 		})
 	}
 	export function isAvailable(groups: (Group | undefined)[], position: Seat.Position): boolean {

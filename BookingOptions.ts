@@ -22,29 +22,26 @@ export namespace BookingOptions {
 		const result: BookingOptions = { ...bookingOptions }
 		const passengers = booking.passengers
 		passengers.forEach(passenger => {
-			result.departure.forEach((departureFlight, index) => {
-				departureFlight = !passenger.departure
-					? departureFlight
-					: FlightOptions.reserve(departureFlight, passenger.departure[index])
-				result.departure[index] = departureFlight
-			})
+			result.departure = result.departure.map(flightOptions =>
+				!passenger.departure
+					? flightOptions
+					: FlightOptions.reserve(
+							flightOptions,
+							passenger.departure.find(dep => dep?.reference?.valueOf == flightOptions.reference.valueOf)
+					  )
+			)
+			result.return = result.return?.map((flightOptions, index) =>
+				!passenger.return
+					? flightOptions
+					: FlightOptions.reserve(
+							flightOptions,
+							passenger.return.find(ret => ret?.reference?.valueOf == flightOptions.reference.valueOf)
+					  )
+			)
 		})
-		!result.return
-			? result
-			: passengers.forEach(passenger => {
-					result.return?.forEach((returnFlight, index) => {
-						returnFlight = !passenger.return
-							? returnFlight
-							: FlightOptions.reserve(returnFlight, passenger.return[index])
-						if (result.return?.length) {
-							result.return[index] = returnFlight
-						}
-					})
-			  })
-
 		return result
 	}
-	export function isAvailable(options: BookingOptions, booking: Booking): boolean {
+	export function isAvailable(options: Readonly<BookingOptions>, booking: Booking): boolean {
 		const available: boolean[] = []
 		let result = true
 		const departureFlights = options.departure
