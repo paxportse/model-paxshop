@@ -21,6 +21,9 @@ export namespace Luggage {
 			(value.description == undefined || typeof value.description == "string")
 		)
 	}
+	export function isArrayOfLuggage(value: (Luggage | any)[]): value is Luggage[] {
+		return Array.isArray(value) && value.every(luggage => luggage == undefined || Luggage.is(luggage))
+	}
 	export function price(...luggage: Luggage[]): Price | undefined {
 		return Price.total(
 			(luggage.filter(l => l.price) as { quantity?: number; price: Price }[]).map(l =>

@@ -34,4 +34,19 @@ export namespace Group {
 			return resultGroup
 		})
 	}
+	export function isAvailable(groups: (Group | undefined)[], position: Seat.Position): boolean {
+		let index: number = Seat.Position.types.indexOf(position)
+		let seatAvailable = false
+		groups.forEach(group => {
+			const seats = group?.seats
+			if (seats && index < seats.length) {
+				if (seats[index]?.status == "available") {
+					seatAvailable = true
+				}
+			} else {
+				index -= group?.seats?.length ?? 0
+			}
+		})
+		return seatAvailable
+	}
 }

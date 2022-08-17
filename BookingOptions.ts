@@ -22,21 +22,51 @@ export namespace BookingOptions {
 		const result: BookingOptions = { ...bookingOptions }
 		const passengers = booking.passengers
 		passengers.forEach(passenger => {
-			result.departure.forEach((dep, index) => {
-				dep = !passenger.departure ? dep : FlightOptions.reserve(dep, passenger.departure[index])
-				result.departure[index] = dep
+			result.departure.forEach((departureFlight, index) => {
+				departureFlight = !passenger.departure
+					? departureFlight
+					: FlightOptions.reserve(departureFlight, passenger.departure[index])
+				result.departure[index] = departureFlight
 			})
 		})
 		!result.return
 			? result
 			: passengers.forEach(passenger => {
-					result.return?.forEach((ret, index) => {
-						ret = !passenger.return ? ret : FlightOptions.reserve(ret, passenger.return[index])
+					result.return?.forEach((returnFlight, index) => {
+						returnFlight = !passenger.return
+							? returnFlight
+							: FlightOptions.reserve(returnFlight, passenger.return[index])
 						if (result.return?.length) {
-							result.return[index] = ret
+							result.return[index] = returnFlight
 						}
 					})
 			  })
+
+		return result
+	}
+	export function isAvailable(options: BookingOptions, booking: Booking): boolean {
+		const available: boolean[] = []
+		let result = true
+		const departureFlights = options.departure
+		const returnFlights = options.return
+		const passengers = booking.passengers
+		passengers.forEach(passenger => {
+			passenger.departure?.forEach((leg, index) => {
+				!leg?.seat ? available.push(true) : available.push(FlightOptions.isAvailable(options.departure[index], leg))
+			})
+			passenger.return?.forEach((leg, index) => {
+				!leg?.seat
+					? available.push(true)
+					: options.return?.length
+					? available.push(FlightOptions.isAvailable(options.return[index], leg))
+					: available.push(true)
+			})
+		})
+		available.forEach(b => {
+			if (!b) {
+				result = false
+			}
+		})
 		return result
 	}
 }

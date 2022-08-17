@@ -8,18 +8,6 @@ describe("model.FlightOptions", () => {
 		to: "LHR",
 		departure: "2022-09-28T07:22:00.000Z",
 		arrival: "2022-09-28T10:02:00.000Z",
-		meals: [
-			{
-				reference: "ref-234",
-				name: "Breakfast",
-				alternatives: [{ name: "Fancy" }, { name: "Basic" }],
-			},
-			{
-				reference: "ref-754",
-				name: "Dinner",
-				alternatives: [{ name: "Chicken" }, { name: "Fish" }],
-			},
-		],
 		seating: [
 			{
 				groups: [
@@ -73,20 +61,13 @@ describe("model.FlightOptions", () => {
 					{
 						seats: [
 							{ status: "available", class: "first-class", price: { amount: 350, currency: "SEK" }, legroom: true },
-							{ status: "available", class: "first-class", price: { amount: 1250, currency: "SEK" }, legroom: true },
+							{ status: "unavailable", class: "first-class", price: { amount: 1250, currency: "SEK" }, legroom: true },
 						],
 					},
 				],
 				exit: false,
 			},
 		],
-	}
-	const updatedLayout: model.FlightOptions = {
-		reference: "AA",
-		from: "ARN",
-		to: "LHR",
-		departure: "2022-09-28T07:22:00.000Z",
-		arrival: "2022-09-28T10:02:00.000Z",
 		meals: [
 			{
 				reference: "ref-234",
@@ -99,6 +80,13 @@ describe("model.FlightOptions", () => {
 				alternatives: [{ name: "Chicken" }, { name: "Fish" }],
 			},
 		],
+	}
+	const updatedLayout: model.FlightOptions = {
+		reference: "AA",
+		from: "ARN",
+		to: "LHR",
+		departure: "2022-09-28T07:22:00.000Z",
+		arrival: "2022-09-28T10:02:00.000Z",
 		seating: [
 			{
 				groups: [
@@ -152,11 +140,23 @@ describe("model.FlightOptions", () => {
 					{
 						seats: [
 							{ status: "available", class: "first-class", price: { amount: 350, currency: "SEK" }, legroom: true },
-							{ status: "available", class: "first-class", price: { amount: 1250, currency: "SEK" }, legroom: true },
+							{ status: "unavailable", class: "first-class", price: { amount: 1250, currency: "SEK" }, legroom: true },
 						],
 					},
 				],
 				exit: false,
+			},
+		],
+		meals: [
+			{
+				reference: "ref-234",
+				name: "Breakfast",
+				alternatives: [{ name: "Fancy" }, { name: "Basic" }],
+			},
+			{
+				reference: "ref-754",
+				name: "Dinner",
+				alternatives: [{ name: "Chicken" }, { name: "Fish" }],
 			},
 		],
 	}
@@ -175,5 +175,22 @@ describe("model.FlightOptions", () => {
 	})
 	it("reserve", () => {
 		expect(model.FlightOptions.reserve(layout, leg)).toEqual(updatedLayout)
+	})
+	it("isAvailable", () => {
+		expect(model.FlightOptions.isAvailable(layout, leg)).toEqual(true)
+	})
+	it("isAvailable, false", () => {
+		expect(
+			model.FlightOptions.isAvailable(layout, {
+				...leg,
+				seat: {
+					row: { number: 2 },
+					position: "G",
+					status: "available",
+					class: "business",
+					price: { amount: 1250, currency: "SEK" },
+				},
+			})
+		).toEqual(false)
 	})
 })

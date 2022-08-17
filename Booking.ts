@@ -19,4 +19,11 @@ export namespace Booking {
 			(value.return == undefined || (Array.isArray(value.return) && value.return.every((leg: any) => Flight.is(leg))))
 		)
 	}
+	export function getPassengersWithLuggage(booking: Booking): Passenger[] {
+		const passengers = booking.passengers
+		const passengersWithExtraLuggage: Passenger[] = []
+		passengers.forEach(passenger => (!passenger.luggage ? passenger : passengersWithExtraLuggage.push(passenger)))
+
+		return passengersWithExtraLuggage
+	}
 }

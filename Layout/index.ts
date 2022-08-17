@@ -11,6 +11,9 @@ export namespace Layout {
 		result[seat.row.number - 1] = Row.reserve(result[seat.row.number - 1], seat.position)
 		return result
 	}
+	export function isAvailable(layout: Readonly<Layout>, seat: Seat.Positioned): boolean {
+		return Row.isAvailable(layout[seat.row.number - 1], seat.position)
+	}
 	export type Row = LayoutRow
 	export const Row = LayoutRow
 	export type Seat = LayoutSeat

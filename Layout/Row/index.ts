@@ -14,5 +14,7 @@ export namespace Row {
 		const groups = row?.groups
 		return !groups ? row : { ...row, groups: Group.reserve(groups, position) }
 	}
-	
+	export function isAvailable(row: Row, position: Seat.Position): boolean {
+		return !row.groups ? false : Group.isAvailable(row.groups, position)
+	}
 }

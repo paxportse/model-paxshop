@@ -21,7 +21,7 @@ describe("Group", () => {
 		{
 			seats: [
 				{
-					status: "available",
+					status: "unavailable",
 					class: "first-class",
 					price: { amount: 1337, currency: "SEK" },
 					legroom: true,
@@ -59,7 +59,7 @@ describe("Group", () => {
 		{
 			seats: [
 				{
-					status: "available",
+					status: "unavailable",
 					class: "first-class",
 					price: { amount: 1337, currency: "SEK" },
 					legroom: true,
@@ -91,5 +91,11 @@ describe("Group", () => {
 	})
 	it("reserve", () => {
 		expect(Group.reserve(groups, seat.position)).toEqual(updatedGroups)
+	})
+	it("isAvailable", () => {
+		expect(Group.isAvailable(groups, seat.position)).toEqual(true)
+	})
+	it("isAvailable, false", () => {
+		expect(Group.isAvailable(groups, "C")).toEqual(false)
 	})
 })

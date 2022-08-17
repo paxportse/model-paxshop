@@ -22,7 +22,7 @@ describe("model.Flight.Layout", () => {
 						legroom: true,
 					},
 					{
-						status: "available",
+						status: "unavailable",
 						class: "first-class",
 						price: { amount: 1337, currency: "SEK" },
 						legroom: true,
@@ -54,7 +54,7 @@ describe("model.Flight.Layout", () => {
 							legroom: true,
 						},
 						{
-							status: "available",
+							status: "unavailable",
 							class: "first-class",
 							price: { amount: 1337, currency: "SEK" },
 							legroom: true,
@@ -77,5 +77,11 @@ describe("model.Flight.Layout", () => {
 	})
 	it("reserve", () => {
 		expect(model.Layout.reserve(layout, seat)).toEqual(updatedLayout)
+	})
+	it("isAvailable", () => {
+		expect(model.Layout.isAvailable(layout, seat)).toEqual(true)
+	})
+	it("isAvailable, false", () => {
+		expect(model.Layout.isAvailable(layout, { ...seat, row: { number: 2 },position: "C" })).toEqual(false)
 	})
 })

@@ -8,7 +8,11 @@ describe("model.Flight.Luggage", () => {
 		price: { amount: 100, currency: "AFN" },
 		description: "Lite text",
 	}
+	const luggageArray: model.Luggage[] = [luggage, luggage]
 	it("is", () => {
 		expect(model.Luggage.is(luggage)).toEqual(true)
+	})
+	it("isArrayOfLuggage", () => {
+		expect(model.Luggage.isArrayOfLuggage(luggageArray)).toEqual(true)
 	})
 })

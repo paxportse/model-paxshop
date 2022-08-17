@@ -814,7 +814,58 @@ Object {
         "to": "LHR",
       },
     ],
-    "luggage": Array [],
+    "luggage": Array [
+      Object {
+        "description": "Golf bag with a maximum weight of 15kg",
+        "name": "Golf Bag",
+        "price": Object {
+          "amount": 400,
+          "currency": "SEK",
+        },
+        "reference": "lug-002",
+        "weight": 15,
+      },
+      Object {
+        "description": "An instrument inside a hardcase",
+        "name": "Instrument in Hardcase",
+        "price": Object {
+          "amount": 500,
+          "currency": "SEK",
+        },
+        "reference": "lug-003",
+        "weight": 10,
+      },
+      Object {
+        "description": "Added weight when a piece of luggage exceeds weight limit",
+        "name": "Extra weight",
+        "price": Object {
+          "amount": 100,
+          "currency": "SEK",
+        },
+        "reference": "lug-001",
+        "weight": 20,
+      },
+      Object {
+        "description": "Extra bag with the maximum weight of 20kg",
+        "name": "Extra Bag",
+        "price": Object {
+          "amount": 300,
+          "currency": "SEK",
+        },
+        "reference": "lug-006",
+        "weight": 20,
+      },
+      Object {
+        "description": "Luggage which exceeds size requirements",
+        "name": "Oversize luggage",
+        "price": Object {
+          "amount": 770,
+          "currency": "SEK",
+        },
+        "reference": "lug-007",
+        "weight": 20,
+      },
+    ],
     "return": Array [
       Object {
         "arrival": "2022-08-22T19:51:00.000Z",
