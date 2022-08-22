@@ -30,7 +30,7 @@ export namespace BookingOptions {
 							passenger.departure.find(dep => dep?.reference?.valueOf == flightOptions.reference.valueOf)
 					  )
 			)
-			result.return = result.return?.map((flightOptions, index) =>
+			result.return = result.return?.map(flightOptions =>
 				!passenger.return
 					? flightOptions
 					: FlightOptions.reserve(

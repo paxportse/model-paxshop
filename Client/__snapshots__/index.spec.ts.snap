@@ -4,11 +4,11 @@ exports[`model.Client booking.fetch: booking-AAAA12 1`] = `
 Object {
   "departure": Array [
     Object {
-      "arrival": "2022-08-20T16:34:00.000Z",
-      "departure": "2022-08-20T13:37:00.000Z",
+      "arrival": "2022-08-22T16:34:00.000Z",
+      "departure": "2022-08-22T13:37:00.000Z",
       "from": "ARN",
       "meals": Array [
-        "celebration",
+        "dinner",
       ],
       "plane": "bombardier",
       "reference": "FL-001",
@@ -18,30 +18,62 @@ Object {
   "options": Object {
     "departure": Array [
       Object {
-        "arrival": "2022-08-20T16:34:00.000Z",
-        "departure": "2022-08-20T13:37:00.000Z",
+        "arrival": "2022-08-22T16:34:00.000Z",
+        "departure": "2022-08-22T13:37:00.000Z",
         "from": "ARN",
         "meals": Array [
           Object {
             "alternatives": Array [
               Object {
-                "description": "Some chocolate and so on.",
-                "name": "Sparkling wine & Chocolate",
+                "description": "Spicey chicken served with rice and steamed vegetables",
+                "name": "Tandoori Chicken",
                 "price": Object {
                   "amount": 200,
                   "currency": "SEK",
                 },
               },
               Object {
-                "description": "Some champagne and so on.",
-                "name": "Champagne & Chocolate",
+                "description": "Fried fish files served with fried potato wedges, tartar sauce, mashed peas and vinegar",
+                "name": "Fish & Chips",
                 "price": Object {
-                  "amount": 300,
+                  "amount": 150,
+                  "currency": "SEK",
+                },
+              },
+              Object {
+                "description": "Lentil stew served with Naan. Vegan. CONTAINS GLUTEN",
+                "name": "Daal",
+                "price": Object {
+                  "amount": 120,
+                  "currency": "SEK",
+                },
+              },
+              Object {
+                "description": "Meatballs made of beef served with mashed potatoes, gravy and lingonberry preserve",
+                "name": "Swedish Meatballs",
+                "price": Object {
+                  "amount": 170,
+                  "currency": "SEK",
+                },
+              },
+              Object {
+                "description": "Slice of pizza with mozzarella tomato sauce. CONTAINS GLUTEN",
+                "name": "Pizza",
+                "price": Object {
+                  "amount": 180,
+                  "currency": "SEK",
+                },
+              },
+              Object {
+                "description": "A pasta served with a rich tomato sauce",
+                "name": "Pasta Bolognese",
+                "price": Object {
+                  "amount": 165,
                   "currency": "SEK",
                 },
               },
             ],
-            "name": "Celebration",
+            "name": "Dinner",
           },
         ],
         "reference": "FL-001",
@@ -890,8 +922,77 @@ Object {
                   "currency": "SEK",
                 },
               },
+              Object {
+                "description": "A pick of soda available and a bag of candy.",
+                "name": "Soda & Sweets",
+                "price": Object {
+                  "amount": 90,
+                  "currency": "SEK",
+                },
+              },
+              Object {
+                "description": "A locally brewed IPA with a bag of chips local to where the flights departures from.",
+                "name": "Beer & Chips",
+                "price": Object {
+                  "amount": 150,
+                  "currency": "SEK",
+                },
+              },
             ],
             "name": "Celebration",
+          },
+          Object {
+            "alternatives": Array [
+              Object {
+                "description": "Spicey chicken served with rice and steamed vegetables",
+                "name": "Tandoori Chicken",
+                "price": Object {
+                  "amount": 200,
+                  "currency": "SEK",
+                },
+              },
+              Object {
+                "description": "Fried fish files served with fried potato wedges, tartar sauce, mashed peas and vinegar",
+                "name": "Fish & Chips",
+                "price": Object {
+                  "amount": 150,
+                  "currency": "SEK",
+                },
+              },
+              Object {
+                "description": "Lentil stew served with Naan. Vegan. CONTAINS GLUTEN",
+                "name": "Daal",
+                "price": Object {
+                  "amount": 120,
+                  "currency": "SEK",
+                },
+              },
+              Object {
+                "description": "Meatballs made of beef served with mashed potatoes, gravy and lingonberry preserve",
+                "name": "Swedish Meatballs",
+                "price": Object {
+                  "amount": 170,
+                  "currency": "SEK",
+                },
+              },
+              Object {
+                "description": "Slice of pizza with mozzarella tomato sauce. CONTAINS GLUTEN",
+                "name": "Pizza",
+                "price": Object {
+                  "amount": 180,
+                  "currency": "SEK",
+                },
+              },
+              Object {
+                "description": "A pasta served with a rich tomato sauce",
+                "name": "Pasta Bolognese",
+                "price": Object {
+                  "amount": 165,
+                  "currency": "SEK",
+                },
+              },
+            ],
+            "name": "Dinner",
           },
         ],
         "reference": "FL-002",
@@ -1683,6 +1784,7 @@ Object {
       "from": "LHR",
       "meals": Array [
         "celebration",
+        "dinner",
       ],
       "plane": "bombardier",
       "reference": "FL-002",
