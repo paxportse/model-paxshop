@@ -4,11 +4,12 @@ exports[`model.Client booking.fetch: booking-AAAA12 1`] = `
 Object {
   "departure": Array [
     Object {
-      "arrival": "2022-08-22T16:34:00.000Z",
-      "departure": "2022-08-22T13:37:00.000Z",
+      "arrival": "2022-01-13T16:34:00.000Z",
+      "departure": "2022-01-13T13:37:00.000Z",
       "from": "ARN",
       "meals": Array [
         "dinner",
+        "celebration",
       ],
       "plane": "bombardier",
       "reference": "FL-001",
@@ -18,8 +19,8 @@ Object {
   "options": Object {
     "departure": Array [
       Object {
-        "arrival": "2022-08-22T16:34:00.000Z",
-        "departure": "2022-08-22T13:37:00.000Z",
+        "arrival": "2022-01-13T16:34:00.000Z",
+        "departure": "2022-01-13T13:37:00.000Z",
         "from": "ARN",
         "meals": Array [
           Object {
@@ -48,32 +49,61 @@ Object {
                   "currency": "SEK",
                 },
               },
+            ],
+            "name": "Dinner",
+          },
+          Object {
+            "alternatives": Array [
               Object {
-                "description": "Meatballs made of beef served with mashed potatoes, gravy and lingonberry preserve",
-                "name": "Swedish Meatballs",
+                "description": "Some chocolate and so on.",
+                "name": "Sparkling wine & Chocolate",
                 "price": Object {
-                  "amount": 170,
+                  "amount": 200,
                   "currency": "SEK",
                 },
               },
               Object {
-                "description": "Slice of pizza with mozzarella tomato sauce. CONTAINS GLUTEN",
-                "name": "Pizza",
+                "description": "Some champagne and so on.",
+                "name": "Champagne & Chocolate",
                 "price": Object {
-                  "amount": 180,
+                  "amount": 300,
                   "currency": "SEK",
                 },
               },
               Object {
-                "description": "A pasta served with a rich tomato sauce",
-                "name": "Pasta Bolognese",
+                "description": "A pick of soda available and a bag of candy.",
+                "name": "Soda & Sweets",
                 "price": Object {
-                  "amount": 165,
+                  "amount": 90,
+                  "currency": "SEK",
+                },
+              },
+              Object {
+                "description": "A glass of red wine",
+                "name": "Pinot noir",
+                "price": Object {
+                  "amount": 100,
+                  "currency": "SEK",
+                },
+              },
+              Object {
+                "description": "A chilled glass of rosé",
+                "name": "Rosé",
+                "price": Object {
+                  "amount": 90,
+                  "currency": "SEK",
+                },
+              },
+              Object {
+                "description": "A locally brewed IPA with a bag of chips local to where the flights departures from.",
+                "name": "Beer & Chips",
+                "price": Object {
+                  "amount": 150,
                   "currency": "SEK",
                 },
               },
             ],
-            "name": "Dinner",
+            "name": "Celebration",
           },
         ],
         "reference": "FL-001",
@@ -900,8 +930,8 @@ Object {
     ],
     "return": Array [
       Object {
-        "arrival": "2022-08-22T19:51:00.000Z",
-        "departure": "2022-08-22T16:29:00.000Z",
+        "arrival": "2022-01-15T19:51:00.000Z",
+        "departure": "2022-01-15T16:29:00.000Z",
         "from": "LHR",
         "meals": Array [
           Object {
@@ -922,22 +952,6 @@ Object {
                   "currency": "SEK",
                 },
               },
-              Object {
-                "description": "A pick of soda available and a bag of candy.",
-                "name": "Soda & Sweets",
-                "price": Object {
-                  "amount": 90,
-                  "currency": "SEK",
-                },
-              },
-              Object {
-                "description": "A locally brewed IPA with a bag of chips local to where the flights departures from.",
-                "name": "Beer & Chips",
-                "price": Object {
-                  "amount": 150,
-                  "currency": "SEK",
-                },
-              },
             ],
             "name": "Celebration",
           },
@@ -948,46 +962,6 @@ Object {
                 "name": "Tandoori Chicken",
                 "price": Object {
                   "amount": 200,
-                  "currency": "SEK",
-                },
-              },
-              Object {
-                "description": "Fried fish files served with fried potato wedges, tartar sauce, mashed peas and vinegar",
-                "name": "Fish & Chips",
-                "price": Object {
-                  "amount": 150,
-                  "currency": "SEK",
-                },
-              },
-              Object {
-                "description": "Lentil stew served with Naan. Vegan. CONTAINS GLUTEN",
-                "name": "Daal",
-                "price": Object {
-                  "amount": 120,
-                  "currency": "SEK",
-                },
-              },
-              Object {
-                "description": "Meatballs made of beef served with mashed potatoes, gravy and lingonberry preserve",
-                "name": "Swedish Meatballs",
-                "price": Object {
-                  "amount": 170,
-                  "currency": "SEK",
-                },
-              },
-              Object {
-                "description": "Slice of pizza with mozzarella tomato sauce. CONTAINS GLUTEN",
-                "name": "Pizza",
-                "price": Object {
-                  "amount": 180,
-                  "currency": "SEK",
-                },
-              },
-              Object {
-                "description": "A pasta served with a rich tomato sauce",
-                "name": "Pasta Bolognese",
-                "price": Object {
-                  "amount": 165,
                   "currency": "SEK",
                 },
               },
@@ -1779,8 +1753,8 @@ Object {
   "reference": "AAAA12",
   "return": Array [
     Object {
-      "arrival": "2022-08-22T19:51:00.000Z",
-      "departure": "2022-08-22T16:29:00.000Z",
+      "arrival": "2022-01-15T19:51:00.000Z",
+      "departure": "2022-01-15T16:29:00.000Z",
       "from": "LHR",
       "meals": Array [
         "celebration",

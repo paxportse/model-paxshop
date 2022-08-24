@@ -6,6 +6,8 @@ import { BookingSpecifier } from "../BookingSpecifier"
 
 export class Booking extends rest.Collection<gracely.Error> {
 	fetch(specifier: BookingSpecifier): Promise<Readonly<modelBooking & { options: BookingOptions }> | gracely.Error> {
-		return this.client.get<modelBooking & { options: BookingOptions }>(`booking/${specifier.reference}`)
+		return this.client.get<modelBooking & { options: BookingOptions }>(`booking/${specifier.reference}`, {
+			authorization: BookingSpecifier.toAuthorization(specifier),
+		})
 	}
 }

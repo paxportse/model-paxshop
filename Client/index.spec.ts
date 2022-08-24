@@ -10,6 +10,8 @@ describe("model.Client", () => {
 			process.env.apiUrl || "https://api.shop.paxport.group",
 			"https://app.dummytravel.com/test"
 		)
-		expect(await client.booking.fetch({ reference: "AAAA12" })).toMatchSnapshot("booking-AAAA12")
+		expect(await client.booking.fetch({ reference: "AAAA12", departure: "2022-01-13" })).toMatchSnapshot(
+			"booking-AAAA12"
+		)
 	})
 })
