@@ -26,7 +26,7 @@ export namespace BookingSpecifier {
 	}
 	export function toAuthorization(specifier: BookingSpecifier): string {
 		return `Basic ${cryptly.Base64.encode(
-			new cryptly.TextEncoder().encode(specifier.departure + ":" + specifier.name ?? ""),
+			new cryptly.TextEncoder().encode(specifier.departure + ":" + (specifier.name ?? "")),
 			"standard",
 			"="
 		)}`
