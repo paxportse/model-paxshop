@@ -20,10 +20,6 @@ export namespace Booking {
 		)
 	}
 	export function getPassengersWithLuggage(booking: Booking): Passenger[] {
-		const passengers = booking.passengers
-		const passengersWithExtraLuggage: Passenger[] = []
-		passengers.forEach(passenger => (!passenger.luggage ? passenger : passengersWithExtraLuggage.push(passenger)))
-
-		return passengersWithExtraLuggage
+		return booking.passengers.filter(passenger => passenger.luggage)
 	}
 }
