@@ -1,5 +1,4 @@
 import { Booking } from "./Booking"
-import { Flight } from "./Flight"
 import { FlightOptions } from "./FlightOptions"
 import { Luggage } from "./Luggage"
 
