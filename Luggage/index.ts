@@ -5,6 +5,7 @@ export interface Luggage {
 	quantity?: number
 	name: string
 	weight: number
+	direction?: "departure" | "return" | "roundtrip"
 	price?: Price
 	description?: string
 }
@@ -12,13 +13,15 @@ export interface Luggage {
 export namespace Luggage {
 	export function is(value: Luggage): value is Luggage {
 		return (
-			typeof value == "object" &&
-			typeof value.reference == "string" &&
-			(value.quantity == undefined || (typeof value.quantity == "number" && value.quantity > 0)) &&
-			typeof value.name == "string" &&
-			typeof value.weight == "number" &&
-			(value.price == undefined || Price.is(value.price)) &&
-			(value.description == undefined || typeof value.description == "string")
+			(typeof value == "object" &&
+				typeof value.reference == "string" &&
+				(value.quantity == undefined || (typeof value.quantity == "number" && value.quantity > 0)) &&
+				typeof value.name == "string" &&
+				typeof value.weight == "number" &&
+				typeof value.direction == undefined) ||
+			(("departure" || "return" || "roundtrip") &&
+				(value.price == undefined || Price.is(value.price)) &&
+				(value.description == undefined || typeof value.description == "string"))
 		)
 	}
 	export function isArrayOfLuggage(value: (Luggage | any)[]): value is Luggage[] {
