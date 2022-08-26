@@ -41,14 +41,6 @@ Object {
                   "currency": "SEK",
                 },
               },
-              Object {
-                "description": "Lentil stew served with Naan. Vegan. CONTAINS GLUTEN",
-                "name": "Daal",
-                "price": Object {
-                  "amount": 120,
-                  "currency": "SEK",
-                },
-              },
             ],
             "name": "Dinner",
           },
@@ -67,38 +59,6 @@ Object {
                 "name": "Champagne & Chocolate",
                 "price": Object {
                   "amount": 300,
-                  "currency": "SEK",
-                },
-              },
-              Object {
-                "description": "A pick of soda available and a bag of candy.",
-                "name": "Soda & Sweets",
-                "price": Object {
-                  "amount": 90,
-                  "currency": "SEK",
-                },
-              },
-              Object {
-                "description": "A glass of red wine",
-                "name": "Pinot noir",
-                "price": Object {
-                  "amount": 100,
-                  "currency": "SEK",
-                },
-              },
-              Object {
-                "description": "A chilled glass of rosé",
-                "name": "Rosé",
-                "price": Object {
-                  "amount": 90,
-                  "currency": "SEK",
-                },
-              },
-              Object {
-                "description": "A locally brewed IPA with a bag of chips local to where the flights departures from.",
-                "name": "Beer & Chips",
-                "price": Object {
-                  "amount": 150,
                   "currency": "SEK",
                 },
               },
@@ -962,6 +922,14 @@ Object {
                 "name": "Tandoori Chicken",
                 "price": Object {
                   "amount": 200,
+                  "currency": "SEK",
+                },
+              },
+              Object {
+                "description": "Fried fish files served with fried potato wedges, tartar sauce, mashed peas and vinegar",
+                "name": "Fish & Chips",
+                "price": Object {
+                  "amount": 150,
                   "currency": "SEK",
                 },
               },
