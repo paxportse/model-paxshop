@@ -1,3 +1,4 @@
+import { Airport } from "./Airport"
 import { Booking } from "./Booking"
 import { BookingOptions } from "./BookingOptions"
 import { BookingSpecifier } from "./BookingSpecifier"
@@ -13,6 +14,7 @@ import { Itinerary } from "./Passenger/Itinerary"
 import { Price } from "./Price"
 
 export {
+	Airport,
 	Booking,
 	BookingOptions,
 	BookingSpecifier,
