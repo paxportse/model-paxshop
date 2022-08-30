@@ -4,8 +4,9 @@ import * as passenger from "./Passenger/Itinerary/"
 describe("model.FlightOptions", () => {
 	const layout: model.FlightOptions = {
 		reference: "AA",
-		from: "ARN",
-		to: "LHR",
+		from: { code: "ARN", name: "Arlanda Airport" },
+		to: { code: "LHR", name: "Heathrow Airport" },
+
 		departure: "2022-09-28T07:22:00.000Z",
 		arrival: "2022-09-28T10:02:00.000Z",
 		seating: [
@@ -83,8 +84,8 @@ describe("model.FlightOptions", () => {
 	}
 	const updatedLayout: model.FlightOptions = {
 		reference: "AA",
-		from: "ARN",
-		to: "LHR",
+		from: { code: "ARN", name: "Arlanda Airport" },
+		to: { code: "LHR", name: "Heathrow Airport" },
 		departure: "2022-09-28T07:22:00.000Z",
 		arrival: "2022-09-28T10:02:00.000Z",
 		seating: [

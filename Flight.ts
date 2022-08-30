@@ -1,9 +1,10 @@
 import * as isoly from "isoly"
+import { Airport } from "./Airport"
 
 export interface Flight {
 	reference: string
-	from: string
-	to: string
+	from: Airport
+	to: Airport
 	departure: isoly.DateTime
 	arrival: isoly.DateTime
 }
@@ -12,8 +13,8 @@ export namespace Flight {
 		return (
 			typeof value == "object" &&
 			typeof value.reference == "string" &&
-			typeof value.from == "string" &&
-			typeof value.to == "string" &&
+			Airport.is(value.to) &&
+			Airport.is(value.to) &&
 			isoly.DateTime.is(value.departure) &&
 			isoly.DateTime.is(value.arrival)
 		)

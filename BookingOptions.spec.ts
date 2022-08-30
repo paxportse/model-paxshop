@@ -1,12 +1,12 @@
 import * as model from "./index"
 
-describe("model.Name", () => {
+describe("model.BookingOptions", () => {
 	const bookingOptions: model.BookingOptions = {
 		departure: [
 			{
 				reference: "FL-001",
-				from: "ARN",
-				to: "LHR",
+				from: { code: "ARN", name: "Arlanda Airport" },
+				to: { code: "LHR", name: "Heathrow Airport" },
 				departure: "2022-09-28T10:02:00.000Z",
 				arrival: "2022-09-28T12:22:00.000Z",
 				meals: [
@@ -63,8 +63,8 @@ describe("model.Name", () => {
 		return: [
 			{
 				reference: "FL-002",
-				from: "LHR",
-				to: "ARN",
+				from: { code: "LHR", name: "Heathrow Airport" },
+				to: { code: "ARN", name: "Arlanda Airport" },
 				departure: "2022-10-18T10:10:00.000Z",
 				arrival: "2022-10-18T22:22:00.000Z",
 				meals: [
@@ -141,8 +141,8 @@ describe("model.Name", () => {
 		departure: [
 			{
 				reference: "FL-001",
-				from: "ARN",
-				to: "LHR",
+				from: { code: "ARN", name: "Arlanda Airport" },
+				to: { code: "LHR", name: "Heathrow Airport" },
 				departure: "2022-09-28T10:02:00.000Z",
 				arrival: "2022-09-28T12:22:00.000Z",
 				meals: [
@@ -199,8 +199,8 @@ describe("model.Name", () => {
 		return: [
 			{
 				reference: "FL-002",
-				from: "LHR",
-				to: "ARN",
+				from: { code: "LHR", name: "Heathrow Airport" },
+				to: { code: "ARN", name: "Arlanda Airport" },
 				departure: "2022-10-18T10:10:00.000Z",
 				arrival: "2022-10-18T22:22:00.000Z",
 				meals: [
@@ -340,8 +340,8 @@ describe("model.Name", () => {
 		departure: [
 			{
 				reference: "FL-001",
-				from: "ARN",
-				to: "LHR",
+				from: { code: "ARN", name: "Arlanda Airport" },
+				to: { code: "LHR", name: "Heathrow Airport" },
 				departure: "2022-08-20T13:37:00.000Z",
 				arrival: "2022-08-20T16:34:00.000Z",
 			},
@@ -349,8 +349,8 @@ describe("model.Name", () => {
 		return: [
 			{
 				reference: "FL-002",
-				from: "LHR",
-				to: "ARN",
+				from: { code: "LHR", name: "Heathrow Airport" },
+				to: { code: "ARN", name: "Arlanda Airport" },
 				departure: "2022-10-18T10:10:00.000Z",
 				arrival: "2022-10-18T22:22:00.000Z",
 			},
