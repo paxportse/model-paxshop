@@ -8,7 +8,7 @@ describe("model.Itinerary", () => {
 			seat: {
 				row: { number: 1 },
 				position: "A",
-				status: "occupied",
+				status: "available",
 				class: "first-class",
 				price: { amount: 200, currency: "SEK" },
 			},
