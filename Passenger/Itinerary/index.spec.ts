@@ -18,12 +18,19 @@ describe("model.Itinerary", () => {
 		expect(model.Passenger.Itinerary.is(itinerary)).toEqual(true)
 	})
 	it("update", () => {
-		const meal: Meal.Alternative[] = [
+		const meal: Meal[] = [
 			{
-				name: "chicken",
-				price: { amount: 100, currency: "SEK" },
-				default: false,
-				description: "Lite text",
+				name: "Dinner",
+				reference: "ref-34",
+				optional: true,
+				alternatives: [
+					{
+						name: "chicken",
+						price: { amount: 100, currency: "SEK" },
+						default: false,
+						description: "Lite text",
+					},
+				],
 			},
 		]
 

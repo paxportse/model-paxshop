@@ -5,11 +5,10 @@ export interface Luggage {
 	quantity?: number
 	name: string
 	weight: number
-	direction?: "departure" | "return" | "roundtrip"
+	direction?: "departure" | "return" | "roundtrip" //{ departureQuantity?: number; returnQuantity?: number } Is this the approach we want?
 	price?: Price
 	description?: string
 }
-
 export namespace Luggage {
 	export function is(value: Luggage): value is Luggage {
 		return (

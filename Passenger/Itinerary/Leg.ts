@@ -4,7 +4,7 @@ import { Meal } from "../../Meal"
 export interface Leg {
 	reference?: string
 	seat?: Layout.Seat.Positioned
-	meal?: Meal.Alternative[]
+	meal?: Meal[]
 }
 
 export namespace Leg {
@@ -14,9 +14,7 @@ export namespace Leg {
 			typeof value == "object" &&
 			(value.reference == undefined || typeof value.reference == "string") &&
 			(value.seat == undefined || Layout.Seat.Positioned.is(value.seat)) &&
-			((meal = value.meal) == undefined ||
-				Meal.Alternative.is(meal) ||
-				(Array.isArray(meal) && meal.every(Meal.Alternative.is)))
+			((meal = value.meal) == undefined || Meal.is(meal) || (Array.isArray(meal) && meal.every(Meal.Alternative.is)))
 		)
 	}
 }
