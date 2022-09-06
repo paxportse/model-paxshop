@@ -58,12 +58,19 @@ describe("model.Passenger", () => {
 		expect(model.Passenger.update(passenger, { luggage })).toEqual({ ...passenger, luggage })
 	})
 	it("update meal", () => {
-		const meal: model.Meal.Alternative[] = [
+		const meal: model.Meal[] = [
 			{
-				name: "chicken",
-				price: { amount: 100, currency: "SEK" },
-				default: false,
-				description: "Lite text",
+				name: "Dinner",
+				reference: "ref-34",
+				optional: true,
+				alternatives: [
+					{
+						name: "chicken",
+						price: { amount: 100, currency: "SEK" },
+						default: false,
+						description: "Lite text",
+					},
+				],
 			},
 		]
 		expect(model.Passenger.update(passenger, { departure: [{ meal }] })).toEqual({
