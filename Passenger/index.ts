@@ -1,6 +1,8 @@
+import { FlightOptions } from "../FlightOptions"
 import { Luggage } from "../Luggage"
 import { AgeGroup as PassengerAgeGroup } from "./AgeGroup"
 import { Itinerary as PassengerItinerary } from "./Itinerary"
+import { Leg } from "./Itinerary/Leg"
 import { Name as PassengerName } from "./Name"
 
 export interface Passenger {
@@ -41,6 +43,24 @@ export namespace Passenger {
 				: Passenger.Itinerary.update(passenger.departure, changes.departure),
 			return: !passenger.return ? changes.return : Passenger.Itinerary.update(passenger.return, changes.return),
 		}
+	}
+	export function createItinerary(
+		passenger: Passenger,
+		direction: "departure" | "return",
+		flights: FlightOptions[]
+	): Passenger {
+		const itinerary: Leg[] = []
+		flights.forEach(f => {
+			itinerary.push({ reference: f.reference })
+		})
+		const result =
+			direction == "departure"
+				? { ...passenger, departure: itinerary }
+				: direction == "return"
+				? { ...passenger, return: itinerary }
+				: {}
+
+		return update(passenger, result)
 	}
 	export const AgeGroup = PassengerAgeGroup
 	export type AgeGroup = PassengerAgeGroup
