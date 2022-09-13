@@ -59,7 +59,6 @@ export namespace Passenger {
 				: direction == "return"
 				? { ...passenger, return: itinerary }
 				: {}
-
 		return update(passenger, result)
 	}
 	export const AgeGroup = PassengerAgeGroup
