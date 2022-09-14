@@ -7,13 +7,13 @@ describe("model.Passenger", () => {
 		ageGroup: "child",
 		departure: [
 			{
-				reference: "d02",
+				reference: "AA",
 				seat: {
 					row: { number: 1 },
 					position: "A",
 					status: "occupied",
 					class: "first-class",
-					price: { amount: 200, currency: "SEK" },
+					price: { amount: 400, currency: "SEK" },
 				},
 			},
 		],
@@ -27,6 +27,181 @@ describe("model.Passenger", () => {
 					class: "first-class",
 					price: { amount: 200, currency: "SEK" },
 				},
+			},
+		],
+	}
+	const passengerNoItinerary: model.Passenger = {
+		reference: "p01",
+		name: { first: "Naomi", last: "Nagasaki" },
+		ageGroup: "adult",
+	}
+	const flight: model.FlightOptions = {
+		reference: "AA",
+		from: { code: "ARN", name: "Arlanda Airport" },
+		to: { code: "LHR", name: "Heathrow Airport" },
+
+		departure: "2022-09-28T07:22:00.000Z",
+		arrival: "2022-09-28T10:02:00.000Z",
+		seating: [
+			{
+				groups: [
+					{
+						seats: [
+							{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+							{
+								status: "available",
+								class: "first-class",
+								price: { amount: 400, offer: 50, currency: "SEK" },
+								wide: true,
+							},
+						],
+					},
+					{
+						seats: [
+							{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } },
+							{ status: "available", class: "first-class", price: { amount: 150, currency: "SEK" } },
+							{ status: "available", class: "first-class", price: { amount: 250, currency: "SEK" } },
+						],
+					},
+					{
+						seats: [
+							{ status: "available", class: "first-class", price: { amount: 350, currency: "SEK" }, legroom: true },
+							{ status: "available", class: "first-class", price: { amount: 1250, currency: "SEK" }, legroom: true },
+						],
+					},
+				],
+				exit: false,
+			},
+			{
+				groups: [
+					{
+						seats: [
+							{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+							{
+								status: "available",
+								class: "first-class",
+								price: { amount: 400, offer: 50, currency: "SEK" },
+								wide: true,
+							},
+						],
+					},
+					{
+						seats: [
+							{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } },
+							{ status: "available", class: "first-class", price: { amount: 150, currency: "SEK" } },
+							{ status: "available", class: "first-class", price: { amount: 250, currency: "SEK" } },
+						],
+					},
+					{
+						seats: [
+							{ status: "available", class: "first-class", price: { amount: 350, currency: "SEK" }, legroom: true },
+							{
+								status: "unavailable",
+								class: "first-class",
+								price: { amount: 1250, currency: "SEK" },
+								legroom: true,
+							},
+						],
+					},
+				],
+				exit: false,
+			},
+		],
+		meals: [
+			{
+				reference: "ref-234",
+				name: "Breakfast",
+				alternatives: [{ name: "Fancy" }, { name: "Basic" }],
+			},
+			{
+				reference: "ref-754",
+				name: "Dinner",
+				alternatives: [{ name: "Chicken" }, { name: "Fish" }],
+			},
+		],
+	}
+	const flight2: model.FlightOptions = {
+		reference: "1337",
+		from: { code: "ARN", name: "Arlanda Airport" },
+		to: { code: "LHR", name: "Heathrow Airport" },
+
+		departure: "2022-09-28T07:22:00.000Z",
+		arrival: "2022-09-28T10:02:00.000Z",
+		seating: [
+			{
+				groups: [
+					{
+						seats: [
+							{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+							{
+								status: "available",
+								class: "first-class",
+								price: { amount: 400, offer: 50, currency: "SEK" },
+								wide: true,
+							},
+						],
+					},
+					{
+						seats: [
+							{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } },
+							{ status: "available", class: "first-class", price: { amount: 150, currency: "SEK" } },
+							{ status: "available", class: "first-class", price: { amount: 250, currency: "SEK" } },
+						],
+					},
+					{
+						seats: [
+							{ status: "available", class: "first-class", price: { amount: 350, currency: "SEK" }, legroom: true },
+							{ status: "available", class: "first-class", price: { amount: 1250, currency: "SEK" }, legroom: true },
+						],
+					},
+				],
+				exit: false,
+			},
+			{
+				groups: [
+					{
+						seats: [
+							{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+							{
+								status: "available",
+								class: "first-class",
+								price: { amount: 400, offer: 50, currency: "SEK" },
+								wide: true,
+							},
+						],
+					},
+					{
+						seats: [
+							{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } },
+							{ status: "available", class: "first-class", price: { amount: 150, currency: "SEK" } },
+							{ status: "available", class: "first-class", price: { amount: 250, currency: "SEK" } },
+						],
+					},
+					{
+						seats: [
+							{ status: "available", class: "first-class", price: { amount: 350, currency: "SEK" }, legroom: true },
+							{
+								status: "unavailable",
+								class: "first-class",
+								price: { amount: 1250, currency: "SEK" },
+								legroom: true,
+							},
+						],
+					},
+				],
+				exit: false,
+			},
+		],
+		meals: [
+			{
+				reference: "ref-234",
+				name: "Breakfast",
+				alternatives: [{ name: "Fancy" }, { name: "Basic" }],
+			},
+			{
+				reference: "ref-754",
+				name: "Dinner",
+				alternatives: [{ name: "Chicken" }, { name: "Fish" }],
 			},
 		],
 	}
@@ -92,184 +267,15 @@ describe("model.Passenger", () => {
 		})
 	})
 	it("create itinerary", () => {
-		const passenger: model.Passenger = {
-			reference: "p01",
-			name: { first: "Naomi", last: "Nagasaki" },
-			ageGroup: "adult",
-		}
-		const flight: model.FlightOptions = {
-			reference: "AA",
-			from: { code: "ARN", name: "Arlanda Airport" },
-			to: { code: "LHR", name: "Heathrow Airport" },
-
-			departure: "2022-09-28T07:22:00.000Z",
-			arrival: "2022-09-28T10:02:00.000Z",
-			seating: [
-				{
-					groups: [
-						{
-							seats: [
-								{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
-								{
-									status: "available",
-									class: "first-class",
-									price: { amount: 400, offer: 50, currency: "SEK" },
-									wide: true,
-								},
-							],
-						},
-						{
-							seats: [
-								{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } },
-								{ status: "available", class: "first-class", price: { amount: 150, currency: "SEK" } },
-								{ status: "available", class: "first-class", price: { amount: 250, currency: "SEK" } },
-							],
-						},
-						{
-							seats: [
-								{ status: "available", class: "first-class", price: { amount: 350, currency: "SEK" }, legroom: true },
-								{ status: "available", class: "first-class", price: { amount: 1250, currency: "SEK" }, legroom: true },
-							],
-						},
-					],
-					exit: false,
-				},
-				{
-					groups: [
-						{
-							seats: [
-								{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
-								{
-									status: "available",
-									class: "first-class",
-									price: { amount: 400, offer: 50, currency: "SEK" },
-									wide: true,
-								},
-							],
-						},
-						{
-							seats: [
-								{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } },
-								{ status: "available", class: "first-class", price: { amount: 150, currency: "SEK" } },
-								{ status: "available", class: "first-class", price: { amount: 250, currency: "SEK" } },
-							],
-						},
-						{
-							seats: [
-								{ status: "available", class: "first-class", price: { amount: 350, currency: "SEK" }, legroom: true },
-								{
-									status: "unavailable",
-									class: "first-class",
-									price: { amount: 1250, currency: "SEK" },
-									legroom: true,
-								},
-							],
-						},
-					],
-					exit: false,
-				},
-			],
-			meals: [
-				{
-					reference: "ref-234",
-					name: "Breakfast",
-					alternatives: [{ name: "Fancy" }, { name: "Basic" }],
-				},
-				{
-					reference: "ref-754",
-					name: "Dinner",
-					alternatives: [{ name: "Chicken" }, { name: "Fish" }],
-				},
-			],
-		}
-		const flight2: model.FlightOptions = {
-			reference: "1337",
-			from: { code: "ARN", name: "Arlanda Airport" },
-			to: { code: "LHR", name: "Heathrow Airport" },
-
-			departure: "2022-09-28T07:22:00.000Z",
-			arrival: "2022-09-28T10:02:00.000Z",
-			seating: [
-				{
-					groups: [
-						{
-							seats: [
-								{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
-								{
-									status: "available",
-									class: "first-class",
-									price: { amount: 400, offer: 50, currency: "SEK" },
-									wide: true,
-								},
-							],
-						},
-						{
-							seats: [
-								{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } },
-								{ status: "available", class: "first-class", price: { amount: 150, currency: "SEK" } },
-								{ status: "available", class: "first-class", price: { amount: 250, currency: "SEK" } },
-							],
-						},
-						{
-							seats: [
-								{ status: "available", class: "first-class", price: { amount: 350, currency: "SEK" }, legroom: true },
-								{ status: "available", class: "first-class", price: { amount: 1250, currency: "SEK" }, legroom: true },
-							],
-						},
-					],
-					exit: false,
-				},
-				{
-					groups: [
-						{
-							seats: [
-								{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
-								{
-									status: "available",
-									class: "first-class",
-									price: { amount: 400, offer: 50, currency: "SEK" },
-									wide: true,
-								},
-							],
-						},
-						{
-							seats: [
-								{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } },
-								{ status: "available", class: "first-class", price: { amount: 150, currency: "SEK" } },
-								{ status: "available", class: "first-class", price: { amount: 250, currency: "SEK" } },
-							],
-						},
-						{
-							seats: [
-								{ status: "available", class: "first-class", price: { amount: 350, currency: "SEK" }, legroom: true },
-								{
-									status: "unavailable",
-									class: "first-class",
-									price: { amount: 1250, currency: "SEK" },
-									legroom: true,
-								},
-							],
-						},
-					],
-					exit: false,
-				},
-			],
-			meals: [
-				{
-					reference: "ref-234",
-					name: "Breakfast",
-					alternatives: [{ name: "Fancy" }, { name: "Basic" }],
-				},
-				{
-					reference: "ref-754",
-					name: "Dinner",
-					alternatives: [{ name: "Chicken" }, { name: "Fish" }],
-				},
-			],
-		}
-		expect(model.Passenger.createItinerary(passenger, "return", [flight, flight2])).toEqual({
-			...passenger,
+		expect(model.Passenger.createItinerary(passengerNoItinerary, "return", [flight, flight2])).toEqual({
+			...passengerNoItinerary,
 			return: [{ reference: flight.reference }, { reference: flight2.reference }],
 		})
+	})
+	it("seated on flight", () => {
+		expect(model.Passenger.seatedOnFlight(passengerNoItinerary, "return", flight)).toEqual(false)
+	})
+	it("seated on flight", () => {
+		expect(model.Passenger.seatedOnFlight(passenger, "departure", flight)).toEqual(true)
 	})
 })

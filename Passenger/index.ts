@@ -31,6 +31,13 @@ export namespace Passenger {
 			: !!passenger.departure?.every((item: PassengerItinerary.Leg | undefined) => !!item?.seat) &&
 					(passenger.return?.every((item: PassengerItinerary.Leg | undefined) => !!item?.seat) ?? true)
 	}
+	export function seatedOnFlight(
+		passenger: Readonly<Passenger>,
+		direction: "departure" | "return",
+		flight: FlightOptions
+	): boolean {
+		return passenger ? passenger?.[direction]?.find(f => f?.reference == flight.reference)?.seat != undefined : false
+	}
 	export function hasLuggage(passenger: Readonly<Passenger> | Readonly<Passenger>[]): boolean {
 		return Array.isArray(passenger) ? passenger.every(hasLuggage) : !!passenger.luggage
 	}
