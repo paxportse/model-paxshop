@@ -279,11 +279,23 @@ describe("model.Passenger", () => {
 		expect(model.Passenger.seatedOnFlight(passenger, "departure", flight)).toEqual(true)
 	})
 	it("next unseated", () => {
-		expect(model.Passenger.nextUnseated(passenger, [passenger, passengerNoItinerary], "departure", flight)).toEqual(
-			passengerNoItinerary
-		)
+		expect(
+			model.Passenger.nextUnseated(
+				[
+					passenger,
+					passenger,
+					passengerNoItinerary,
+					{ ...passengerNoItinerary, name: { first: "Bernie", last: "Sanders" } },
+					passenger,
+				],
+				"departure",
+				flight
+			)
+		).toEqual(passengerNoItinerary)
 	})
 	it("next unseated -fail", () => {
-		expect(model.Passenger.nextUnseated(passenger, [passenger], "departure", flight)).toEqual(false)
+		expect(model.Passenger.nextUnseated([passenger, passenger, passenger, passenger], "departure", flight)).toEqual(
+			false
+		)
 	})
 })
