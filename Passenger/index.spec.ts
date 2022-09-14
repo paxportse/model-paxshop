@@ -272,10 +272,18 @@ describe("model.Passenger", () => {
 			return: [{ reference: flight.reference }, { reference: flight2.reference }],
 		})
 	})
-	it("seated on flight", () => {
+	it("seated on flight -fail", () => {
 		expect(model.Passenger.seatedOnFlight(passengerNoItinerary, "return", flight)).toEqual(false)
 	})
 	it("seated on flight", () => {
 		expect(model.Passenger.seatedOnFlight(passenger, "departure", flight)).toEqual(true)
+	})
+	it("next unseated", () => {
+		expect(model.Passenger.nextUnseated(passenger, [passenger, passengerNoItinerary], "departure", flight)).toEqual(
+			passengerNoItinerary
+		)
+	})
+	it("next unseated -fail", () => {
+		expect(model.Passenger.nextUnseated(passenger, [passenger], "departure", flight)).toEqual(false)
 	})
 })

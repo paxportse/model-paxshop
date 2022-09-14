@@ -38,6 +38,21 @@ export namespace Passenger {
 	): boolean {
 		return passenger ? passenger?.[direction]?.find(f => f?.reference == flight.reference)?.seat != undefined : false
 	}
+	export function nextUnseated(
+		passenger: Readonly<Passenger>,
+		passengers: Readonly<Passenger[]>,
+		direction: "departure" | "return",
+		flight: FlightOptions
+	): Passenger | false {
+		// let index = passengers.findIndex(p => p.reference == passenger.reference) + 1
+		const index = passengers.find(p => !seatedOnFlight(p, direction, flight))
+			? passengers.findIndex(p => !seatedOnFlight(p, direction, flight))
+			: false
+		return index ? passengers[index] : false
+
+		//seatedOnFlight(passengers[index], direction, flight)
+		// return false
+	}
 	export function hasLuggage(passenger: Readonly<Passenger> | Readonly<Passenger>[]): boolean {
 		return Array.isArray(passenger) ? passenger.every(hasLuggage) : !!passenger.luggage
 	}
