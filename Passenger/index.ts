@@ -48,6 +48,19 @@ export namespace Passenger {
 			: false
 		return index ? passengers[index] : false
 	}
+	export function select( // SKRIV TEST FÖR DETTA
+		passenger: Readonly<Passenger>,
+		passengers: Readonly<Passenger[]>,
+		direction: "departure" | "return",
+		flight: Readonly<FlightOptions>
+	): Passenger {
+		const index = passengers.findIndex(p => p.reference == passenger.reference)
+		let nextPassenger = nextUnseated(passengers, direction, flight)
+		nextPassenger
+			? nextPassenger
+			: (nextPassenger = index == passengers.length - 1 ? passengers[0] : passengers[index + 1])
+		return nextPassenger
+	}
 	export function hasLuggage(passenger: Readonly<Passenger> | Readonly<Passenger>[]): boolean {
 		return Array.isArray(passenger) ? passenger.every(hasLuggage) : !!passenger.luggage
 	}

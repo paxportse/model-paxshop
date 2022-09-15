@@ -298,4 +298,49 @@ describe("model.Passenger", () => {
 			false
 		)
 	})
+	it("select -no itinerary", () => {
+		expect(
+			model.Passenger.select(
+				passenger,
+				[
+					{ ...passenger, reference: "1231" },
+					{ ...passenger, reference: "1232" },
+					passengerNoItinerary,
+					{ ...passenger, reference: "1234" },
+				],
+				"departure",
+				flight
+			)
+		).toEqual(passengerNoItinerary)
+	})
+	it("select", () => {
+		expect(
+			model.Passenger.select(
+				{ ...passenger, reference: "1232" },
+				[
+					{ ...passenger, reference: "1231" },
+					{ ...passenger, reference: "1232" },
+					{ ...passenger, reference: "1233" },
+					{ ...passenger, reference: "1234" },
+				],
+				"departure",
+				flight
+			)
+		).toEqual({ ...passenger, reference: "1233" })
+	})
+	it("select", () => {
+		expect(
+			model.Passenger.select(
+				{ ...passenger, reference: "1234" },
+				[
+					{ ...passenger, reference: "1231" },
+					{ ...passenger, reference: "1232" },
+					{ ...passenger, reference: "1233" },
+					{ ...passenger, reference: "1234" },
+				],
+				"departure",
+				flight
+			)
+		).toEqual({ ...passenger, reference: "1231" })
+	})
 })
