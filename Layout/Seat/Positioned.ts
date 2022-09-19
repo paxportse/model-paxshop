@@ -19,7 +19,7 @@ export namespace Positioned {
 	}
 	export function occupied(seat: Positioned, leg: Passenger.Itinerary.Leg): boolean {
 		const seatNumber = get(seat)
-		const seatPassenger = leg.seat ? get(leg.seat): undefined
+		const seatPassenger = leg.seat ? get(leg.seat) : undefined
 		return seatPassenger ? seatNumber[0] == seatPassenger[0] && seatNumber[1] == seatPassenger[1] : false
 	}
 }

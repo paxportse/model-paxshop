@@ -5,10 +5,18 @@ import { Passenger } from "./Passenger"
 export interface BookingSpecifier {
 	reference: string
 	departure: isoly.Date
-	name?: Partial<Passenger.Name>
+	name?: Passenger.Name
 }
 
 export namespace BookingSpecifier {
+	export function is(value: BookingSpecifier | any): value is BookingSpecifier {
+		return (
+			typeof value == "object" &&
+			typeof value.reference == "string" &&
+			isoly.Date.is(value.departure) &&
+			(value.name == undefined || Passenger.Name.is(value.name))
+		)
+	}
 	export function fromAuthorization(
 		authorization: string | undefined,
 		reference: string | undefined
