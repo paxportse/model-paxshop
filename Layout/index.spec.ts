@@ -82,6 +82,6 @@ describe("model.Flight.Layout", () => {
 		expect(model.Layout.isAvailable(layout, seat)).toEqual(true)
 	})
 	it("isAvailable, false", () => {
-		expect(model.Layout.isAvailable(layout, { ...seat, row: { number: 2 },position: "C" })).toEqual(false)
+		expect(model.Layout.isAvailable(layout, { ...seat, row: { number: 2 }, position: "C" })).toEqual(false)
 	})
 })
