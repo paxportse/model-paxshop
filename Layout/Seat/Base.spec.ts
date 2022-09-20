@@ -5,8 +5,12 @@ describe("model.Flight.Seat", () => {
 		status: "occupied",
 		class: "first-class",
 		price: { amount: 200, currency: "SEK" },
+		category: "green",
 	}
 	it("is", () => {
 		expect(Seat.is(seat)).toEqual(true)
+	})
+	it("is not", () => {
+		expect(Seat.is({ ...seat, category: 2 })).toEqual(false)
 	})
 })
