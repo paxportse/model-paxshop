@@ -10,6 +10,7 @@ export interface Base {
 	legroom?: boolean
 	wing?: boolean
 	limitedRecline?: boolean
+	category?: string
 }
 
 export namespace Base {
@@ -22,7 +23,8 @@ export namespace Base {
 			(value.wide == undefined || typeof value.wide == "boolean") &&
 			(value.legroom == undefined || typeof value.legroom == "boolean") &&
 			(value.wing == undefined || typeof value.wing == "boolean") &&
-			(value.limitedRecline == undefined || typeof value.limitedRecline == "boolean")
+			(value.limitedRecline == undefined || typeof value.limitedRecline == "boolean") &&
+			(value.category == undefined || typeof value.category == "string")
 		)
 	}
 }
