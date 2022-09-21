@@ -10,7 +10,7 @@ export interface Luggage {
 	description?: string
 }
 export namespace Luggage {
-	export function is(value: Luggage): value is Luggage {
+	export function is(value: Luggage | any): value is Luggage {
 		return (
 			(typeof value == "object" &&
 				typeof value.reference == "string" &&
