@@ -1,13 +1,13 @@
 import { Luggage } from "."
 
-export interface LuggageCategory {
+export interface Category {
 	name: string
 	description?: string
 	options?: Luggage[]
 	open?: boolean
 }
-export namespace LuggageCategory {
-	export function is(value: LuggageCategory | any): value is LuggageCategory {
+export namespace Category {
+	export function is(value: Category | any): value is Category {
 		return (
 			typeof value == "object" &&
 			typeof value.name == "string" &&

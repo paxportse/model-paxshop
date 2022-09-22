@@ -120,6 +120,21 @@ describe("model.BookingOptions", () => {
 		],
 		luggage: [
 			{
+				name: "Sport",
+				description: "Some description",
+				options: [
+					{
+						reference: "lug-009",
+						name: "Bicycle",
+						weight: 20,
+						direction: "roundtrip",
+						price: { amount: 300, currency: "SEK" },
+						description: "Adult sized bike",
+					},
+				],
+				open: true,
+			},
+			{
 				reference: "lug-006",
 				name: "Extra Bag",
 				weight: 20,
@@ -255,6 +270,21 @@ describe("model.BookingOptions", () => {
 			},
 		],
 		luggage: [
+			{
+				name: "Sport",
+				description: "Some description",
+				options: [
+					{
+						reference: "lug-009",
+						name: "Bicycle",
+						weight: 20,
+						direction: "roundtrip",
+						price: { amount: 300, currency: "SEK" },
+						description: "Adult sized bike",
+					},
+				],
+				open: true,
+			},
 			{
 				reference: "lug-006",
 				name: "Extra Bag",

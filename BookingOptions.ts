@@ -5,7 +5,7 @@ import { Luggage } from "./Luggage"
 export interface BookingOptions {
 	departure: FlightOptions[]
 	return?: FlightOptions[]
-	luggage: Luggage[]
+	luggage: (Luggage | Luggage.Category)[]
 }
 
 export namespace BookingOptions {

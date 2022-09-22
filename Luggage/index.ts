@@ -1,4 +1,5 @@
 import { Price } from "../Price"
+import { Category as LuggageCategory } from "./Category"
 
 export interface Luggage {
 	reference: string
@@ -33,4 +34,5 @@ export namespace Luggage {
 			)
 		)
 	}
+	export type Category = LuggageCategory
 }

@@ -1,7 +1,7 @@
-import { LuggageCategory } from "./LuggageCategory"
+import { Category } from "./Category"
 
-describe("model.Flight.Meal.LuggageCategory", () => {
-	const luggageCategory: LuggageCategory = {
+describe("Category", () => {
+	const category: Category = {
 		name: "sport",
 		description: "Some description",
 		options: [
@@ -25,21 +25,21 @@ describe("model.Flight.Meal.LuggageCategory", () => {
 		open: true,
 	}
 	it("is", () => {
-		expect(LuggageCategory.is(luggageCategory)).toEqual(true)
+		expect(Category.is(category)).toEqual(true)
 	})
 	it("undefined weight", () => {
-		expect(LuggageCategory.is({ ...luggageCategory, weight: undefined })).toEqual(true)
+		expect(Category.is({ ...category, weight: undefined })).toEqual(true)
 	})
 	it("undefined description", () => {
-		expect(LuggageCategory.is({ ...luggageCategory, description: undefined })).toEqual(true)
+		expect(Category.is({ ...category, description: undefined })).toEqual(true)
 	})
 	it("undefined options", () => {
-		expect(LuggageCategory.is({ ...luggageCategory, options: undefined })).toEqual(true)
+		expect(Category.is({ ...category, options: undefined })).toEqual(true)
 	})
 	it("undefined open", () => {
-		expect(LuggageCategory.is({ ...luggageCategory, open: undefined })).toEqual(true)
+		expect(Category.is({ ...category, open: undefined })).toEqual(true)
 	})
 	it("undefined name", () => {
-		expect(LuggageCategory.is({ ...luggageCategory, name: undefined })).toEqual(false)
+		expect(Category.is({ ...category, name: undefined })).toEqual(false)
 	})
 })
