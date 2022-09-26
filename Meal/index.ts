@@ -13,7 +13,7 @@ export namespace Meal {
 	export function is(value: Meal): value is Meal {
 		return (
 			typeof value == "object" &&
-			(value.reference == undefined || typeof value.reference == "string") &&
+			(value.reference == undefined || typeof value.reference == "string") && // Is this wrong? Reference should not be undefined.
 			typeof value.name == "string" &&
 			(value.optional == undefined || typeof value.optional == "boolean") &&
 			Array.isArray(value.alternatives) &&

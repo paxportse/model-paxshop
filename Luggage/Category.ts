@@ -14,7 +14,10 @@ export namespace Category {
 			(value.description == undefined || typeof value.description == "string") &&
 			(value.options == undefined ||
 				(Array.isArray(value.options) && value.options.every((o: Luggage) => Luggage.is(o)))) &&
-			(value.open == undefined || typeof value.open == "boolean")
+			(value.open == undefined || typeof value.open == "boolean") &&
+			(value.reference // Should I have to do this? If a luggage is checked with this Category.is it returns true otherwise..
+				? false
+				: true)
 		)
 	}
 }

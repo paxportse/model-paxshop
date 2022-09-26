@@ -21,7 +21,7 @@ export namespace Passenger {
 			typeof value.reference == "string" &&
 			Passenger.Name.is(value.name) &&
 			AgeGroup.is(value.ageGroup) &&
-			Itinerary.is(value.departure) &&
+			(value.departure == undefined || Itinerary.is(value.departure)) &&
 			(value.return == undefined || Itinerary.is(value.return))
 		)
 	}
