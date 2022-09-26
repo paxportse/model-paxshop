@@ -35,4 +35,5 @@ export namespace Luggage {
 		)
 	}
 	export type Category = LuggageCategory
+	export const Category = LuggageCategory
 }
