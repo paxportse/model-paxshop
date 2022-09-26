@@ -24,6 +24,14 @@ describe("Category", () => {
 		],
 		open: true,
 	}
+	const luggage = {
+		reference: "l01",
+		name: "Extra weight",
+		weight: 20,
+		direction: "departure",
+		price: { amount: 100, currency: "AFN" },
+		description: "Lite text",
+	}
 	it("is", () => {
 		expect(Category.is(category)).toEqual(true)
 	})
@@ -41,5 +49,8 @@ describe("Category", () => {
 	})
 	it("undefined name", () => {
 		expect(Category.is({ ...category, name: undefined })).toEqual(false)
+	})
+	it("luggage type is not category", () => {
+		expect(Category.is(luggage)).toEqual(false)
 	})
 })
