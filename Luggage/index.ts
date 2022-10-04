@@ -1,3 +1,4 @@
+import { Passenger } from "../Passenger"
 import { Price } from "../Price"
 import { Category as LuggageCategory } from "./Category"
 
@@ -33,6 +34,22 @@ export namespace Luggage {
 				Price.multiply(l.price, l.quantity)
 			)
 		)
+	}
+	export function update(existingLuggage: Luggage, addedLuggage: Luggage, passenger: Passenger): Luggage[] | undefined {
+		const newQuantity =
+			existingLuggage.quantity && addedLuggage && addedLuggage.quantity
+				? existingLuggage.quantity + addedLuggage.quantity ?? 0
+				: undefined
+
+		const updatedLuggage = existingLuggage ? { ...existingLuggage, quantity: newQuantity } : undefined
+		let passengerLuggage: Luggage[] | undefined = undefined
+
+		// Find the existing luggage on passenger and replace with updated luggage
+		if (passenger && passenger.luggage && updatedLuggage)
+			passengerLuggage = passenger.luggage?.map(l =>
+				l.reference == updatedLuggage.reference && l.direction == updatedLuggage.direction ? (l = updatedLuggage) : l
+			)
+		return passengerLuggage
 	}
 	export type Category = LuggageCategory
 	export const Category = LuggageCategory
