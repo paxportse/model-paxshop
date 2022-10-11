@@ -43,7 +43,6 @@ describe("model.Itinerary", () => {
 			before[0],
 			{ ...before[1], meal },
 		])
-
 		expect(
 			model.Passenger.Itinerary.update(itinerary, [
 				{ reference: "leg02", meal },

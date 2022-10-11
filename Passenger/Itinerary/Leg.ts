@@ -12,7 +12,7 @@ export namespace Leg {
 		let meal: any
 		return (
 			typeof value == "object" &&
-			(value.reference == undefined || typeof value.reference == "string") &&
+			typeof value.reference == "string" &&
 			(value.seat == undefined || Layout.Seat.Positioned.is(value.seat)) &&
 			((meal = value.meal) == undefined || Meal.is(meal) || (Array.isArray(meal) && meal.every(Meal.Alternative.is)))
 		)
