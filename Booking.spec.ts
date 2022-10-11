@@ -43,24 +43,6 @@ describe("model.Booking", () => {
 				],
 			},
 		],
-		departure: [
-			{
-				reference: "AA",
-				from: { code: "ARN", name: "Arlanda Airport" },
-				to: { code: "LHR", name: "Heathrow Airport" },
-				departure: "2022-09-28T07:22:00.000Z",
-				arrival: "2022-09-28T10:02:00.000Z",
-			},
-		],
-		return: [
-			{
-				reference: "AA",
-				from: { code: "LHR", name: "Heathrow Airport" },
-				to: { code: "ARN", name: "Arlanda Airport" },
-				departure: "2022-09-28T07:22:00.000Z",
-				arrival: "2022-09-28T10:02:00.000Z",
-			},
-		],
 	}
 	const passengerWithLuggage = [
 		{

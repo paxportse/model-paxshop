@@ -367,24 +367,6 @@ describe("model.BookingOptions", () => {
 				],
 			},
 		],
-		departure: [
-			{
-				reference: "FL-001",
-				from: { code: "ARN", name: "Arlanda Airport" },
-				to: { code: "LHR", name: "Heathrow Airport" },
-				departure: "2022-08-20T13:37:00.000Z",
-				arrival: "2022-08-20T16:34:00.000Z",
-			},
-		],
-		return: [
-			{
-				reference: "FL-002",
-				from: { code: "LHR", name: "Heathrow Airport" },
-				to: { code: "ARN", name: "Arlanda Airport" },
-				departure: "2022-10-18T10:10:00.000Z",
-				arrival: "2022-10-18T22:22:00.000Z",
-			},
-		],
 	}
 	it("is", () => {
 		expect(model.BookingOptions.is(bookingOptions)).toEqual(true)
