@@ -2,7 +2,7 @@ import { Layout } from "../../Layout"
 import { Meal } from "../../Meal"
 
 export interface Leg {
-	reference?: string
+	reference: string
 	seat?: Layout.Seat.Positioned
 	meal?: Meal[]
 }

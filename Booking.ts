@@ -4,8 +4,8 @@ import { Passenger } from "./Passenger"
 export interface Booking {
 	reference: string
 	passengers: Passenger[]
-	departure: Flight[]
-	return?: Flight[]
+	departure: Flight[] // Delete, this (should) be in passenger.departure. The actual flight information is in booking options
+	return?: Flight[] // Delete, this (should) be in passenger.return
 }
 
 export namespace Booking {

@@ -218,7 +218,7 @@ describe("model.Passenger", () => {
 		expect(model.Passenger.seated({ ...passenger, departure: undefined, return: undefined })).toEqual(false)
 	})
 	it("seated 1 + [undefined]", () => {
-		expect(model.Passenger.seated({ ...passenger, return: [undefined] })).toEqual(false)
+		expect(model.Passenger.seated({ ...passenger, return: [{ reference: "BB" }] })).toEqual(false)
 	})
 	it("update luggage", () => {
 		const luggage: model.Luggage[] = [
@@ -248,7 +248,7 @@ describe("model.Passenger", () => {
 				],
 			},
 		]
-		expect(model.Passenger.update(passenger, { departure: [{ meal }] })).toEqual({
+		expect(model.Passenger.update(passenger, { departure: [{ reference: "AA", meal }] })).toEqual({
 			...passenger,
 			departure: [{ ...passenger.departure?.[0], meal }],
 		})
@@ -261,7 +261,7 @@ describe("model.Passenger", () => {
 			class: "first-class",
 			price: { amount: 200, currency: "SEK" },
 		}
-		expect(model.Passenger.update(passenger, { departure: [{ seat }] })).toEqual({
+		expect(model.Passenger.update(passenger, { departure: [{ reference: "AA", seat }] })).toEqual({
 			...passenger,
 			departure: [{ ...passenger.departure?.[0], seat }],
 		})
