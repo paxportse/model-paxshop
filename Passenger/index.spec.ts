@@ -32,7 +32,7 @@ describe("model.Passenger", () => {
 	}
 	const passengerNoItinerary: model.Passenger = {
 		reference: "p01",
-		name: { first: "Naomi", last: "Nagasaki" },
+		name: { first: "Naomi", last: "Nagata" },
 		ageGroup: "adult",
 	}
 	const flight: model.FlightOptions = {
@@ -205,6 +205,98 @@ describe("model.Passenger", () => {
 			},
 		],
 	}
+	const flights: model.FlightOptions[] = [
+		{
+			reference: "FL-001",
+			from: { name: "Arlanda", code: "ARN" },
+			to: { name: "Heathrow", code: "LHR" },
+			departure: "2022-09-28T07:22:00.000Z",
+			arrival: "2022-09-28T10:02:00.000Z",
+			seating: [
+				{
+					groups: [
+						{
+							seats: [
+								{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+							],
+						},
+						{
+							seats: [{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } }],
+						},
+					],
+				},
+				{
+					groups: [
+						{
+							seats: [
+								{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+							],
+						},
+						{
+							seats: [{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } }],
+						},
+					],
+				},
+			],
+			meals: [
+				{
+					reference: "ref-234",
+					name: "Breakfast",
+					alternatives: [{ name: "Fancy" }, { name: "Basic" }],
+				},
+				{
+					reference: "ref-754",
+					name: "Dinner",
+					alternatives: [{ name: "Chicken" }, { name: "Fish" }],
+				},
+			],
+		},
+		{
+			reference: "FL-002",
+			from: { name: "Heathrow", code: "LHR" },
+			to: { name: "Arlanda", code: "ARN" },
+			departure: "2022-10-15T08:00:00.000Z",
+			arrival: "2022-10-15T10:00:00.000Z",
+			seating: [
+				{
+					groups: [
+						{
+							seats: [
+								{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+							],
+						},
+						{
+							seats: [{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } }],
+						},
+					],
+				},
+				{
+					groups: [
+						{
+							seats: [
+								{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+							],
+						},
+						{
+							seats: [{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } }],
+						},
+					],
+				},
+			],
+			meals: [
+				{
+					reference: "ref-234",
+					name: "Breakfast",
+					alternatives: [{ name: "Fancy" }, { name: "Basic" }],
+				},
+				{
+					reference: "ref-754",
+					name: "Dinner",
+					alternatives: [{ name: "Chicken" }, { name: "Fish" }],
+				},
+			],
+		},
+	]
 	it("is", () => {
 		expect(model.Passenger.is(passenger)).toEqual(true)
 	})
@@ -218,7 +310,7 @@ describe("model.Passenger", () => {
 		expect(model.Passenger.seated({ ...passenger, departure: undefined, return: undefined })).toEqual(false)
 	})
 	it("seated 1 + [undefined]", () => {
-		expect(model.Passenger.seated({ ...passenger, return: [undefined] })).toEqual(false)
+		expect(model.Passenger.seated({ ...passenger, return: [{ reference: "BB" }] })).toEqual(false)
 	})
 	it("update luggage", () => {
 		const luggage: model.Luggage[] = [
@@ -248,7 +340,7 @@ describe("model.Passenger", () => {
 				],
 			},
 		]
-		expect(model.Passenger.update(passenger, { departure: [{ meal }] })).toEqual({
+		expect(model.Passenger.update(passenger, { departure: [{ reference: "AA", meal }] })).toEqual({
 			...passenger,
 			departure: [{ ...passenger.departure?.[0], meal }],
 		})
@@ -261,15 +353,21 @@ describe("model.Passenger", () => {
 			class: "first-class",
 			price: { amount: 200, currency: "SEK" },
 		}
-		expect(model.Passenger.update(passenger, { departure: [{ seat }] })).toEqual({
+		expect(model.Passenger.update(passenger, { departure: [{ reference: "AA", seat }] })).toEqual({
 			...passenger,
 			departure: [{ ...passenger.departure?.[0], seat }],
 		})
 	})
-	it("create itinerary", () => {
+	it("create itinerary return", () => {
 		expect(model.Passenger.createItinerary(passengerNoItinerary, "return", [flight, flight2])).toEqual({
 			...passengerNoItinerary,
 			return: [{ reference: flight.reference }, { reference: flight2.reference }],
+		})
+	})
+	it("create itinerary departure", () => {
+		expect(model.Passenger.createItinerary(passengerNoItinerary, "departure", flights)).toEqual({
+			...passengerNoItinerary,
+			departure: [{ reference: flights[0].reference }, { reference: flights[1].reference }],
 		})
 	})
 	it("seated on flight -fail", () => {

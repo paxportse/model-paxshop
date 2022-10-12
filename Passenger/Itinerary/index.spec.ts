@@ -34,9 +34,20 @@ describe("model.Itinerary", () => {
 			},
 		]
 
-		expect(model.Passenger.Itinerary.update(itinerary, [{ meal }])).toEqual([{ ...itinerary[0], meal }])
-		const before = [...itinerary, ...itinerary]
-		const updated = model.Passenger.Itinerary.update(before, [undefined, { meal }])
-		expect(updated).toEqual([before[0], { ...before[1], meal }])
+		// Update Itinerary at a certain index.
+		expect(model.Passenger.Itinerary.update(itinerary, [{ reference: "leg02", meal }])).toEqual([
+			{ ...itinerary[0], meal },
+		])
+		const before = [itinerary[0], { ...itinerary[0], reference: "leg03" }]
+		expect(model.Passenger.Itinerary.update(before, [{ reference: "leg03", meal }])).toEqual([
+			before[0],
+			{ ...before[1], meal },
+		])
+		expect(
+			model.Passenger.Itinerary.update(itinerary, [
+				{ reference: "leg02", meal },
+				{ reference: "leg03", meal },
+			])
+		).toEqual([{ ...itinerary[0], meal }])
 	})
 })

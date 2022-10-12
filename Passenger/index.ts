@@ -48,7 +48,7 @@ export namespace Passenger {
 			: false
 		return index ? passengers[index] : false
 	}
-	export function select( // SKRIV TEST FÖR DETTA
+	export function select(
 		passenger: Readonly<Passenger>,
 		passengers: Readonly<Passenger[]>,
 		direction: "departure" | "return",

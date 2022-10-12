@@ -14,4 +14,7 @@ describe("model.Leg", () => {
 	it("is", () => {
 		expect(model.Leg.is(leg)).toEqual(true)
 	})
+	it("is not", () => {
+		expect(model.Leg.is({ ...leg, reference: undefined })).toEqual(false)
+	})
 })
