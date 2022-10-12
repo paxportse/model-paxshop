@@ -161,6 +161,168 @@ describe("model.FlightOptions", () => {
 			},
 		],
 	}
+	const flights: model.FlightOptions[] = [
+		{
+			reference: "FL-001",
+			from: { code: "ARN", name: "Arlanda Airport" },
+			to: { code: "LHR", name: "Heathrow Airport" },
+			departure: "2022-09-28T07:22:00.000Z",
+			arrival: "2022-09-28T10:02:00.000Z",
+			seating: [
+				{
+					groups: [
+						{
+							seats: [
+								{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+							],
+						},
+						{
+							seats: [{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } }],
+						},
+					],
+				},
+				{
+					groups: [
+						{
+							seats: [
+								{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+							],
+						},
+						{
+							seats: [{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } }],
+						},
+					],
+				},
+			],
+			meals: [
+				{
+					reference: "ref-234",
+					name: "Breakfast",
+					alternatives: [{ name: "Fancy" }, { name: "Basic" }],
+				},
+			],
+		},
+		{
+			reference: "FL-002",
+			from: { code: "ARN", name: "Arlanda Airport" },
+			to: { code: "LHR", name: "Heathrow Airport" },
+			departure: "2022-09-28T07:22:00.000Z",
+			arrival: "2022-09-28T10:02:00.000Z",
+			seating: [
+				{
+					groups: [
+						{
+							seats: [
+								{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+							],
+						},
+						{
+							seats: [{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } }],
+						},
+					],
+				},
+				{
+					groups: [
+						{
+							seats: [
+								{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+							],
+						},
+						{
+							seats: [{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } }],
+						},
+					],
+				},
+			],
+			meals: [
+				{
+					reference: "ref-234",
+					name: "Breakfast",
+					alternatives: [{ name: "Fancy" }, { name: "Basic" }],
+				},
+			],
+		},
+		{
+			reference: "FL-003",
+			from: { code: "ARN", name: "Arlanda Airport" },
+			to: { code: "LHR", name: "Heathrow Airport" },
+			departure: "2022-09-28T07:22:00.000Z",
+			arrival: "2022-09-28T10:02:00.000Z",
+			seating: [
+				{
+					groups: [
+						{
+							seats: [
+								{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+							],
+						},
+						{
+							seats: [{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } }],
+						},
+					],
+				},
+				{
+					groups: [
+						{
+							seats: [
+								{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+							],
+						},
+						{
+							seats: [{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } }],
+						},
+					],
+				},
+			],
+			meals: [
+				{
+					reference: "ref-234",
+					name: "Breakfast",
+					alternatives: [{ name: "Fancy" }, { name: "Basic" }],
+				},
+			],
+		},
+		{
+			reference: "FL-004",
+			from: { code: "ARN", name: "Arlanda Airport" },
+			to: { code: "LHR", name: "Heathrow Airport" },
+			departure: "2022-09-28T07:22:00.000Z",
+			arrival: "2022-09-28T10:02:00.000Z",
+			seating: [
+				{
+					groups: [
+						{
+							seats: [
+								{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+							],
+						},
+						{
+							seats: [{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } }],
+						},
+					],
+				},
+				{
+					groups: [
+						{
+							seats: [
+								{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+							],
+						},
+						{
+							seats: [{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } }],
+						},
+					],
+				},
+			],
+			meals: [
+				{
+					reference: "ref-234",
+					name: "Breakfast",
+					alternatives: [{ name: "Fancy" }, { name: "Basic" }],
+				},
+			],
+		},
+	]
 	const leg: passenger.Itinerary.Leg = {
 		reference: "FL-011",
 		seat: {
@@ -170,6 +332,42 @@ describe("model.FlightOptions", () => {
 			class: "business",
 			price: { amount: 100, currency: "DKK" },
 		},
+	}
+	const passenger: model.Passenger = {
+		reference: "p01",
+		name: { first: "Pelle", last: "Karlsson" },
+		ageGroup: "child",
+		departure: [
+			{
+				reference: "FL-001",
+			},
+		],
+		return: [
+			{
+				reference: "FL-002",
+			},
+			{
+				reference: "FL-003",
+			},
+		],
+	}
+	const passenger2: model.Passenger = {
+		reference: "p02",
+		name: { first: "Olle", last: "Karlsson" },
+		ageGroup: "child",
+		departure: [
+			{
+				reference: "FL-005",
+			},
+		],
+		return: [
+			{
+				reference: "FL-007",
+			},
+			{
+				reference: "FL-007",
+			},
+		],
 	}
 	it("is", () => {
 		expect(model.FlightOptions.is(layout)).toEqual(true)
@@ -193,5 +391,14 @@ describe("model.FlightOptions", () => {
 				},
 			})
 		).toEqual(false)
+	})
+	it("Get available flights departure", () => {
+		expect(model.FlightOptions.getAvailableFlights(passenger, flights, "departure")).toEqual([flights[0]])
+	})
+	it("Get available flights return", () => {
+		expect(model.FlightOptions.getAvailableFlights(passenger, flights, "return")).toEqual([flights[1], flights[2]])
+	})
+	it("Get available flights, no matching flights", () => {
+		expect(model.FlightOptions.getAvailableFlights(passenger2, flights, "return")).toEqual([])
 	})
 })

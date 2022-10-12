@@ -24,4 +24,11 @@ export namespace FlightOptions {
 		const seat = leg.seat
 		return !seat ? false : Layout.isAvailable(flight.seating, seat)
 	}
+	export function getAvailableFlights( // Return flights that match with passenger itinerary reference.
+		passenger: Passenger,
+		flights: FlightOptions[],
+		direction: "return" | "departure"
+	): FlightOptions[] {
+		return flights.filter(f => passenger[direction]?.find(i => f.reference == i.reference))
+	}
 }
