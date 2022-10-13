@@ -30,10 +30,69 @@ describe("model.Passenger", () => {
 			},
 		],
 	}
-	const passengerNoItinerary: model.Passenger = {
+	const passenger2: model.Passenger = {
 		reference: "p01",
-		name: { first: "Naomi", last: "Nagata" },
-		ageGroup: "adult",
+		name: { first: "Stig", last: "Karlsson" },
+		ageGroup: "child",
+		departure: [
+			{
+				reference: "1337",
+				seat: {
+					row: { number: 1 },
+					position: "A",
+					status: "occupied",
+					class: "first-class",
+					price: { amount: 400, currency: "SEK" },
+				},
+			},
+		],
+		return: [
+			{
+				reference: "d03",
+				seat: {
+					row: { number: 1 },
+					position: "B",
+					status: "occupied",
+					class: "first-class",
+					price: { amount: 200, currency: "SEK" },
+				},
+			},
+		],
+	}
+	const passengerUnseated: model.Passenger = {
+		reference: "p01",
+		name: { first: "Bo", last: "Karlsson" },
+		ageGroup: "child",
+		departure: [
+			{
+				reference: "BB",
+			},
+		],
+		return: [
+			{
+				reference: "AA",
+			},
+		],
+	}
+	const passengerUnseated2: model.Passenger = {
+		reference: "p01",
+		name: { first: "Bo", last: "Karlsson" },
+		ageGroup: "child",
+		departure: [
+			{
+				reference: "AA",
+			},
+		],
+		return: [
+			{
+				reference: "AA",
+			},
+		],
+	}
+	const passengerNoItinerary: model.Passenger = {
+		reference: "p05",
+		name: { first: "Hasse", last: "Burrito" },
+		ageGroup: "child",
 	}
 	const flight: model.FlightOptions = {
 		reference: "AA",
@@ -370,46 +429,32 @@ describe("model.Passenger", () => {
 			departure: [{ reference: flights[0].reference }, { reference: flights[1].reference }],
 		})
 	})
-	it("seated on flight -fail", () => {
-		expect(model.Passenger.seatedOnFlight(passengerNoItinerary, "return", flight)).toEqual(false)
+	it("seated on flight -passenger not seated", () => {
+		expect(model.Passenger.seatedOnFlight(passengerUnseated, "return", flight)).toEqual(false)
 	})
 	it("seated on flight", () => {
 		expect(model.Passenger.seatedOnFlight(passenger, "departure", flight)).toEqual(true)
 	})
 	it("next unseated", () => {
-		expect(
-			model.Passenger.nextUnseated(
-				[
-					passenger,
-					passenger,
-					passengerNoItinerary,
-					{ ...passengerNoItinerary, name: { first: "Bernie", last: "Sanders" } },
-					passenger,
-				],
-				"departure",
-				flight
-			)
-		).toEqual(passengerNoItinerary)
+		expect(model.Passenger.nextUnseated([passenger2, passenger2, passengerUnseated2], "departure", flight)).toEqual(
+			passengerUnseated2
+		)
 	})
-	it("next unseated -fail", () => {
+	it("next unseated -first passenger is seated and is not allowed to sit on flight", () => {
+		expect(model.Passenger.nextUnseated([passenger, passengerUnseated], "return", flight)).toEqual(passengerUnseated)
+	})
+	it("next unseated -no unseated passenger", () => {
 		expect(model.Passenger.nextUnseated([passenger, passenger, passenger, passenger], "departure", flight)).toEqual(
 			false
 		)
 	})
-	it("select -no itinerary", () => {
+	it("next unseated -passengers not allowed to sit on flight", () => {
+		expect(model.Passenger.nextUnseated([passengerUnseated, passengerUnseated], "departure", flight)).toEqual(false)
+	})
+	it("next unseated -passengers not allowed to sit on flight and no unseated passengers", () => {
 		expect(
-			model.Passenger.select(
-				passenger,
-				[
-					{ ...passenger, reference: "1231" },
-					{ ...passenger, reference: "1232" },
-					passengerNoItinerary,
-					{ ...passenger, reference: "1234" },
-				],
-				"departure",
-				flight
-			)
-		).toEqual(passengerNoItinerary)
+			model.Passenger.nextUnseated([passengerUnseated, passengerUnseated, passenger2, passenger2], "departure", flight)
+		).toEqual(false)
 	})
 	it("select", () => {
 		expect(
