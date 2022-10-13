@@ -43,10 +43,12 @@ export namespace Passenger {
 		direction: "departure" | "return",
 		flight: FlightOptions
 	): Passenger | false {
-		const index = passengers.find(p => !seatedOnFlight(p, direction, flight))
-			? passengers.findIndex(p => !seatedOnFlight(p, direction, flight))
-			: false
-		return index ? passengers[index] : false
+		const allowedPassengers = passengers.filter(p => p[direction]?.some(l => l.reference == flight.reference) && p)
+		if (allowedPassengers) {
+			const index = allowedPassengers.findIndex(p => !seatedOnFlight(p, direction, flight))
+			return index >= 0 ? allowedPassengers[index] : false
+		} else
+			return false
 	}
 	export function select(
 		passenger: Readonly<Passenger>,
