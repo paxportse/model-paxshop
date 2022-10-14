@@ -66,11 +66,11 @@ export namespace Passenger {
 	export function createItinerary(
 		passenger: Passenger,
 		direction: "departure" | "return",
-		flights: FlightOptions[]
+		flights: string[]
 	): Passenger {
 		const itinerary: Leg[] = []
 		flights.forEach(f => {
-			itinerary.push({ reference: f.reference })
+			itinerary.push({ reference: f })
 		})
 		const result =
 			direction == "departure"

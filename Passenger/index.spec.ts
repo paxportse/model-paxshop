@@ -418,13 +418,13 @@ describe("model.Passenger", () => {
 		})
 	})
 	it("create itinerary return", () => {
-		expect(model.Passenger.createItinerary(passengerNoItinerary, "return", [flight, flight2])).toEqual({
+		expect(model.Passenger.createItinerary(passengerNoItinerary, "return", ["AA", "1337"])).toEqual({
 			...passengerNoItinerary,
 			return: [{ reference: flight.reference }, { reference: flight2.reference }],
 		})
 	})
 	it("create itinerary departure", () => {
-		expect(model.Passenger.createItinerary(passengerNoItinerary, "departure", flights)).toEqual({
+		expect(model.Passenger.createItinerary(passengerNoItinerary, "departure", ["FL-001", "FL-002"])).toEqual({
 			...passengerNoItinerary,
 			departure: [{ reference: flights[0].reference }, { reference: flights[1].reference }],
 		})
