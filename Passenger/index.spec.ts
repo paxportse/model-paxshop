@@ -436,54 +436,25 @@ describe("model.Passenger", () => {
 		expect(model.Passenger.seatedOnFlight(passenger, "departure", flight)).toEqual(true)
 	})
 	it("next unseated", () => {
-		expect(model.Passenger.nextUnseated([passenger2, passenger2, passengerUnseated2], "departure", flight)).toEqual(
+		expect(model.Passenger.selectNext([passenger2, passenger2, passengerUnseated2], "departure", flight)).toEqual(
 			passengerUnseated2
 		)
 	})
 	it("next unseated -first passenger is seated and is not allowed to sit on flight", () => {
-		expect(model.Passenger.nextUnseated([passenger, passengerUnseated], "return", flight)).toEqual(passengerUnseated)
+		expect(model.Passenger.selectNext([passenger, passengerUnseated], "return", flight)).toEqual(passengerUnseated)
 	})
 	it("next unseated -no unseated passenger", () => {
-		expect(model.Passenger.nextUnseated([passenger, passenger, passenger, passenger], "departure", flight)).toEqual(
-			false
-		)
+		expect(model.Passenger.selectNext([passenger, passenger, passenger, passenger], "departure", flight)).toEqual(false)
 	})
 	it("next unseated -passengers not allowed to sit on flight", () => {
-		expect(model.Passenger.nextUnseated([passengerUnseated, passengerUnseated], "departure", flight)).toEqual(false)
+		expect(model.Passenger.selectNext([passengerUnseated, passengerUnseated], "departure", flight)).toEqual(false)
+	})
+	it("next unseated -first passenger is seated and next is not allowed to sit on flight", () => {
+		expect(model.Passenger.selectNext([passenger, passengerUnseated], "departure", flight)).toEqual(false)
 	})
 	it("next unseated -passengers not allowed to sit on flight and no unseated passengers", () => {
 		expect(
-			model.Passenger.nextUnseated([passengerUnseated, passengerUnseated, passenger2, passenger2], "departure", flight)
+			model.Passenger.selectNext([passengerUnseated, passengerUnseated, passenger2, passenger2], "departure", flight)
 		).toEqual(false)
-	})
-	it("select", () => {
-		expect(
-			model.Passenger.select(
-				{ ...passenger, reference: "1232" },
-				[
-					{ ...passenger, reference: "1231" },
-					{ ...passenger, reference: "1232" },
-					{ ...passenger, reference: "1233" },
-					{ ...passenger, reference: "1234" },
-				],
-				"departure",
-				flight
-			)
-		).toEqual({ ...passenger, reference: "1233" })
-	})
-	it("select", () => {
-		expect(
-			model.Passenger.select(
-				{ ...passenger, reference: "1234" },
-				[
-					{ ...passenger, reference: "1231" },
-					{ ...passenger, reference: "1232" },
-					{ ...passenger, reference: "1233" },
-					{ ...passenger, reference: "1234" },
-				],
-				"departure",
-				flight
-			)
-		).toEqual({ ...passenger, reference: "1231" })
 	})
 })

@@ -38,7 +38,7 @@ export namespace Passenger {
 	): boolean {
 		return passenger ? passenger?.[direction]?.find(f => f?.reference == flight.reference)?.seat != undefined : false
 	}
-	export function nextUnseated(
+	export function selectNext(
 		passengers: Readonly<Passenger[]>,
 		direction: "departure" | "return",
 		flight: FlightOptions
@@ -49,19 +49,6 @@ export namespace Passenger {
 			return index >= 0 ? allowedPassengers[index] : false
 		} else
 			return false
-	}
-	export function select(
-		passenger: Readonly<Passenger>,
-		passengers: Readonly<Passenger[]>,
-		direction: "departure" | "return",
-		flight: Readonly<FlightOptions>
-	): Passenger {
-		const index = passengers.findIndex(p => p.reference == passenger.reference)
-		let nextPassenger = nextUnseated(passengers, direction, flight)
-		nextPassenger
-			? nextPassenger
-			: (nextPassenger = index == passengers.length - 1 ? passengers[0] : passengers[index + 1])
-		return nextPassenger
 	}
 	export function hasLuggage(passenger: Readonly<Passenger> | Readonly<Passenger>[]): boolean {
 		return Array.isArray(passenger) ? passenger.every(hasLuggage) : !!passenger.luggage
