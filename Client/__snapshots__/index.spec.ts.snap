@@ -2,26 +2,6 @@
 
 exports[`model.Client booking.fetch: booking-AAAA12 1`] = `
 Object {
-  "departure": Array [
-    Object {
-      "arrival": "2022-01-13T16:34:00.000Z",
-      "departure": "2022-01-13T13:37:00.000Z",
-      "from": Object {
-        "code": "ARN",
-        "name": "Arlanda Airport",
-      },
-      "meals": Array [
-        "dinner",
-        "celebration",
-      ],
-      "plane": "bombardier",
-      "reference": "FL-001",
-      "to": Object {
-        "code": "LHR",
-        "name": "Heathrow Airport",
-      },
-    },
-  ],
   "options": Object {
     "departure": Array [
       Object {
@@ -1761,25 +1741,5 @@ Object {
     },
   ],
   "reference": "AAAA12",
-  "return": Array [
-    Object {
-      "arrival": "2022-01-15T19:51:00.000Z",
-      "departure": "2022-01-15T16:29:00.000Z",
-      "from": Object {
-        "code": "LHR",
-        "name": "Heathrow Airport",
-      },
-      "meals": Array [
-        "celebration",
-        "dinner",
-      ],
-      "plane": "bombardier",
-      "reference": "FL-002",
-      "to": Object {
-        "code": "ARN",
-        "name": "Arlanda Airport",
-      },
-    },
-  ],
 }
 `;
