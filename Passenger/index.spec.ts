@@ -452,9 +452,18 @@ describe("model.Passenger", () => {
 	it("next unseated -first passenger is seated and next is not allowed to sit on flight", () => {
 		expect(model.Passenger.selectNext([passenger, passengerUnseated], "departure", flight)).toEqual(false)
 	})
+	it("next unseated -first passenger is seated and next is not seated, both allowed", () => {
+		expect(model.Passenger.selectNext([passenger, passengerUnseated2], "departure", flight)).toEqual(passengerUnseated2)
+	})
 	it("next unseated -passengers not allowed to sit on flight and no unseated passengers", () => {
 		expect(
 			model.Passenger.selectNext([passengerUnseated, passengerUnseated, passenger2, passenger2], "departure", flight)
 		).toEqual(false)
+	})
+	it("is allowed on flight", () => {
+		expect(model.Passenger.isOnFlight(passenger, "departure", flight)).toEqual(true)
+	})
+	it("is not allowed on flight", () => {
+		expect(model.Passenger.isOnFlight(passenger, "return", flight)).toEqual(false)
 	})
 })
