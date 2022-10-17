@@ -1733,11 +1733,21 @@ Object {
   "passengers": Array [
     Object {
       "ageGroup": "child",
+      "departure": Array [
+        Object {
+          "reference": "FL-001",
+        },
+      ],
       "name": Object {
         "first": "Pelle",
         "last": "Karlsson",
       },
       "reference": "p-00A",
+      "return": Array [
+        Object {
+          "reference": "FL-002",
+        },
+      ],
     },
   ],
   "reference": "AAAA12",
