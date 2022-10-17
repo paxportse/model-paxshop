@@ -38,7 +38,7 @@ export namespace Passenger {
 	): boolean {
 		return passenger ? passenger?.[direction]?.find(f => f?.reference == flight.reference)?.seat != undefined : false
 	}
-	export function isAllowed(passenger: Passenger, direction: "departure" | "return", flight: FlightOptions): boolean {
+	export function isOnFlight(passenger: Passenger, direction: "departure" | "return", flight: FlightOptions): boolean {
 		return passenger[direction]?.some(l => l.reference == flight.reference) || false
 	}
 	export function selectNext(

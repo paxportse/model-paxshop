@@ -461,9 +461,9 @@ describe("model.Passenger", () => {
 		).toEqual(false)
 	})
 	it("is allowed on flight", () => {
-		expect(model.Passenger.isAllowed(passenger, "departure", flight)).toEqual(true)
+		expect(model.Passenger.isOnFlight(passenger, "departure", flight)).toEqual(true)
 	})
 	it("is not allowed on flight", () => {
-		expect(model.Passenger.isAllowed(passenger, "return", flight)).toEqual(false)
+		expect(model.Passenger.isOnFlight(passenger, "return", flight)).toEqual(false)
 	})
 })
