@@ -2,6 +2,7 @@
 
 exports[`model.Client booking.fetch: booking-AAAA12 1`] = `
 Object {
+  "departure": "2022-01-13",
   "options": Object {
     "departure": Array [
       Object {
