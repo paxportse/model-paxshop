@@ -3,6 +3,7 @@ import * as model from "./Booking"
 describe("model.Booking", () => {
 	const booking: model.Booking = {
 		reference: "ABC123",
+		departure: "2024-07-26",
 		passengers: [
 			{
 				reference: "p01",
