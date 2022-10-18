@@ -305,6 +305,7 @@ describe("model.BookingOptions", () => {
 	}
 	const booking: model.Booking = {
 		reference: "AABA12",
+		departure: "2022-09-28",
 		passengers: [
 			{
 				reference: "p-00B",
