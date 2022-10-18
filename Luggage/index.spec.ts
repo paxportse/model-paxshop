@@ -9,6 +9,7 @@ describe("model.Flight.Luggage", () => {
 		quantity: 1,
 		price: { amount: 100, currency: "AFN" },
 		description: "Lite text",
+		flights: ["BLX504", "UDE342"],
 	}
 	const luggageArray: model.Luggage[] = [luggage, luggage]
 
@@ -68,6 +69,7 @@ describe("model.Flight.Luggage", () => {
 				quantity: 2,
 				price: { amount: 100, currency: "AFN" },
 				description: "Lite text",
+				flights: ["BLX504", "UDE342"],
 			},
 		])
 	})
@@ -81,6 +83,7 @@ describe("model.Flight.Luggage", () => {
 				quantity: 6,
 				price: { amount: 100, currency: "AFN" },
 				description: "Lite text",
+				flights: ["BLX504", "UDE342"],
 			},
 		])
 	})

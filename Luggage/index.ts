@@ -10,6 +10,7 @@ export interface Luggage {
 	direction?: "departure" | "return" | "roundtrip" //{ departureQuantity?: number; returnQuantity?: number } Is this the approach we want?
 	price?: Price
 	description?: string
+	flights?: string[]
 }
 export namespace Luggage {
 	export function is(value: Luggage | any): value is Luggage {
@@ -22,7 +23,9 @@ export namespace Luggage {
 				typeof value.direction == undefined) ||
 			(("departure" || "return" || "roundtrip") &&
 				(value.price == undefined || Price.is(value.price)) &&
-				(value.description == undefined || typeof value.description == "string"))
+				(value.description == undefined || typeof value.description == "string") &&
+				(value.flights == undefined ||
+					(Array.isArray(value.flights) && value.flights.every((f: any) => typeof f == "string"))))
 		)
 	}
 	export function isArrayOfLuggage(value: (Luggage | any)[]): value is Luggage[] {
