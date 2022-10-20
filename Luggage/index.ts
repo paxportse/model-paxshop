@@ -1,3 +1,4 @@
+import { BookingOptions } from "../BookingOptions"
 import { Passenger } from "../Passenger"
 import { Price } from "../Price"
 import { Category as LuggageCategory } from "./Category"
@@ -53,6 +54,23 @@ export namespace Luggage {
 				l.reference == updatedLuggage.reference && l.direction == updatedLuggage.direction ? (l = updatedLuggage) : l
 			)
 		return passengerLuggage
+	}
+	export function filter(booking: BookingOptions, passenger: Passenger): (Luggage | LuggageCategory)[] {
+		// Return luggage that has the same flights as the passenger is flying with
+		const passengerDeparture = passenger.departure ? passenger.departure.map(f => f.reference) : undefined
+		const passengerReturn = passenger.return ? passenger.return.map(f => f.reference) : undefined
+		const passengerFlights =
+			passengerDeparture && passengerReturn
+				? passengerDeparture.concat(passengerReturn)
+				: passengerDeparture ?? passengerReturn ?? undefined
+
+		const departures = booking.departure.map(d => d.reference)
+		const returns = booking.return ? booking.return.map(r => r.reference) : undefined
+		const flights = returns ? departures.concat(returns) : departures
+
+		return booking.luggage.filter(l =>
+			flights.find(f => passengerFlights?.find(pf => l.flights?.find(r => f == r && f == pf)) && l)
+		)
 	}
 	export type Category = LuggageCategory
 	export const Category = LuggageCategory
