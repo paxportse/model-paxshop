@@ -101,6 +101,15 @@ describe("model.Flight.Luggage", () => {
 				description: "Added weight when a piece of luggage exceeds weight limit",
 				flights: ["BLX504"],
 			},
+			{
+				reference: "lug-008",
+				name: "Extra weight",
+				weight: 20,
+				direction: "roundtrip",
+				price: { amount: 100, currency: "SEK" },
+				description: "Added weight when a piece of luggage exceeds weight limit",
+				flights: ["BLX504", "MEH001"],
+			},
 		],
 	}
 	const luggage: model.Luggage = {
