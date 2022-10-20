@@ -234,4 +234,68 @@ describe("model.Flight.Luggage", () => {
 			},
 		])
 	})
+	it("filter luggage", () => {
+		expect(
+			model.Luggage.filter(booking, {
+				...passenger,
+				departure: [
+					{
+						reference: "UDE342",
+						seat: {
+							row: { number: 1 },
+							position: "A",
+							status: "occupied",
+							class: "first-class",
+							price: { amount: 400, currency: "SEK" },
+						},
+					},
+				],
+			})
+		).toEqual([
+			{
+				name: "Sport",
+				description: "Some description",
+				options: [
+					{
+						reference: "lug-009",
+						name: "Bicycle",
+						weight: 20,
+						direction: "roundtrip",
+						price: { amount: 300, currency: "SEK" },
+						description: "Adult sized bike",
+					},
+				],
+				open: true,
+				flights: ["BLX504", "UDE342"],
+			},
+			{
+				reference: "lug-006",
+				name: "Extra Bag",
+				weight: 20,
+				direction: "roundtrip",
+				price: { amount: 300, currency: "SEK" },
+				description: "Extra bag with the maximum weight of 20kg",
+				flights: ["BLX504", "UDE342"],
+			},
+		])
+	})
+	it("filter luggage, no luggage", () => {
+		expect(
+			model.Luggage.filter(booking, {
+				...passenger,
+				departure: [
+					{
+						reference: "ABC",
+						seat: {
+							row: { number: 1 },
+							position: "A",
+							status: "occupied",
+							class: "first-class",
+							price: { amount: 400, currency: "SEK" },
+						},
+					},
+				],
+			})
+		).toEqual([])
+	})
 })

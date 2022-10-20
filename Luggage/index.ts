@@ -56,12 +56,7 @@ export namespace Luggage {
 		return passengerLuggage
 	}
 	export function filter(booking: BookingOptions, passenger: Passenger): (Luggage | LuggageCategory)[] {
-		// Sort luggage that is on all flights
-		// const luggage: (Luggage | LuggageCategory)[] = booking.luggage.filter(l =>
-		// 	l.flights?.filter(f => booking.departure.find(d => d.reference == f))
-		// )
-
-		// Return luggage that has the same flights as passenger is flying with
+		// Return luggage that has the same flights as the passenger is flying with
 		const passengerDeparture = passenger.departure ? passenger.departure.map(f => f.reference) : undefined
 		const passengerReturn = passenger.return ? passenger.return.map(f => f.reference) : undefined
 		const passengerFlights =
@@ -73,12 +68,9 @@ export namespace Luggage {
 		const returns = booking.return ? booking.return.map(r => r.reference) : undefined
 		const flights = returns ? departures.concat(returns) : departures
 
-		// const luggage = passengerFlights?.map(f => booking.luggage.filter(l => l.flights?.filter(r => r == f)))
-		const luggage = booking.luggage.filter(l => l.flights?.filter(r => flights.filter(d => d == r)))
-
-		// Return luggage for this passenger
-		// return luggage.filter(l => l.flights?.filter(f => passenger.luggage?.filter(pl => pl.reference == f)))
-		return luggage
+		return booking.luggage.filter(l =>
+			flights.find(f => passengerFlights?.find(pf => l.flights?.find(r => f == r && f == pf)) && l)
+		)
 	}
 	export type Category = LuggageCategory
 	export const Category = LuggageCategory
