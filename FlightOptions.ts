@@ -31,4 +31,7 @@ export namespace FlightOptions {
 	): FlightOptions[] {
 		return flights.filter(f => passenger[direction]?.find(i => f.reference == i.reference))
 	}
+	export function availableSeats(seats: Layout.Seat.Positioned[], flightOptions: FlightOptions): FlightOptions {
+		return { ...flightOptions, seating: Layout.availableSeats(seats, flightOptions.seating) }
+	}
 }

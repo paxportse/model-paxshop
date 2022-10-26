@@ -81,10 +81,57 @@ describe("model.Layout.Row", () => {
 			},
 		],
 	}
+	const occupiedRow: model.Layout.Row = {
+		groups: [
+			{
+				seats: [
+					{
+						status: "available",
+						class: "first-class",
+						price: { amount: 400, currency: "SEK" },
+						legroom: true,
+					},
+				],
+			},
+			{
+				seats: [
+					{
+						status: "available",
+						class: "first-class",
+						price: { amount: 2346, currency: "SEK" },
+						legroom: true,
+					},
+					{
+						status: "unavailable",
+						class: "first-class",
+						price: { amount: 1337, currency: "SEK" },
+						legroom: true,
+					},
+				],
+			},
+			{
+				seats: [
+					{
+						status: "occupied",
+						class: "business",
+						price: { amount: 556, currency: "SEK" },
+						legroom: true,
+					},
+				],
+			},
+		],
+	}
 	const seat: model.Layout.Seat.Positioned = {
 		row: { number: 1 },
 		position: "A",
 		status: "available",
+		class: "business",
+		price: { amount: 400, currency: "SEK" },
+	}
+	const occupiedSeat: model.Layout.Seat.Positioned = {
+		row: { number: 1 },
+		position: "D",
+		status: "occupied",
 		class: "business",
 		price: { amount: 400, currency: "SEK" },
 	}
@@ -99,5 +146,8 @@ describe("model.Layout.Row", () => {
 	})
 	it("isAvailable, false", () => {
 		expect(Row.isAvailable(row, "C")).toEqual(false)
+	})
+	it("availableSeat", () => {
+		expect(Row.availableSeats(occupiedSeat, row)).toEqual(occupiedRow)
 	})
 })
