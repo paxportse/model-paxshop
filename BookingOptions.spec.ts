@@ -384,4 +384,4 @@ describe("model.BookingOptions", () => {
 	it("isArrayOfLuggage", () => {
 		expect(model.Luggage.isArrayOfLuggage(bookingOptions.luggage)).toEqual(true)
 	})
-}) 
+})
