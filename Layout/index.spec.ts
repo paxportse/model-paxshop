@@ -48,13 +48,13 @@ describe("model.Flight.Layout", () => {
 					{
 						status: "available",
 						class: "first-class",
-						price: { amount: 2346, currency: "SEK" },
+						price: { amount: 400, currency: "SEK" },
 						legroom: true,
 					},
 					{
 						status: "available",
 						class: "first-class",
-						price: { amount: 1337, currency: "SEK" },
+						price: { amount: 400, currency: "SEK" },
 						legroom: true,
 					},
 				],
@@ -123,7 +123,7 @@ describe("model.Flight.Layout", () => {
 	it("isAvailable, false", () => {
 		expect(model.Layout.isAvailable(layout, { ...seat, row: { number: 2 }, position: "C" })).toEqual(false)
 	})
-	it("availableSeat", () => {
-		expect(model.Layout.availableSeats(seats, layout)).toEqual(availableLayout)
+	it("setSeatStatus", () => {
+		expect(model.Layout.setSeatStatus(seats, layout)).toEqual(availableLayout)
 	})
 })

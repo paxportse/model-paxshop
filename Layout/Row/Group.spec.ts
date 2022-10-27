@@ -77,7 +77,7 @@ describe("Group", () => {
 		group,
 		{
 			...group,
-			seats: [{ status: "selected", class: "first-class", price: { amount: 3200, currency: "SEK" }, legroom: true }],
+			seats: [{ status: "selected", class: "first-class", price: { amount: 400, currency: "SEK" }, legroom: true }],
 		},
 		{
 			seats: [
@@ -121,7 +121,7 @@ describe("Group", () => {
 	it("isAvailable, false", () => {
 		expect(Group.isAvailable(groups, "C")).toEqual(false)
 	})
-	it("available seats", () => {
-		expect(Group.availableSeats({ ...seat, status: "selected" }, groups)).toEqual(updatedGroups2)
+	it("setSeatStatus", () => {
+		expect(Group.setSeatStatus({ ...seat, status: "selected" }, groups)).toEqual(updatedGroups2)
 	})
 })

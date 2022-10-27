@@ -17,8 +17,8 @@ export namespace Row {
 	export function isAvailable(row: Row, position: Seat.Position): boolean {
 		return !row.groups ? false : Group.isAvailable(row.groups, position)
 	}
-	export function availableSeats(seat: Seat.Positioned, row: Row): Row {
+	export function setSeatStatus(seat: Seat.Positioned, row: Row): Row {
 		const groups = row?.groups
-		return !groups ? row : { ...row, groups: Group.availableSeats(seat, groups) }
+		return !groups ? row : { ...row, groups: Group.setSeatStatus(seat, groups) }
 	}
 }

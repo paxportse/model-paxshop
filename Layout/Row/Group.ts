@@ -49,7 +49,7 @@ export namespace Group {
 		})
 		return seatAvailable
 	}
-	export function availableSeats(seat: Seat.Positioned, groups: (Group | undefined)[]): (Group | undefined)[] {
+	export function setSeatStatus(seat: Seat.Positioned, groups: (Group | undefined)[]): (Group | undefined)[] {
 		let index = Seat.Position.types.indexOf(seat.position)
 		let seatFound = false
 		return groups.map(g => {
@@ -58,7 +58,7 @@ export namespace Group {
 			if (seats && index < seats.length && !seatFound) {
 				seatFound = true
 				seats = [...seats]
-				seats[index] = { ...seats[index], status: seat.status } as any
+				seats[index] = { ...seats[index], status: seat.status, price: seat.price } as any
 				result = { ...g, seats }
 			} else {
 				index -= g?.seats?.length ?? 0
