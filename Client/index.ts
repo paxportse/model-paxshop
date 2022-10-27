@@ -5,7 +5,7 @@ import { Booking } from "./Booking"
 
 export class Client extends rest.Client<gracely.Error> {
 	readonly booking = new Booking(this.client)
-	static create<T extends Record<string, any> = Record<string, never>>(
+	static create<T = Record<string, any>>(
 		server: string,
 		referer?: string,
 		load?: (client: http.Client) => T
