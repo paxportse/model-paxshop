@@ -176,22 +176,22 @@ describe("model.FlightOptions", () => {
 							{
 								status: "occupied",
 								class: "first-class",
-								price: { amount: 400, offer: 50, currency: "SEK" },
+								price: { amount: 400, currency: "SEK" },
 								wide: true,
 							},
 						],
 					},
 					{
 						seats: [
-							{ status: "occupied", class: "first-class", price: { amount: 100, currency: "SEK" } },
-							{ status: "occupied", class: "first-class", price: { amount: 150, currency: "SEK" } },
-							{ status: "occupied", class: "first-class", price: { amount: 250, currency: "SEK" } },
+							{ status: "occupied", class: "first-class", price: { amount: 400, currency: "SEK" } },
+							{ status: "occupied", class: "first-class", price: { amount: 400, currency: "SEK" } },
+							{ status: "occupied", class: "first-class", price: { amount: 400, currency: "SEK" } },
 						],
 					},
 					{
 						seats: [
-							{ status: "occupied", class: "first-class", price: { amount: 350, currency: "SEK" }, legroom: true },
-							{ status: "occupied", class: "first-class", price: { amount: 1250, currency: "SEK" }, legroom: true },
+							{ status: "occupied", class: "first-class", price: { amount: 400, currency: "SEK" }, legroom: true },
+							{ status: "occupied", class: "first-class", price: { amount: 400, currency: "SEK" }, legroom: true },
 						],
 					},
 				],
@@ -205,22 +205,22 @@ describe("model.FlightOptions", () => {
 							{
 								status: "occupied",
 								class: "first-class",
-								price: { amount: 400, offer: 50, currency: "SEK" },
+								price: { amount: 400, currency: "SEK" },
 								wide: true,
 							},
 						],
 					},
 					{
 						seats: [
-							{ status: "occupied", class: "first-class", price: { amount: 100, currency: "SEK" } },
-							{ status: "occupied", class: "first-class", price: { amount: 150, currency: "SEK" } },
-							{ status: "occupied", class: "first-class", price: { amount: 250, currency: "SEK" } },
+							{ status: "occupied", class: "first-class", price: { amount: 400, currency: "SEK" } },
+							{ status: "occupied", class: "first-class", price: { amount: 400, currency: "SEK" } },
+							{ status: "occupied", class: "first-class", price: { amount: 400, currency: "SEK" } },
 						],
 					},
 					{
 						seats: [
-							{ status: "occupied", class: "first-class", price: { amount: 350, currency: "SEK" }, legroom: true },
-							{ status: "occupied", class: "first-class", price: { amount: 1250, currency: "SEK" }, legroom: true },
+							{ status: "occupied", class: "first-class", price: { amount: 400, currency: "SEK" }, legroom: true },
+							{ status: "occupied", class: "first-class", price: { amount: 400, currency: "SEK" }, legroom: true },
 						],
 					},
 				],
@@ -503,7 +503,7 @@ describe("model.FlightOptions", () => {
 	it("Get available flights, no matching flights", () => {
 		expect(model.FlightOptions.getAvailableFlights(passenger2, flights, "return")).toEqual([])
 	})
-	it("availableSeat", () => {
-		expect(model.FlightOptions.availableSeats(seats, layout)).toEqual(occupiedLayout)
+	it("setSeatStatus", () => {
+		expect(model.FlightOptions.setSeatStatus(seats, layout)).toEqual(occupiedLayout)
 	})
 })

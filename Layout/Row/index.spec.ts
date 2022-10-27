@@ -114,7 +114,7 @@ describe("model.Layout.Row", () => {
 					{
 						status: "occupied",
 						class: "business",
-						price: { amount: 556, currency: "SEK" },
+						price: { amount: 400, currency: "SEK" },
 						legroom: true,
 					},
 				],
@@ -147,7 +147,7 @@ describe("model.Layout.Row", () => {
 	it("isAvailable, false", () => {
 		expect(Row.isAvailable(row, "C")).toEqual(false)
 	})
-	it("availableSeat", () => {
-		expect(Row.availableSeats(occupiedSeat, row)).toEqual(occupiedRow)
+	it("setSeatStatus", () => {
+		expect(Row.setSeatStatus(occupiedSeat, row)).toEqual(occupiedRow)
 	})
 })

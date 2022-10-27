@@ -14,9 +14,9 @@ export namespace Layout {
 	export function isAvailable(layout: Readonly<Layout>, seat: Seat.Positioned): boolean {
 		return Row.isAvailable(layout[seat.row.number - 1], seat.position)
 	}
-	export function availableSeats(seats: Layout.Seat.Positioned[], seating: Layout): Layout {
+	export function setSeatStatus(seats: Layout.Seat.Positioned[], seating: Layout): Layout {
 		const result = [...seating]
-		seats.forEach(s => (result[s.row.number - 1] = Row.availableSeats(s, result[s.row.number - 1])))
+		seats.forEach(s => (result[s.row.number - 1] = Row.setSeatStatus(s, result[s.row.number - 1])))
 		return result
 	}
 	export type Row = LayoutRow
