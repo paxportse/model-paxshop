@@ -55,24 +55,24 @@
 	},
 	"devDependencies": {
 		"@types/jest": "^28.1.7",
-		"@typescript-eslint/eslint-plugin": "5.33.1",
-		"@typescript-eslint/parser": "5.33.1",
-		"dotenv": "^16.0.1",
-		"eslint": "^8.22.0",
-		"eslint-plugin-prettierx": "github:utily/eslint-plugin-prettierx#utily-20220323",
-		"eslint-plugin-simple-import-sort": "^7.0.0",
+		"@typescript-eslint/eslint-plugin": "5.41.0",
+		"@typescript-eslint/parser": "5.41.0",
+		"dotenv": "^16.0.3",
+		"eslint": "^8.26.0",
+		"eslint-plugin-prettierx": "github:utily/eslint-plugin-prettierx#utily-20221021",
+		"eslint-plugin-simple-import-sort": "^8.0.0",
 		"jest": "^28.1.3",
-		"prettierx": "github:utily/prettierx#utily-20220323",
+		"prettierx": "github:utily/prettierx#utily-20221021",
 		"rimraf": "^3.0.2",
 		"ts-jest": "^28.0.8",
-		"typescript": "^4.7.4"
+		"typescript": "^4.8.4"
 	},
 	"dependencies": {
 		"cloudly-http": "^0.0.50",
 		"cloudly-rest": "^0.0.15",
-		"cryptly": "^3.0.1",
+		"cryptly": "^3.0.2",
 		"gracely": "^2.0.3",
-		"isoly": "^2.0.6",
+		"isoly": "^2.0.13",
 		"isomorphic-fetch": "^3.0.0"
 	}
 }

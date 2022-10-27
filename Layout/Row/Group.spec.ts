@@ -73,6 +73,29 @@ describe("Group", () => {
 			],
 		},
 	]
+	const updatedGroups2: Group[] = [
+		group,
+		{
+			...group,
+			seats: [{ status: "selected", class: "first-class", price: { amount: 3200, currency: "SEK" }, legroom: true }],
+		},
+		{
+			seats: [
+				{
+					status: "unavailable",
+					class: "first-class",
+					price: { amount: 1337, currency: "SEK" },
+					legroom: true,
+				},
+				{
+					status: "available",
+					class: "first-class",
+					price: { amount: 8008, currency: "SEK" },
+					legroom: true,
+				},
+			],
+		},
+	]
 	const seat: model.Layout.Seat.Positioned = {
 		row: { number: 1 },
 		position: "B",
@@ -97,5 +120,8 @@ describe("Group", () => {
 	})
 	it("isAvailable, false", () => {
 		expect(Group.isAvailable(groups, "C")).toEqual(false)
+	})
+	it("available seats", () => {
+		expect(Group.availableSeats({ ...seat, status: "selected" }, groups)).toEqual(updatedGroups2)
 	})
 })

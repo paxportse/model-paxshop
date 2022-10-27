@@ -49,4 +49,22 @@ export namespace Group {
 		})
 		return seatAvailable
 	}
+	export function availableSeats(seat: Seat.Positioned, groups: (Group | undefined)[]): (Group | undefined)[] {
+		let index = Seat.Position.types.indexOf(seat.position)
+		let seatFound = false
+		return groups.map(g => {
+			let result: Group | undefined
+			let seats = g?.seats
+			if (seats && index < seats.length && !seatFound) {
+				seatFound = true
+				seats = [...seats]
+				seats[index] = { ...seats[index], status: seat.status } as any
+				result = { ...g, seats }
+			} else {
+				index -= g?.seats?.length ?? 0
+				result = g
+			}
+			return result
+		})
+	}
 }

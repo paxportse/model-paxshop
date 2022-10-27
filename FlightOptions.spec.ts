@@ -161,6 +161,85 @@ describe("model.FlightOptions", () => {
 			},
 		],
 	}
+	const occupiedLayout: model.FlightOptions = {
+		reference: "AA",
+		from: { code: "ARN", name: "Arlanda Airport" },
+		to: { code: "LHR", name: "Heathrow Airport" },
+		departure: "2022-09-28T07:22:00.000Z",
+		arrival: "2022-09-28T10:02:00.000Z",
+		seating: [
+			{
+				groups: [
+					{
+						seats: [
+							{ status: "occupied", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+							{
+								status: "occupied",
+								class: "first-class",
+								price: { amount: 400, offer: 50, currency: "SEK" },
+								wide: true,
+							},
+						],
+					},
+					{
+						seats: [
+							{ status: "occupied", class: "first-class", price: { amount: 100, currency: "SEK" } },
+							{ status: "occupied", class: "first-class", price: { amount: 150, currency: "SEK" } },
+							{ status: "occupied", class: "first-class", price: { amount: 250, currency: "SEK" } },
+						],
+					},
+					{
+						seats: [
+							{ status: "occupied", class: "first-class", price: { amount: 350, currency: "SEK" }, legroom: true },
+							{ status: "occupied", class: "first-class", price: { amount: 1250, currency: "SEK" }, legroom: true },
+						],
+					},
+				],
+				exit: false,
+			},
+			{
+				groups: [
+					{
+						seats: [
+							{ status: "occupied", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+							{
+								status: "occupied",
+								class: "first-class",
+								price: { amount: 400, offer: 50, currency: "SEK" },
+								wide: true,
+							},
+						],
+					},
+					{
+						seats: [
+							{ status: "occupied", class: "first-class", price: { amount: 100, currency: "SEK" } },
+							{ status: "occupied", class: "first-class", price: { amount: 150, currency: "SEK" } },
+							{ status: "occupied", class: "first-class", price: { amount: 250, currency: "SEK" } },
+						],
+					},
+					{
+						seats: [
+							{ status: "occupied", class: "first-class", price: { amount: 350, currency: "SEK" }, legroom: true },
+							{ status: "occupied", class: "first-class", price: { amount: 1250, currency: "SEK" }, legroom: true },
+						],
+					},
+				],
+				exit: false,
+			},
+		],
+		meals: [
+			{
+				reference: "ref-234",
+				name: "Breakfast",
+				alternatives: [{ name: "Fancy" }, { name: "Basic" }],
+			},
+			{
+				reference: "ref-754",
+				name: "Dinner",
+				alternatives: [{ name: "Chicken" }, { name: "Fish" }],
+			},
+		],
+	}
 	const flights: model.FlightOptions[] = [
 		{
 			reference: "FL-001",
@@ -369,6 +448,29 @@ describe("model.FlightOptions", () => {
 			},
 		],
 	}
+	const seat: model.Layout.Seat.Positioned = {
+		row: { number: 1 },
+		position: "A",
+		status: "occupied",
+		class: "business",
+		price: { amount: 400, currency: "SEK" },
+	}
+	const seats: model.Layout.Seat.Positioned[] = [
+		{ ...seat },
+		{ ...seat, position: "B" },
+		{ ...seat, position: "C" },
+		{ ...seat, position: "D" },
+		{ ...seat, position: "E" },
+		{ ...seat, position: "F" },
+		{ ...seat, position: "G" },
+		{ ...seat, row: { number: 2 } },
+		{ ...seat, row: { number: 2 }, position: "B" },
+		{ ...seat, row: { number: 2 }, position: "C" },
+		{ ...seat, row: { number: 2 }, position: "D" },
+		{ ...seat, row: { number: 2 }, position: "E" },
+		{ ...seat, row: { number: 2 }, position: "F" },
+		{ ...seat, row: { number: 2 }, position: "G" },
+	]
 	it("is", () => {
 		expect(model.FlightOptions.is(layout)).toEqual(true)
 	})
@@ -400,5 +502,8 @@ describe("model.FlightOptions", () => {
 	})
 	it("Get available flights, no matching flights", () => {
 		expect(model.FlightOptions.getAvailableFlights(passenger2, flights, "return")).toEqual([])
+	})
+	it("availableSeat", () => {
+		expect(model.FlightOptions.availableSeats(seats, layout)).toEqual(occupiedLayout)
 	})
 })
