@@ -33,6 +33,7 @@ Object {
               },
             ],
             "name": "Dinner",
+            "reference": "D-2",
           },
           Object {
             "alternatives": Array [
@@ -54,6 +55,7 @@ Object {
               },
             ],
             "name": "Celebration",
+            "reference": "C-2",
           },
         ],
         "reference": "FL-001",
@@ -997,6 +999,7 @@ Object {
               },
             ],
             "name": "Celebration",
+            "reference": "C-2",
           },
           Object {
             "alternatives": Array [
@@ -1018,6 +1021,7 @@ Object {
               },
             ],
             "name": "Dinner",
+            "reference": "D-2",
           },
         ],
         "reference": "FL-002",
