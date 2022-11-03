@@ -32,7 +32,7 @@ export namespace Meal {
 			passengerMeals && meal ? passengerMeals.find(m => m.reference == meal.reference) : undefined
 
 		const newMeal = existingMeal
-			? existingMeal.alternatives.map(a => a).find(a => a == alternative)
+			? existingMeal.alternatives.find(a => a == alternative)
 				? existingMeal
 				: { ...existingMeal, alternatives: [alternative] }
 			: { ...meal, alternatives: [alternative] }
