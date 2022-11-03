@@ -49,7 +49,7 @@ export namespace Meal {
 			? (passengerMeals[indexMeal] = newMeal)
 			: passengerMeals?.push(newMeal)
 
-		// Draft of "Update passenger meals with new meal object." for both select and deselect
+		// Draft of "Update passenger meals with new meal object." for both select and deselect //
 		// passengerMeals != undefined
 		// 	? indexMeal != undefined
 		// 		? newMeal.reference === existingMeal?.reference
