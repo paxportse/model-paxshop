@@ -36,27 +36,28 @@ export namespace Meal {
 
 		// Create new meal object
 		const newMeal = existingMeal
-			? existingMeal.alternatives.find(a => a == alternative)
-				? existingMeal
+			? existingMeal.alternatives.find(a => a.name == alternative.name)
+				? undefined
 				: { ...existingMeal, alternatives: [alternative] }
 			: { ...meal, alternatives: [alternative] }
 
 		// Find the index of this meal in the passenger meal array
-		const indexMeal = existingMeal ? passengerMeals?.findIndex(m => m.reference == newMeal.reference) : undefined
+		const indexMeal =
+			existingMeal && newMeal ? passengerMeals?.findIndex(m => m.reference == newMeal.reference) : undefined
 
 		// Update passenger meals with new meal object.
-		passengerMeals && passengerMeals?.length > 0 && indexMeal != undefined && indexMeal >= 0
-			? (passengerMeals[indexMeal] = newMeal)
-			: passengerMeals?.push(newMeal)
+		// passengerMeals && passengerMeals?.length > 0 && indexMeal != undefined && indexMeal >= 0
+		// 	? (passengerMeals[indexMeal] = newMeal)
+		// 	: passengerMeals?.push(newMeal)
 
-		// Draft of "Update passenger meals with new meal object." for both select and deselect //
-		// passengerMeals != undefined
-		// 	? indexMeal != undefined
-		// 		? newMeal.reference === existingMeal?.reference
-		// 			? passengerMeals?.splice(indexMeal, 1)
-		// 			: (passengerMeals[indexMeal] = newMeal)
-		// 		: passengerMeals?.push(newMeal)
-		// 	: []
+		// Draft of "Update passenger meals with new meal object." for both select and deselect
+		passengerMeals != undefined && newMeal
+			? indexMeal != undefined && newMeal
+				? newMeal.reference === existingMeal?.reference
+					? passengerMeals?.splice(indexMeal, 1)
+					: (passengerMeals[indexMeal] = newMeal)
+				: passengerMeals?.push(newMeal)
+			: []
 
 		return passengerMeals
 	}

@@ -44,7 +44,7 @@ describe("model.Flight.Meal", () => {
 		expect(model.Meal.updatePassengerMeal(meal2, alternative, [leg, leg2], 0)).toEqual([meal2])
 	})
 	// test for when deselect is working
-	// it("update passenger meal - deselect", () => {
-	// 	expect(model.Meal.updatePassengerMeal({ ...meal2 }, alternative, [leg, leg2], 1)).toEqual([undefined])
-	// })
+	it("update passenger meal - deselect", () => {
+		expect(model.Meal.updatePassengerMeal({ ...meal2 }, alternative, [leg, leg2], 1)).toEqual([undefined])
+	})
 })
