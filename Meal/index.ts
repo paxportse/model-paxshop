@@ -20,45 +20,44 @@ export namespace Meal {
 		)
 	}
 	export function updatePassengerMeal(
-		meal: Meal,
-		alternative: Meal.Alternative,
+		meal: Meal | undefined,
+		alternative: Meal.Alternative | undefined,
+		name: string,
 		flights: Itinerary,
 		index: number
 	): Meal[] | undefined {
 		const itinerary: Itinerary | undefined = { ...flights }
-		// Find passengers meal selection of current flight
-		const passengerMeals: Meal[] | undefined =
-			index != undefined && index >= 0 && itinerary ? itinerary[index].meal ?? [] : undefined
+		let passengerMeals: Meal[] | undefined
 
-		// Check if there is an existing meal
-		const existingMeal: Meal | undefined =
-			passengerMeals && meal ? passengerMeals.find(m => m.reference == meal.reference) : undefined
+		if (meal && alternative) {
+			// Find passengers meal selection of current flight
+			passengerMeals = index != undefined && index >= 0 && itinerary ? itinerary[index].meal ?? [] : undefined
 
-		// Create new meal object
-		const newMeal = existingMeal
-			? existingMeal.alternatives.find(a => a.name == alternative.name)
-				? undefined
-				: { ...existingMeal, alternatives: [alternative] }
-			: { ...meal, alternatives: [alternative] }
+			// Check if there is an existing meal
+			const existingMeal: Meal | undefined =
+				passengerMeals && meal ? passengerMeals.find(m => m.reference == meal.reference) : undefined
 
-		// Find the index of this meal in the passenger meal array
-		const indexMeal =
-			existingMeal && newMeal ? passengerMeals?.findIndex(m => m.reference == newMeal.reference) : undefined
+			// Create new meal object
+			const newMeal = existingMeal
+				? existingMeal.alternatives.find(a => a == alternative)
+					? existingMeal
+					: { ...existingMeal, alternatives: [alternative] }
+				: { ...meal, alternatives: [alternative] }
 
-		// Update passenger meals with new meal object.
-		// passengerMeals && passengerMeals?.length > 0 && indexMeal != undefined && indexMeal >= 0
-		// 	? (passengerMeals[indexMeal] = newMeal)
-		// 	: passengerMeals?.push(newMeal)
+			// Find the index of this meal in the passenger meal array
+			const indexMeal = existingMeal ? passengerMeals?.findIndex(m => m.reference == newMeal.reference) : undefined
 
-		// Draft of "Update passenger meals with new meal object." for both select and deselect
-		passengerMeals != undefined && newMeal
-			? indexMeal != undefined && newMeal
-				? newMeal.reference === existingMeal?.reference
-					? passengerMeals?.splice(indexMeal, 1)
-					: (passengerMeals[indexMeal] = newMeal)
+			// Update passenger meals with new meal object.
+			passengerMeals && passengerMeals?.length > 0 && indexMeal != undefined && indexMeal >= 0
+				? (passengerMeals[indexMeal] = newMeal)
 				: passengerMeals?.push(newMeal)
-			: []
+		} else {
+			// Find passengers meal selection of current flight
+			passengerMeals = index != undefined && index >= 0 && itinerary ? itinerary[index].meal ?? [] : undefined
+			const indexMeal = passengerMeals?.findIndex(m => m.name == name)
 
+			passengerMeals != undefined && indexMeal != undefined ? passengerMeals?.splice(indexMeal, 1) : []
+		}
 		return passengerMeals
 	}
 	export type Alternative = MealAlternative
