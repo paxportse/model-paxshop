@@ -14,14 +14,14 @@ export namespace Item {
 		return (
 			typeof value == "object" &&
 			typeof value.reference == "string" &&
-			(value.passenger == undefined || typeof value.passenger == "string") &&
+			typeof value.passenger == "string" &&
 			(value.flight == undefined || typeof value.flight == "string") &&
 			(typeof value.name == "string" ||
 				(Array.isArray(value.name) &&
 					value.name.length == 2 &&
 					value.name.every((n: string) => typeof n == "string"))) &&
 			(value.quantity == undefined || typeof value.quantity == "number") &&
-			Price.is(value.price)
+			(value.price == undefined || Price.is(value.price))
 		)
 	}
 }

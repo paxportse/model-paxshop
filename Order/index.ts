@@ -9,7 +9,9 @@ export interface Order {
 	reference?: string
 	readonly booking: Booking
 	payment?: string
-	readonly total: Price
+	readonly total?: Price
+	phone?: string
+	email?: string
 }
 export namespace Order {
 	export function is(value: Order | any): value is Order {
@@ -18,7 +20,9 @@ export namespace Order {
 			(value.reference == undefined || typeof value.reference == "string") &&
 			Booking.is(value.booking) &&
 			(value.payment == undefined || typeof value.payment == "string") &&
-			Price.is(value.total)
+			(value.total == undefined || Price.is(value.total)) &&
+			(value.phone == undefined || typeof value.phone == "string") &&
+			(value.email == undefined || typeof value.email == "string")
 		)
 	}
 	export function create(booking: Booking): Order | undefined {
