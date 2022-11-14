@@ -3,7 +3,7 @@ import { BookingOptions } from "../BookingOptions"
 import { Passenger } from "../Passenger"
 import { Price } from "../Price"
 import { Layout } from "./../Layout"
-import { Item } from "./Item"
+import { Item as OrderItem } from "./Item"
 
 export interface Order {
 	reference?: string
@@ -72,4 +72,6 @@ export namespace Order {
 				.flat(2)
 		)
 	}
+	export const Item = OrderItem
+	export type Item = OrderItem
 }
