@@ -24,16 +24,21 @@ export namespace Price {
 	 * @param prices length > 0 and same currency
 	 * @returns total price and offer and concatenated descriptions
 	 */
-	export function total(prices: Price[]): Price {
+	export function total(prices: Price[]): Price
+	export function total(prices: (Price | undefined)[]): Price | undefined
+	export function total(prices: (Price | undefined)[]): Price | undefined {
+		const pricesFiltered = prices.filter(p => p) as Price[]
 		return (({ offer, ...price }) => (offer != undefined ? { offer, ...price } : price))({
-			amount: prices.reduce((s, p) => s + p.amount, 0),
-			currency: prices[0].currency,
-			offer: prices.every(p => p.offer == undefined)
+			amount: pricesFiltered.reduce((s, p) => s + p.amount, 0),
+			currency: pricesFiltered[0].currency,
+			offer: pricesFiltered.every(p => p.offer == undefined)
 				? undefined
-				: prices.some(p => p.offer == undefined)
-				? prices.reduce((s, p) => s + amount(p), 0)
+				: pricesFiltered.some(p => p.offer == undefined)
+				? pricesFiltered.reduce((s, p) => s + amount(p), 0)
 				: undefined,
-			description: [...new Set(prices.reduce((s, p) => (p.description ? [...s, p.description] : s), []))].join("\n"),
+			description: [...new Set(pricesFiltered.reduce((s, p) => (p.description ? [...s, p.description] : s), []))].join(
+				"\n"
+			),
 		})
 	}
 	export function multiply(price: Price, quantity = 1): Price {

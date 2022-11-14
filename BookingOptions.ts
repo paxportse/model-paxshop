@@ -65,4 +65,7 @@ export namespace BookingOptions {
 		})
 		return result
 	}
+	export function getFlight(bookingOptions: BookingOptions, reference: string): FlightOptions | undefined {
+		return [...(bookingOptions.departure ?? []), ...(bookingOptions.return ?? [])].find(f => f.reference == reference)
+	}
 }
