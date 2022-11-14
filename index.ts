@@ -9,6 +9,7 @@ import { FlightOptions } from "./FlightOptions"
 import { Layout } from "./Layout"
 import { Luggage } from "./Luggage"
 import { Meal } from "./Meal"
+import { Order } from "./Order"
 import { Passenger } from "./Passenger"
 import { Itinerary } from "./Passenger/Itinerary"
 import { Price } from "./Price"
@@ -25,6 +26,7 @@ export {
 	Layout,
 	Luggage,
 	Meal,
+	Order,
 	Passenger,
 	Itinerary,
 	Price,
