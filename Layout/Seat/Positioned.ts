@@ -14,7 +14,7 @@ export namespace Positioned {
 	export function selectable(seat: Positioned, passenger: Passenger): boolean {
 		return seat.status == "available" && (passenger.ageGroup == "adult" || !seat.row.exit)
 	}
-	export function get(seat: Positioned): any {
+	export function get(seat: Positioned): [number, Position] {
 		return [seat.row.number, seat.position]
 	}
 	export function occupied(seat: Positioned, leg: Passenger.Itinerary.Leg): boolean {
