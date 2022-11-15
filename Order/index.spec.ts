@@ -322,14 +322,14 @@ describe("model.Order", () => {
 	it("create", () => {
 		expect(model.Order.create(booking)).toEqual({
 			booking: booking,
-			total: { amount: 270, currency: "EUR", description: "" },
+			total: { amount: 720, currency: "EUR", description: "" },
 		})
 	})
 	it("getItems", () => {
 		expect(model.Order.getItems(order, bookingOptions)).toEqual(items)
 	})
 	it("getTotal", () => {
-		expect(model.Order.getTotal(booking)).toEqual({ amount: 270, currency: "EUR", description: "" })
+		expect(model.Order.getTotal(booking)).toEqual({ amount: 720, currency: "EUR", description: "" })
 	})
 	it("getTotal - no selections", () => {
 		expect(model.Order.getTotal(bookingEmptyPassengerSelections)).toEqual(undefined)

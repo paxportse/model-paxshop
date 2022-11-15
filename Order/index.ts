@@ -71,8 +71,8 @@ export namespace Order {
 					...(flight.meal ?? []).map<Price | undefined>(meal => meal.alternatives[0].price),
 				]),
 				...(passenger.luggage ?? []).map<Price | undefined>(luggage =>
-					// Divide luggage price in 2 to get price per direction. REMOVE WHEN LUGGAGE IS ADDED TO FLIGHTS
-					luggage.price ? { ...luggage.price, amount: luggage.price.amount / 2 } : undefined
+					// Multiply luggage price with 2 to add price per direction. REMOVE WHEN LUGGAGE IS ADDED TO FLIGHTS
+					luggage.price ? { ...luggage.price, amount: luggage.price.amount * 2 } : undefined
 				),
 			])
 			.flat(2)
