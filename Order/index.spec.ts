@@ -63,6 +63,17 @@ describe("model.Order", () => {
 					},
 				},
 			],
+			luggage: [
+				{
+					reference: "lug-006",
+					name: "Extra Bag",
+					weight: 20,
+					direction: "roundtrip",
+					price: { amount: 300, currency: "EUR" },
+					description: "Extra bag with the maximum weight of 20kg",
+					flights: ["BLX504", "UDE342"],
+				},
+			],
 		},
 	]
 	const bookingEmptyPassengerSelections: Booking = {
@@ -293,6 +304,17 @@ describe("model.Order", () => {
 			},
 			reference: "pm-seat-ref",
 		},
+		{
+			flight: "roundtrip",
+			name: "Extra Bag",
+			passenger: "Olle Karlsson",
+			price: {
+				amount: 300,
+				currency: "EUR",
+			},
+			quantity: undefined,
+			reference: "lug-006",
+		},
 	]
 	it("is", () => {
 		expect(model.Order.is(order)).toEqual(true)
@@ -300,14 +322,14 @@ describe("model.Order", () => {
 	it("create", () => {
 		expect(model.Order.create(booking)).toEqual({
 			booking: booking,
-			total: { amount: 120, currency: "EUR", description: "" },
+			total: { amount: 270, currency: "EUR", description: "" },
 		})
 	})
 	it("getItems", () => {
 		expect(model.Order.getItems(order, bookingOptions)).toEqual(items)
 	})
 	it("getTotal", () => {
-		expect(model.Order.getTotal(booking)).toEqual({ amount: 120, currency: "EUR", description: "" })
+		expect(model.Order.getTotal(booking)).toEqual({ amount: 270, currency: "EUR", description: "" })
 	})
 	it("getTotal - no selections", () => {
 		expect(model.Order.getTotal(bookingEmptyPassengerSelections)).toEqual(undefined)
