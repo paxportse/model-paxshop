@@ -7,7 +7,7 @@ import { Item as OrderItem } from "./Item"
 
 export interface Order {
 	reference?: string
-	booking: Readonly<Booking>
+	readonly booking: Booking
 	payment?: string
 	readonly total?: Price
 	phone?: string
