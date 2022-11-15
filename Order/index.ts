@@ -26,7 +26,7 @@ export namespace Order {
 		)
 	}
 	export function create(booking: Booking): Order | undefined {
-		return { booking, total: getTotal(booking) ?? { amount: 0, currency: "XXX" } }
+		return { booking, total: getTotal(booking) ?? undefined }
 	}
 	export function getItems(order: Order, bookingOptions: BookingOptions): Item[] | undefined {
 		return order.booking.passengers
@@ -63,18 +63,17 @@ export namespace Order {
 			.flat(2)
 			.filter(item => item) as Item[]
 	}
-	function getTotal(booking: Booking): Price | undefined {
-		return Price.total(
-			booking.passengers
-				.map(passenger => [
-					...[...(passenger.departure ?? []), ...(passenger.return ?? [])].map<(Price | undefined)[]>(flight => [
-						flight.seat?.price,
-						...(flight.meal ?? []).map<Price | undefined>(meal => meal.alternatives[0].price),
-					]),
-					...(passenger.luggage ?? []).map<Price | undefined>(luggage => luggage.price),
-				])
-				.flat(2)
-		)
+	export function getTotal(booking: Booking): Price | undefined {
+		const prices: (Price | undefined)[] = booking.passengers
+			.map(passenger => [
+				...[...(passenger.departure ?? []), ...(passenger.return ?? [])].map<(Price | undefined)[]>(flight => [
+					flight.seat?.price,
+					...(flight.meal ?? []).map<Price | undefined>(meal => meal.alternatives[0].price),
+				]),
+				...(passenger.luggage ?? []).map<Price | undefined>(luggage => luggage.price),
+			])
+			.flat(2)
+		return prices.length > 0 ? Price.total(prices) : undefined
 	}
 	export const Item = OrderItem
 	export type Item = OrderItem

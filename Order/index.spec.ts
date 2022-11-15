@@ -65,6 +65,30 @@ describe("model.Order", () => {
 			],
 		},
 	]
+	const bookingEmptyPassengerSelections: Booking = {
+		reference: "AAAA12",
+		departure: "2022-12-01",
+		passengers: [
+			{
+				reference: "p-00A",
+				name: {
+					first: "Pelle",
+					last: "Karlsson",
+				},
+				ageGroup: "child",
+				departure: [
+					{
+						reference: "FL-001",
+					},
+				],
+				return: [
+					{
+						reference: "FL-002",
+					},
+				],
+			},
+		],
+	}
 	const booking: Booking = {
 		reference: "booking-01",
 		departure: "2022-12-12",
@@ -281,5 +305,11 @@ describe("model.Order", () => {
 	})
 	it("getItems", () => {
 		expect(model.Order.getItems(order, bookingOptions)).toEqual(items)
+	})
+	it("getTotal", () => {
+		expect(model.Order.getTotal(booking)).toEqual({ amount: 120, currency: "EUR", description: "" })
+	})
+	it("getTotal - no selections", () => {
+		expect(model.Order.getTotal(bookingEmptyPassengerSelections)).toEqual(undefined)
 	})
 })
