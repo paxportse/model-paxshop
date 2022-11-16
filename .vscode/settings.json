@@ -6,6 +6,7 @@
 		"CODEOWNERS": true,
 		"dist": true,
 		"LICENSE": true,
+		"node_modules": true,
 		"README.md": true,
 		"tsconfig.*": true
 	},
