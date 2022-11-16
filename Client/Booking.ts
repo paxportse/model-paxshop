@@ -12,7 +12,7 @@ export class Booking extends rest.Collection<gracely.Error> {
 		})
 	}
 	update(body: Order, specifier: BookingSpecifier): Promise<http.Response.Like | any> {
-		return this.client.put<modelBooking & { options: BookingOptions }>(`booking/${specifier.reference}`, {
+		return this.client.put<Order>(`booking/${specifier.reference}`, body, {
 			authorization: BookingSpecifier.toAuthorization(specifier),
 		})
 	}
