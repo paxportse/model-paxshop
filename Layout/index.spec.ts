@@ -61,6 +61,9 @@ describe("model.Flight.Layout", () => {
 			},
 		],
 	}
+	const rowUndefined: model.Layout.Row = {
+		groups: undefined,
+	}
 	const layout: model.Layout = [row, row]
 	const availableLayout: model.Layout = [availableRow, availableRow]
 	const updatedLayout: model.Layout = [
@@ -122,6 +125,11 @@ describe("model.Flight.Layout", () => {
 	})
 	it("isAvailable, false", () => {
 		expect(model.Layout.isAvailable(layout, { ...seat, row: { number: 2 }, position: "C" })).toEqual(false)
+	})
+	it("isAvailable, undefined row", () => {
+		expect(model.Layout.isAvailable([row, rowUndefined, row], { ...seat, row: { number: 2 }, position: "A" })).toEqual(
+			true
+		)
 	})
 	it("setSeatStatus", () => {
 		expect(model.Layout.setSeatStatus(seats, layout)).toEqual(availableLayout)
