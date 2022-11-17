@@ -124,25 +124,6 @@ describe("model.Flight.Luggage", () => {
 	}
 	const luggageArray: model.Luggage[] = [luggage, luggage]
 
-	const addedLuggage: model.Luggage = {
-		reference: "l01",
-		name: "Extra weight",
-		weight: 20,
-		direction: "departure",
-		quantity: 1,
-		price: { amount: 100, currency: "AFN" },
-		description: "Lite text",
-	}
-	const addedLuggageMore: model.Luggage = {
-		reference: "l01",
-		name: "Extra weight",
-		weight: 20,
-		direction: "departure",
-		quantity: 5,
-		price: { amount: 100, currency: "AFN" },
-		description: "Lite text",
-	}
-
 	const passenger: model.Passenger = {
 		reference: "p01",
 		name: { first: "Pelle", last: "Karlsson" },
@@ -171,7 +152,7 @@ describe("model.Flight.Luggage", () => {
 		expect(model.Luggage.isArrayOfLuggage(luggageArray)).toEqual(true)
 	})
 	it("update luggage", () => {
-		expect(model.Luggage.update(luggage, addedLuggage, passenger)).toEqual([
+		expect(model.Luggage.update(luggage, passenger, "add")).toEqual([
 			{
 				reference: "l01",
 				name: "Extra weight",
@@ -185,13 +166,13 @@ describe("model.Flight.Luggage", () => {
 		])
 	})
 	it("update luggage", () => {
-		expect(model.Luggage.update(luggage, addedLuggageMore, passenger)).toEqual([
+		expect(model.Luggage.update(luggage, passenger, "remove")).toEqual([
 			{
 				reference: "l01",
 				name: "Extra weight",
 				weight: 20,
 				direction: "departure",
-				quantity: 6,
+				quantity: 0,
 				price: { amount: 100, currency: "AFN" },
 				description: "Lite text",
 				flights: ["BLX504", "UDE342"],

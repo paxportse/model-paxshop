@@ -39,13 +39,14 @@ export namespace Luggage {
 			)
 		)
 	}
-	export function update(existingLuggage: Luggage, addedLuggage: Luggage, passenger: Passenger): Luggage[] | undefined {
-		const newQuantity =
-			existingLuggage.quantity && addedLuggage && addedLuggage.quantity
-				? existingLuggage.quantity + addedLuggage.quantity ?? 0
-				: undefined
-
-		const updatedLuggage = existingLuggage ? { ...existingLuggage, quantity: newQuantity } : undefined
+	export function update(existingLuggage: Luggage, passenger: Passenger, action: string): Luggage[] | undefined {
+		let quantity = existingLuggage ? existingLuggage.quantity : 0
+		if (action == "remove") {
+			quantity = existingLuggage && existingLuggage.quantity ? existingLuggage.quantity - 1 : 0
+		} else if (action == "add") {
+			quantity = existingLuggage && existingLuggage.quantity ? existingLuggage.quantity + 1 : 1
+		}
+		const updatedLuggage = existingLuggage ? { ...existingLuggage, quantity: quantity } : undefined
 		let passengerLuggage: Luggage[] | undefined = undefined
 
 		// Find the existing luggage on passenger and replace with updated luggage
