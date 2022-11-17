@@ -134,4 +134,7 @@ describe("model.Flight.Layout", () => {
 	it("setSeatStatus", () => {
 		expect(model.Layout.setSeatStatus(seats, layout)).toEqual(availableLayout)
 	})
+	it("rowCounter", () => {
+		expect(model.Layout.getRowNumber([row, rowUndefined, row, rowUndefined, row], 3)).toEqual(4)
+	})
 })
