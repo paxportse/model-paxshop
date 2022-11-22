@@ -10,10 +10,9 @@ export class Booking extends rest.Collection<gracely.Error> {
 		specifier: BookingSpecifier,
 		language?: string[]
 	): Promise<Readonly<modelBooking & { options: BookingOptions }> | gracely.Error> {
-		const result = language ?? ["sv-SE", "en-US"]
 		return this.client.get<modelBooking & { options: BookingOptions }>(`booking/${specifier.reference}`, {
 			authorization: BookingSpecifier.toAuthorization(specifier),
-			acceptLanguage: result,
+			acceptLanguage: language ?? ["sv-SE", "en-US"],
 		})
 	}
 	update(body: Order, specifier: BookingSpecifier): Promise<http.Response.Like | any> {
