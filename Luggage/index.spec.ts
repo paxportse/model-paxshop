@@ -124,6 +124,30 @@ describe("model.Flight.Luggage", () => {
 	}
 	const luggageArray: model.Luggage[] = [luggage, luggage]
 
+	const category: model.Luggage.Category = {
+		name: "sport",
+		description: "Some description",
+		options: [
+			{
+				reference: "l01",
+				name: "Extra weight",
+				weight: 20,
+				direction: "departure",
+				price: { amount: 100, currency: "AFN" },
+				description: "Lite text",
+			},
+			{
+				reference: "l02",
+				name: "Golf Bag",
+				weight: 20,
+				direction: "departure",
+				price: { amount: 100, currency: "AFN" },
+				description: "Lite text",
+			},
+		],
+		open: true,
+	}
+
 	const passenger: model.Passenger = {
 		reference: "p01",
 		name: { first: "Pelle", last: "Karlsson" },
@@ -147,6 +171,9 @@ describe("model.Flight.Luggage", () => {
 	})
 	it("is", () => {
 		expect(model.Luggage.is({ ...luggage, direction: "roundtrip" })).toEqual(true)
+	})
+	it("is - category fail", () => {
+		expect(model.Luggage.is(category)).toEqual(false)
 	})
 	it("isArrayOfLuggage", () => {
 		expect(model.Luggage.isArrayOfLuggage(luggageArray)).toEqual(true)

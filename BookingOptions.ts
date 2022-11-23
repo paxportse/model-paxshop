@@ -14,7 +14,7 @@ export namespace BookingOptions {
 			typeof value == "object" &&
 			value.departure.every(FlightOptions.is) &&
 			(value.return == undefined || value.return.every(FlightOptions.is)) &&
-			value.luggage.every(Luggage.is)
+			value.luggage.every((l: Luggage | Luggage.Category) => Luggage.is(l) || Luggage.Category.is(l))
 		)
 	}
 	export function reserve(bookingOptions: Readonly<BookingOptions>, booking: Readonly<Booking>): BookingOptions {

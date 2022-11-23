@@ -16,21 +16,23 @@ export interface Luggage {
 export namespace Luggage {
 	export function is(value: Luggage | any): value is Luggage {
 		return (
-			(typeof value == "object" &&
-				typeof value.reference == "string" &&
-				(value.quantity == undefined || (typeof value.quantity == "number" && value.quantity > 0)) &&
-				typeof value.name == "string" &&
-				typeof value.weight == "number" &&
-				typeof value.direction == undefined) ||
-			(("departure" || "return" || "roundtrip") &&
-				(value.price == undefined || Price.is(value.price)) &&
-				(value.description == undefined || typeof value.description == "string") &&
-				(value.flights == undefined ||
-					(Array.isArray(value.flights) && value.flights.every((f: any) => typeof f == "string"))))
+			typeof value == "object" &&
+			typeof value.reference == "string" &&
+			(value.quantity == undefined || (typeof value.quantity == "number" && value.quantity > 0)) &&
+			typeof value.name == "string" &&
+			typeof value.weight == "number" &&
+			(typeof value.direction == undefined || "departure" || "return" || "roundtrip") &&
+			(value.price == undefined || Price.is(value.price)) &&
+			(value.description == undefined || typeof value.description == "string") &&
+			(value.flights == undefined ||
+				(Array.isArray(value.flights) && value.flights.every((f: any) => typeof f == "string")))
 		)
 	}
 	export function isArrayOfLuggage(value: (Luggage | any)[]): value is Luggage[] {
-		return Array.isArray(value) && value.every(luggage => luggage == undefined || Luggage.is(luggage))
+		return (
+			Array.isArray(value) &&
+			value.every(luggage => luggage == undefined || Luggage.is(luggage) || Luggage.Category.is(luggage))
+		)
 	}
 	export function price(...luggage: Luggage[]): Price | undefined {
 		return Price.total(
