@@ -57,9 +57,11 @@ export const sv = {
 	"Select luggage": "Välj baggage",
 	"Select meal": "Välj måltid",
 	"Select seat": "Välj Säte",
+	"Select seats/luggage/meal and come back.": "Välj säten/baggage/måltid och kom tillbaka.",
 	"Summary": "Sammanfattning",
 	"Thank you for your purchase!": "Tack för ditt köp!",
 	"Total": "Total",
 	"View": "Visa",
 	"You can now check in to your flight. Do not forget to print or save your boarding card.": "Ni kan nu checka in på ert flyg. Glöm inte att skriva ut ert boardingkort."
 }
+
