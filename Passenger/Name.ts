@@ -1,11 +1,11 @@
 export interface Name {
-	title?: "Mr" | "Mrs" | "Ms" | "Dr"
+	title?: "Mr" | "Mrs" | "Miss" | "Ms" | "Dr"
 	first?: string
 	last: string
 }
 
 export namespace Name {
-	export const types = ["Mr", "Mrs", "Ms", "Dr"] as const
+	export const types = ["Mr", "Mrs", "Miss", "Ms", "Dr"] as const
 	export function is(value: Name | any): value is Name {
 		return (
 			typeof value == "object" &&

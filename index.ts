@@ -13,6 +13,7 @@ import { Order } from "./Order"
 import { Passenger } from "./Passenger"
 import { Itinerary } from "./Passenger/Itinerary"
 import { Price } from "./Price"
+import { sv } from "./translation/sv"
 
 export {
 	Airport,
@@ -30,4 +31,5 @@ export {
 	Passenger,
 	Itinerary,
 	Price,
+	sv,
 }
