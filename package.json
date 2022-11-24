@@ -73,6 +73,7 @@
 		"cryptly": "^3.0.2",
 		"gracely": "^2.0.3",
 		"isoly": "^2.0.14",
+		"langly": "2.0.3",
 		"isomorphic-fetch": "^3.0.0"
 	}
 }
