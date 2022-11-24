@@ -64,4 +64,3 @@ export const sv = {
 	"View": "Visa",
 	"You can now check in to your flight. Do not forget to print or save your boarding card.": "Ni kan nu checka in på ert flyg. Glöm inte att skriva ut ert boardingkort."
 }
-
