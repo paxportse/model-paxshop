@@ -9,7 +9,7 @@ import { Order } from "./../Order"
 export class Booking extends rest.Collection<gracely.Error> {
 	fetch(
 		specifier: BookingSpecifier,
-		language?: Locale[]
+		language?: Readonly<Locale>[]
 	): Promise<Readonly<modelBooking & { options: BookingOptions }> | gracely.Error> {
 		return this.client.get<modelBooking & { options: BookingOptions }>(`booking/${specifier.reference}`, {
 			authorization: BookingSpecifier.toAuthorization(specifier),
