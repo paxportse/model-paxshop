@@ -6,6 +6,14 @@ describe("model.Flight.Seat", () => {
 		class: "first-class",
 		price: { amount: 200, currency: "SEK" },
 		category: "green",
+		wide: true,
+		legroom: true,
+		wing: true,
+		limitedRecline: true,
+		noRecline: true,
+		window: true,
+		description: "Some information.",
+		exit: true,
 	}
 	const pricelessSeat: Seat = {
 		status: "occupied",
