@@ -504,6 +504,6 @@ describe("model.FlightOptions", () => {
 		expect(model.FlightOptions.getAvailableFlights(passenger2, flights, "return")).toEqual([])
 	})
 	it("setSeatStatus", () => {
-		expect(model.FlightOptions.setSeatStatus(seats, layout)).toEqual(occupiedLayout)
+		expect(model.FlightOptions.setSeats(layout, ...seats)).toEqual(occupiedLayout)
 	})
 })

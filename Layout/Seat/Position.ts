@@ -5,4 +5,7 @@ export namespace Position {
 	export function is(value: Position | any): value is Position {
 		return typeof value == "string" && value.length == 1 && value >= "A" && value <= "I"
 	}
+	export function index(position: Position): number {
+		return types.indexOf(position)
+	}
 }

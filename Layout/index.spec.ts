@@ -131,10 +131,10 @@ describe("model.Flight.Layout", () => {
 			true
 		)
 	})
-	it("setSeatStatus", () => {
-		expect(model.Layout.setSeatStatus(seats, layout)).toEqual(availableLayout)
+	it("setSeats", () => {
+		expect(model.Layout.setSeats(layout, ...seats)).toEqual(availableLayout)
 	})
 	it("rowCounter", () => {
-		expect(model.Layout.getRowNumber([row, rowUndefined, row, rowUndefined, row], 3)).toEqual(4)
+		expect(model.Layout.getRowIndex([row, rowUndefined, row, rowUndefined, row], 3)).toEqual(4)
 	})
 })

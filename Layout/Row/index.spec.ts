@@ -1,5 +1,5 @@
 import * as model from "../index"
-import { Row } from "."
+
 describe("model.Layout.Row", () => {
 	const row: model.Layout.Row = {
 		groups: [
@@ -142,12 +142,12 @@ describe("model.Layout.Row", () => {
 		expect(model.Layout.Row.reserve(row, seat.position)).toEqual(updatedRow)
 	})
 	it("isAvailable", () => {
-		expect(Row.isAvailable(row, seat.position)).toEqual(true)
+		expect(model.Layout.Row.isAvailable(row, seat.position)).toEqual(true)
 	})
 	it("isAvailable, false", () => {
-		expect(Row.isAvailable(row, "C")).toEqual(false)
+		expect(model.Layout.Row.isAvailable(row, "C")).toEqual(false)
 	})
-	it("setSeatStatus", () => {
-		expect(Row.setSeatStatus(occupiedSeat, row)).toEqual(occupiedRow)
+	it("setSeat", () => {
+		expect(model.Layout.Row.setSeats(row, occupiedSeat)).toEqual(occupiedRow)
 	})
 })

@@ -1,8 +1,7 @@
-import * as model from "../../Layout"
-import { Group } from "./Group"
+import * as model from "../../index"
 
 describe("Group", () => {
-	const group: Group = {
+	const group: model.Layout.Group = {
 		seats: [
 			{
 				status: "available",
@@ -12,10 +11,9 @@ describe("Group", () => {
 			},
 		],
 	}
-	const groups: Group[] = [
+	const groups: model.Layout.Group[] = [
 		group,
 		{
-			...group,
 			seats: [{ status: "available", class: "first-class", price: { amount: 3200, currency: "SEK" }, legroom: true }],
 		},
 		{
@@ -73,7 +71,7 @@ describe("Group", () => {
 			],
 		},
 	]
-	const updatedGroups2: Group[] = [
+	const updatedGroups2: model.Layout.Group[] = [
 		group,
 		{
 			...group,
@@ -104,24 +102,24 @@ describe("Group", () => {
 		price: { amount: 400, currency: "SEK" },
 	}
 	it("is", () => {
-		expect(Group.is(group)).toEqual(true)
+		expect(model.Layout.Group.is(group)).toEqual(true)
 	})
 	it("is", () => {
-		expect(Group.is(updatedGroups[0])).toEqual(true)
+		expect(model.Layout.Group.is(updatedGroups[0])).toEqual(true)
 	})
 	it("isArrayOfGroups", () => {
-		expect(Group.isArrayOfGroups(groups)).toEqual(true)
+		expect(model.Layout.Group.isArray(groups)).toEqual(true)
 	})
 	it("reserve", () => {
-		expect(Group.reserve(groups, seat.position)).toEqual(updatedGroups)
+		expect(model.Layout.Group.reserve(groups, seat.position)).toEqual(updatedGroups)
 	})
 	it("isAvailable", () => {
-		expect(Group.isAvailable(groups, seat.position)).toEqual(true)
+		expect(model.Layout.Group.isAvailable(groups, seat.position)).toEqual(true)
 	})
 	it("isAvailable, false", () => {
-		expect(Group.isAvailable(groups, "C")).toEqual(false)
+		expect(model.Layout.Group.isAvailable(groups, "C")).toEqual(false)
 	})
-	it("setSeatStatus", () => {
-		expect(Group.setSeatStatus({ ...seat, status: "selected" }, groups)).toEqual(updatedGroups2)
+	it("setSeat", () => {
+		expect(model.Layout.Group.setSeats(groups, { ...seat, status: "selected" })).toEqual(updatedGroups2)
 	})
 })
