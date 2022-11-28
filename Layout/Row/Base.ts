@@ -1,5 +1,5 @@
 // import { Base as Seat } from "../Seat/Base"
-import { Group } from "./Group"
+import { Group } from "../Group"
 
 export interface Base {
 	groups?: (Group | undefined)[]
