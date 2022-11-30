@@ -65,7 +65,7 @@ Object {
               Object {
                 "offset": Array [
                   0,
-                  0.6,
+                  0.3,
                 ],
                 "seats": Array [
                   Object {
@@ -84,7 +84,7 @@ Object {
               Object {
                 "offset": Array [
                   0,
-                  0.6,
+                  0.4,
                 ],
                 "seats": Array [
                   Object {
@@ -117,7 +117,7 @@ Object {
               Object {
                 "offset": Array [
                   0,
-                  0.6,
+                  0.5,
                 ],
                 "seats": Array [
                   Object {
@@ -171,7 +171,7 @@ Object {
               Object {
                 "offset": Array [
                   0,
-                  0.6,
+                  0.7,
                 ],
                 "seats": Array [
                   Object {
@@ -188,6 +188,10 @@ Object {
                 ],
               },
               Object {
+                "offset": Array [
+                  0,
+                  0.8,
+                ],
                 "toilet": true,
               },
             ],
@@ -1048,7 +1052,7 @@ Object {
               Object {
                 "offset": Array [
                   0,
-                  0.6,
+                  0.3,
                 ],
                 "seats": Array [
                   Object {
@@ -1133,7 +1137,93 @@ Object {
               Object {
                 "offset": Array [
                   0,
-                  0.6,
+                  0.4,
+                ],
+                "seats": Array [
+                  Object {
+                    "category": "legroom",
+                    "class": "first-class",
+                    "legroom": true,
+                    "price": Object {
+                      "amount": 400,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "category": "legroom",
+                    "class": "first-class",
+                    "legroom": true,
+                    "price": Object {
+                      "amount": 400,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                    "window": true,
+                  },
+                ],
+              },
+            ],
+          },
+          Object {
+            "groups": Array [
+              Object {
+                "seats": Array [
+                  Object {
+                    "category": "wide",
+                    "class": "first-class",
+                    "price": Object {
+                      "amount": 400,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                    "wide": true,
+                    "window": true,
+                  },
+                  Object {
+                    "category": "wide",
+                    "class": "first-class",
+                    "price": Object {
+                      "amount": 400,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                    "wide": true,
+                  },
+                ],
+              },
+              Object {
+                "seats": Array [
+                  Object {
+                    "class": "first-class",
+                    "price": Object {
+                      "amount": 400,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "first-class",
+                    "price": Object {
+                      "amount": 400,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "class": "first-class",
+                    "price": Object {
+                      "amount": 400,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+              Object {
+                "offset": Array [
+                  0,
+                  0.5,
                 ],
                 "seats": Array [
                   Object {
@@ -1305,7 +1395,7 @@ Object {
               Object {
                 "offset": Array [
                   0,
-                  0.6,
+                  0.7,
                 ],
                 "seats": Array [
                   Object {
@@ -1391,93 +1481,7 @@ Object {
               Object {
                 "offset": Array [
                   0,
-                  0.6,
-                ],
-                "seats": Array [
-                  Object {
-                    "category": "legroom",
-                    "class": "first-class",
-                    "legroom": true,
-                    "price": Object {
-                      "amount": 400,
-                      "currency": "SEK",
-                    },
-                    "status": "available",
-                  },
-                  Object {
-                    "category": "legroom",
-                    "class": "first-class",
-                    "legroom": true,
-                    "price": Object {
-                      "amount": 400,
-                      "currency": "SEK",
-                    },
-                    "status": "available",
-                    "window": true,
-                  },
-                ],
-              },
-            ],
-          },
-          Object {
-            "groups": Array [
-              Object {
-                "seats": Array [
-                  Object {
-                    "category": "wide",
-                    "class": "first-class",
-                    "price": Object {
-                      "amount": 400,
-                      "currency": "SEK",
-                    },
-                    "status": "available",
-                    "wide": true,
-                    "window": true,
-                  },
-                  Object {
-                    "category": "wide",
-                    "class": "first-class",
-                    "price": Object {
-                      "amount": 400,
-                      "currency": "SEK",
-                    },
-                    "status": "available",
-                    "wide": true,
-                  },
-                ],
-              },
-              Object {
-                "seats": Array [
-                  Object {
-                    "class": "first-class",
-                    "price": Object {
-                      "amount": 400,
-                      "currency": "SEK",
-                    },
-                    "status": "available",
-                  },
-                  Object {
-                    "class": "first-class",
-                    "price": Object {
-                      "amount": 400,
-                      "currency": "SEK",
-                    },
-                    "status": "available",
-                  },
-                  Object {
-                    "class": "first-class",
-                    "price": Object {
-                      "amount": 400,
-                      "currency": "SEK",
-                    },
-                    "status": "available",
-                  },
-                ],
-              },
-              Object {
-                "offset": Array [
-                  0,
-                  0.6,
+                  0.8,
                 ],
                 "seats": Array [
                   Object {
@@ -1509,75 +1513,47 @@ Object {
           },
           Object {
             "groups": Array [
-              Object {
-                "seats": Array [
-                  Object {
-                    "category": "exit-wide",
-                    "class": "first-class",
-                    "description": "For everyone's safety, a person which is disabled, pregnant or under the age of 12 cannot be seated on a row with an emergency exit.",
-                    "noRecline": true,
-                    "price": Object {
-                      "amount": 400,
-                      "currency": "SEK",
-                    },
-                    "status": "available",
-                    "wide": true,
-                    "window": true,
-                  },
-                  Object {
-                    "category": "exit-wide",
-                    "class": "first-class",
-                    "description": "For everyone's safety, a person which is disabled, pregnant or under the age of 12 cannot be seated on a row with an emergency exit.",
-                    "noRecline": true,
-                    "price": Object {
-                      "amount": 400,
-                      "currency": "SEK",
-                    },
-                    "status": "available",
-                    "wide": true,
-                  },
-                ],
-              },
-              Object {
-                "seats": Array [
-                  Object {
-                    "category": "exit",
-                    "class": "first-class",
-                    "description": "For everyone's safety, a person which is disabled, pregnant or under the age of 12 cannot be seated on a row with an emergency exit.",
-                    "noRecline": true,
-                    "price": Object {
-                      "amount": 400,
-                      "currency": "SEK",
-                    },
-                    "status": "available",
-                  },
-                  Object {
-                    "category": "exit",
-                    "class": "first-class",
-                    "description": "For everyone's safety, a person which is disabled, pregnant or under the age of 12 cannot be seated on a row with an emergency exit.",
-                    "noRecline": true,
-                    "price": Object {
-                      "amount": 400,
-                      "currency": "SEK",
-                    },
-                    "status": "available",
-                  },
-                  Object {
-                    "category": "exit",
-                    "class": "first-class",
-                    "description": "For everyone's safety, a person which is disabled, pregnant or under the age of 12 cannot be seated on a row with an emergency exit.",
-                    "noRecline": true,
-                    "price": Object {
-                      "amount": 400,
-                      "currency": "SEK",
-                    },
-                    "status": "available",
-                  },
-                ],
-              },
               Object {
                 "toilet": true,
               },
+              Object {
+                "seats": Array [
+                  Object {
+                    "category": "exit",
+                    "class": "first-class",
+                    "description": "For everyone's safety, a person which is disabled, pregnant or under the age of 12 cannot be seated on a row with an emergency exit.",
+                    "noRecline": true,
+                    "price": Object {
+                      "amount": 400,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "category": "exit",
+                    "class": "first-class",
+                    "description": "For everyone's safety, a person which is disabled, pregnant or under the age of 12 cannot be seated on a row with an emergency exit.",
+                    "noRecline": true,
+                    "price": Object {
+                      "amount": 400,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                  Object {
+                    "category": "exit",
+                    "class": "first-class",
+                    "description": "For everyone's safety, a person which is disabled, pregnant or under the age of 12 cannot be seated on a row with an emergency exit.",
+                    "noRecline": true,
+                    "price": Object {
+                      "amount": 400,
+                      "currency": "SEK",
+                    },
+                    "status": "available",
+                  },
+                ],
+              },
+              null,
             ],
           },
           Object {

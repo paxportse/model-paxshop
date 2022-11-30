@@ -106,10 +106,19 @@ describe("model.Passenger", () => {
 				groups: [
 					{
 						seats: [
-							{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
 							{
 								status: "available",
 								class: "first-class",
+								row: { number: 1 },
+								position: "A",
+								price: { amount: 400, currency: "SEK" },
+								wide: true,
+							},
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 1 },
+								position: "B",
 								price: { amount: 400, offer: 50, currency: "SEK" },
 								wide: true,
 							},
@@ -117,15 +126,47 @@ describe("model.Passenger", () => {
 					},
 					{
 						seats: [
-							{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } },
-							{ status: "available", class: "first-class", price: { amount: 150, currency: "SEK" } },
-							{ status: "available", class: "first-class", price: { amount: 250, currency: "SEK" } },
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 1 },
+								position: "B",
+								price: { amount: 100, currency: "SEK" },
+							},
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 1 },
+								position: "C",
+								price: { amount: 150, currency: "SEK" },
+							},
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 1 },
+								position: "D",
+								price: { amount: 250, currency: "SEK" },
+							},
 						],
 					},
 					{
 						seats: [
-							{ status: "available", class: "first-class", price: { amount: 350, currency: "SEK" }, legroom: true },
-							{ status: "available", class: "first-class", price: { amount: 1250, currency: "SEK" }, legroom: true },
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 1 },
+								position: "E",
+								price: { amount: 350, currency: "SEK" },
+								legroom: true,
+							},
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 1 },
+								position: "F",
+								price: { amount: 1250, currency: "SEK" },
+								legroom: true,
+							},
 						],
 					},
 				],
@@ -135,10 +176,19 @@ describe("model.Passenger", () => {
 				groups: [
 					{
 						seats: [
-							{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
 							{
 								status: "available",
 								class: "first-class",
+								row: { number: 2 },
+								position: "A",
+								price: { amount: 400, currency: "SEK" },
+								wide: true,
+							},
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 2 },
+								position: "B",
 								price: { amount: 400, offer: 50, currency: "SEK" },
 								wide: true,
 							},
@@ -146,17 +196,44 @@ describe("model.Passenger", () => {
 					},
 					{
 						seats: [
-							{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } },
-							{ status: "available", class: "first-class", price: { amount: 150, currency: "SEK" } },
-							{ status: "available", class: "first-class", price: { amount: 250, currency: "SEK" } },
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 2 },
+								position: "C",
+								price: { amount: 100, currency: "SEK" },
+							},
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 2 },
+								position: "D",
+								price: { amount: 150, currency: "SEK" },
+							},
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 2 },
+								position: "E",
+								price: { amount: 250, currency: "SEK" },
+							},
 						],
 					},
 					{
 						seats: [
-							{ status: "available", class: "first-class", price: { amount: 350, currency: "SEK" }, legroom: true },
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 2 },
+								position: "F",
+								price: { amount: 350, currency: "SEK" },
+								legroom: true,
+							},
 							{
 								status: "unavailable",
 								class: "first-class",
+								row: { number: 2 },
+								position: "G",
 								price: { amount: 1250, currency: "SEK" },
 								legroom: true,
 							},
@@ -191,10 +268,19 @@ describe("model.Passenger", () => {
 				groups: [
 					{
 						seats: [
-							{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
 							{
 								status: "available",
 								class: "first-class",
+								row: { number: 1 },
+								position: "A",
+								price: { amount: 400, currency: "SEK" },
+								wide: true,
+							},
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 1 },
+								position: "B",
 								price: { amount: 400, offer: 50, currency: "SEK" },
 								wide: true,
 							},
@@ -202,15 +288,47 @@ describe("model.Passenger", () => {
 					},
 					{
 						seats: [
-							{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } },
-							{ status: "available", class: "first-class", price: { amount: 150, currency: "SEK" } },
-							{ status: "available", class: "first-class", price: { amount: 250, currency: "SEK" } },
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 1 },
+								position: "C",
+								price: { amount: 100, currency: "SEK" },
+							},
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 1 },
+								position: "D",
+								price: { amount: 150, currency: "SEK" },
+							},
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 1 },
+								position: "E",
+								price: { amount: 250, currency: "SEK" },
+							},
 						],
 					},
 					{
 						seats: [
-							{ status: "available", class: "first-class", price: { amount: 350, currency: "SEK" }, legroom: true },
-							{ status: "available", class: "first-class", price: { amount: 1250, currency: "SEK" }, legroom: true },
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 1 },
+								position: "F",
+								price: { amount: 350, currency: "SEK" },
+								legroom: true,
+							},
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 1 },
+								position: "G",
+								price: { amount: 1250, currency: "SEK" },
+								legroom: true,
+							},
 						],
 					},
 				],
@@ -220,10 +338,19 @@ describe("model.Passenger", () => {
 				groups: [
 					{
 						seats: [
-							{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
 							{
 								status: "available",
 								class: "first-class",
+								row: { number: 2 },
+								position: "A",
+								price: { amount: 400, currency: "SEK" },
+								wide: true,
+							},
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 2 },
+								position: "B",
 								price: { amount: 400, offer: 50, currency: "SEK" },
 								wide: true,
 							},
@@ -231,17 +358,44 @@ describe("model.Passenger", () => {
 					},
 					{
 						seats: [
-							{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } },
-							{ status: "available", class: "first-class", price: { amount: 150, currency: "SEK" } },
-							{ status: "available", class: "first-class", price: { amount: 250, currency: "SEK" } },
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 2 },
+								position: "C",
+								price: { amount: 100, currency: "SEK" },
+							},
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 2 },
+								position: "D",
+								price: { amount: 150, currency: "SEK" },
+							},
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 2 },
+								position: "E",
+								price: { amount: 250, currency: "SEK" },
+							},
 						],
 					},
 					{
 						seats: [
-							{ status: "available", class: "first-class", price: { amount: 350, currency: "SEK" }, legroom: true },
+							{
+								status: "available",
+								class: "first-class",
+								row: { number: 2 },
+								position: "F",
+								price: { amount: 350, currency: "SEK" },
+								legroom: true,
+							},
 							{
 								status: "unavailable",
 								class: "first-class",
+								row: { number: 2 },
+								position: "G",
 								price: { amount: 1250, currency: "SEK" },
 								legroom: true,
 							},
@@ -276,11 +430,26 @@ describe("model.Passenger", () => {
 					groups: [
 						{
 							seats: [
-								{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+								{
+									status: "available",
+									class: "first-class",
+									row: { number: 1 },
+									position: "A",
+									price: { amount: 400, currency: "SEK" },
+									wide: true,
+								},
 							],
 						},
 						{
-							seats: [{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } }],
+							seats: [
+								{
+									status: "available",
+									class: "first-class",
+									row: { number: 1 },
+									position: "B",
+									price: { amount: 100, currency: "SEK" },
+								},
+							],
 						},
 					],
 				},
@@ -288,11 +457,26 @@ describe("model.Passenger", () => {
 					groups: [
 						{
 							seats: [
-								{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+								{
+									status: "available",
+									class: "first-class",
+									row: { number: 2 },
+									position: "A",
+									price: { amount: 400, currency: "SEK" },
+									wide: true,
+								},
 							],
 						},
 						{
-							seats: [{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } }],
+							seats: [
+								{
+									status: "available",
+									class: "first-class",
+									row: { number: 2 },
+									position: "B",
+									price: { amount: 100, currency: "SEK" },
+								},
+							],
 						},
 					],
 				},
@@ -321,11 +505,26 @@ describe("model.Passenger", () => {
 					groups: [
 						{
 							seats: [
-								{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+								{
+									status: "available",
+									class: "first-class",
+									row: { number: 1 },
+									position: "A",
+									price: { amount: 400, currency: "SEK" },
+									wide: true,
+								},
 							],
 						},
 						{
-							seats: [{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } }],
+							seats: [
+								{
+									status: "available",
+									class: "first-class",
+									row: { number: 1 },
+									position: "B",
+									price: { amount: 100, currency: "SEK" },
+								},
+							],
 						},
 					],
 				},
@@ -333,11 +532,26 @@ describe("model.Passenger", () => {
 					groups: [
 						{
 							seats: [
-								{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+								{
+									status: "available",
+									class: "first-class",
+									row: { number: 2 },
+									position: "A",
+									price: { amount: 400, currency: "SEK" },
+									wide: true,
+								},
 							],
 						},
 						{
-							seats: [{ status: "available", class: "first-class", price: { amount: 100, currency: "SEK" } }],
+							seats: [
+								{
+									status: "available",
+									class: "first-class",
+									row: { number: 2 },
+									position: "B",
+									price: { amount: 100, currency: "SEK" },
+								},
+							],
 						},
 					],
 				},
@@ -405,7 +619,7 @@ describe("model.Passenger", () => {
 		})
 	})
 	it("update seat", () => {
-		const seat: model.Layout.Seat.Positioned = {
+		const seat: model.Layout.Seat = {
 			row: { number: 1 },
 			position: "H",
 			status: "occupied",

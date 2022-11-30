@@ -25,8 +25,21 @@ describe("model.Flight.Luggage", () => {
 						groups: [
 							{
 								seats: [
-									{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" } },
-									{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+									{
+										status: "available",
+										class: "first-class",
+										row: { number: 1 },
+										position: "A",
+										price: { amount: 400, currency: "SEK" },
+									},
+									{
+										status: "available",
+										class: "first-class",
+										row: { number: 1 },
+										position: "B",
+										price: { amount: 400, currency: "SEK" },
+										wide: true,
+									},
 								],
 							},
 						],
@@ -57,8 +70,21 @@ describe("model.Flight.Luggage", () => {
 						groups: [
 							{
 								seats: [
-									{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK", offer: 200 } },
-									{ status: "available", class: "first-class", price: { amount: 400, currency: "SEK" }, wide: true },
+									{
+										status: "available",
+										class: "first-class",
+										row: { number: 1 },
+										position: "A",
+										price: { amount: 400, currency: "SEK", offer: 200 },
+									},
+									{
+										status: "available",
+										class: "first-class",
+										row: { number: 1 },
+										position: "B",
+										price: { amount: 400, currency: "SEK" },
+										wide: true,
+									},
 								],
 							},
 						],
