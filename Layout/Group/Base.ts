@@ -6,7 +6,9 @@ export namespace Base {
 		return (
 			typeof value == "object" &&
 			(value.offset == undefined ||
-				(Array.isArray(value.offset) && value.length == 2 && value.offset.every((v: any) => typeof v == "number")))
+				(Array.isArray(value.offset) &&
+					value.offset.length == 2 &&
+					value.offset.every((v: any) => typeof v == "number")))
 		)
 	}
 }

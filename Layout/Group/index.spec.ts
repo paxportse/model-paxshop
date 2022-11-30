@@ -102,7 +102,7 @@ describe("Group", () => {
 		price: { amount: 400, currency: "SEK" },
 	}
 	it("is", () => {
-		expect(model.Layout.Group.is(group)).toEqual(true)
+		expect(model.Layout.Group.is({ ...group, offset: [1, 1] })).toEqual(true)
 	})
 	it("is", () => {
 		expect(model.Layout.Group.is(updatedGroups[0])).toEqual(true)
