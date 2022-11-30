@@ -7,17 +7,17 @@ export namespace Layout {
 	export function is(value: Layout | any): value is Layout {
 		return Array.isArray(value) && value.every(Row.is)
 	}
-	export function reserve(layout: Readonly<Layout>, seat: Seat.Positioned): Layout {
+	export function reserve(layout: Readonly<Layout>, seat: Seat): Layout {
 		const row = getRowIndex([...layout], seat.row.number)
 		const result: Layout = [...layout]
 		result[row] = Row.reserve(result[row], seat.position)
 		return result
 	}
-	export function isAvailable(layout: Readonly<Layout>, seat: Seat.Positioned): boolean {
+	export function isAvailable(layout: Readonly<Layout>, seat: Seat): boolean {
 		return Row.isAvailable(layout[getRowIndex([...layout], seat.row.number)], seat.position)
 	}
-	export function setSeats(layout: Readonly<Layout>, ...seats: Layout.Seat.Positioned[]): Layout {
-		const seatsByRow: Record<number, Seat.Positioned[] | undefined> = {}
+	export function setSeats(layout: Readonly<Layout>, ...seats: Layout.Seat[]): Layout {
+		const seatsByRow: Record<number, Seat[] | undefined> = {}
 		seats
 			.map(s => [getRowIndex(layout, s.row.number), s] as const)
 			.forEach(([index, s]) => (seatsByRow[index] = [...(seatsByRow[index] ?? []), s]))
@@ -37,7 +37,6 @@ export namespace Layout {
 	export const Group = LayoutGroup
 	export namespace Seat {
 		export type Position = LayoutSeat.Position
-		export type Positioned = LayoutSeat.Positioned
 		export type Status = LayoutSeat.Status
 		export type Class = LayoutSeat.Class
 	}

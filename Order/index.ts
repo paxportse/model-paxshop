@@ -39,7 +39,7 @@ export namespace Order {
 							reference: "pm-seat-ref",
 							passenger: Passenger.Name.format(passenger.name),
 							flight: flightName,
-							name: Layout.Seat.Positioned.get(flight.seat).join(""),
+							name: Layout.Seat.get(flight.seat).join(""),
 							price: flight.seat?.price,
 						},
 						...(flight.meal ?? []).map<Item | undefined>(meal => ({
