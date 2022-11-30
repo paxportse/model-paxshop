@@ -8,6 +8,8 @@ describe("model.Flight.Layout", () => {
 					{
 						status: "available",
 						class: "first-class",
+						position: "A",
+						row: { number: 1 },
 						price: { amount: 400, currency: "SEK" },
 						legroom: true,
 					},
@@ -18,12 +20,52 @@ describe("model.Flight.Layout", () => {
 					{
 						status: "available",
 						class: "first-class",
+						position: "B",
+						row: { number: 1 },
 						price: { amount: 2346, currency: "SEK" },
 						legroom: true,
 					},
 					{
 						status: "unavailable",
 						class: "first-class",
+						position: "C",
+						row: { number: 1 },
+						price: { amount: 1337, currency: "SEK" },
+						legroom: true,
+					},
+				],
+			},
+		],
+	}
+	const row2: model.Layout.Row = {
+		groups: [
+			{
+				seats: [
+					{
+						status: "available",
+						class: "first-class",
+						position: "A",
+						row: { number: 2 },
+						price: { amount: 400, currency: "SEK" },
+						legroom: true,
+					},
+				],
+			},
+			{
+				seats: [
+					{
+						status: "available",
+						class: "first-class",
+						position: "B",
+						row: { number: 2 },
+						price: { amount: 2346, currency: "SEK" },
+						legroom: true,
+					},
+					{
+						status: "unavailable",
+						class: "first-class",
+						position: "C",
+						row: { number: 2 },
 						price: { amount: 1337, currency: "SEK" },
 						legroom: true,
 					},
@@ -38,6 +80,8 @@ describe("model.Flight.Layout", () => {
 					{
 						status: "available",
 						class: "first-class",
+						position: "A",
+						row: { number: 1 },
 						price: { amount: 400, currency: "SEK" },
 						legroom: true,
 					},
@@ -48,12 +92,52 @@ describe("model.Flight.Layout", () => {
 					{
 						status: "available",
 						class: "first-class",
+						position: "B",
+						row: { number: 1 },
 						price: { amount: 400, currency: "SEK" },
 						legroom: true,
 					},
 					{
 						status: "available",
 						class: "first-class",
+						position: "C",
+						row: { number: 1 },
+						price: { amount: 400, currency: "SEK" },
+						legroom: true,
+					},
+				],
+			},
+		],
+	}
+	const availableRow2: model.Layout.Row = {
+		groups: [
+			{
+				seats: [
+					{
+						status: "available",
+						class: "first-class",
+						position: "A",
+						row: { number: 2 },
+						price: { amount: 400, currency: "SEK" },
+						legroom: true,
+					},
+				],
+			},
+			{
+				seats: [
+					{
+						status: "available",
+						class: "first-class",
+						position: "B",
+						row: { number: 2 },
+						price: { amount: 400, currency: "SEK" },
+						legroom: true,
+					},
+					{
+						status: "available",
+						class: "first-class",
+						position: "C",
+						row: { number: 2 },
 						price: { amount: 400, currency: "SEK" },
 						legroom: true,
 					},
@@ -64,8 +148,8 @@ describe("model.Flight.Layout", () => {
 	const rowUndefined: model.Layout.Row = {
 		groups: undefined,
 	}
-	const layout: model.Layout = [row, row]
-	const availableLayout: model.Layout = [availableRow, availableRow]
+	const layout: model.Layout = [row, row2]
+	const availableLayout: model.Layout = [availableRow, availableRow2]
 	const updatedLayout: model.Layout = [
 		{
 			groups: [
@@ -74,6 +158,8 @@ describe("model.Flight.Layout", () => {
 						{
 							status: "unavailable",
 							class: "first-class",
+							position: "A",
+							row: { number: 1 },
 							price: { amount: 400, currency: "SEK" },
 							legroom: true,
 						},
@@ -84,12 +170,16 @@ describe("model.Flight.Layout", () => {
 						{
 							status: "available",
 							class: "first-class",
+							position: "B",
+							row: { number: 1 },
 							price: { amount: 2346, currency: "SEK" },
 							legroom: true,
 						},
 						{
 							status: "unavailable",
 							class: "first-class",
+							position: "C",
+							row: { number: 1 },
 							price: { amount: 1337, currency: "SEK" },
 							legroom: true,
 						},
@@ -97,16 +187,16 @@ describe("model.Flight.Layout", () => {
 				},
 			],
 		},
-		row,
+		row2,
 	]
-	const seat: model.Layout.Seat.Positioned = {
+	const seat: model.Layout.Seat = {
 		row: { number: 1 },
 		position: "A",
 		status: "available",
 		class: "business",
 		price: { amount: 400, currency: "SEK" },
 	}
-	const seats: model.Layout.Seat.Positioned[] = [
+	const seats: model.Layout.Seat[] = [
 		{ ...seat },
 		{ ...seat, position: "B" },
 		{ ...seat, position: "C" },

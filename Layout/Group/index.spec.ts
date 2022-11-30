@@ -6,6 +6,8 @@ describe("Group", () => {
 			{
 				status: "available",
 				class: "first-class",
+				position: "A",
+				row: { number: 1 },
 				price: { amount: 400, currency: "SEK" },
 				legroom: true,
 			},
@@ -14,19 +16,32 @@ describe("Group", () => {
 	const groups: model.Layout.Group[] = [
 		group,
 		{
-			seats: [{ status: "available", class: "first-class", price: { amount: 3200, currency: "SEK" }, legroom: true }],
+			seats: [
+				{
+					status: "available",
+					class: "first-class",
+					position: "B",
+					row: { number: 1 },
+					price: { amount: 3200, currency: "SEK" },
+					legroom: true,
+				},
+			],
 		},
 		{
 			seats: [
 				{
 					status: "unavailable",
 					class: "first-class",
+					position: "C",
+					row: { number: 1 },
 					price: { amount: 1337, currency: "SEK" },
 					legroom: true,
 				},
 				{
 					status: "available",
 					class: "first-class",
+					position: "D",
+					row: { number: 1 },
 					price: { amount: 8008, currency: "SEK" },
 					legroom: true,
 				},
@@ -39,6 +54,8 @@ describe("Group", () => {
 				{
 					status: "available",
 					class: "first-class",
+					position: "A",
+					row: { number: 1 },
 					price: { amount: 400, currency: "SEK" },
 					legroom: true,
 				},
@@ -49,6 +66,8 @@ describe("Group", () => {
 				{
 					status: "unavailable",
 					class: "first-class",
+					position: "B",
+					row: { number: 1 },
 					price: { amount: 3200, currency: "SEK" },
 					legroom: true,
 				},
@@ -59,12 +78,16 @@ describe("Group", () => {
 				{
 					status: "unavailable",
 					class: "first-class",
+					position: "C",
+					row: { number: 1 },
 					price: { amount: 1337, currency: "SEK" },
 					legroom: true,
 				},
 				{
 					status: "available",
 					class: "first-class",
+					position: "D",
+					row: { number: 1 },
 					price: { amount: 8008, currency: "SEK" },
 					legroom: true,
 				},
@@ -75,26 +98,39 @@ describe("Group", () => {
 		group,
 		{
 			...group,
-			seats: [{ status: "selected", class: "first-class", price: { amount: 400, currency: "SEK" }, legroom: true }],
+			seats: [
+				{
+					status: "selected",
+					class: "first-class",
+					position: "B",
+					row: { number: 1 },
+					price: { amount: 400, currency: "SEK" },
+					legroom: true,
+				},
+			],
 		},
 		{
 			seats: [
 				{
 					status: "unavailable",
 					class: "first-class",
+					position: "C",
+					row: { number: 1 },
 					price: { amount: 1337, currency: "SEK" },
 					legroom: true,
 				},
 				{
 					status: "available",
 					class: "first-class",
+					position: "D",
+					row: { number: 1 },
 					price: { amount: 8008, currency: "SEK" },
 					legroom: true,
 				},
 			],
 		},
 	]
-	const seat: model.Layout.Seat.Positioned = {
+	const seat: model.Layout.Seat = {
 		row: { number: 1 },
 		position: "B",
 		status: "available",

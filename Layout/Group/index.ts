@@ -43,7 +43,7 @@ export namespace Group {
 		})
 		return result
 	}
-	export function setSeats(groups: (Group | undefined)[], seat: Seat.Positioned): (Group | undefined)[] {
+	export function setSeats(groups: (Group | undefined)[], seat: Seat): (Group | undefined)[] {
 		let index = Seat.Position.index(seat.position)
 		return groups.map(g => {
 			let result = g

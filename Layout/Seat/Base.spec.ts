@@ -1,9 +1,11 @@
-import { Base as Seat } from "./Base"
+import * as model from "../../index"
 
 describe("model.Flight.Seat", () => {
-	const seat: Seat = {
+	const seat: model.Layout.Seat = {
 		status: "occupied",
 		class: "first-class",
+		position: "D",
+		row: { number: 3 },
 		price: { amount: 200, currency: "SEK" },
 		category: "green",
 		wide: true,
@@ -15,18 +17,20 @@ describe("model.Flight.Seat", () => {
 		description: "Some information.",
 		exit: true,
 	}
-	const pricelessSeat: Seat = {
+	const pricelessSeat: model.Layout.Seat = {
 		status: "occupied",
 		class: "first-class",
+		row: { number: 1 },
+		position: "D",
 		category: "green",
 	}
 	it("is", () => {
-		expect(Seat.is(seat)).toEqual(true)
+		expect(model.Layout.Seat.is(seat)).toEqual(true)
 	})
 	it("is - priceless", () => {
-		expect(Seat.is(pricelessSeat)).toEqual(true)
+		expect(model.Layout.Seat.is(pricelessSeat)).toEqual(true)
 	})
 	it("is not", () => {
-		expect(Seat.is({ ...seat, category: 2 })).toEqual(false)
+		expect(model.Layout.Seat.is({ ...seat, category: 2 })).toEqual(false)
 	})
 })

@@ -1,4 +1,3 @@
-// import { Base as Seat } from "../Seat/Base"
 import { Group } from "../Group"
 
 export interface Base {
@@ -12,7 +11,7 @@ export namespace Base {
 		return (
 			typeof value == "object" &&
 			(value.groups == undefined ||
-				(Array.isArray(value.groups) && value.groups.every((group: any) => Group.is(group)))) &&
+				(Array.isArray(value.groups) && value.groups.every((group: any) => group == undefined || Group.is(group)))) &&
 			(value.exit == undefined || typeof value.exit == "boolean") &&
 			(value.wing == undefined || typeof value.wing == "boolean") &&
 			(value.toilet == undefined || typeof value.toilet == "boolean")
