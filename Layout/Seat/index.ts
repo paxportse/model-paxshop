@@ -8,6 +8,8 @@ export type Seat = Base
 export namespace Seat {
 	export const is = Base.is
 	export const get = Base.get
+	export const selectable = Base.selectable
+	export const chosen = Base.chosen
 	export type Position = SeatPosition
 	export const Position = SeatPosition
 	export type Status = SeatStatus

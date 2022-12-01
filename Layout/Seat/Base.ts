@@ -48,4 +48,9 @@ export namespace Base {
 	export function get(seat: Base): [number, Position] {
 		return [seat.row.number, seat.position]
 	}
+	export function chosen(seat: Base, leg: Passenger.Itinerary.Leg): boolean {
+		const seatNumber = get(seat)
+		const seatPassenger = leg.seat ? get(leg.seat) : undefined
+		return seatPassenger ? seatNumber[0] == seatPassenger[0] && seatNumber[1] == seatPassenger[1] : false
+	}
 }

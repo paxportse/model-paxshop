@@ -24,6 +24,17 @@ describe("model.Flight.Seat", () => {
 		position: "D",
 		category: "green",
 	}
+
+	const leg: model.Passenger.Itinerary.Leg = {
+		reference: "leg01",
+		seat: {
+			row: { number: 3 },
+			position: "D",
+			status: "available",
+			class: "business",
+			price: { amount: 200, currency: "SEK" },
+		},
+	}
 	it("is", () => {
 		expect(model.Layout.Seat.is(seat)).toEqual(true)
 	})
@@ -32,5 +43,11 @@ describe("model.Flight.Seat", () => {
 	})
 	it("is not", () => {
 		expect(model.Layout.Seat.is({ ...seat, category: 2 })).toEqual(false)
+	})
+	it("chosen by", () => {
+		expect(model.Layout.Seat.chosen(seat, leg)).toEqual(true)
+	})
+	it("not chosen by", () => {
+		expect(model.Layout.Seat.chosen(seat, { ...leg, seat: { ...seat, position: "A" } })).toEqual(false)
 	})
 })
