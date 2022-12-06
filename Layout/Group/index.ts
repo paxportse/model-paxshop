@@ -34,7 +34,7 @@ export namespace Group {
 		return group?.seats.find(s => s?.position == position)?.status == "available"
 	}
 	export function setSeats(groups: (Group | undefined)[], seat: Seat): (Group | undefined)[] {
-		let index = Seat.Position.index(seat.position)
+		let index = Seat.Position.index(seat.position, groups)
 		return groups.map(g => {
 			let result = g
 			if (Seats.is(g)) {

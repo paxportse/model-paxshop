@@ -14,18 +14,16 @@ export namespace Row {
 	}
 	export function reserve(row: Row, position: Seat.Position): Row {
 		const index = row.groups?.findIndex(g => Group.Seats.is(g) && g.seats.find(s => s?.position == position))
-		const updatedRow =
-			index != undefined && row.groups
-				? {
-						...row,
-						groups: [
-							...row.groups.slice(0, index),
-							Group.reserve(row.groups?.[index], position),
-							...row.groups.slice(index + 1),
-						],
-				  }
-				: row
-		return updatedRow
+		return index != undefined && row.groups
+			? {
+					...row,
+					groups: [
+						...row.groups.slice(0, index),
+						Group.reserve(row.groups?.[index], position),
+						...row.groups.slice(index + 1),
+					],
+			  }
+			: row
 	}
 
 	export function isAvailable(row: Row, position: Seat.Position): boolean {
@@ -40,8 +38,3 @@ export namespace Row {
 		return row
 	}
 }
-// export function reserve(row: Row, position: Seat.Position): Row {
-// 	const index = row.groups?.findIndex(g => Group.Seats.is(g) && g.seats.find(s => s?.position == position))
-// 	return !row.groups
-// 		? row
-// 		: { ...row, groups: row.groups.map( g => (g[index] = Group.Seats.reserve(row.groups[index], position))) }
