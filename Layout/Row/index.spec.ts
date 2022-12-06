@@ -54,7 +54,7 @@ describe("model.Layout.Row", () => {
 			{
 				seats: [
 					{
-						status: "unavailable",
+						status: "available",
 						class: "first-class",
 						position: "A",
 						row: { number: 1 },
@@ -86,7 +86,7 @@ describe("model.Layout.Row", () => {
 			{
 				seats: [
 					{
-						status: "available",
+						status: "unavailable",
 						class: "business",
 						position: "D",
 						row: { number: 1 },
@@ -163,7 +163,7 @@ describe("model.Layout.Row", () => {
 		expect(model.Layout.Row.is(row)).toEqual(true)
 	})
 	it("reserve", () => {
-		expect(model.Layout.Row.reserve(row, seat.position)).toEqual(updatedRow)
+		expect(model.Layout.Row.reserve(row, "D")).toEqual(updatedRow)
 	})
 	it("isAvailable", () => {
 		expect(model.Layout.Row.isAvailable(row, seat.position)).toEqual(true)

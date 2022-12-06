@@ -11,37 +11,27 @@ export namespace Group {
 	export function isArray(value: (Group | any)[]): value is Group[] {
 		return Array.isArray(value) && value.every(group => group == undefined || Group.is(group))
 	}
-	export function reserve(groups: (Group | undefined)[], position: Seat.Position): (Group | undefined)[] {
-		let index = Seat.Position.index(position)
-		let seatFound = false
-		return groups.map(g => {
-			let result: Group | undefined
-			if (Seats.is(g)) {
-				let seats = g.seats
-				if (seats && index < seats.length && !seatFound) {
-					seatFound = true
-					seats = [...seats]
-					seats[index] = { ...seats[index], status: "unavailable" } as any
-					result = { ...g, seats }
-				} else {
-					index -= g.seats.length ?? 0
-					result = g
-				}
-			}
-			return result
-		})
+	export function reserve(group: Group | undefined, position: Seat.Position): Group | undefined {
+		const index = Group.Seats.is(group) ? group.seats.findIndex(s => s?.position == position) : undefined
+		return index != undefined && Group.Seats.is(group)
+			? {
+					...group,
+					seats: [
+						...group.seats.slice(0, index),
+						{
+							...group.seats[index],
+							status: "unavailable",
+						} as Seat,
+						...group.seats.slice(index + 1),
+					],
+			  }
+			: group
 	}
 	export function isAvailable(groups: (Group | undefined)[], position: Seat.Position): boolean {
-		let index: number = Seat.Position.index(position)
-		let result = false
-		groups.forEach(group => {
-			if (Seats.is(group) && !result)
-				if (index < group.seats.length)
-					result = group.seats[index]?.status == "available"
-				else
-					index -= group.seats.length
-		})
-		return result
+		const group = groups.filter(g => Group.Seats.is(g) && g.seats.find(s => s?.position == position))[0] as
+			| Group.Seats
+			| undefined
+		return group?.seats.find(s => s?.position == position)?.status == "available"
 	}
 	export function setSeats(groups: (Group | undefined)[], seat: Seat): (Group | undefined)[] {
 		let index = Seat.Position.index(seat.position)
