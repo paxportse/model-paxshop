@@ -19,4 +19,8 @@ export namespace Booking {
 	export function getPassengersWithLuggage(booking: Booking): Passenger[] {
 		return booking.passengers.filter(passenger => passenger.luggage)
 	}
+
+	export function capitalize(word: string): string {
+		return word.charAt(0).toUpperCase() + word.slice(1)
+	}
 }

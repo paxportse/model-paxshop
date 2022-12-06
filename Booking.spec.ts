@@ -97,4 +97,10 @@ describe("model.Booking", () => {
 	it("getPassengersWithLuggage", () => {
 		expect(model.Booking.getPassengersWithLuggage({ ...booking })).toEqual(passengerWithLuggage)
 	})
+	it("capitalize", () => {
+		expect(model.Booking.capitalize("word")).toEqual("Word")
+	})
+	it("capitalize", () => {
+		expect(model.Booking.capitalize("a sentence")).toEqual("A sentence")
+	})
 })
