@@ -96,6 +96,7 @@ describe("model.Passenger", () => {
 	}
 	const flight: model.FlightOptions = {
 		reference: "AA",
+		number: "PAXAA",
 		from: { code: "ARN", name: "Arlanda Airport" },
 		to: { code: "LHR", name: "Heathrow Airport" },
 
@@ -258,6 +259,7 @@ describe("model.Passenger", () => {
 	}
 	const flight2: model.FlightOptions = {
 		reference: "1337",
+		number: "PAX1337",
 		from: { code: "ARN", name: "Arlanda Airport" },
 		to: { code: "LHR", name: "Heathrow Airport" },
 
@@ -421,6 +423,7 @@ describe("model.Passenger", () => {
 	const flights: model.FlightOptions[] = [
 		{
 			reference: "FL-001",
+			number: "PAX001",
 			from: { name: "Arlanda", code: "ARN" },
 			to: { name: "Heathrow", code: "LHR" },
 			departure: "2022-09-28T07:22:00.000Z",
@@ -496,6 +499,7 @@ describe("model.Passenger", () => {
 		},
 		{
 			reference: "FL-002",
+			number: "PAX002",
 			from: { name: "Heathrow", code: "LHR" },
 			to: { name: "Arlanda", code: "ARN" },
 			departure: "2022-10-15T08:00:00.000Z",
