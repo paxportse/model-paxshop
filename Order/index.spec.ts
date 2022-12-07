@@ -71,7 +71,10 @@ describe("model.Order", () => {
 					direction: "roundtrip",
 					price: { amount: 300, currency: "EUR" },
 					description: "Extra bag with the maximum weight of 20kg",
-					flights: ["BLX504", "UDE342"],
+					flights: [
+						{ reference: "BLX504", capacity: 2 },
+						{ reference: "UDE342", capacity: 2 },
+					],
 				},
 			],
 		},

@@ -1,11 +1,12 @@
 import { Luggage } from "."
+import { FlightCapacity } from "./FlightCapacity"
 
 export interface Category {
 	name: string
 	description?: string
 	options?: Luggage[]
 	open?: boolean
-	flights?: string[]
+	flights?: FlightCapacity[]
 }
 export namespace Category {
 	export function is(value: Category | any): value is Category {

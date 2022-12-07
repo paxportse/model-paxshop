@@ -109,7 +109,10 @@ describe("model.Flight.Luggage", () => {
 					},
 				],
 				open: true,
-				flights: ["FL-054", "UDE-342"],
+				flights: [
+					{ reference: "FL-054", capacity: 2 },
+					{ reference: "UDE-342", capacity: 5 },
+				],
 			},
 			{
 				reference: "lug-006",
@@ -118,7 +121,10 @@ describe("model.Flight.Luggage", () => {
 				direction: "roundtrip",
 				price: { amount: 300, currency: "SEK" },
 				description: "Extra bag with the maximum weight of 20kg",
-				flights: ["FL-054", "UDE-342"],
+				flights: [
+					{ reference: "FL-054", capacity: 2 },
+					{ reference: "UDE-342", capacity: 5 },
+				],
 			},
 			{
 				reference: "lug-001",
@@ -127,7 +133,7 @@ describe("model.Flight.Luggage", () => {
 				direction: "roundtrip",
 				price: { amount: 100, currency: "SEK" },
 				description: "Added weight when a piece of luggage exceeds weight limit",
-				flights: ["FL-054"],
+				flights: [{ reference: "FL-054", capacity: 2 }],
 			},
 			{
 				reference: "lug-008",
@@ -136,7 +142,10 @@ describe("model.Flight.Luggage", () => {
 				direction: "roundtrip",
 				price: { amount: 100, currency: "SEK" },
 				description: "Added weight when a piece of luggage exceeds weight limit",
-				flights: ["FL-054", "MEH001"],
+				flights: [
+					{ reference: "FL-054", capacity: 2 },
+					{ reference: "MEH001", capacity: 2 },
+				],
 			},
 		],
 	}
@@ -148,7 +157,10 @@ describe("model.Flight.Luggage", () => {
 		quantity: 1,
 		price: { amount: 100, currency: "AFN" },
 		description: "Lite text",
-		flights: ["FL-054", "UDE-342"],
+		flights: [
+			{ reference: "FL-054", capacity: 2 },
+			{ reference: "UDE-342", capacity: 5 },
+		],
 	}
 	const luggageArray: model.Luggage[] = [luggage, luggage]
 
@@ -216,7 +228,10 @@ describe("model.Flight.Luggage", () => {
 				quantity: 2,
 				price: { amount: 100, currency: "AFN" },
 				description: "Lite text",
-				flights: ["FL-054", "UDE-342"],
+				flights: [
+					{ reference: "FL-054", capacity: 2 },
+					{ reference: "UDE-342", capacity: 5 },
+				],
 			},
 		])
 	})
@@ -230,7 +245,10 @@ describe("model.Flight.Luggage", () => {
 				quantity: 0,
 				price: { amount: 100, currency: "AFN" },
 				description: "Lite text",
-				flights: ["FL-054", "UDE-342"],
+				flights: [
+					{ reference: "FL-054", capacity: 2 },
+					{ reference: "UDE-342", capacity: 5 },
+				],
 			},
 		])
 	})
@@ -266,7 +284,10 @@ describe("model.Flight.Luggage", () => {
 					},
 				],
 				open: true,
-				flights: ["FL-054", "UDE-342"],
+				flights: [
+					{ reference: "FL-054", capacity: 2 },
+					{ reference: "UDE-342", capacity: 5 },
+				],
 			},
 			{
 				reference: "lug-006",
@@ -275,7 +296,10 @@ describe("model.Flight.Luggage", () => {
 				direction: "roundtrip",
 				price: { amount: 300, currency: "SEK" },
 				description: "Extra bag with the maximum weight of 20kg",
-				flights: ["FL-054", "UDE-342"],
+				flights: [
+					{ reference: "FL-054", capacity: 2 },
+					{ reference: "UDE-342", capacity: 5 },
+				],
 			},
 		])
 	})
@@ -311,7 +335,10 @@ describe("model.Flight.Luggage", () => {
 					},
 				],
 				open: true,
-				flights: ["FL-054", "UDE-342"],
+				flights: [
+					{ reference: "FL-054", capacity: 2 },
+					{ reference: "UDE-342", capacity: 5 },
+				],
 			},
 			{
 				reference: "lug-006",
@@ -320,7 +347,10 @@ describe("model.Flight.Luggage", () => {
 				direction: "roundtrip",
 				price: { amount: 300, currency: "SEK" },
 				description: "Extra bag with the maximum weight of 20kg",
-				flights: ["FL-054", "UDE-342"],
+				flights: [
+					{ reference: "FL-054", capacity: 2 },
+					{ reference: "UDE-342", capacity: 5 },
+				],
 			},
 		])
 	})
