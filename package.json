@@ -1,6 +1,6 @@
 {
 	"name": "@paxport/model-paxshop",
-	"version": "0.0.83",
+	"version": "0.0.84",
 	"description": "Data model for the Paxport Shop.",
 	"author": "Paxport Aktiebolag",
 	"license": "MIT",
