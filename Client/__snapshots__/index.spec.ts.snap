@@ -58,6 +58,7 @@ Object {
             "reference": "D-2",
           },
         ],
+        "number": "PAX001",
         "reference": "FL-001",
         "seating": Array [
           Object {
@@ -1257,6 +1258,7 @@ Object {
             "reference": "D-2",
           },
         ],
+        "number": "PAX002",
         "reference": "FL-002",
         "seating": Array [
           Object {
