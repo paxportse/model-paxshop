@@ -13,17 +13,8 @@ export namespace Row {
 		return Base.is(value)
 	}
 	export function reserve(row: Row, position: Seat.Position): Row {
-		const index = row.groups?.findIndex(g => Group.Seats.is(g) && g.seats.find(s => s?.position == position))
-		return index != undefined && row.groups
-			? {
-					...row,
-					groups: [
-						...row.groups.slice(0, index),
-						Group.reserve(row.groups?.[index], position),
-						...row.groups.slice(index + 1),
-					],
-			  }
-			: row
+		const groups = row.groups
+		return !groups ? row : { ...row, groups: Group.reserve(groups, position) }
 	}
 
 	export function isAvailable(row: Row, position: Seat.Position): boolean {
