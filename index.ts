@@ -4,6 +4,7 @@ import { BookingOptions } from "./BookingOptions"
 import { BookingSpecifier } from "./BookingSpecifier"
 import { Client } from "./Client"
 import { Cosmetic } from "./Cosmetic"
+import { Direction } from "./Direction"
 import { Flight } from "./Flight"
 import { FlightOptions } from "./FlightOptions"
 import { Layout } from "./Layout"
@@ -22,6 +23,7 @@ export {
 	BookingSpecifier,
 	Client,
 	Cosmetic,
+	Direction,
 	Flight,
 	FlightOptions,
 	Layout,
