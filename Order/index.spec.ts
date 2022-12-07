@@ -116,6 +116,7 @@ describe("model.Order", () => {
 		departure: [
 			{
 				reference: "FL-001",
+				number: "PAX001",
 				from: { code: "ARN", name: "Arlanda Airport" },
 				to: { code: "LHR", name: "Heathrow Airport" },
 				departure: "2022-09-28T10:02:00.000Z",
@@ -192,6 +193,7 @@ describe("model.Order", () => {
 		return: [
 			{
 				reference: "FL-002",
+				number: "PAX002",
 				from: { code: "LHR", name: "Heathrow Airport" },
 				to: { code: "ARN", name: "Arlanda Airport" },
 				departure: "2022-10-18T10:10:00.000Z",

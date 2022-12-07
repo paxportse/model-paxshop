@@ -4,6 +4,7 @@ import * as passenger from "./Passenger/Itinerary/"
 describe("model.FlightOptions", () => {
 	const layout: model.FlightOptions = {
 		reference: "AA",
+		number: "PAX001",
 		from: { code: "ARN", name: "Arlanda Airport" },
 		to: { code: "LHR", name: "Heathrow Airport" },
 
@@ -166,6 +167,7 @@ describe("model.FlightOptions", () => {
 	}
 	const updatedLayout: model.FlightOptions = {
 		reference: "AA",
+		number: "PAX001",
 		from: { code: "ARN", name: "Arlanda Airport" },
 		to: { code: "LHR", name: "Heathrow Airport" },
 		departure: "2022-09-28T07:22:00.000Z",
@@ -327,6 +329,7 @@ describe("model.FlightOptions", () => {
 	}
 	const occupiedLayout: model.FlightOptions = {
 		reference: "AA",
+		number: "PAX001",
 		from: { code: "ARN", name: "Arlanda Airport" },
 		to: { code: "LHR", name: "Heathrow Airport" },
 		departure: "2022-09-28T07:22:00.000Z",
@@ -489,6 +492,7 @@ describe("model.FlightOptions", () => {
 	const flights: model.FlightOptions[] = [
 		{
 			reference: "FL-001",
+			number: "PAX001",
 			from: { code: "ARN", name: "Arlanda Airport" },
 			to: { code: "LHR", name: "Heathrow Airport" },
 			departure: "2022-09-28T07:22:00.000Z",
@@ -559,6 +563,7 @@ describe("model.FlightOptions", () => {
 		},
 		{
 			reference: "FL-002",
+			number: "PAX002",
 			from: { code: "ARN", name: "Arlanda Airport" },
 			to: { code: "LHR", name: "Heathrow Airport" },
 			departure: "2022-09-28T07:22:00.000Z",
@@ -629,6 +634,7 @@ describe("model.FlightOptions", () => {
 		},
 		{
 			reference: "FL-003",
+			number: "PAX003",
 			from: { code: "ARN", name: "Arlanda Airport" },
 			to: { code: "LHR", name: "Heathrow Airport" },
 			departure: "2022-09-28T07:22:00.000Z",
@@ -699,6 +705,7 @@ describe("model.FlightOptions", () => {
 		},
 		{
 			reference: "FL-004",
+			number: "PAX003",
 			from: { code: "ARN", name: "Arlanda Airport" },
 			to: { code: "LHR", name: "Heathrow Airport" },
 			departure: "2022-09-28T07:22:00.000Z",

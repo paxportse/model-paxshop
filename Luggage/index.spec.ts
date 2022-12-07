@@ -4,7 +4,8 @@ describe("model.Flight.Luggage", () => {
 	const booking: model.BookingOptions = {
 		departure: [
 			{
-				reference: "BLX504",
+				reference: "FL-054",
+				number: "PAX054",
 				from: { code: "ARN", name: "Arlanda Airport" },
 				to: { code: "LHR", name: "Heathrow Airport" },
 				departure: "2022-09-28T10:02:00.000Z",
@@ -49,7 +50,8 @@ describe("model.Flight.Luggage", () => {
 		],
 		return: [
 			{
-				reference: "UDE342",
+				reference: "UDE-342",
+				number: "PAX342",
 				from: { code: "LHR", name: "Heathrow Airport" },
 				to: { code: "ARN", name: "Arlanda Airport" },
 				departure: "2022-10-18T10:10:00.000Z",
@@ -107,7 +109,7 @@ describe("model.Flight.Luggage", () => {
 					},
 				],
 				open: true,
-				flights: ["BLX504", "UDE342"],
+				flights: ["FL-054", "UDE-342"],
 			},
 			{
 				reference: "lug-006",
@@ -116,7 +118,7 @@ describe("model.Flight.Luggage", () => {
 				direction: "roundtrip",
 				price: { amount: 300, currency: "SEK" },
 				description: "Extra bag with the maximum weight of 20kg",
-				flights: ["BLX504", "UDE342"],
+				flights: ["FL-054", "UDE-342"],
 			},
 			{
 				reference: "lug-001",
@@ -125,7 +127,7 @@ describe("model.Flight.Luggage", () => {
 				direction: "roundtrip",
 				price: { amount: 100, currency: "SEK" },
 				description: "Added weight when a piece of luggage exceeds weight limit",
-				flights: ["BLX504"],
+				flights: ["FL-054"],
 			},
 			{
 				reference: "lug-008",
@@ -134,7 +136,7 @@ describe("model.Flight.Luggage", () => {
 				direction: "roundtrip",
 				price: { amount: 100, currency: "SEK" },
 				description: "Added weight when a piece of luggage exceeds weight limit",
-				flights: ["BLX504", "MEH001"],
+				flights: ["FL-054", "MEH001"],
 			},
 		],
 	}
@@ -146,7 +148,7 @@ describe("model.Flight.Luggage", () => {
 		quantity: 1,
 		price: { amount: 100, currency: "AFN" },
 		description: "Lite text",
-		flights: ["BLX504", "UDE342"],
+		flights: ["FL-054", "UDE-342"],
 	}
 	const luggageArray: model.Luggage[] = [luggage, luggage]
 
@@ -214,7 +216,7 @@ describe("model.Flight.Luggage", () => {
 				quantity: 2,
 				price: { amount: 100, currency: "AFN" },
 				description: "Lite text",
-				flights: ["BLX504", "UDE342"],
+				flights: ["FL-054", "UDE-342"],
 			},
 		])
 	})
@@ -228,7 +230,7 @@ describe("model.Flight.Luggage", () => {
 				quantity: 0,
 				price: { amount: 100, currency: "AFN" },
 				description: "Lite text",
-				flights: ["BLX504", "UDE342"],
+				flights: ["FL-054", "UDE-342"],
 			},
 		])
 	})
@@ -238,7 +240,7 @@ describe("model.Flight.Luggage", () => {
 				...passenger,
 				departure: [
 					{
-						reference: "UDE342",
+						reference: "UDE-342",
 						seat: {
 							row: { number: 1 },
 							position: "A",
@@ -264,7 +266,7 @@ describe("model.Flight.Luggage", () => {
 					},
 				],
 				open: true,
-				flights: ["BLX504", "UDE342"],
+				flights: ["FL-054", "UDE-342"],
 			},
 			{
 				reference: "lug-006",
@@ -273,7 +275,7 @@ describe("model.Flight.Luggage", () => {
 				direction: "roundtrip",
 				price: { amount: 300, currency: "SEK" },
 				description: "Extra bag with the maximum weight of 20kg",
-				flights: ["BLX504", "UDE342"],
+				flights: ["FL-054", "UDE-342"],
 			},
 		])
 	})
@@ -283,7 +285,7 @@ describe("model.Flight.Luggage", () => {
 				...passenger,
 				departure: [
 					{
-						reference: "UDE342",
+						reference: "UDE-342",
 						seat: {
 							row: { number: 1 },
 							position: "A",
@@ -309,7 +311,7 @@ describe("model.Flight.Luggage", () => {
 					},
 				],
 				open: true,
-				flights: ["BLX504", "UDE342"],
+				flights: ["FL-054", "UDE-342"],
 			},
 			{
 				reference: "lug-006",
@@ -318,7 +320,7 @@ describe("model.Flight.Luggage", () => {
 				direction: "roundtrip",
 				price: { amount: 300, currency: "SEK" },
 				description: "Extra bag with the maximum weight of 20kg",
-				flights: ["BLX504", "UDE342"],
+				flights: ["FL-054", "UDE-342"],
 			},
 		])
 	})
