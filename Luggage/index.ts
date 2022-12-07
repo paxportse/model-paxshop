@@ -3,6 +3,8 @@ import { Direction } from "../Direction"
 import { Passenger } from "../Passenger"
 import { Price } from "../Price"
 import { Category as LuggageCategory } from "./Category"
+import { FlightCapacity as LuggageFlightCapacity } from "./FlightCapacity"
+import { FlightCapacity } from "./FlightCapacity"
 
 export interface Luggage {
 	reference: string
@@ -12,7 +14,7 @@ export interface Luggage {
 	direction?: Direction //{ departureQuantity?: number; returnQuantity?: number } Is this the approach we want?
 	price?: Price
 	description?: string
-	flights?: string[]
+	flights?: FlightCapacity[]
 }
 export namespace Luggage {
 	export function is(value: Luggage | any): value is Luggage {
@@ -26,7 +28,7 @@ export namespace Luggage {
 			(value.price == undefined || Price.is(value.price)) &&
 			(value.description == undefined || typeof value.description == "string") &&
 			(value.flights == undefined ||
-				(Array.isArray(value.flights) && value.flights.every((f: any) => typeof f == "string")))
+				(Array.isArray(value.flights) && value.flights.every((f: any) => FlightCapacity.is(f))))
 		)
 	}
 	export function isArrayOfLuggage(value: (Luggage | any)[]): value is Luggage[] {
@@ -73,9 +75,11 @@ export namespace Luggage {
 		const flights = returns ? departures.concat(returns) : departures
 
 		return booking.luggage.filter(l =>
-			flights.find(f => passengerFlights?.find(pf => l.flights?.find(r => f == r && f == pf)) && l)
+			flights.find(f => passengerFlights?.find(pf => l.flights?.find(r => f == r.reference && f == pf)) && l)
 		)
 	}
 	export type Category = LuggageCategory
 	export const Category = LuggageCategory
+	export type FlightCapacity = LuggageFlightCapacity
+	export const FlightCapacity = LuggageFlightCapacity
 }
