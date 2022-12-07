@@ -13,7 +13,7 @@ export namespace Group {
 	}
 	export function reserve(group: Group | undefined, position: Seat.Position): Group | undefined {
 		const index = Group.Seats.is(group) ? group.seats.findIndex(s => s?.position == position) : undefined
-		return index != undefined && Group.Seats.is(group)
+		return index != undefined && index != -1 && Group.Seats.is(group)
 			? {
 					...group,
 					seats: [

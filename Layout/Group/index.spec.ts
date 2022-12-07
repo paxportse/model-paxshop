@@ -139,6 +139,9 @@ describe("Group", () => {
 	it("reserve", () => {
 		expect(model.Layout.Group.reserve(groupReserve, seat.position)).toEqual(updatedGroupReserve)
 	})
+	it("reserve - seat index not found", () => {
+		expect(model.Layout.Group.reserve(groupReserve, "I")).toEqual(groupReserve)
+	})
 	it("isAvailable", () => {
 		expect(model.Layout.Group.isAvailable(groups, "A")).toEqual(true)
 	})
