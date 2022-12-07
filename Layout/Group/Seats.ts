@@ -7,7 +7,10 @@ export interface Seats extends Base {
 export namespace Seats {
 	export function is(value: Seats | any): value is Seats {
 		return (
-			typeof value == "object" && value.seats.every((seat: any) => seat == undefined || Seat.is(seat)) && Base.is(value)
+			typeof value == "object" &&
+			Array.isArray(value.seats) &&
+			value.seats.every((seat: any) => seat == undefined || Seat.is(seat)) &&
+			Base.is(value)
 		)
 	}
 }

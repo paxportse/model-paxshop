@@ -15,6 +15,7 @@ describe("Group", () => {
 	}
 	const groups: model.Layout.Group[] = [
 		group,
+		{ toilet: true },
 		{
 			seats: [
 				{
@@ -61,6 +62,7 @@ describe("Group", () => {
 				},
 			],
 		},
+		{ toilet: true },
 		{
 			seats: [
 				{
@@ -96,6 +98,7 @@ describe("Group", () => {
 	]
 	const updatedGroupsSetSeat: model.Layout.Group[] = [
 		group,
+		{ toilet: true },
 		{
 			seats: [
 				{
@@ -138,6 +141,9 @@ describe("Group", () => {
 	}
 	it("is", () => {
 		expect(model.Layout.Group.is({ ...group, offset: [1, 1] })).toEqual(true)
+	})
+	it("is", () => {
+		expect(model.Layout.Group.is({ toilet: true })).toEqual(true)
 	})
 	it("isArrayOfGroups", () => {
 		expect(model.Layout.Group.isArray(groups)).toEqual(true)

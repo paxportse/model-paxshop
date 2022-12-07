@@ -1,4 +1,5 @@
 import { Seat } from "../Seat"
+import { Base } from "./Base"
 import { Seats as GroupSeats } from "./Seats"
 import { Toilet as GroupToilet } from "./Toilet"
 
@@ -6,7 +7,8 @@ export type Group = Group.Seats | Group.Toilet
 
 export namespace Group {
 	export function is(value: Group | any): value is Group {
-		return Seats.is(value) || Toilet.is(value)
+		const result = Base.is(value) || Group.Toilet.is(value) || Group.Seats.is(value)
+		return result
 	}
 	export function isArray(value: (Group | any)[]): value is Group[] {
 		return Array.isArray(value) && value.every(group => group == undefined || Group.is(group))
@@ -28,7 +30,8 @@ export namespace Group {
 							index -= g.seats.length ?? 0
 							result = g
 						}
-					}
+					} else
+						result = g
 					return result
 			  })
 			: groups
