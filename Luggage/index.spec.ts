@@ -373,4 +373,41 @@ describe("model.Flight.Luggage", () => {
 			})
 		).toEqual([])
 	})
+
+	it("undo advanced selection", () => {
+		expect(
+			model.Luggage.undoAdvancedSelection(
+				{
+					...passenger,
+					luggage: [
+						luggage,
+						{ ...luggage, direction: "roundtrip" },
+						{ ...luggage, reference: "l03", direction: "return" },
+					],
+				},
+				luggage
+			)
+		).toEqual([
+			{ ...luggage, direction: "roundtrip" },
+			{ ...luggage, reference: "l03", direction: "return" },
+		])
+	})
+	it("undo advanced selection", () => {
+		expect(
+			model.Luggage.undoAdvancedSelection(
+				{
+					...passenger,
+					luggage: [
+						{ ...luggage, direction: "return" },
+						{ ...luggage, direction: "roundtrip" },
+						{ ...luggage, reference: "l03", direction: "return" },
+					],
+				},
+				luggage
+			)
+		).toEqual([
+			{ ...luggage, direction: "roundtrip" },
+			{ ...luggage, reference: "l03", direction: "return" },
+		])
+	})
 })
