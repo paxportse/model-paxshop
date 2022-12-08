@@ -78,6 +78,15 @@ export namespace Luggage {
 			flights.find(f => passengerFlights?.find(pf => l.flights?.find(r => f == r.reference && f == pf)) && l)
 		)
 	}
+	export function undoAdvancedSelection(passenger: Passenger, luggage: Luggage): Luggage[] | undefined {
+		// Remove all luggage selections that has direction "departure" or "return" with this luggage reference.
+		const passengerLuggage = passenger.luggage ? [...passenger.luggage] : []
+		return passengerLuggage && Array.isArray(passengerLuggage)
+			? passengerLuggage.filter(
+					l => !(l.reference == luggage.reference && (l.direction == "departure" || l.direction == "return"))
+			  )
+			: undefined
+	}
 	export type Category = LuggageCategory
 	export const Category = LuggageCategory
 	export type FlightCapacity = LuggageFlightCapacity
