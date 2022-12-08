@@ -13,28 +13,9 @@ describe("Group", () => {
 			},
 		],
 	}
-	const groupReserve: model.Layout.Group = {
-		seats: [
-			{
-				status: "available",
-				class: "first-class",
-				position: "A",
-				row: { number: 1 },
-				price: { amount: 400, currency: "SEK" },
-				legroom: true,
-			},
-			{
-				status: "available",
-				class: "first-class",
-				position: "B",
-				row: { number: 1 },
-				price: { amount: 400, currency: "SEK" },
-				legroom: true,
-			},
-		],
-	}
 	const groups: model.Layout.Group[] = [
 		group,
+		{ toilet: true },
 		{
 			seats: [
 				{
@@ -68,28 +49,56 @@ describe("Group", () => {
 			],
 		},
 	]
-	const updatedGroupReserve: model.Layout.Group = {
-		seats: [
-			{
-				status: "available",
-				class: "first-class",
-				position: "A",
-				row: { number: 1 },
-				price: { amount: 400, currency: "SEK" },
-				legroom: true,
-			},
-			{
-				status: "unavailable",
-				class: "first-class",
-				position: "B",
-				row: { number: 1 },
-				price: { amount: 400, currency: "SEK" },
-				legroom: true,
-			},
-		],
-	}
+	const updatedGroups = [
+		{
+			seats: [
+				{
+					status: "available",
+					class: "first-class",
+					position: "A",
+					row: { number: 1 },
+					price: { amount: 400, currency: "SEK" },
+					legroom: true,
+				},
+			],
+		},
+		{ toilet: true },
+		{
+			seats: [
+				{
+					status: "unavailable",
+					class: "first-class",
+					position: "B",
+					row: { number: 1 },
+					price: { amount: 3200, currency: "SEK" },
+					legroom: true,
+				},
+			],
+		},
+		{
+			seats: [
+				{
+					status: "unavailable",
+					class: "first-class",
+					position: "C",
+					row: { number: 1 },
+					price: { amount: 1337, currency: "SEK" },
+					legroom: true,
+				},
+				{
+					status: "available",
+					class: "first-class",
+					position: "D",
+					row: { number: 1 },
+					price: { amount: 8008, currency: "SEK" },
+					legroom: true,
+				},
+			],
+		},
+	]
 	const updatedGroupsSetSeat: model.Layout.Group[] = [
 		group,
+		{ toilet: true },
 		{
 			seats: [
 				{
@@ -133,14 +142,17 @@ describe("Group", () => {
 	it("is", () => {
 		expect(model.Layout.Group.is({ ...group, offset: [1, 1] })).toEqual(true)
 	})
+	it("is", () => {
+		expect(model.Layout.Group.is({ toilet: true })).toEqual(true)
+	})
 	it("isArrayOfGroups", () => {
 		expect(model.Layout.Group.isArray(groups)).toEqual(true)
 	})
 	it("reserve", () => {
-		expect(model.Layout.Group.reserve(groupReserve, seat.position)).toEqual(updatedGroupReserve)
+		expect(model.Layout.Group.reserve(groups, seat.position)).toEqual(updatedGroups)
 	})
 	it("reserve - seat index not found", () => {
-		expect(model.Layout.Group.reserve(groupReserve, "I")).toEqual(groupReserve)
+		expect(model.Layout.Group.reserve(groups, "I")).toEqual(groups)
 	})
 	it("isAvailable", () => {
 		expect(model.Layout.Group.isAvailable(groups, "A")).toEqual(true)
