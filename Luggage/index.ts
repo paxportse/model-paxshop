@@ -44,22 +44,32 @@ export namespace Luggage {
 			)
 		)
 	}
-	export function update(existingLuggage: Luggage, passenger: Passenger, action: string): Luggage[] | undefined {
-		let quantity = existingLuggage ? existingLuggage.quantity : 0
+	export function update(luggage: Luggage, passenger: Passenger, action: string): Luggage[] | undefined {
+		const quantity = luggage ? changeQuantity(luggage, action) : 1
+		const updatedLuggage = luggage ? { ...luggage, quantity: quantity } : undefined
+		let result: Luggage[] | undefined
+		passenger &&
+		passenger.luggage &&
+		!passenger.luggage.find(l => l.reference == luggage.reference && l.direction == luggage.direction)
+			? // If luggage does not exist in passenger
+			  updatedLuggage && (result = passenger.luggage ? [...passenger.luggage, updatedLuggage] : [updatedLuggage])
+			: // If luggage exist in passenger
+			  passenger &&
+			  passenger.luggage &&
+			  updatedLuggage &&
+			  (result = passenger.luggage?.map(l =>
+					l.reference == updatedLuggage.reference && l.direction == updatedLuggage.direction ? (l = updatedLuggage) : l
+			  ))
+		return result
+	}
+	export function changeQuantity(luggage: Luggage, action: string): number | undefined {
+		let result = luggage ? luggage.quantity : 0
 		if (action == "remove") {
-			quantity = existingLuggage && existingLuggage.quantity ? existingLuggage.quantity - 1 : 0
+			result = luggage && luggage.quantity ? luggage.quantity - 1 : 0
 		} else if (action == "add") {
-			quantity = existingLuggage && existingLuggage.quantity ? existingLuggage.quantity + 1 : 1
+			result = luggage && luggage.quantity ? luggage.quantity + 1 : 1
 		}
-		const updatedLuggage = existingLuggage ? { ...existingLuggage, quantity: quantity } : undefined
-		let passengerLuggage: Luggage[] | undefined = undefined
-
-		// Find the existing luggage on passenger and replace with updated luggage
-		if (passenger && passenger.luggage && updatedLuggage)
-			passengerLuggage = passenger.luggage?.map(l =>
-				l.reference == updatedLuggage.reference && l.direction == updatedLuggage.direction ? (l = updatedLuggage) : l
-			)
-		return passengerLuggage
+		return result
 	}
 	export function filter(booking: BookingOptions, passenger: Passenger): (Luggage | LuggageCategory)[] {
 		// Return luggage that has the same flights as the passenger is flying with
