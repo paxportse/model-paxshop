@@ -3,7 +3,6 @@ import { Booking } from "./Booking"
 import { BookingOptions } from "./BookingOptions"
 import { BookingSpecifier } from "./BookingSpecifier"
 import { Client } from "./Client"
-import { Cosmetic } from "./Cosmetic"
 import { Direction } from "./Direction"
 import { Flight } from "./Flight"
 import { FlightOptions } from "./FlightOptions"
@@ -22,7 +21,6 @@ export {
 	BookingOptions,
 	BookingSpecifier,
 	Client,
-	Cosmetic,
 	Direction,
 	Flight,
 	FlightOptions,

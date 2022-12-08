@@ -252,6 +252,9 @@ describe("model.Flight.Luggage", () => {
 			},
 		])
 	})
+	it("change quantity", () => {
+		expect(model.Luggage.changeQuantity({ ...luggage, quantity: 4 }, "add")).toEqual(5)
+	})
 	it("filter luggage", () => {
 		expect(
 			model.Luggage.filter(booking, {
