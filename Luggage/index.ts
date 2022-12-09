@@ -24,7 +24,7 @@ export namespace Luggage {
 			(value.quantity == undefined || (typeof value.quantity == "number" && value.quantity > 0)) &&
 			typeof value.name == "string" &&
 			typeof value.weight == "number" &&
-			(typeof value.direction == undefined || Direction.is(value.direction)) &&
+			(value.direction == undefined || Direction.is(value.direction)) &&
 			(value.price == undefined || Price.is(value.price)) &&
 			(value.description == undefined || typeof value.description == "string") &&
 			(value.flights == undefined ||
