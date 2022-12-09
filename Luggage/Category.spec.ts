@@ -22,6 +22,10 @@ describe("Category", () => {
 				description: "Lite text",
 			},
 		],
+		flights: [
+			{ reference: "FL-001", capacity: 2 },
+			{ reference: "FL-003", capacity: 2 },
+		],
 		open: true,
 	}
 	const luggage = {
@@ -31,6 +35,10 @@ describe("Category", () => {
 		direction: "departure",
 		price: { amount: 100, currency: "AFN" },
 		description: "Lite text",
+		flights: [
+			{ reference: "FL-001", capacity: 2 },
+			{ reference: "FL-003", capacity: 2 },
+		],
 	}
 	it("is", () => {
 		expect(model.Luggage.Category.is(category)).toEqual(true)
