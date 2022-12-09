@@ -18,7 +18,7 @@ export namespace Category {
 				(Array.isArray(value.options) && value.options.every((o: Luggage) => Luggage.is(o)))) &&
 			(value.open == undefined || typeof value.open == "boolean") &&
 			(value.reference ? false : true) &&
-			(value.flights == undefined || value.flights.every((f: any) => typeof f == "string"))
+			(value.flights == undefined || value.flights.every((f: any) => FlightCapacity.is(f)))
 		)
 	}
 }
