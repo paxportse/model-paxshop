@@ -1,12 +1,12 @@
 import { Luggage } from "."
-import { FlightCapacity } from "./FlightCapacity"
+import { FlightRelations } from "./FlightRelations"
 
 export interface Category {
 	name: string
 	description?: string
 	options?: Luggage[]
 	open?: boolean
-	flights?: FlightCapacity[]
+	flights?: FlightRelations[]
 }
 export namespace Category {
 	export function is(value: Category | any): value is Category {
@@ -18,7 +18,7 @@ export namespace Category {
 				(Array.isArray(value.options) && value.options.every((o: Luggage) => Luggage.is(o)))) &&
 			(value.open == undefined || typeof value.open == "boolean") &&
 			(value.reference ? false : true) &&
-			(value.flights == undefined || value.flights.every((f: any) => FlightCapacity.is(f)))
+			(value.flights == undefined || value.flights.every((f: any) => FlightRelations.is(f)))
 		)
 	}
 }
