@@ -218,7 +218,7 @@ describe("model.Flight.Luggage", () => {
 	it("isArrayOfLuggage", () => {
 		expect(model.Luggage.isArrayOfLuggage(luggageArray)).toEqual(true)
 	})
-	it("update luggage", () => {
+	it("update luggage add", () => {
 		expect(model.Luggage.update(luggage, passenger, "add")).toEqual([
 			{
 				reference: "l01",
@@ -235,7 +235,7 @@ describe("model.Flight.Luggage", () => {
 			},
 		])
 	})
-	it("update luggage", () => {
+	it("update luggage remove", () => {
 		expect(model.Luggage.update(luggage, passenger, "remove")).toEqual([
 			{
 				reference: "l01",
@@ -243,6 +243,38 @@ describe("model.Flight.Luggage", () => {
 				weight: 20,
 				direction: "departure",
 				quantity: 0,
+				price: { amount: 100, currency: "AFN" },
+				description: "Lite text",
+				flights: [
+					{ reference: "FL-054", capacity: 2 },
+					{ reference: "UDE-342", capacity: 5 },
+				],
+			},
+		])
+	})
+	it("update luggage", () => {
+		expect(
+			model.Luggage.update({ ...luggage, reference: "l02", name: "Golf bag", quantity: undefined }, passenger, "add")
+		).toEqual([
+			{
+				reference: "l01",
+				name: "Extra weight",
+				weight: 20,
+				direction: "departure",
+				quantity: 1,
+				price: { amount: 100, currency: "AFN" },
+				description: "Lite text",
+				flights: [
+					{ reference: "FL-054", capacity: 2 },
+					{ reference: "UDE-342", capacity: 5 },
+				],
+			},
+			{
+				reference: "l02",
+				name: "Golf bag",
+				weight: 20,
+				direction: "departure",
+				quantity: 1,
 				price: { amount: 100, currency: "AFN" },
 				description: "Lite text",
 				flights: [
