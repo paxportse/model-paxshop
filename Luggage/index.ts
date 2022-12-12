@@ -51,10 +51,9 @@ export namespace Luggage {
 			passenger.luggage &&
 			passenger.luggage.find(l => l.reference == luggage.reference && l.direction == luggage.direction)
 		let result: Luggage[] | undefined
-		passenger.luggage && !existingLuggage
-			? // If luggage does not exist in passenger
-			  updatedLuggage && (result = passenger.luggage ? [...passenger.luggage, updatedLuggage] : [updatedLuggage])
-			: // If luggage exist in passenger
+		!existingLuggage
+			? updatedLuggage && (result = passenger.luggage ? [...passenger.luggage, updatedLuggage] : [updatedLuggage])
+			: // If luggage already exist in passenger
 			  passenger.luggage &&
 			  updatedLuggage &&
 			  (result = passenger.luggage.map(l => (l.reference == existingLuggage?.reference ? (l = updatedLuggage) : l)))

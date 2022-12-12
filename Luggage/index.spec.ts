@@ -284,6 +284,29 @@ describe("model.Flight.Luggage", () => {
 			},
 		])
 	})
+	it("update luggage, new luggage", () => {
+		expect(
+			model.Luggage.update(
+				{ ...luggage, reference: "l02", name: "Golf bag", quantity: undefined },
+				{ ...passenger, luggage: undefined },
+				"add"
+			)
+		).toEqual([
+			{
+				reference: "l02",
+				name: "Golf bag",
+				weight: 20,
+				direction: "departure",
+				quantity: 1,
+				price: { amount: 100, currency: "AFN" },
+				description: "Lite text",
+				flights: [
+					{ reference: "FL-054", capacity: 2 },
+					{ reference: "UDE-342", capacity: 5 },
+				],
+			},
+		])
+	})
 	it("change quantity", () => {
 		expect(model.Luggage.changeQuantity({ ...luggage, quantity: 4 }, "add")).toEqual(5)
 	})
