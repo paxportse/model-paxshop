@@ -45,11 +45,11 @@ export namespace Luggage {
 		)
 	}
 	export function update(luggage: Luggage, passenger: Passenger, action: string): Luggage[] | undefined {
-		const quantity = changeQuantity(luggage, action) ?? 1
-		const updatedLuggage = { ...luggage, quantity: quantity } ?? undefined
 		const existingLuggage =
 			passenger.luggage &&
 			passenger.luggage.find(l => l.reference == luggage.reference && l.direction == luggage.direction)
+		const quantity = existingLuggage ? changeQuantity(existingLuggage, action) : 1
+		const updatedLuggage = { ...luggage, quantity: quantity } ?? undefined
 		let result: Luggage[] | undefined
 		!existingLuggage
 			? updatedLuggage && (result = passenger.luggage ? [...passenger.luggage, updatedLuggage] : [updatedLuggage])

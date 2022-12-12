@@ -219,7 +219,7 @@ describe("model.Flight.Luggage", () => {
 		expect(model.Luggage.isArrayOfLuggage(luggageArray)).toEqual(true)
 	})
 	it("update luggage add", () => {
-		expect(model.Luggage.update(luggage, passenger, "add")).toEqual([
+		expect(model.Luggage.update({ ...luggage, quantity: undefined }, passenger, "add")).toEqual([
 			{
 				reference: "l01",
 				name: "Extra weight",
