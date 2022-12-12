@@ -1192,8 +1192,14 @@ Object {
       Object {
         "description": "Golf bag with a maximum weight of 15kg.",
         "flights": Array [
-          "FL-001",
-          "FL-004",
+          Object {
+            "capacity": 5,
+            "reference": "FL-001",
+          },
+          Object {
+            "capacity": 5,
+            "reference": "FL-004",
+          },
         ],
         "name": "Golf Bag",
         "price": Object {

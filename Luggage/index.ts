@@ -45,29 +45,26 @@ export namespace Luggage {
 		)
 	}
 	export function update(luggage: Luggage, passenger: Passenger, action: string): Luggage[] | undefined {
-		const quantity = luggage ? changeQuantity(luggage, action) : 1
-		const updatedLuggage = luggage ? { ...luggage, quantity: quantity } : undefined
+		const quantity = changeQuantity(luggage, action) ?? 1
+		const updatedLuggage = { ...luggage, quantity: quantity } ?? undefined
+		const existingLuggage =
+			passenger.luggage &&
+			passenger.luggage.find(l => l.reference == luggage.reference && l.direction == luggage.direction)
 		let result: Luggage[] | undefined
-		passenger &&
-		passenger.luggage &&
-		!passenger.luggage.find(l => l.reference == luggage.reference && l.direction == luggage.direction)
-			? // If luggage does not exist in passenger
-			  updatedLuggage && (result = passenger.luggage ? [...passenger.luggage, updatedLuggage] : [updatedLuggage])
-			: // If luggage exist in passenger
-			  passenger &&
+		!existingLuggage
+			? updatedLuggage && (result = passenger.luggage ? [...passenger.luggage, updatedLuggage] : [updatedLuggage])
+			: // If luggage already exist in passenger
 			  passenger.luggage &&
 			  updatedLuggage &&
-			  (result = passenger.luggage?.map(l =>
-					l.reference == updatedLuggage.reference && l.direction == updatedLuggage.direction ? (l = updatedLuggage) : l
-			  ))
+			  (result = passenger.luggage.map(l => (l.reference == existingLuggage?.reference ? (l = updatedLuggage) : l)))
 		return result
 	}
 	export function changeQuantity(luggage: Luggage, action: string): number | undefined {
-		let result = luggage ? luggage.quantity : 0
+		let result = luggage.quantity
 		if (action == "remove") {
-			result = luggage && luggage.quantity ? luggage.quantity - 1 : 0
+			result = luggage.quantity ? luggage.quantity - 1 : 0
 		} else if (action == "add") {
-			result = luggage && luggage.quantity ? luggage.quantity + 1 : 1
+			result = luggage.quantity ? luggage.quantity + 1 : 1
 		}
 		return result
 	}
