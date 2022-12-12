@@ -2,7 +2,10 @@ import * as model from "../index"
 
 describe("model.Luggage.FlightRelations", () => {
 	it("is", () => {
-		expect(model.Luggage.FlightRelations.is({ reference: "FL-001", capacity: 2 })).toEqual(true)
+		expect(model.Luggage.FlightRelations.is({ reference: "FL-001", capacity: 2, counter: 1 })).toEqual(true)
+	})
+	it("is", () => {
+		expect(model.Luggage.FlightRelations.is({ reference: "FL-001", counter: 1 })).toEqual(true)
 	})
 	it("is not", () => {
 		expect(model.Luggage.FlightRelations.is({ reference: "FL-001", capacity: "2" })).toEqual(false)
