@@ -1,6 +1,7 @@
 export interface FlightRelations {
 	reference: string
 	capacity?: number
+	counter?: number
 }
 
 export namespace FlightRelations {
@@ -8,7 +9,8 @@ export namespace FlightRelations {
 		return (
 			typeof value == "object" &&
 			typeof value.reference == "string" &&
-			(value.capacity == undefined || typeof value.capacity == "number")
+			(value.capacity == undefined || typeof value.capacity == "number") &&
+			(value.counter == undefined || typeof value.counter == "number")
 		)
 	}
 }
