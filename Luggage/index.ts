@@ -56,7 +56,11 @@ export namespace Luggage {
 			: // If luggage already exist in passenger
 			  passenger.luggage &&
 			  updatedLuggage &&
-			  (result = passenger.luggage.map(l => (l.reference == existingLuggage?.reference ? (l = updatedLuggage) : l)))
+			  (result = passenger.luggage.map(l =>
+					l.reference == existingLuggage?.reference && l.direction == existingLuggage.direction
+						? (l = updatedLuggage)
+						: l
+			  ))
 		return result
 	}
 	export function changeQuantity(luggage: Luggage, action: string): number | undefined {
