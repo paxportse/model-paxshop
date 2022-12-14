@@ -252,6 +252,72 @@ describe("model.Flight.Luggage", () => {
 			},
 		])
 	})
+	it("update luggage add same reference different direction", () => {
+		expect(model.Luggage.update({ ...luggage, direction: "return" }, passenger, "add")).toEqual([
+			{
+				reference: "l01",
+				name: "Extra weight",
+				weight: 20,
+				direction: "departure",
+				quantity: 1,
+				price: { amount: 100, currency: "AFN" },
+				description: "Lite text",
+				flights: [
+					{ reference: "FL-054", capacity: 2 },
+					{ reference: "UDE-342", capacity: 5 },
+				],
+			},
+			{
+				reference: "l01",
+				name: "Extra weight",
+				weight: 20,
+				direction: "return",
+				quantity: 1,
+				price: { amount: 100, currency: "AFN" },
+				description: "Lite text",
+				flights: [
+					{ reference: "FL-054", capacity: 2 },
+					{ reference: "UDE-342", capacity: 5 },
+				],
+			},
+		])
+	})
+	it("update luggage remove same reference different direction", () => {
+		expect(
+			model.Luggage.update(
+				{ ...luggage, direction: "return" },
+				{ ...passenger, luggage: [luggage, { ...luggage, direction: "return" }] },
+				"remove"
+			)
+		).toEqual([
+			{
+				reference: "l01",
+				name: "Extra weight",
+				weight: 20,
+				direction: "departure",
+				quantity: 1,
+				price: { amount: 100, currency: "AFN" },
+				description: "Lite text",
+				flights: [
+					{ reference: "FL-054", capacity: 2 },
+					{ reference: "UDE-342", capacity: 5 },
+				],
+			},
+			{
+				reference: "l01",
+				name: "Extra weight",
+				weight: 20,
+				direction: "return",
+				quantity: 0,
+				price: { amount: 100, currency: "AFN" },
+				description: "Lite text",
+				flights: [
+					{ reference: "FL-054", capacity: 2 },
+					{ reference: "UDE-342", capacity: 5 },
+				],
+			},
+		])
+	})
 	it("update luggage", () => {
 		expect(
 			model.Luggage.update({ ...luggage, reference: "l02", name: "Golf bag", quantity: undefined }, passenger, "add")
