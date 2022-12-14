@@ -534,4 +534,7 @@ describe("model.Flight.Luggage", () => {
 			{ ...luggage, reference: "l03", direction: "return" },
 		])
 	})
+	it("get quantity", () => {
+		expect(model.Luggage.getQuantity(luggage, "departure", passenger)).toEqual(1)
+	})
 })

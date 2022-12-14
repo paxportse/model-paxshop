@@ -98,6 +98,12 @@ export namespace Luggage {
 			  )
 			: undefined
 	}
+
+	export function getQuantity(luggage: Luggage, direction: Direction, passenger: Passenger): number | undefined {
+		return passenger.luggage
+			? passenger.luggage.find(l => luggage.reference == l.reference && l.direction == direction)?.quantity
+			: undefined
+	}
 	export type Category = LuggageCategory
 	export const Category = LuggageCategory
 	export type FlightRelations = LuggageFlightRelations
