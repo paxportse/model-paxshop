@@ -16,6 +16,6 @@ export namespace LuggageSelections {
 				? l.options?.forEach(o => Luggage.is(o) && result.push({ reference: o.reference, selections: 0 }))
 				: Luggage.is(l) && result.push({ reference: l.reference, selections: 0 })
 		})
-		return result // check length or undefined
+		return result.length > 0 ? result : undefined
 	}
 }
