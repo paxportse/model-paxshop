@@ -5,6 +5,7 @@ import { Price } from "../Price"
 import { Category as LuggageCategory } from "./Category"
 import { FlightRelations as LuggageFlightRelations } from "./FlightRelations"
 import { FlightRelations } from "./FlightRelations"
+import { LuggageSelections as Selections } from "./LuggageSelections"
 
 export interface Luggage {
 	reference: string
@@ -108,4 +109,6 @@ export namespace Luggage {
 	export const Category = LuggageCategory
 	export type FlightRelations = LuggageFlightRelations
 	export const FlightRelations = LuggageFlightRelations
+	export type LuggageSelections = Selections
+	export const LuggageSelections = Selections
 }
