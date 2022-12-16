@@ -11,7 +11,7 @@ describe("Category", () => {
 				weight: 20,
 				direction: "departure",
 				price: { amount: 100, currency: "AFN" },
-				description: "Lite text",
+				description: "Some text",
 			},
 			{
 				reference: "l02",
@@ -19,7 +19,7 @@ describe("Category", () => {
 				weight: 20,
 				direction: "departure",
 				price: { amount: 100, currency: "AFN" },
-				description: "Lite text",
+				description: "Some text",
 			},
 		],
 		flights: [
@@ -34,7 +34,7 @@ describe("Category", () => {
 		weight: 20,
 		direction: "departure",
 		price: { amount: 100, currency: "AFN" },
-		description: "Lite text",
+		description: "Some text",
 		flights: [
 			{ reference: "FL-001", capacity: 2 },
 			{ reference: "FL-003", capacity: 2 },
