@@ -1191,6 +1191,7 @@ Object {
     "luggage": Array [
       Object {
         "description": "Golf bag with a maximum weight of 15kg.",
+        "direction": "roundtrip",
         "flights": Array [
           Object {
             "capacity": 5,
