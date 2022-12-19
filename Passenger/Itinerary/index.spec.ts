@@ -28,7 +28,7 @@ describe("model.Itinerary", () => {
 						name: "chicken",
 						price: { amount: 100, currency: "SEK" },
 						default: false,
-						description: "Lite text",
+						description: "Some text",
 					},
 				],
 			},
