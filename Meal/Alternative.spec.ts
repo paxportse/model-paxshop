@@ -5,7 +5,7 @@ describe("model.Flight.Meal.Alternative", () => {
 		name: "chicken",
 		price: { amount: 100, currency: "SEK" },
 		default: false,
-		description: "Lite text",
+		description: "Some text",
 	}
 	it("is", () => {
 		expect(Alternative.is(alternative)).toEqual(true)

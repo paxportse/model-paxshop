@@ -156,7 +156,7 @@ describe("model.Flight.Luggage", () => {
 		direction: "departure",
 		quantity: 1,
 		price: { amount: 100, currency: "AFN" },
-		description: "Lite text",
+		description: "Some text",
 		flights: [
 			{ reference: "FL-054", capacity: 2 },
 			{ reference: "UDE-342", capacity: 5 },
@@ -174,7 +174,7 @@ describe("model.Flight.Luggage", () => {
 				weight: 20,
 				direction: "departure",
 				price: { amount: 100, currency: "AFN" },
-				description: "Lite text",
+				description: "Some text",
 			},
 			{
 				reference: "l02",
@@ -182,7 +182,7 @@ describe("model.Flight.Luggage", () => {
 				weight: 20,
 				direction: "departure",
 				price: { amount: 100, currency: "AFN" },
-				description: "Lite text",
+				description: "Some text",
 			},
 		],
 		open: true,
@@ -227,7 +227,7 @@ describe("model.Flight.Luggage", () => {
 				direction: "departure",
 				quantity: 2,
 				price: { amount: 100, currency: "AFN" },
-				description: "Lite text",
+				description: "Some text",
 				flights: [
 					{ reference: "FL-054", capacity: 2 },
 					{ reference: "UDE-342", capacity: 5 },
@@ -244,7 +244,7 @@ describe("model.Flight.Luggage", () => {
 				direction: "departure",
 				quantity: 0,
 				price: { amount: 100, currency: "AFN" },
-				description: "Lite text",
+				description: "Some text",
 				flights: [
 					{ reference: "FL-054", capacity: 2 },
 					{ reference: "UDE-342", capacity: 5 },
@@ -261,7 +261,7 @@ describe("model.Flight.Luggage", () => {
 				direction: "departure",
 				quantity: 1,
 				price: { amount: 100, currency: "AFN" },
-				description: "Lite text",
+				description: "Some text",
 				flights: [
 					{ reference: "FL-054", capacity: 2 },
 					{ reference: "UDE-342", capacity: 5 },
@@ -274,7 +274,7 @@ describe("model.Flight.Luggage", () => {
 				direction: "return",
 				quantity: 1,
 				price: { amount: 100, currency: "AFN" },
-				description: "Lite text",
+				description: "Some text",
 				flights: [
 					{ reference: "FL-054", capacity: 2 },
 					{ reference: "UDE-342", capacity: 5 },
@@ -297,7 +297,7 @@ describe("model.Flight.Luggage", () => {
 				direction: "departure",
 				quantity: 1,
 				price: { amount: 100, currency: "AFN" },
-				description: "Lite text",
+				description: "Some text",
 				flights: [
 					{ reference: "FL-054", capacity: 2 },
 					{ reference: "UDE-342", capacity: 5 },
@@ -310,7 +310,7 @@ describe("model.Flight.Luggage", () => {
 				direction: "return",
 				quantity: 0,
 				price: { amount: 100, currency: "AFN" },
-				description: "Lite text",
+				description: "Some text",
 				flights: [
 					{ reference: "FL-054", capacity: 2 },
 					{ reference: "UDE-342", capacity: 5 },
@@ -329,7 +329,7 @@ describe("model.Flight.Luggage", () => {
 				direction: "departure",
 				quantity: 1,
 				price: { amount: 100, currency: "AFN" },
-				description: "Lite text",
+				description: "Some text",
 				flights: [
 					{ reference: "FL-054", capacity: 2 },
 					{ reference: "UDE-342", capacity: 5 },
@@ -342,7 +342,7 @@ describe("model.Flight.Luggage", () => {
 				direction: "departure",
 				quantity: 1,
 				price: { amount: 100, currency: "AFN" },
-				description: "Lite text",
+				description: "Some text",
 				flights: [
 					{ reference: "FL-054", capacity: 2 },
 					{ reference: "UDE-342", capacity: 5 },
@@ -365,7 +365,7 @@ describe("model.Flight.Luggage", () => {
 				direction: "departure",
 				quantity: 1,
 				price: { amount: 100, currency: "AFN" },
-				description: "Lite text",
+				description: "Some text",
 				flights: [
 					{ reference: "FL-054", capacity: 2 },
 					{ reference: "UDE-342", capacity: 5 },
