@@ -1,12 +1,12 @@
+import * as cryptly from "cryptly"
 import { Booking } from "../Booking"
 import { BookingOptions } from "../BookingOptions"
 import { Passenger } from "../Passenger"
 import { Price } from "../Price"
 import { Layout } from "./../Layout"
 import { Item as OrderItem } from "./Item"
-
 export interface Order {
-	reference?: string
+	id: cryptly.Identifier
 	readonly booking: Booking
 	payment?: string
 	readonly total?: Price
@@ -17,6 +17,7 @@ export namespace Order {
 	export function is(value: Order | any): value is Order {
 		return (
 			typeof value == "object" &&
+			value &&
 			(value.reference == undefined || typeof value.reference == "string") &&
 			Booking.is(value.booking) &&
 			(value.payment == undefined || typeof value.payment == "string") &&
@@ -25,8 +26,8 @@ export namespace Order {
 			(value.email == undefined || typeof value.email == "string")
 		)
 	}
-	export function create(booking: Booking): Order | undefined {
-		return { booking, total: getTotal(booking) ?? undefined }
+	export function create(booking: Booking): Order {
+		return { id: cryptly.Identifier.generate(16), booking, total: getTotal(booking) }
 	}
 	export function getItems(order: Order, bookingOptions: BookingOptions): Item[] | undefined {
 		return order.booking.passengers
