@@ -109,7 +109,7 @@ describe("model.Order", () => {
 		passengers,
 	}
 	const order: model.Order = {
-		reference: "00112233",
+		id: "7yeackbEgAGwb60H",
 		booking: booking,
 		payment: "Pay OK",
 		total: { amount: 20, currency: "EUR" },
@@ -361,10 +361,12 @@ describe("model.Order", () => {
 		expect(model.Order.is(order)).toEqual(true)
 	})
 	it("create", () => {
-		expect(model.Order.create(booking)).toEqual({
+		const result = model.Order.create(booking)
+		expect(result).toMatchObject({
 			booking: booking,
 			total: { amount: 720, currency: "EUR", description: "" },
 		})
+		expect(result?.id).toMatch(/([\w\d-_]{16})/)
 	})
 	it("getItems", () => {
 		expect(model.Order.getItems(order, bookingOptions)).toEqual(items)
