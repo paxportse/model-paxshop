@@ -26,8 +26,8 @@ export namespace Order {
 			(value.email == undefined || typeof value.email == "string")
 		)
 	}
-	export function create(booking: Booking): Order | undefined {
-		return { id: cryptly.Identifier.generate(16), booking, total: getTotal(booking) ?? undefined }
+	export function create(booking: Booking): Order {
+		return { id: cryptly.Identifier.generate(16), booking, total: getTotal(booking) }
 	}
 	export function getItems(order: Order, bookingOptions: BookingOptions): Item[] | undefined {
 		return order.booking.passengers
