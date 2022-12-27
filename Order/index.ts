@@ -4,14 +4,16 @@ import { BookingOptions } from "../BookingOptions"
 import { Passenger } from "../Passenger"
 import { Price } from "../Price"
 import { Layout } from "./../Layout"
+import { Contact as OrderContact } from "./Contact"
 import { Item as OrderItem } from "./Item"
+import { Payment as OrderPayment } from "./Payment"
+
 export interface Order {
 	id: cryptly.Identifier
 	readonly booking: Booking
-	payment?: string
+	payment?: Order.Payment | Order.Payment.Session
 	readonly total?: Price
-	phone?: string
-	email?: string
+	contact?: Order.Contact
 }
 export namespace Order {
 	export function is(value: Order | any): value is Order {
@@ -81,4 +83,13 @@ export namespace Order {
 	}
 	export const Item = OrderItem
 	export type Item = OrderItem
+	export type Payment = OrderPayment
+	export namespace Payment {
+		export type Session = OrderPayment.Session
+		export const Session = OrderPayment.Session
+		export type Netaxept = OrderPayment.Netaxept
+		export const Netaxept = OrderPayment.Netaxept
+	}
+	export type Contact = OrderContact
+	export const Contact = OrderContact
 }
