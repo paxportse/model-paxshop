@@ -85,6 +85,7 @@ export namespace Order {
 	export type Item = OrderItem
 	export type Payment = OrderPayment
 	export namespace Payment {
+		export const is = OrderPayment.is
 		export type Session = OrderPayment.Session
 		export const Session = OrderPayment.Session
 		export type Netaxept = OrderPayment.Netaxept

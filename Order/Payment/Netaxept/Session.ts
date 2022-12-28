@@ -1,5 +1,6 @@
 export interface Session {
 	provider: "netaxept" | "netaxept-staging"
+	shop: number
 	target?: string
 }
 export namespace Session {
