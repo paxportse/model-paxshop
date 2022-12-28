@@ -42,6 +42,7 @@ describe("Category", () => {
 	}
 	it("is", () => {
 		expect(model.Luggage.Category.is(category)).toEqual(true)
+		model.Luggage.Category.is(null)
 	})
 	it("undefined weight", () => {
 		expect(model.Luggage.Category.is({ ...category, weight: undefined })).toEqual(true)

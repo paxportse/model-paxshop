@@ -4,7 +4,7 @@ import { Session as PaymentSession } from "./Session"
 export type Payment = Payment.Netaxept
 
 export namespace Payment {
-	export const is = Payment.Netaxept.is
+	export const is = PaymentNetaxept.is
 	export type Session = PaymentSession
 	export const Session = PaymentSession
 	export type Netaxept = PaymentNetaxept

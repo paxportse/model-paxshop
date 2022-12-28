@@ -111,7 +111,6 @@ describe("model.Order", () => {
 	const order: model.Order = {
 		id: "7yeackbEgAGwb60H",
 		booking: booking,
-		payment: "Pay OK",
 		total: { amount: 20, currency: "EUR" },
 	}
 

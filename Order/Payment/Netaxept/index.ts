@@ -9,7 +9,13 @@ export interface Netaxept extends Netaxept.Session {
 
 export namespace Netaxept {
 	export function is(value: any | Netaxept): value is Netaxept {
-		return false
+		return (
+			typeof value == "object" &&
+			value &&
+			typeof value.reference == "string" &&
+			typeof value.amount == "number" &&
+			isoly.Currency.is(value.currency)
+		)
 	}
 	export type Session = NetaxeptSession
 	export const Session = NetaxeptSession
