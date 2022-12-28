@@ -113,7 +113,6 @@ describe("model.Order", () => {
 		booking: booking,
 		total: { amount: 20, currency: "EUR" },
 	}
-
 	const bookingOptions: BookingOptions = {
 		departure: [
 			{
@@ -358,6 +357,7 @@ describe("model.Order", () => {
 	]
 	it("is", () => {
 		expect(model.Order.is(order)).toEqual(true)
+		expect(model.Order.is({ ...order, payment: }))
 	})
 	it("create", () => {
 		const result = model.Order.create(booking)
