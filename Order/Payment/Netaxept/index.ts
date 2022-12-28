@@ -14,7 +14,8 @@ export namespace Netaxept {
 			value &&
 			typeof value.reference == "string" &&
 			typeof value.amount == "number" &&
-			isoly.Currency.is(value.currency)
+			isoly.Currency.is(value.currency) &&
+			Netaxept.Session.is(value)
 		)
 	}
 	export type Session = NetaxeptSession
