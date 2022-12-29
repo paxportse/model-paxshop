@@ -108,9 +108,12 @@ describe("model.Order", () => {
 		departure: "2022-12-12",
 		passengers,
 	}
-	const payment: model.Order.Payment = {
+	const price: model.Price = {
 		amount: 123,
 		currency: "EUR",
+	}
+	const payment: model.Order.Payment = {
+		price,
 		provider: "netaxept",
 		reference: "asd123",
 		shop: 123,
