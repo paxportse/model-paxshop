@@ -4,26 +4,27 @@ import { BookingOptions } from "../BookingOptions"
 import { Passenger } from "../Passenger"
 import { Price } from "../Price"
 import { Layout } from "./../Layout"
+import { Contact as OrderContact } from "./Contact"
 import { Item as OrderItem } from "./Item"
+import { Payment as OrderPayment } from "./Payment"
+
 export interface Order {
 	id: cryptly.Identifier
 	readonly booking: Booking
-	payment?: string
+	payment?: Order.Payment | Order.Payment.Session
 	readonly total?: Price
-	phone?: string
-	email?: string
+	contact?: Order.Contact
 }
 export namespace Order {
 	export function is(value: Order | any): value is Order {
 		return (
 			typeof value == "object" &&
 			value &&
-			(value.reference == undefined || typeof value.reference == "string") &&
+			cryptly.Identifier.is(value.id) &&
 			Booking.is(value.booking) &&
-			(value.payment == undefined || typeof value.payment == "string") &&
+			(value.payment == undefined || Payment.is(value.payment) || Payment.Session.is(value.payment)) &&
 			(value.total == undefined || Price.is(value.total)) &&
-			(value.phone == undefined || typeof value.phone == "string") &&
-			(value.email == undefined || typeof value.email == "string")
+			(value.contact == undefined || Contact.is(value.contact))
 		)
 	}
 	export function create(booking: Booking): Order {
@@ -81,4 +82,18 @@ export namespace Order {
 	}
 	export const Item = OrderItem
 	export type Item = OrderItem
+	export type Payment = OrderPayment
+	export namespace Payment {
+		export const is = OrderPayment.is
+		export type Session = OrderPayment.Session
+		export const Session = OrderPayment.Session
+		export type Netaxept = OrderPayment.Netaxept
+		export namespace Netaxept {
+			export const is = OrderPayment.Netaxept.is
+			export type Session = OrderPayment.Netaxept.Session
+			export const Session = OrderPayment.Netaxept.Session
+		}
+	}
+	export type Contact = OrderContact
+	export const Contact = OrderContact
 }
