@@ -88,7 +88,6 @@ export namespace Order {
 		export type Session = OrderPayment.Session
 		export const Session = OrderPayment.Session
 		export type Netaxept = OrderPayment.Netaxept
-		// export const Netaxept = OrderPayment.Netaxept
 		export namespace Netaxept {
 			export const is = OrderPayment.Netaxept.is
 			export type Session = OrderPayment.Netaxept.Session
