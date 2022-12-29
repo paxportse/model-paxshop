@@ -1,6 +1,6 @@
 import * as model from "../../../index"
 
-describe("Order.Payment.Netaxept", () => {
+describe("model.Order.Payment.Netaxept", () => {
 	const payment: model.Order.Payment.Netaxept = {
 		amount: 123,
 		currency: "EUR",

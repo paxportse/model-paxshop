@@ -1,6 +1,6 @@
 import * as model from "../../index"
 
-describe("Order.Contact", () => {
+describe("model.Order.Contact", () => {
 	const contact: model.Order.Contact = {
 		phone: "0123456789",
 		email: "jessie@doe.com",

@@ -1,7 +1,7 @@
 import { BookingOptions } from "../BookingOptions"
+import * as model from "../index"
 import { Booking } from "./../Booking"
 import { Passenger } from "./../Passenger"
-import * as model from "./index"
 import { Item } from "./Item"
 
 describe("model.Order", () => {
@@ -108,11 +108,30 @@ describe("model.Order", () => {
 		departure: "2022-12-12",
 		passengers,
 	}
+	const payment: model.Order.Payment = {
+		amount: 123,
+		currency: "EUR",
+		provider: "netaxept",
+		reference: "asd123",
+		shop: 123,
+	}
+	const session: model.Order.Payment.Session = {
+		provider: "netaxept",
+		shop: 123,
+	}
+	const contact: model.Order.Contact = {
+		phone: "0123456789",
+		email: "jessie@doe.com",
+	}
+	const total: model.Price = {
+		amount: 20,
+		currency: "EUR",
+	}
 	const order: model.Order = {
 		id: "7yeackbEgAGwb60H",
 		booking: booking,
-		total: { amount: 20, currency: "EUR" },
 	}
+
 	const bookingOptions: BookingOptions = {
 		departure: [
 			{
@@ -357,7 +376,15 @@ describe("model.Order", () => {
 	]
 	it("is", () => {
 		expect(model.Order.is(order)).toEqual(true)
-		expect(model.Order.is({ ...order, payment: }))
+		expect(model.Order.is({ ...order, payment })).toEqual(true)
+		expect(model.Order.is({ ...order, payment, contact })).toEqual(true)
+		expect(model.Order.is({ ...order, payment, contact, total })).toEqual(true)
+		expect(model.Order.is({ ...order, payment: session, contact, total })).toEqual(true)
+		expect(model.Order.is((({ booking, ...other }) => other)(order))).toEqual(false)
+		expect(model.Order.is((({ id, ...other }) => other)(order))).toEqual(false)
+		expect(model.Order.is({ ...order, payment: {} })).toEqual(false)
+		expect(model.Order.is({ ...order, contact: {} })).toEqual(false)
+		expect(model.Order.is({ ...order, total: {} })).toEqual(false)
 	})
 	it("create", () => {
 		const result = model.Order.create(booking)

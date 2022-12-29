@@ -1,6 +1,6 @@
 import * as model from "../../../index"
 
-describe("Order.Payment.Netaxept.Session", () => {
+describe("model.Order.Payment.Netaxept.Session", () => {
 	const session: model.Order.Payment.Netaxept.Session = {
 		provider: "netaxept",
 		shop: 123,

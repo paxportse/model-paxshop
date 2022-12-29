@@ -8,7 +8,6 @@ export namespace Payment {
 	export type Session = PaymentSession
 	export const Session = PaymentSession
 	export type Netaxept = PaymentNetaxept
-	// export const Netaxept = PaymentNetaxept
 	export namespace Netaxept {
 		export const is = PaymentNetaxept.is
 		export type Session = PaymentNetaxept.Session

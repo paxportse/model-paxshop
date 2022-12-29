@@ -20,12 +20,11 @@ export namespace Order {
 		return (
 			typeof value == "object" &&
 			value &&
-			(value.reference == undefined || typeof value.reference == "string") &&
+			cryptly.Identifier.is(value.id) &&
 			Booking.is(value.booking) &&
-			(value.payment == undefined || typeof value.payment == "string") &&
+			(value.payment == undefined || Payment.is(value.payment) || Payment.Session.is(value.payment)) &&
 			(value.total == undefined || Price.is(value.total)) &&
-			(value.phone == undefined || typeof value.phone == "string") &&
-			(value.email == undefined || typeof value.email == "string")
+			(value.contact == undefined || Contact.is(value.contact))
 		)
 	}
 	export function create(booking: Booking): Order {
