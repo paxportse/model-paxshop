@@ -7,7 +7,6 @@ describe("model.Order.Payment", () => {
 	}
 	const netaxept: model.Order.Payment = {
 		price,
-		provider: "netaxept",
 		reference: "asd123",
 		shop: 123,
 	}

@@ -7,7 +7,6 @@ describe("model.Order.Payment.Netaxept", () => {
 	}
 	const payment: model.Order.Payment.Netaxept = {
 		price: price,
-		provider: "netaxept",
 		reference: "asd123",
 		shop: 123,
 	}
@@ -16,7 +15,6 @@ describe("model.Order.Payment.Netaxept", () => {
 		expect(model.Order.Payment.Netaxept.is({ ...payment, target: "https://netaxept.com" })).toEqual(true)
 		expect(model.Order.Payment.Netaxept.is({ ...payment, target: 123 })).toEqual(false)
 		expect(model.Order.Payment.Netaxept.is({ ...payment, price: {} })).toEqual(false)
-		expect(model.Order.Payment.Netaxept.is({ ...payment, provider: "someone else" })).toEqual(false)
 		expect(model.Order.Payment.Netaxept.is({ ...payment, shop: "123" })).toEqual(false)
 	})
 })

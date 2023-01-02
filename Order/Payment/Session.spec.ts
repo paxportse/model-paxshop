@@ -2,7 +2,6 @@ import * as model from "../../index"
 
 describe("model.Order.Payment.Session", () => {
 	const session: model.Order.Payment.Session = {
-		provider: "netaxept",
 		shop: 123,
 	}
 	it("is", () => {

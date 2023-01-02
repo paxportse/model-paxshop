@@ -114,12 +114,10 @@ describe("model.Order", () => {
 	}
 	const payment: model.Order.Payment = {
 		price,
-		provider: "netaxept",
 		reference: "asd123",
 		shop: 123,
 	}
 	const session: model.Order.Payment.Session = {
-		provider: "netaxept",
 		shop: 123,
 	}
 	const contact: model.Order.Contact = {
