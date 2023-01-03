@@ -11,6 +11,7 @@ describe("model.Flight.Seat.Position", () => {
 					row: { number: 1 },
 					price: { amount: 400, currency: "SEK" },
 					legroom: true,
+					reference: "123",
 				},
 				{
 					status: "available",
@@ -19,6 +20,7 @@ describe("model.Flight.Seat.Position", () => {
 					row: { number: 1 },
 					price: { amount: 400, currency: "SEK" },
 					legroom: true,
+					reference: "123",
 				},
 			],
 		},
@@ -31,6 +33,7 @@ describe("model.Flight.Seat.Position", () => {
 					row: { number: 1 },
 					price: { amount: 400, currency: "SEK" },
 					legroom: true,
+					reference: "123",
 				},
 				{
 					status: "available",
@@ -39,6 +42,7 @@ describe("model.Flight.Seat.Position", () => {
 					row: { number: 1 },
 					price: { amount: 400, currency: "SEK" },
 					legroom: true,
+					reference: "123",
 				},
 			],
 		},

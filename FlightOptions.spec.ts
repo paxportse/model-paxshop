@@ -22,6 +22,7 @@ describe("model.FlightOptions", () => {
 								position: "A",
 								price: { amount: 400, currency: "SEK" },
 								wide: true,
+								reference: "123",
 							},
 							{
 								status: "available",
@@ -30,6 +31,7 @@ describe("model.FlightOptions", () => {
 								position: "B",
 								price: { amount: 400, offer: 50, currency: "SEK" },
 								wide: true,
+								reference: "123",
 							},
 						],
 					},
@@ -41,6 +43,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 1 },
 								position: "C",
 								price: { amount: 100, currency: "SEK" },
+								reference: "123",
 							},
 							{
 								status: "available",
@@ -48,6 +51,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 1 },
 								position: "D",
 								price: { amount: 150, currency: "SEK" },
+								reference: "123",
 							},
 							{
 								status: "available",
@@ -55,6 +59,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 1 },
 								position: "E",
 								price: { amount: 250, currency: "SEK" },
+								reference: "123",
 							},
 						],
 					},
@@ -66,6 +71,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 1 },
 								position: "F",
 								price: { amount: 350, currency: "SEK" },
+								reference: "123",
 								legroom: true,
 							},
 							{
@@ -74,6 +80,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 1 },
 								position: "G",
 								price: { amount: 1250, currency: "SEK" },
+								reference: "123",
 								legroom: true,
 							},
 						],
@@ -92,6 +99,7 @@ describe("model.FlightOptions", () => {
 								position: "A",
 								price: { amount: 400, currency: "SEK" },
 								wide: true,
+								reference: "123",
 							},
 							{
 								status: "available",
@@ -100,6 +108,7 @@ describe("model.FlightOptions", () => {
 								position: "B",
 								price: { amount: 400, offer: 50, currency: "SEK" },
 								wide: true,
+								reference: "123",
 							},
 						],
 					},
@@ -111,6 +120,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 2 },
 								position: "C",
 								price: { amount: 100, currency: "SEK" },
+								reference: "123",
 							},
 							{
 								status: "available",
@@ -118,6 +128,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 2 },
 								position: "D",
 								price: { amount: 150, currency: "SEK" },
+								reference: "123",
 							},
 							{
 								status: "available",
@@ -125,6 +136,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 2 },
 								position: "E",
 								price: { amount: 250, currency: "SEK" },
+								reference: "123",
 							},
 						],
 					},
@@ -137,6 +149,7 @@ describe("model.FlightOptions", () => {
 								position: "F",
 								price: { amount: 350, currency: "SEK" },
 								legroom: true,
+								reference: "123",
 							},
 							{
 								status: "unavailable",
@@ -145,6 +158,7 @@ describe("model.FlightOptions", () => {
 								position: "G",
 								price: { amount: 1250, currency: "SEK" },
 								legroom: true,
+								reference: "123",
 							},
 						],
 					},
@@ -156,12 +170,18 @@ describe("model.FlightOptions", () => {
 			{
 				reference: "ref-234",
 				name: "Breakfast",
-				alternatives: [{ name: "Fancy" }, { name: "Basic" }],
+				alternatives: [
+					{ name: "Fancy", reference: "345" },
+					{ name: "Basic", reference: "345" },
+				],
 			},
 			{
 				reference: "ref-754",
 				name: "Dinner",
-				alternatives: [{ name: "Chicken" }, { name: "Fish" }],
+				alternatives: [
+					{ name: "Chicken", reference: "345" },
+					{ name: "Fish", reference: "345" },
+				],
 			},
 		],
 	}
@@ -184,6 +204,7 @@ describe("model.FlightOptions", () => {
 								position: "A",
 								price: { amount: 400, currency: "SEK" },
 								wide: true,
+								reference: "123",
 							},
 							{
 								status: "available",
@@ -192,6 +213,7 @@ describe("model.FlightOptions", () => {
 								position: "B",
 								price: { amount: 400, offer: 50, currency: "SEK" },
 								wide: true,
+								reference: "123",
 							},
 						],
 					},
@@ -203,6 +225,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 1 },
 								position: "C",
 								price: { amount: 100, currency: "SEK" },
+								reference: "123",
 							},
 							{
 								status: "available",
@@ -210,6 +233,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 1 },
 								position: "D",
 								price: { amount: 150, currency: "SEK" },
+								reference: "123",
 							},
 							{
 								status: "available",
@@ -217,6 +241,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 1 },
 								position: "E",
 								price: { amount: 250, currency: "SEK" },
+								reference: "123",
 							},
 						],
 					},
@@ -229,6 +254,7 @@ describe("model.FlightOptions", () => {
 								position: "F",
 								price: { amount: 350, currency: "SEK" },
 								legroom: true,
+								reference: "123",
 							},
 							{
 								status: "available",
@@ -237,6 +263,7 @@ describe("model.FlightOptions", () => {
 								position: "G",
 								price: { amount: 1250, currency: "SEK" },
 								legroom: true,
+								reference: "123",
 							},
 						],
 					},
@@ -254,6 +281,7 @@ describe("model.FlightOptions", () => {
 								position: "A",
 								price: { amount: 400, currency: "SEK" },
 								wide: true,
+								reference: "123",
 							},
 							{
 								status: "available",
@@ -262,6 +290,7 @@ describe("model.FlightOptions", () => {
 								position: "B",
 								price: { amount: 400, offer: 50, currency: "SEK" },
 								wide: true,
+								reference: "123",
 							},
 						],
 					},
@@ -273,6 +302,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 2 },
 								position: "C",
 								price: { amount: 100, currency: "SEK" },
+								reference: "123",
 							},
 							{
 								status: "available",
@@ -280,6 +310,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 2 },
 								position: "D",
 								price: { amount: 150, currency: "SEK" },
+								reference: "123",
 							},
 							{
 								status: "available",
@@ -287,6 +318,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 2 },
 								position: "E",
 								price: { amount: 250, currency: "SEK" },
+								reference: "123",
 							},
 						],
 					},
@@ -298,6 +330,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 2 },
 								position: "F",
 								price: { amount: 350, currency: "SEK" },
+								reference: "123",
 								legroom: true,
 							},
 							{
@@ -306,6 +339,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 2 },
 								position: "G",
 								price: { amount: 1250, currency: "SEK" },
+								reference: "123",
 								legroom: true,
 							},
 						],
@@ -318,12 +352,18 @@ describe("model.FlightOptions", () => {
 			{
 				reference: "ref-234",
 				name: "Breakfast",
-				alternatives: [{ name: "Fancy" }, { name: "Basic" }],
+				alternatives: [
+					{ name: "Fancy", reference: "345" },
+					{ name: "Basic", reference: "345" },
+				],
 			},
 			{
 				reference: "ref-754",
 				name: "Dinner",
-				alternatives: [{ name: "Chicken" }, { name: "Fish" }],
+				alternatives: [
+					{ name: "Chicken", reference: "345" },
+					{ name: "Fish", reference: "345" },
+				],
 			},
 		],
 	}
@@ -346,6 +386,7 @@ describe("model.FlightOptions", () => {
 								position: "A",
 								price: { amount: 400, currency: "SEK" },
 								wide: true,
+								reference: "123",
 							},
 							{
 								status: "occupied",
@@ -354,6 +395,7 @@ describe("model.FlightOptions", () => {
 								position: "B",
 								price: { amount: 400, currency: "SEK" },
 								wide: true,
+								reference: "123",
 							},
 						],
 					},
@@ -365,6 +407,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 1 },
 								position: "C",
 								price: { amount: 400, currency: "SEK" },
+								reference: "123",
 							},
 							{
 								status: "occupied",
@@ -372,6 +415,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 1 },
 								position: "D",
 								price: { amount: 400, currency: "SEK" },
+								reference: "123",
 							},
 							{
 								status: "occupied",
@@ -379,6 +423,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 1 },
 								position: "E",
 								price: { amount: 400, currency: "SEK" },
+								reference: "123",
 							},
 						],
 					},
@@ -391,6 +436,7 @@ describe("model.FlightOptions", () => {
 								position: "F",
 								price: { amount: 400, currency: "SEK" },
 								legroom: true,
+								reference: "123",
 							},
 							{
 								status: "occupied",
@@ -399,6 +445,7 @@ describe("model.FlightOptions", () => {
 								position: "G",
 								price: { amount: 400, currency: "SEK" },
 								legroom: true,
+								reference: "123",
 							},
 						],
 					},
@@ -416,6 +463,7 @@ describe("model.FlightOptions", () => {
 								position: "A",
 								price: { amount: 400, currency: "SEK" },
 								wide: true,
+								reference: "123",
 							},
 							{
 								status: "occupied",
@@ -424,6 +472,7 @@ describe("model.FlightOptions", () => {
 								position: "B",
 								price: { amount: 400, currency: "SEK" },
 								wide: true,
+								reference: "123",
 							},
 						],
 					},
@@ -435,6 +484,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 2 },
 								position: "C",
 								price: { amount: 400, currency: "SEK" },
+								reference: "123",
 							},
 							{
 								status: "occupied",
@@ -442,6 +492,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 2 },
 								position: "D",
 								price: { amount: 400, currency: "SEK" },
+								reference: "123",
 							},
 							{
 								status: "occupied",
@@ -449,6 +500,7 @@ describe("model.FlightOptions", () => {
 								row: { number: 2 },
 								position: "E",
 								price: { amount: 400, currency: "SEK" },
+								reference: "123",
 							},
 						],
 					},
@@ -461,6 +513,7 @@ describe("model.FlightOptions", () => {
 								position: "F",
 								price: { amount: 400, currency: "SEK" },
 								legroom: true,
+								reference: "123",
 							},
 							{
 								status: "occupied",
@@ -469,6 +522,7 @@ describe("model.FlightOptions", () => {
 								position: "G",
 								price: { amount: 400, currency: "SEK" },
 								legroom: true,
+								reference: "123",
 							},
 						],
 					},
@@ -480,12 +534,18 @@ describe("model.FlightOptions", () => {
 			{
 				reference: "ref-234",
 				name: "Breakfast",
-				alternatives: [{ name: "Fancy" }, { name: "Basic" }],
+				alternatives: [
+					{ name: "Fancy", reference: "345" },
+					{ name: "Basic", reference: "345" },
+				],
 			},
 			{
 				reference: "ref-754",
 				name: "Dinner",
-				alternatives: [{ name: "Chicken" }, { name: "Fish" }],
+				alternatives: [
+					{ name: "Chicken", reference: "345" },
+					{ name: "Fish", reference: "345" },
+				],
 			},
 		],
 	}
@@ -509,6 +569,7 @@ describe("model.FlightOptions", () => {
 									position: "A",
 									price: { amount: 400, currency: "SEK" },
 									wide: true,
+									reference: "123",
 								},
 							],
 						},
@@ -520,6 +581,7 @@ describe("model.FlightOptions", () => {
 									row: { number: 1 },
 									position: "B",
 									price: { amount: 100, currency: "SEK" },
+									reference: "123",
 								},
 							],
 						},
@@ -536,6 +598,7 @@ describe("model.FlightOptions", () => {
 									position: "A",
 									price: { amount: 400, currency: "SEK" },
 									wide: true,
+									reference: "123",
 								},
 							],
 						},
@@ -547,6 +610,7 @@ describe("model.FlightOptions", () => {
 									row: { number: 2 },
 									position: "B",
 									price: { amount: 100, currency: "SEK" },
+									reference: "123",
 								},
 							],
 						},
@@ -557,7 +621,10 @@ describe("model.FlightOptions", () => {
 				{
 					reference: "ref-234",
 					name: "Breakfast",
-					alternatives: [{ name: "Fancy" }, { name: "Basic" }],
+					alternatives: [
+						{ name: "Fancy", reference: "345" },
+						{ name: "Basic", reference: "345" },
+					],
 				},
 			],
 		},
@@ -580,6 +647,7 @@ describe("model.FlightOptions", () => {
 									position: "A",
 									price: { amount: 400, currency: "SEK" },
 									wide: true,
+									reference: "123",
 								},
 							],
 						},
@@ -591,6 +659,7 @@ describe("model.FlightOptions", () => {
 									row: { number: 1 },
 									position: "B",
 									price: { amount: 100, currency: "SEK" },
+									reference: "123",
 								},
 							],
 						},
@@ -607,6 +676,7 @@ describe("model.FlightOptions", () => {
 									position: "A",
 									price: { amount: 400, currency: "SEK" },
 									wide: true,
+									reference: "123",
 								},
 							],
 						},
@@ -618,6 +688,7 @@ describe("model.FlightOptions", () => {
 									row: { number: 2 },
 									position: "B",
 									price: { amount: 100, currency: "SEK" },
+									reference: "123",
 								},
 							],
 						},
@@ -628,7 +699,10 @@ describe("model.FlightOptions", () => {
 				{
 					reference: "ref-234",
 					name: "Breakfast",
-					alternatives: [{ name: "Fancy" }, { name: "Basic" }],
+					alternatives: [
+						{ name: "Fancy", reference: "345" },
+						{ name: "Basic", reference: "345" },
+					],
 				},
 			],
 		},
@@ -651,6 +725,7 @@ describe("model.FlightOptions", () => {
 									position: "A",
 									price: { amount: 400, currency: "SEK" },
 									wide: true,
+									reference: "123",
 								},
 							],
 						},
@@ -662,6 +737,7 @@ describe("model.FlightOptions", () => {
 									row: { number: 1 },
 									position: "B",
 									price: { amount: 100, currency: "SEK" },
+									reference: "123",
 								},
 							],
 						},
@@ -678,6 +754,7 @@ describe("model.FlightOptions", () => {
 									position: "A",
 									price: { amount: 400, currency: "SEK" },
 									wide: true,
+									reference: "123",
 								},
 							],
 						},
@@ -689,6 +766,7 @@ describe("model.FlightOptions", () => {
 									row: { number: 2 },
 									position: "B",
 									price: { amount: 100, currency: "SEK" },
+									reference: "123",
 								},
 							],
 						},
@@ -699,7 +777,10 @@ describe("model.FlightOptions", () => {
 				{
 					reference: "ref-234",
 					name: "Breakfast",
-					alternatives: [{ name: "Fancy" }, { name: "Basic" }],
+					alternatives: [
+						{ name: "Fancy", reference: "345" },
+						{ name: "Basic", reference: "345" },
+					],
 				},
 			],
 		},
@@ -722,6 +803,7 @@ describe("model.FlightOptions", () => {
 									position: "A",
 									price: { amount: 400, currency: "SEK" },
 									wide: true,
+									reference: "123",
 								},
 							],
 						},
@@ -733,6 +815,7 @@ describe("model.FlightOptions", () => {
 									row: { number: 1 },
 									position: "B",
 									price: { amount: 100, currency: "SEK" },
+									reference: "123",
 								},
 							],
 						},
@@ -749,6 +832,7 @@ describe("model.FlightOptions", () => {
 									position: "A",
 									price: { amount: 400, currency: "SEK" },
 									wide: true,
+									reference: "123",
 								},
 							],
 						},
@@ -760,6 +844,7 @@ describe("model.FlightOptions", () => {
 									row: { number: 2 },
 									position: "B",
 									price: { amount: 100, currency: "SEK" },
+									reference: "123",
 								},
 							],
 						},
@@ -770,7 +855,10 @@ describe("model.FlightOptions", () => {
 				{
 					reference: "ref-234",
 					name: "Breakfast",
-					alternatives: [{ name: "Fancy" }, { name: "Basic" }],
+					alternatives: [
+						{ name: "Fancy", reference: "345" },
+						{ name: "Basic", reference: "345" },
+					],
 				},
 			],
 		},
@@ -783,6 +871,7 @@ describe("model.FlightOptions", () => {
 			status: "available",
 			class: "business",
 			price: { amount: 100, currency: "DKK" },
+			reference: "123",
 		},
 	}
 	const passenger: model.Passenger = {
@@ -827,6 +916,7 @@ describe("model.FlightOptions", () => {
 		status: "occupied",
 		class: "business",
 		price: { amount: 400, currency: "SEK" },
+		reference: "123",
 	}
 	const seats: model.Layout.Seat[] = [
 		{ ...seat },
@@ -863,6 +953,7 @@ describe("model.FlightOptions", () => {
 					status: "available",
 					class: "business",
 					price: { amount: 1250, currency: "SEK" },
+					reference: "123",
 				},
 			})
 		).toEqual(false)

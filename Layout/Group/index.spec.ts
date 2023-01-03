@@ -10,6 +10,7 @@ describe("Group", () => {
 				row: { number: 1 },
 				price: { amount: 400, currency: "SEK" },
 				legroom: true,
+				reference: "123",
 			},
 		],
 	}
@@ -25,6 +26,7 @@ describe("Group", () => {
 					row: { number: 1 },
 					price: { amount: 3200, currency: "SEK" },
 					legroom: true,
+					reference: "123",
 				},
 			],
 		},
@@ -37,6 +39,7 @@ describe("Group", () => {
 					row: { number: 1 },
 					price: { amount: 1337, currency: "SEK" },
 					legroom: true,
+					reference: "123",
 				},
 				{
 					status: "available",
@@ -45,6 +48,7 @@ describe("Group", () => {
 					row: { number: 1 },
 					price: { amount: 8008, currency: "SEK" },
 					legroom: true,
+					reference: "123",
 				},
 			],
 		},
@@ -59,6 +63,7 @@ describe("Group", () => {
 					row: { number: 1 },
 					price: { amount: 400, currency: "SEK" },
 					legroom: true,
+					reference: "123",
 				},
 			],
 		},
@@ -72,6 +77,7 @@ describe("Group", () => {
 					row: { number: 1 },
 					price: { amount: 3200, currency: "SEK" },
 					legroom: true,
+					reference: "123",
 				},
 			],
 		},
@@ -84,6 +90,7 @@ describe("Group", () => {
 					row: { number: 1 },
 					price: { amount: 1337, currency: "SEK" },
 					legroom: true,
+					reference: "123",
 				},
 				{
 					status: "available",
@@ -92,6 +99,7 @@ describe("Group", () => {
 					row: { number: 1 },
 					price: { amount: 8008, currency: "SEK" },
 					legroom: true,
+					reference: "123",
 				},
 			],
 		},
@@ -108,6 +116,7 @@ describe("Group", () => {
 					row: { number: 1 },
 					price: { amount: 400, currency: "SEK" },
 					legroom: true,
+					reference: "123",
 				},
 			],
 		},
@@ -120,6 +129,7 @@ describe("Group", () => {
 					row: { number: 1 },
 					price: { amount: 1337, currency: "SEK" },
 					legroom: true,
+					reference: "123",
 				},
 				{
 					status: "available",
@@ -128,6 +138,7 @@ describe("Group", () => {
 					row: { number: 1 },
 					price: { amount: 8008, currency: "SEK" },
 					legroom: true,
+					reference: "123",
 				},
 			],
 		},
@@ -138,6 +149,7 @@ describe("Group", () => {
 		status: "available",
 		class: "business",
 		price: { amount: 400, currency: "SEK" },
+		reference: "123",
 	}
 	it("is", () => {
 		expect(model.Layout.Group.is({ ...group, offset: [1, 1] })).toEqual(true)

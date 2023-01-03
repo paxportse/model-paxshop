@@ -6,17 +6,21 @@ describe("model.Flight.Meal", () => {
 		reference: "ref-034",
 		optional: true,
 		alternatives: [
-			{ name: "chicken", price: { amount: 10, currency: "DKK" } },
-			{ name: "meat", price: { amount: 12, currency: "DKK" } },
+			{ name: "chicken", price: { amount: 10, currency: "DKK" }, reference: "345" },
+			{ name: "meat", price: { amount: 12, currency: "DKK" }, reference: "345" },
 		],
 	}
 	const meal2: model.Meal = {
 		name: "dinner",
 		reference: "D-13",
 		optional: true,
-		alternatives: [{ name: "chicken", price: { amount: 100, currency: "SEK" } }],
+		alternatives: [{ name: "chicken", price: { amount: 100, currency: "SEK" }, reference: "345" }],
 	}
-	const alternative: model.Meal.Alternative = { name: "chicken", price: { amount: 100, currency: "SEK" } }
+	const alternative: model.Meal.Alternative = {
+		name: "chicken",
+		price: { amount: 100, currency: "SEK" },
+		reference: "345",
+	}
 
 	const leg: model.Passenger.Itinerary.Leg = {
 		reference: "leg-02",
@@ -26,6 +30,7 @@ describe("model.Flight.Meal", () => {
 			status: "available",
 			class: "first-class",
 			price: { amount: 200, currency: "SEK" },
+			reference: "123",
 		},
 	}
 

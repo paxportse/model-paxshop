@@ -16,6 +16,7 @@ describe("model.Flight.Seat", () => {
 		window: true,
 		description: "Some information.",
 		exit: true,
+		reference: "123",
 	}
 	const pricelessSeat: model.Layout.Seat = {
 		status: "occupied",
@@ -23,6 +24,7 @@ describe("model.Flight.Seat", () => {
 		row: { number: 1 },
 		position: "D",
 		category: "green",
+		reference: "123",
 	}
 
 	const leg: model.Passenger.Itinerary.Leg = {
@@ -33,6 +35,7 @@ describe("model.Flight.Seat", () => {
 			status: "available",
 			class: "business",
 			price: { amount: 200, currency: "SEK" },
+			reference: "123",
 		},
 	}
 	it("is", () => {
