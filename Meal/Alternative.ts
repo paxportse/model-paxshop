@@ -5,6 +5,7 @@ export interface Alternative {
 	price?: Price
 	default?: boolean
 	description?: string
+	reference?: string
 }
 
 export namespace Alternative {
@@ -14,7 +15,8 @@ export namespace Alternative {
 			(value.name == undefined || typeof value.name == "string") &&
 			(value.price == undefined || Price.is(value.price)) &&
 			(value.default == undefined || typeof value.default == "boolean") &&
-			(value.description == undefined || typeof value.description == "string")
+			(value.description == undefined || typeof value.description == "string") &&
+			(value.reference == undefined || typeof value.reference == "string")
 		)
 	}
 }
