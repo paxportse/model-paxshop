@@ -28,4 +28,10 @@ export namespace Row {
 		}
 		return row
 	}
+
+	export function getRowNumber(row: Row | undefined): number | undefined {
+		const group = row?.groups?.find(v => v)
+		const seat = Group.Seats.is(group) ? group.seats.find(s => s) : undefined
+		return seat ? seat.row.number : undefined
+	}
 }
