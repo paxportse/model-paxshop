@@ -10,7 +10,7 @@ export class Booking extends rest.Collection<gracely.Error> {
 	fetch(
 		specifier: BookingSpecifier,
 		language?: Readonly<Locale>[]
-	): Promise<Readonly<modelBooking & { options: BookingOptions }> | gracely.Error> {
+	): Promise<Readonly<modelBooking & { options: BookingOptions; order: string }> | gracely.Error> {
 		return this.client.get<modelBooking & { options: BookingOptions; order: string }>(
 			`booking/${specifier.reference}`,
 			{
