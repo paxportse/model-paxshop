@@ -188,4 +188,7 @@ describe("model.Layout.Row", () => {
 	it("setSeat", () => {
 		expect(model.Layout.Row.setSeats(row, occupiedSeat)).toEqual(occupiedRow)
 	})
+	it("get row number", () => {
+		expect(model.Layout.Row.getRowNumber(row)).toEqual(1)
+	})
 })
