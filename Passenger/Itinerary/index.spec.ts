@@ -11,6 +11,7 @@ describe("model.Itinerary", () => {
 				status: "available",
 				class: "first-class",
 				price: { amount: 200, currency: "SEK" },
+				reference: "123",
 			},
 		},
 	]
@@ -29,6 +30,7 @@ describe("model.Itinerary", () => {
 						price: { amount: 100, currency: "SEK" },
 						default: false,
 						description: "Some text",
+						reference: "345",
 					},
 				],
 			},

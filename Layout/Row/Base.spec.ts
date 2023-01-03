@@ -12,6 +12,7 @@ describe("model.Flight.Row", () => {
 						row: { number: 1 },
 						price: { amount: 400, currency: "SEK", offer: 200 },
 						wide: true,
+						reference: "123",
 					},
 					{
 						status: "available",
@@ -20,6 +21,7 @@ describe("model.Flight.Row", () => {
 						row: { number: 1 },
 						price: { amount: 400, currency: "SEK" },
 						wide: true,
+						reference: "123",
 					},
 				],
 			},
@@ -40,6 +42,7 @@ describe("model.Flight.Row", () => {
 						row: { number: 1 },
 						price: { amount: 400, currency: "SEK", offer: 200 },
 						wide: true,
+						reference: "123",
 					},
 					{
 						status: "available",
@@ -48,6 +51,7 @@ describe("model.Flight.Row", () => {
 						row: { number: 1 },
 						price: { amount: 400, currency: "SEK" },
 						wide: true,
+						reference: "123",
 					},
 				],
 			},

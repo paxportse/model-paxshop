@@ -12,6 +12,7 @@ describe("model.Layout.Row", () => {
 						row: { number: 1 },
 						price: { amount: 400, currency: "SEK" },
 						legroom: true,
+						reference: "123",
 					},
 				],
 			},
@@ -24,6 +25,7 @@ describe("model.Layout.Row", () => {
 						row: { number: 1 },
 						price: { amount: 2346, currency: "SEK" },
 						legroom: true,
+						reference: "123",
 					},
 					{
 						status: "unavailable",
@@ -32,6 +34,7 @@ describe("model.Layout.Row", () => {
 						row: { number: 1 },
 						price: { amount: 1337, currency: "SEK" },
 						legroom: true,
+						reference: "123",
 					},
 				],
 			},
@@ -44,6 +47,7 @@ describe("model.Layout.Row", () => {
 						row: { number: 1 },
 						price: { amount: 556, currency: "SEK" },
 						legroom: true,
+						reference: "123",
 					},
 				],
 			},
@@ -60,6 +64,7 @@ describe("model.Layout.Row", () => {
 						row: { number: 1 },
 						price: { amount: 400, currency: "SEK" },
 						legroom: true,
+						reference: "123",
 					},
 				],
 			},
@@ -72,6 +77,7 @@ describe("model.Layout.Row", () => {
 						row: { number: 1 },
 						price: { amount: 2346, currency: "SEK" },
 						legroom: true,
+						reference: "123",
 					},
 					{
 						status: "unavailable",
@@ -80,6 +86,7 @@ describe("model.Layout.Row", () => {
 						row: { number: 1 },
 						price: { amount: 1337, currency: "SEK" },
 						legroom: true,
+						reference: "123",
 					},
 				],
 			},
@@ -92,6 +99,7 @@ describe("model.Layout.Row", () => {
 						row: { number: 1 },
 						price: { amount: 556, currency: "SEK" },
 						legroom: true,
+						reference: "123",
 					},
 				],
 			},
@@ -108,6 +116,7 @@ describe("model.Layout.Row", () => {
 						row: { number: 1 },
 						price: { amount: 400, currency: "SEK" },
 						legroom: true,
+						reference: "123",
 					},
 				],
 			},
@@ -120,6 +129,7 @@ describe("model.Layout.Row", () => {
 						row: { number: 1 },
 						price: { amount: 2346, currency: "SEK" },
 						legroom: true,
+						reference: "123",
 					},
 					{
 						status: "unavailable",
@@ -128,6 +138,7 @@ describe("model.Layout.Row", () => {
 						row: { number: 1 },
 						price: { amount: 1337, currency: "SEK" },
 						legroom: true,
+						reference: "123",
 					},
 				],
 			},
@@ -140,6 +151,7 @@ describe("model.Layout.Row", () => {
 						row: { number: 1 },
 						price: { amount: 400, currency: "SEK" },
 						legroom: true,
+						reference: "123",
 					},
 				],
 			},
@@ -151,6 +163,7 @@ describe("model.Layout.Row", () => {
 		status: "available",
 		class: "business",
 		price: { amount: 400, currency: "SEK" },
+		reference: "123",
 	}
 	const occupiedSeat: model.Layout.Seat = {
 		row: { number: 1 },
@@ -158,6 +171,7 @@ describe("model.Layout.Row", () => {
 		status: "occupied",
 		class: "business",
 		price: { amount: 400, currency: "SEK" },
+		reference: "123",
 	}
 	it("is", () => {
 		expect(model.Layout.Row.is(row)).toEqual(true)

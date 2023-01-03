@@ -9,6 +9,7 @@ describe("model.Leg", () => {
 			status: "occupied",
 			class: "first-class",
 			price: { amount: 200, currency: "SEK" },
+			reference: "123",
 		},
 	}
 	it("is", () => {
