@@ -13,7 +13,6 @@ export namespace Meal {
 			typeof value == "object" &&
 			typeof value.reference == "string" &&
 			typeof value.name == "string" &&
-			(value.optional == undefined || typeof value.optional == "boolean") &&
 			Alternative.is(value.alternative)
 		)
 	}

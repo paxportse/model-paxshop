@@ -98,7 +98,7 @@ describe("model.Passenger", () => {
 		name: { first: "Hasse", last: "Burrito" },
 		ageGroup: "child",
 	}
-	const flight: model.FlightOptions = {
+	const flight: model.Flight.Options = {
 		reference: "AA",
 		number: "PAXAA",
 		from: { code: "ARN", name: "Arlanda Airport" },
@@ -266,22 +266,28 @@ describe("model.Passenger", () => {
 			{
 				reference: "ref-234",
 				name: "Breakfast",
-				alternatives: [
-					{ name: "Fancy", reference: "345" },
-					{ name: "Basic", reference: "345" },
-				],
+				alternative: { name: "Fancy", reference: "345" },
 			},
+			{
+				reference: "ref-234",
+				name: "Breakfast",
+				alternative: { name: "Basic", reference: "345" },
+			},
+
 			{
 				reference: "ref-754",
 				name: "Dinner",
-				alternatives: [
-					{ name: "Chicken", reference: "345" },
-					{ name: "Fish", reference: "345" },
-				],
+				alternative: { name: "Chicken", reference: "345" },
+			},
+
+			{
+				reference: "ref-754",
+				name: "Dinner",
+				alternative: { name: "Fish", reference: "345" },
 			},
 		],
 	}
-	const flight2: model.FlightOptions = {
+	const flight2: model.Flight.Options = {
 		reference: "1337",
 		number: "PAX1337",
 		from: { code: "ARN", name: "Arlanda Airport" },
@@ -449,22 +455,28 @@ describe("model.Passenger", () => {
 			{
 				reference: "ref-234",
 				name: "Breakfast",
-				alternatives: [
-					{ name: "Fancy", reference: "345" },
-					{ name: "Basic", reference: "345" },
-				],
+				alternative: { name: "Fancy", reference: "345" },
 			},
+			{
+				reference: "ref-234",
+				name: "Breakfast",
+				alternative: { name: "Basic", reference: "345" },
+			},
+
 			{
 				reference: "ref-754",
 				name: "Dinner",
-				alternatives: [
-					{ name: "Chicken", reference: "345" },
-					{ name: "Fish", reference: "345" },
-				],
+				alternative: { name: "Chicken", reference: "345" },
+			},
+
+			{
+				reference: "ref-754",
+				name: "Dinner",
+				alternative: { name: "Fish", reference: "345" },
 			},
 		],
 	}
-	const flights: model.FlightOptions[] = [
+	const flights: model.Flight.Options[] = [
 		{
 			reference: "FL-001",
 			number: "PAX001",
@@ -536,18 +548,24 @@ describe("model.Passenger", () => {
 				{
 					reference: "ref-234",
 					name: "Breakfast",
-					alternatives: [
-						{ name: "Fancy", reference: "345" },
-						{ name: "Basic", reference: "345" },
-					],
+					alternative: { name: "Fancy", reference: "345" },
 				},
+				{
+					reference: "ref-234",
+					name: "Breakfast",
+					alternative: { name: "Basic", reference: "345" },
+				},
+
 				{
 					reference: "ref-754",
 					name: "Dinner",
-					alternatives: [
-						{ name: "Chicken", reference: "345" },
-						{ name: "Fish", reference: "345" },
-					],
+					alternative: { name: "Chicken", reference: "345" },
+				},
+
+				{
+					reference: "ref-754",
+					name: "Dinner",
+					alternative: { name: "Fish", reference: "345" },
 				},
 			],
 		},
@@ -622,18 +640,24 @@ describe("model.Passenger", () => {
 				{
 					reference: "ref-234",
 					name: "Breakfast",
-					alternatives: [
-						{ name: "Fancy", reference: "345" },
-						{ name: "Basic", reference: "345" },
-					],
+					alternative: { name: "Fancy", reference: "345" },
 				},
+				{
+					reference: "ref-234",
+					name: "Breakfast",
+					alternative: { name: "Basic", reference: "345" },
+				},
+
 				{
 					reference: "ref-754",
 					name: "Dinner",
-					alternatives: [
-						{ name: "Chicken", reference: "345" },
-						{ name: "Fish", reference: "345" },
-					],
+					alternative: { name: "Chicken", reference: "345" },
+				},
+
+				{
+					reference: "ref-754",
+					name: "Dinner",
+					alternative: { name: "Fish", reference: "345" },
 				},
 			],
 		},
@@ -670,16 +694,13 @@ describe("model.Passenger", () => {
 			{
 				name: "Dinner",
 				reference: "ref-34",
-				optional: true,
-				alternatives: [
-					{
-						name: "chicken",
-						price: { amount: 100, currency: "SEK" },
-						default: false,
-						description: "Some text",
-						reference: "345",
-					},
-				],
+				alternative: {
+					name: "chicken",
+					price: { amount: 100, currency: "SEK" },
+					default: false,
+					description: "Some text",
+					reference: "345",
+				},
 			},
 		]
 		expect(model.Passenger.update(passenger, { departure: [{ reference: "AA", meal }] })).toEqual({

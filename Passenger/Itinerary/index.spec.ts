@@ -22,16 +22,14 @@ describe("model.Itinerary", () => {
 			{
 				name: "Dinner",
 				reference: "ref-34",
-				optional: true,
-				alternatives: [
-					{
-						name: "chicken",
-						price: { amount: 100, currency: "SEK" },
-						default: false,
-						description: "Some text",
-						reference: "345",
-					},
-				],
+
+				alternative: {
+					name: "chicken",
+					price: { amount: 100, currency: "SEK" },
+					default: false,
+					description: "Some text",
+					reference: "345",
+				},
 			},
 		]
 

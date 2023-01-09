@@ -1,4 +1,4 @@
-import { BookingOptions } from "../BookingOptions"
+import { Options } from "../Booking/Options"
 import * as model from "../index"
 import { Booking } from "./../Booking"
 import { Passenger } from "./../Passenger"
@@ -139,7 +139,7 @@ describe("model.Order", () => {
 		booking: booking,
 	}
 
-	const bookingOptions: BookingOptions = {
+	const bookingOptions: Options = {
 		departure: [
 			{
 				reference: "FL-001",
@@ -150,13 +150,15 @@ describe("model.Order", () => {
 				arrival: "2022-09-28T12:22:00.000Z",
 				meals: [
 					{
-						reference: "ref-454",
+						reference: "ref-754",
 						name: "Dinner",
-						optional: true,
-						alternatives: [
-							{ name: "chicken", price: { amount: 10, currency: "EUR" }, reference: "345" },
-							{ name: "meat", price: { amount: 12, currency: "EUR" }, reference: "345" },
-						],
+						alternative: { name: "Chicken", reference: "345" },
+					},
+
+					{
+						reference: "ref-754",
+						name: "Dinner",
+						alternative: { name: "Fish", reference: "345" },
 					},
 				],
 				seating: [
@@ -231,13 +233,15 @@ describe("model.Order", () => {
 				arrival: "2022-10-18T22:22:00.000Z",
 				meals: [
 					{
-						reference: "ref-5464",
+						reference: "ref-754",
 						name: "Dinner",
-						optional: true,
-						alternatives: [
-							{ name: "chicken", price: { amount: 10, currency: "DKK" }, reference: "345" },
-							{ name: "meat", price: { amount: 12, currency: "DKK" }, reference: "345" },
-						],
+						alternative: { name: "Chicken", reference: "345" },
+					},
+
+					{
+						reference: "ref-754",
+						name: "Dinner",
+						alternative: { name: "Fish", reference: "345" },
 					},
 				],
 				seating: [
