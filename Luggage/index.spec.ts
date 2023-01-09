@@ -14,11 +14,7 @@ describe("model.Flight.Luggage", () => {
 					{
 						reference: "ref-454",
 						name: "Dinner",
-						optional: true,
-						alternatives: [
-							{ name: "chicken", price: { amount: 10, currency: "DKK" }, reference: "345" },
-							{ name: "meat", price: { amount: 12, currency: "DKK" }, reference: "345" },
-						],
+						alternative: { name: "chicken", price: { amount: 10, currency: "DKK" }, reference: "345" },
 					},
 				],
 				seating: [
@@ -62,11 +58,7 @@ describe("model.Flight.Luggage", () => {
 					{
 						reference: "ref-5464",
 						name: "Dinner",
-						optional: true,
-						alternatives: [
-							{ name: "chicken", price: { amount: 10, currency: "DKK" }, reference: "345" },
-							{ name: "meat", price: { amount: 12, currency: "DKK" }, reference: "345" },
-						],
+						alternative: { name: "chicken", price: { amount: 10, currency: "DKK" }, reference: "345" },
 					},
 				],
 				seating: [
