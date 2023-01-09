@@ -1,7 +1,6 @@
-import { Row } from "./"
-
+import * as model from "../../index"
 describe("model.Flight.Row", () => {
-	const row: Row = {
+	const row: model.Layout.Row = {
 		groups: [
 			{
 				seats: [
@@ -30,7 +29,7 @@ describe("model.Flight.Row", () => {
 		wing: true,
 		toilet: true,
 	}
-	const rowUndefinedGroup: Row = {
+	const rowUndefinedGroup: model.Layout.Row = {
 		groups: [
 			undefined,
 			{
@@ -58,12 +57,12 @@ describe("model.Flight.Row", () => {
 		],
 	}
 	it("is", () => {
-		expect(Row.is(row)).toEqual(true)
+		expect(model.Layout.Row.is(row)).toEqual(true)
 	})
 	it("is undefined", () => {
-		expect(Row.is({ ...row, groups: undefined })).toEqual(true)
+		expect(model.Layout.Row.is({ ...row, groups: undefined })).toEqual(true)
 	})
 	it("is group undefined", () => {
-		expect(Row.is({ rowUndefinedGroup })).toEqual(true)
+		expect(model.Layout.Row.is({ rowUndefinedGroup })).toEqual(true)
 	})
 })

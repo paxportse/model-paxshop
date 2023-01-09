@@ -1,7 +1,8 @@
-import { Class } from "./Class"
+import * as model from "../../index"
 
 describe("model.Flight.Seat.Class", () => {
+	const class_: model.Layout.Seat.Class = "first-class"
 	it("is", () => {
-		expect(Class.is("first-class")).toEqual(true)
+		expect(model.Layout.Seat.Class.is(class_)).toEqual(true)
 	})
 })

@@ -1,5 +1,4 @@
 import * as model from "../../index"
-import * as passenger from "../../Passenger/Itinerary"
 
 describe("model.Flight.Options", () => {
 	const layout: model.Flight.Options = {
@@ -169,18 +168,12 @@ describe("model.Flight.Options", () => {
 			{
 				reference: "ref-234",
 				name: "Breakfast",
-				alternatives: [
-					{ name: "Fancy", reference: "345" },
-					{ name: "Basic", reference: "345" },
-				],
+				alternative: { name: "Fancy", reference: "345" },
 			},
 			{
 				reference: "ref-754",
 				name: "Dinner",
-				alternatives: [
-					{ name: "Chicken", reference: "345" },
-					{ name: "Fish", reference: "345" },
-				],
+				alternative: { name: "Chicken", reference: "345" },
 			},
 		],
 	}
@@ -351,18 +344,12 @@ describe("model.Flight.Options", () => {
 			{
 				reference: "ref-234",
 				name: "Breakfast",
-				alternatives: [
-					{ name: "Fancy", reference: "345" },
-					{ name: "Basic", reference: "345" },
-				],
+				alternative: { name: "Fancy", reference: "345" },
 			},
 			{
 				reference: "ref-754",
 				name: "Dinner",
-				alternatives: [
-					{ name: "Chicken", reference: "345" },
-					{ name: "Fish", reference: "345" },
-				],
+				alternative: { name: "Chicken", reference: "345" },
 			},
 		],
 	}
@@ -533,18 +520,12 @@ describe("model.Flight.Options", () => {
 			{
 				reference: "ref-234",
 				name: "Breakfast",
-				alternatives: [
-					{ name: "Fancy", reference: "345" },
-					{ name: "Basic", reference: "345" },
-				],
+				alternative: { name: "Fancy", reference: "345" },
 			},
 			{
 				reference: "ref-754",
 				name: "Dinner",
-				alternatives: [
-					{ name: "Chicken", reference: "345" },
-					{ name: "Fish", reference: "345" },
-				],
+				alternative: { name: "Chicken", reference: "345" },
 			},
 		],
 	}
@@ -620,10 +601,7 @@ describe("model.Flight.Options", () => {
 				{
 					reference: "ref-234",
 					name: "Breakfast",
-					alternatives: [
-						{ name: "Fancy", reference: "345" },
-						{ name: "Basic", reference: "345" },
-					],
+					alternative: { name: "Fancy", reference: "345" },
 				},
 			],
 		},
@@ -698,10 +676,7 @@ describe("model.Flight.Options", () => {
 				{
 					reference: "ref-234",
 					name: "Breakfast",
-					alternatives: [
-						{ name: "Fancy", reference: "345" },
-						{ name: "Basic", reference: "345" },
-					],
+					alternative: { name: "Fancy", reference: "345" },
 				},
 			],
 		},
@@ -776,10 +751,7 @@ describe("model.Flight.Options", () => {
 				{
 					reference: "ref-234",
 					name: "Breakfast",
-					alternatives: [
-						{ name: "Fancy", reference: "345" },
-						{ name: "Basic", reference: "345" },
-					],
+					alternative: { name: "Fancy", reference: "345" },
 				},
 			],
 		},
@@ -854,15 +826,12 @@ describe("model.Flight.Options", () => {
 				{
 					reference: "ref-234",
 					name: "Breakfast",
-					alternatives: [
-						{ name: "Fancy", reference: "345" },
-						{ name: "Basic", reference: "345" },
-					],
+					alternative: { name: "Fancy", reference: "345" },
 				},
 			],
 		},
 	]
-	const leg: passenger.Itinerary.Leg = {
+	const leg: model.Passenger.Itinerary.Leg = {
 		reference: "FL-011",
 		seat: {
 			row: { number: 1 },
