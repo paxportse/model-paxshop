@@ -4,17 +4,14 @@ describe("model.Flight.Meal", () => {
 	const meal: model.Meal = {
 		name: "dinner",
 		reference: "ref-034",
-		optional: true,
-		alternatives: [
-			{ name: "chicken", price: { amount: 10, currency: "DKK" }, reference: "345" },
-			{ name: "meat", price: { amount: 12, currency: "DKK" }, reference: "345" },
-		],
+
+		alternative: { name: "chicken", price: { amount: 10, currency: "DKK" }, reference: "345" },
 	}
 	const meal2: model.Meal = {
 		name: "dinner",
 		reference: "D-13",
-		optional: true,
-		alternatives: [{ name: "chicken", price: { amount: 100, currency: "SEK" }, reference: "345" }],
+
+		alternative: { name: "chicken", price: { amount: 100, currency: "SEK" }, reference: "345" },
 	}
 	const alternative: model.Meal.Alternative = {
 		name: "chicken",
