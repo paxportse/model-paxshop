@@ -1,7 +1,7 @@
 import * as model from "../index"
 
 describe("model.Flight.Luggage", () => {
-	const booking: model.BookingOptions = {
+	const booking: model.Booking.Options = {
 		departure: [
 			{
 				reference: "FL-054",
