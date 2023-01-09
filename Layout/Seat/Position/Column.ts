@@ -9,7 +9,9 @@ export namespace Column {
 	}
 	export function index(column: Column, groups: (Group | undefined)[]): number {
 		const columns: Column[] = []
-		groups?.forEach(g => Group.Seats.is(g) && g.seats.forEach(s => s?.column && columns.push(s?.column)))
+		groups?.forEach(
+			g => Group.Seats.is(g) && g.seats.forEach(s => s?.position.column && columns.push(s?.position.column))
+		)
 		const result = columns.indexOf(column)
 		return result < 0 ? -1 : result
 	}

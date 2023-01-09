@@ -13,8 +13,8 @@ export namespace Group {
 	export function isArray(value: (Group | any)[]): value is Group[] {
 		return Array.isArray(value) && value.every(group => group == undefined || Group.is(group))
 	}
-	export function reserve(groups: (Group | undefined)[], position: Seat.Position): (Group | undefined)[] {
-		let index = Seat.Position.index(position, groups)
+	export function reserve(groups: (Group | undefined)[], position: Seat.Position.Column): (Group | undefined)[] {
+		let index = Seat.Position.Column.index(position, groups)
 		let seatFound = false
 		return index > -1
 			? groups.map(g => {
@@ -36,14 +36,14 @@ export namespace Group {
 			  })
 			: groups
 	}
-	export function isAvailable(groups: (Group | undefined)[], position: Seat.Position): boolean {
-		const group = groups.filter(g => Group.Seats.is(g) && g.seats.find(s => s?.position == position))[0] as
+	export function isAvailable(groups: (Group | undefined)[], position: Seat.Position.Column): boolean {
+		const group = groups.filter(g => Group.Seats.is(g) && g.seats.find(s => s?.position.column == position))[0] as
 			| Group.Seats
 			| undefined
-		return group?.seats.find(s => s?.position == position)?.status == "available"
+		return group?.seats.find(s => s?.position.column == position)?.status == "available"
 	}
 	export function setSeats(groups: (Group | undefined)[], seat: Seat): (Group | undefined)[] {
-		let index = Seat.Position.index(seat.position, groups)
+		let index = Seat.Position.Column.index(seat.position.column, groups)
 		return groups.map(g => {
 			let result = g
 			if (Seats.is(g)) {

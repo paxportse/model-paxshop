@@ -1,9 +1,9 @@
 import { Direction } from "../Direction"
 import { Passenger } from "../Passenger"
 import { Price } from "../Price"
-import { Category as LuggageCategory } from "./Category"
-import { Flights as LuggageFlights } from "./Flights"
+import { Flight as LuggageFlight } from "./Flight"
 import { Options as LuggageOptions } from "./Options"
+//import { Category } from "./Options/Category"
 
 export interface Luggage {
 	reference: string
@@ -12,7 +12,7 @@ export interface Luggage {
 	weight: number
 	direction?: Direction //{ departureQuantity?: number; returnQuantity?: number } Is this the approach we want?
 	description?: string
-	flights?: LuggageFlights[]
+	flights?: Luggage.Flight[]
 }
 export namespace Luggage {
 	export function is(value: Luggage | any): value is Luggage {
@@ -26,22 +26,19 @@ export namespace Luggage {
 			(value.direction == undefined || Direction.is(value.direction)) &&
 			(value.description == undefined || typeof value.description == "string") &&
 			(value.flights == undefined ||
-				(Array.isArray(value.flights) && value.flights.every((f: any) => LuggageFlights.is(f))))
-		)
-	}
-	export function isArrayOfLuggage(value: (Luggage | any)[]): value is Luggage[] {
-		return (
-			Array.isArray(value) &&
-			value.every(luggage => luggage == undefined || Luggage.is(luggage) || Luggage.Category.is(luggage))
+				(Array.isArray(value.flights) && value.flights.every((f: any) => Luggage.Flight.is(f))))
 		)
 	}
 	// Update function to get price from luggage.flights. Needs more arguments (flight reference?)
-	export function price(...luggage: Luggage[]): Price | undefined {
-		return Price.total(
-			(luggage.filter(l => l.price) as { quantity?: number; price: Price }[]).map(l =>
-				Price.multiply(l.price, l.quantity)
-			)
-		)
+	// export function price(...luggage: Luggage[]): Price | undefined {
+	// 	return Price.total(
+	// 		(luggage.filter(l => l.price) as { quantity?: number; price: Price }[]).map(l =>
+	// 			Price.multiply(l.price, l.quantity)
+	// 		)
+	// 	)
+	// }
+	export function getPrice(luggage: Luggage, flight: string): Price | undefined {
+		return luggage.flights?.find(f => f.reference == flight)?.price
 	}
 	export function update(luggage: Luggage, passenger: Passenger, action: string): Luggage[] | undefined {
 		const existingLuggage =
@@ -85,10 +82,13 @@ export namespace Luggage {
 			? passenger.luggage.find(l => luggage.reference == l.reference && l.direction == direction)?.quantity
 			: undefined
 	}
-	export type Category = LuggageCategory
-	export const Category = LuggageCategory
 	export type Options = LuggageOptions
-	export const Options = LuggageOptions
-	export type Flights = LuggageFlights
-	export const Flights = LuggageFlights
+	// export const Options = LuggageOptions
+	export namespace Options {
+		export type Category = LuggageOptions.Category
+		export const Category = LuggageOptions.Category
+		export const filter = LuggageOptions.filter
+	}
+	export type Flight = LuggageFlight
+	export const Flight = LuggageFlight
 }

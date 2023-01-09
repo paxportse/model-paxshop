@@ -1,21 +1,15 @@
 import { Layout } from "../../Layout"
-import { Luggage } from "../../Luggage"
 import { Meal } from "../../Meal"
 import { Passenger } from "../../Passenger"
 import type { Flight } from ".."
 
 export interface Options extends Flight {
 	seating: Layout
-	meals?: Meal[]
+	meals?: Meal.Options[]
 }
 export namespace Options {
 	export function is(value: Flight | any): value is Flight {
-		return (
-			typeof value == "object" &&
-			Layout.is(value.seating) &&
-			(value.luggage == undefined || Luggage.isArrayOfLuggage(value.luggage)) &&
-			(value.meal == undefined || Meal.is(value.meal))
-		)
+		return typeof value == "object" && Layout.is(value.seating) && (value.meal == undefined || Meal.is(value.meal))
 	}
 	export function reserve(flight: Readonly<Options>, leg: Passenger.Itinerary.Leg | undefined): Options {
 		return { ...flight, seating: leg?.seat ? Layout.reserve(flight.seating, leg.seat) : flight.seating }

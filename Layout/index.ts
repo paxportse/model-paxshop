@@ -8,18 +8,21 @@ export namespace Layout {
 		return Array.isArray(value) && value.every(Row.is)
 	}
 	export function reserve(layout: Readonly<Layout>, seat: Seat): Layout {
-		const row = getRowIndex([...layout], seat.row.number)
+		// NEED TO GET THE ROW, NOT ROW NUMBER. MAYBE CAN DO IT DIFFERENT BECAUSE NUMBER IS ON ROW NOW
+		const row = seat.position.row && getRowIndex([...layout], seat.position.row)
 		const result: Layout = [...layout]
-		result[row] = Row.reserve(result[row], seat.position)
+		row && (result[row] = Row.reserve(result[row], seat.position.column))
 		return result
 	}
 	export function isAvailable(layout: Readonly<Layout>, seat: Seat): boolean {
-		return Row.isAvailable(layout[getRowIndex([...layout], seat.row.number)], seat.position)
+		return seat.position.row
+			? Row.isAvailable(layout[getRowIndex([...layout], seat.position.row)], seat.position.column)
+			: false
 	}
 	export function setSeats(layout: Readonly<Layout>, ...seats: Layout.Seat[]): Layout {
 		const seatsByRow: Record<number, Seat[] | undefined> = {}
 		seats
-			.map(s => [getRowIndex(layout, s.row.number), s] as const)
+			.map(s => [getRowIndex(layout, s.position.row), s] as const)
 			.forEach(([index, s]) => (seatsByRow[index] = [...(seatsByRow[index] ?? []), s]))
 		return layout
 			.map((row, index) => [row, seatsByRow[index] ?? []] as const)

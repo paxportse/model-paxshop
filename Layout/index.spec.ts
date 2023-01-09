@@ -8,8 +8,7 @@ describe("model.Flight.Layout", () => {
 					{
 						status: "available",
 						class: "first-class",
-						position: "A",
-						row: { number: 1 },
+						position: { row: 1, column: "A" },
 						price: { amount: 400, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -21,8 +20,7 @@ describe("model.Flight.Layout", () => {
 					{
 						status: "available",
 						class: "first-class",
-						position: "B",
-						row: { number: 1 },
+						position: { row: 1, column: "B" },
 						price: { amount: 2346, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -30,8 +28,7 @@ describe("model.Flight.Layout", () => {
 					{
 						status: "unavailable",
 						class: "first-class",
-						position: "C",
-						row: { number: 1 },
+						position: { row: 1, column: "C" },
 						price: { amount: 1337, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -47,8 +44,7 @@ describe("model.Flight.Layout", () => {
 					{
 						status: "available",
 						class: "first-class",
-						position: "A",
-						row: { number: 2 },
+						position: { row: 2, column: "A" },
 						price: { amount: 400, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -60,8 +56,7 @@ describe("model.Flight.Layout", () => {
 					{
 						status: "available",
 						class: "first-class",
-						position: "B",
-						row: { number: 2 },
+						position: { row: 2, column: "B" },
 						price: { amount: 2346, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -69,8 +64,7 @@ describe("model.Flight.Layout", () => {
 					{
 						status: "unavailable",
 						class: "first-class",
-						position: "C",
-						row: { number: 2 },
+						position: { row: 2, column: "C" },
 						price: { amount: 1337, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -86,8 +80,7 @@ describe("model.Flight.Layout", () => {
 					{
 						status: "available",
 						class: "first-class",
-						position: "A",
-						row: { number: 1 },
+						position: { row: 1, column: "A" },
 						price: { amount: 400, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -99,8 +92,7 @@ describe("model.Flight.Layout", () => {
 					{
 						status: "available",
 						class: "first-class",
-						position: "B",
-						row: { number: 1 },
+						position: { row: 1, column: "B" },
 						price: { amount: 400, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -108,8 +100,7 @@ describe("model.Flight.Layout", () => {
 					{
 						status: "available",
 						class: "first-class",
-						position: "C",
-						row: { number: 1 },
+						position: { row: 1, column: "C" },
 						price: { amount: 400, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -125,8 +116,7 @@ describe("model.Flight.Layout", () => {
 					{
 						status: "available",
 						class: "first-class",
-						position: "A",
-						row: { number: 2 },
+						position: { row: 2, column: "A" },
 						price: { amount: 400, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -138,8 +128,7 @@ describe("model.Flight.Layout", () => {
 					{
 						status: "available",
 						class: "first-class",
-						position: "B",
-						row: { number: 2 },
+						position: { row: 2, column: "B" },
 						price: { amount: 400, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -147,8 +136,7 @@ describe("model.Flight.Layout", () => {
 					{
 						status: "available",
 						class: "first-class",
-						position: "C",
-						row: { number: 2 },
+						position: { row: 2, column: "C" },
 						price: { amount: 400, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -170,8 +158,7 @@ describe("model.Flight.Layout", () => {
 						{
 							status: "unavailable",
 							class: "first-class",
-							position: "A",
-							row: { number: 1 },
+							position: { row: 1, column: "A" },
 							price: { amount: 400, currency: "SEK" },
 							legroom: true,
 							reference: "123",
@@ -183,8 +170,7 @@ describe("model.Flight.Layout", () => {
 						{
 							status: "available",
 							class: "first-class",
-							position: "B",
-							row: { number: 1 },
+							position: { row: 1, column: "B" },
 							price: { amount: 2346, currency: "SEK" },
 							legroom: true,
 							reference: "123",
@@ -192,8 +178,7 @@ describe("model.Flight.Layout", () => {
 						{
 							status: "unavailable",
 							class: "first-class",
-							position: "C",
-							row: { number: 1 },
+							position: { row: 1, column: "C" },
 							price: { amount: 1337, currency: "SEK" },
 							legroom: true,
 							reference: "123",
@@ -205,8 +190,7 @@ describe("model.Flight.Layout", () => {
 		row2,
 	]
 	const seat: model.Layout.Seat = {
-		row: { number: 1 },
-		position: "A",
+		position: { row: 1, column: "A" },
 		status: "available",
 		class: "business",
 		price: { amount: 400, currency: "SEK" },
@@ -214,11 +198,11 @@ describe("model.Flight.Layout", () => {
 	}
 	const seats: model.Layout.Seat[] = [
 		{ ...seat },
-		{ ...seat, position: "B" },
-		{ ...seat, position: "C" },
-		{ ...seat, row: { number: 2 } },
-		{ ...seat, row: { number: 2 }, position: "B" },
-		{ ...seat, row: { number: 2 }, position: "C" },
+		{ ...seat, position: { row: 1, column: "B" } },
+		{ ...seat, position: { row: 1, column: "C" } },
+		{ ...seat, position: { row: 2, column: "A" } },
+		{ ...seat, position: { row: 2, column: "B" } },
+		{ ...seat, position: { row: 2, column: "C" } },
 	]
 	it("is", () => {
 		expect(model.Layout.is(layout)).toEqual(true)
@@ -230,12 +214,15 @@ describe("model.Flight.Layout", () => {
 		expect(model.Layout.isAvailable(layout, seat)).toEqual(true)
 	})
 	it("isAvailable, false", () => {
-		expect(model.Layout.isAvailable(layout, { ...seat, row: { number: 2 }, position: "C" })).toEqual(false)
+		expect(model.Layout.isAvailable(layout, { ...seat, position: { row: 2, column: "C" } })).toEqual(false)
 	})
 	it("isAvailable, undefined row", () => {
-		expect(model.Layout.isAvailable([row, rowUndefined, row], { ...seat, row: { number: 2 }, position: "A" })).toEqual(
-			true
-		)
+		expect(
+			model.Layout.isAvailable([row, rowUndefined, row], {
+				...seat,
+				position: { row: 2, column: "A" },
+			})
+		).toEqual(true)
 	})
 	it("setSeats", () => {
 		expect(model.Layout.setSeats(layout, ...seats)).toEqual(availableLayout)

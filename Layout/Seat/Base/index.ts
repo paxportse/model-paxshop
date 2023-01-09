@@ -1,8 +1,9 @@
+import { Passenger } from "../../../Passenger"
 import { Price } from "../../../Price"
-import { Passenger } from "../../Passenger"
+import { Class } from "../Class"
 import { Position } from "../Position"
-import { Class } from "./Class/Class"
-import { Status } from "./Status"
+import { Column } from "../Position/Column"
+import { Status } from "../Status"
 
 export interface Base {
 	reference?: string
@@ -25,6 +26,7 @@ export namespace Base {
 	export function is(value: Base | any): value is Base {
 		return (
 			typeof value == "object" &&
+			value &&
 			(value.reference == undefined || typeof value.reference == "string") &&
 			Status.is(value.status) &&
 			Class.is(value.class) &&
@@ -42,14 +44,14 @@ export namespace Base {
 		)
 	}
 	export function selectable(seat: Base, passenger: Passenger): boolean {
-		return seat.row ? seat.status == "available" && (passenger.ageGroup == "adult" || !seat.row.exit) : false
+		return seat.position.row ? seat.status == "available" && (passenger.ageGroup == "adult" || !seat.exit) : false
 	}
-	export function get(seat: Base): [number, Column] {
-		return [seat.row.number, seat.position]
+	export function get(seat: Base): [number, Column] | undefined {
+		return seat.position.row && seat.position.column ? [seat.position.row, seat.position.column] : undefined
 	}
 	export function chosen(seat: Base, leg: Passenger.Itinerary.Leg): boolean {
 		const seatNumber = get(seat)
 		const seatPassenger = leg.seat ? get(leg.seat) : undefined
-		return seatPassenger ? seatNumber[0] == seatPassenger[0] && seatNumber[1] == seatPassenger[1] : false
+		return seatPassenger ? seatNumber?.[0] == seatPassenger[0] && seatNumber?.[1] == seatPassenger[1] : false
 	}
 }

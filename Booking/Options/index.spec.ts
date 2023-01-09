@@ -1,7 +1,7 @@
 import * as model from "../../index"
 
 describe("model.Booking.Options", () => {
-	const bookingOptions: model.BookingOptions = {
+	const bookingOptions: model.Booking.Options = {
 		departure: [
 			{
 				reference: "FL-001",
@@ -29,8 +29,7 @@ describe("model.Booking.Options", () => {
 									{
 										status: "available",
 										class: "first-class",
-										position: "A",
-										row: { number: 1 },
+										position: { row: 1, column: "A" },
 										price: { amount: 400, currency: "SEK" },
 										wide: true,
 										reference: "123",
@@ -38,8 +37,7 @@ describe("model.Booking.Options", () => {
 									{
 										status: "available",
 										class: "first-class",
-										position: "B",
-										row: { number: 1 },
+										position: { row: 1, column: "B" },
 										price: { amount: 400, currency: "SEK" },
 										wide: true,
 										reference: "123",
@@ -58,8 +56,7 @@ describe("model.Booking.Options", () => {
 									{
 										status: "available",
 										class: "first-class",
-										position: "A",
-										row: { number: 2 },
+										position: { row: 1, column: "A" },
 										price: { amount: 400, currency: "SEK", offer: 200 },
 										wide: true,
 										reference: "123",
@@ -67,8 +64,7 @@ describe("model.Booking.Options", () => {
 									{
 										status: "available",
 										class: "first-class",
-										position: "B",
-										row: { number: 2 },
+										position: { row: 1, column: "B" },
 										price: { amount: 400, currency: "SEK" },
 										wide: true,
 										reference: "123",
@@ -110,8 +106,7 @@ describe("model.Booking.Options", () => {
 									{
 										status: "available",
 										class: "first-class",
-										position: "A",
-										row: { number: 1 },
+										position: { row: 1, column: "A" },
 										price: { amount: 400, currency: "SEK", offer: 200 },
 										wide: true,
 										reference: "123",
@@ -119,8 +114,7 @@ describe("model.Booking.Options", () => {
 									{
 										status: "available",
 										class: "first-class",
-										position: "B",
-										row: { number: 1 },
+										position: { row: 1, column: "B" },
 										price: { amount: 400, currency: "SEK" },
 										wide: true,
 										reference: "123",
@@ -139,8 +133,7 @@ describe("model.Booking.Options", () => {
 									{
 										status: "occupied",
 										class: "first-class",
-										position: "A",
-										row: { number: 2 },
+										position: { row: 1, column: "A" },
 										price: { amount: 400, currency: "SEK", offer: 200 },
 										wide: true,
 										reference: "123",
@@ -148,8 +141,7 @@ describe("model.Booking.Options", () => {
 									{
 										status: "available",
 										class: "first-class",
-										position: "B",
-										row: { number: 2 },
+										position: { row: 1, column: "B" },
 										price: { amount: 400, currency: "SEK" },
 										wide: true,
 										reference: "123",
@@ -174,8 +166,8 @@ describe("model.Booking.Options", () => {
 						name: "Bicycle",
 						weight: 20,
 						direction: "roundtrip",
-						price: { amount: 300, currency: "SEK" },
 						description: "Adult sized bike",
+						flights: [{ reference: "FL-002", capacity: 5, price: { amount: 300, currency: "SEK" } }],
 					},
 				],
 				open: true,
@@ -185,20 +177,20 @@ describe("model.Booking.Options", () => {
 				name: "Extra Bag",
 				weight: 20,
 				direction: "roundtrip",
-				price: { amount: 300, currency: "SEK" },
 				description: "Extra bag with the maximum weight of 20kg",
+				flights: [{ reference: "FL-002", capacity: 5, price: { amount: 300, currency: "SEK" } }],
 			},
 			{
 				reference: "lug-001",
 				name: "Extra weight",
 				weight: 20,
 				direction: "roundtrip",
-				price: { amount: 100, currency: "SEK" },
 				description: "Added weight when a piece of luggage exceeds weight limit",
+				flights: [{ reference: "FL-002", capacity: 5, price: { amount: 100, currency: "SEK" } }],
 			},
 		],
 	}
-	const updatedBookingOptions: model.BookingOptions = {
+	const updatedBookingOptions: model.Booking.Options = {
 		departure: [
 			{
 				reference: "FL-001",
@@ -226,8 +218,7 @@ describe("model.Booking.Options", () => {
 									{
 										status: "unavailable",
 										class: "first-class",
-										position: "A",
-										row: { number: 1 },
+										position: { row: 1, column: "A" },
 										price: { amount: 400, currency: "SEK" },
 										wide: true,
 										reference: "123",
@@ -235,8 +226,7 @@ describe("model.Booking.Options", () => {
 									{
 										status: "available",
 										class: "first-class",
-										position: "B",
-										row: { number: 1 },
+										position: { row: 1, column: "B" },
 										price: { amount: 400, currency: "SEK" },
 										wide: true,
 										reference: "123",
@@ -255,8 +245,7 @@ describe("model.Booking.Options", () => {
 									{
 										status: "available",
 										class: "first-class",
-										position: "A",
-										row: { number: 2 },
+										position: { row: 1, column: "A" },
 										price: { amount: 400, currency: "SEK", offer: 200 },
 										wide: true,
 										reference: "123",
@@ -264,8 +253,7 @@ describe("model.Booking.Options", () => {
 									{
 										status: "available",
 										class: "first-class",
-										position: "B",
-										row: { number: 2 },
+										position: { row: 1, column: "B" },
 										price: { amount: 400, currency: "SEK" },
 										wide: true,
 										reference: "123",
@@ -307,8 +295,7 @@ describe("model.Booking.Options", () => {
 									{
 										status: "unavailable",
 										class: "first-class",
-										position: "A",
-										row: { number: 1 },
+										position: { row: 1, column: "A" },
 										price: { amount: 400, currency: "SEK", offer: 200 },
 										wide: true,
 										reference: "123",
@@ -316,8 +303,7 @@ describe("model.Booking.Options", () => {
 									{
 										status: "unavailable",
 										class: "first-class",
-										position: "B",
-										row: { number: 1 },
+										position: { row: 1, column: "B" },
 										price: { amount: 400, currency: "SEK" },
 										wide: true,
 										reference: "123",
@@ -336,8 +322,7 @@ describe("model.Booking.Options", () => {
 									{
 										status: "occupied",
 										class: "first-class",
-										position: "A",
-										row: { number: 2 },
+										position: { row: 1, column: "A" },
 										price: { amount: 400, currency: "SEK", offer: 200 },
 										wide: true,
 										reference: "123",
@@ -345,8 +330,7 @@ describe("model.Booking.Options", () => {
 									{
 										status: "available",
 										class: "first-class",
-										position: "B",
-										row: { number: 2 },
+										position: { row: 1, column: "B" },
 										price: { amount: 400, currency: "SEK" },
 										wide: true,
 										reference: "123",
@@ -371,8 +355,8 @@ describe("model.Booking.Options", () => {
 						name: "Bicycle",
 						weight: 20,
 						direction: "roundtrip",
-						price: { amount: 300, currency: "SEK" },
 						description: "Adult sized bike",
+						flights: [{ reference: "FL-002", capacity: 5, price: { amount: 300, currency: "SEK" } }],
 					},
 				],
 				open: true,
@@ -382,16 +366,16 @@ describe("model.Booking.Options", () => {
 				name: "Extra Bag",
 				weight: 20,
 				direction: "roundtrip",
-				price: { amount: 300, currency: "SEK" },
 				description: "Extra bag with the maximum weight of 20kg",
+				flights: [{ reference: "FL-002", capacity: 5, price: { amount: 300, currency: "SEK" } }],
 			},
 			{
 				reference: "lug-001",
 				name: "Extra weight",
 				weight: 20,
 				direction: "roundtrip",
-				price: { amount: 100, currency: "SEK" },
 				description: "Added weight when a piece of luggage exceeds weight limit",
+				flights: [{ reference: "FL-002", capacity: 5, price: { amount: 100, currency: "SEK" } }],
 			},
 		],
 	}
@@ -407,8 +391,7 @@ describe("model.Booking.Options", () => {
 					{
 						reference: "FL-001",
 						seat: {
-							row: { number: 1 },
-							position: "A",
+							position: { row: 1, column: "A" },
 							status: "available",
 							class: "business",
 							price: { amount: 100, currency: "DKK" },
@@ -421,8 +404,8 @@ describe("model.Booking.Options", () => {
 						reference: "lug-006",
 						name: "Extra Bag",
 						weight: 20,
-						price: { amount: 300, currency: "SEK" },
 						description: "Extra bag with the maximum weight of 20kg",
+						flights: [{ reference: "FL-001", capacity: 5, price: { amount: 300, currency: "SEK" } }],
 					},
 				],
 			},
@@ -434,8 +417,7 @@ describe("model.Booking.Options", () => {
 					{
 						reference: "FL-002",
 						seat: {
-							row: { number: 1 },
-							position: "B",
+							position: { row: 1, column: "B" },
 							status: "available",
 							class: "business",
 							price: { amount: 100, currency: "DKK" },
@@ -452,8 +434,7 @@ describe("model.Booking.Options", () => {
 					{
 						reference: "FL-002",
 						seat: {
-							row: { number: 1 },
-							position: "A",
+							position: { row: 1, column: "A" },
 							status: "available",
 							class: "business",
 							price: { amount: 100, currency: "DKK" },
@@ -475,9 +456,6 @@ describe("model.Booking.Options", () => {
 	})
 	it("isAvailable, false", () => {
 		expect(model.Booking.Options.isAvailable(updatedBookingOptions, booking)).toEqual(false)
-	})
-	it("isArrayOfLuggage", () => {
-		expect(model.Luggage.isArrayOfLuggage(bookingOptions.luggage)).toEqual(true)
 	})
 	it("get flight", () => {
 		expect(model.Booking.Options.getFlight(bookingOptions, "FL-002")).toEqual(bookingOptions.return?.[0])

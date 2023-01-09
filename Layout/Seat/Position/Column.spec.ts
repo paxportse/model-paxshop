@@ -1,14 +1,13 @@
 import * as model from "../../../index"
 
-describe("model.Flight.Seat.Position", () => {
+describe("model.Flight.Seat.Position.Column", () => {
 	const groups: model.Layout.Group[] = [
 		{
 			seats: [
 				{
 					status: "available",
 					class: "first-class",
-					position: "A",
-					row: { number: 1 },
+					position: { row: 1, column: "A" },
 					price: { amount: 400, currency: "SEK" },
 					legroom: true,
 					reference: "123",
@@ -16,8 +15,7 @@ describe("model.Flight.Seat.Position", () => {
 				{
 					status: "available",
 					class: "first-class",
-					position: "B",
-					row: { number: 1 },
+					position: { row: 1, column: "B" },
 					price: { amount: 400, currency: "SEK" },
 					legroom: true,
 					reference: "123",
@@ -29,8 +27,7 @@ describe("model.Flight.Seat.Position", () => {
 				{
 					status: "available",
 					class: "first-class",
-					position: "G",
-					row: { number: 1 },
+					position: { row: 1, column: "G" },
 					price: { amount: 400, currency: "SEK" },
 					legroom: true,
 					reference: "123",
@@ -38,8 +35,7 @@ describe("model.Flight.Seat.Position", () => {
 				{
 					status: "available",
 					class: "first-class",
-					position: "H",
-					row: { number: 1 },
+					position: { row: 1, column: "H" },
 					price: { amount: 400, currency: "SEK" },
 					legroom: true,
 					reference: "123",
@@ -49,9 +45,9 @@ describe("model.Flight.Seat.Position", () => {
 	]
 
 	it("is", () => {
-		expect(model.Layout.Seat.Position.is("G")).toEqual(true)
+		expect(model.Layout.Seat.Position.Column.is("G")).toEqual(true)
 	})
 	it("index", () => {
-		expect(model.Layout.Seat.Position.index("H", groups)).toEqual(3)
+		expect(model.Layout.Seat.Position.Column.index("H", groups)).toEqual(3)
 	})
 })

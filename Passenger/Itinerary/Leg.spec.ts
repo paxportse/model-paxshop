@@ -4,8 +4,7 @@ describe("model.Leg", () => {
 	const leg: model.Leg = {
 		reference: "leg01",
 		seat: {
-			row: { number: 1 },
-			position: "A",
+			position: { row: 1, column: "A" },
 			status: "occupied",
 			class: "first-class",
 			price: { amount: 200, currency: "SEK" },

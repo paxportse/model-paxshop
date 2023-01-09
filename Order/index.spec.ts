@@ -1,4 +1,4 @@
-import { BookingOptions } from "../BookingOptions"
+import { Options } from "../Booking/Options"
 import * as model from "../index"
 import { Booking } from "./../Booking"
 import { Passenger } from "./../Passenger"
@@ -14,8 +14,7 @@ describe("model.Order", () => {
 				{
 					reference: "AA",
 					seat: {
-						row: { number: 1 },
-						position: "A",
+						position: { row: 1, column: "A" },
 						status: "occupied",
 						class: "first-class",
 						price: { amount: 40, currency: "EUR" },
@@ -27,8 +26,7 @@ describe("model.Order", () => {
 				{
 					reference: "d03",
 					seat: {
-						row: { number: 1 },
-						position: "B",
+						position: { row: 1, column: "B" },
 						status: "occupied",
 						class: "first-class",
 						price: { amount: 20, currency: "EUR" },
@@ -45,8 +43,7 @@ describe("model.Order", () => {
 				{
 					reference: "CC",
 					seat: {
-						row: { number: 4 },
-						position: "B",
+						position: { row: 4, column: "B" },
 						status: "occupied",
 						class: "first-class",
 						price: { amount: 40, currency: "EUR" },
@@ -58,8 +55,7 @@ describe("model.Order", () => {
 				{
 					reference: "DD",
 					seat: {
-						row: { number: 6 },
-						position: "D",
+						position: { row: 6, column: "D" },
 						status: "occupied",
 						class: "first-class",
 						price: { amount: 20, currency: "EUR" },
@@ -73,11 +69,10 @@ describe("model.Order", () => {
 					name: "Extra Bag",
 					weight: 20,
 					direction: "roundtrip",
-					price: { amount: 300, currency: "EUR" },
 					description: "Extra bag with the maximum weight of 20kg",
 					flights: [
-						{ reference: "BLX504", capacity: 2 },
-						{ reference: "UDE342", capacity: 2 },
+						{ reference: "BLX504", capacity: 2, price: { amount: 300, currency: "EUR" } },
+						{ reference: "UDE342", capacity: 2, price: { amount: 300, currency: "EUR" } },
 					],
 				},
 			],
@@ -139,7 +134,7 @@ describe("model.Order", () => {
 		booking: booking,
 	}
 
-	const bookingOptions: BookingOptions = {
+	const bookingOptions: Options = {
 		departure: [
 			{
 				reference: "FL-001",
@@ -167,8 +162,8 @@ describe("model.Order", () => {
 									{
 										status: "available",
 										class: "first-class",
-										row: { number: 1 },
-										position: "A",
+
+										position: { row: 1, column: "A" },
 										price: { amount: 400, currency: "EUR" },
 										wide: true,
 										reference: "123",
@@ -176,8 +171,8 @@ describe("model.Order", () => {
 									{
 										status: "available",
 										class: "first-class",
-										row: { number: 1 },
-										position: "B",
+
+										position: { row: 1, column: "B" },
 										price: { amount: 400, currency: "EUR" },
 										wide: true,
 										reference: "123",
@@ -196,8 +191,7 @@ describe("model.Order", () => {
 									{
 										status: "available",
 										class: "first-class",
-										row: { number: 2 },
-										position: "A",
+										position: { row: 2, column: "A" },
 										price: { amount: 400, currency: "EUR", offer: 200 },
 										wide: true,
 										reference: "123",
@@ -205,8 +199,7 @@ describe("model.Order", () => {
 									{
 										status: "available",
 										class: "first-class",
-										row: { number: 2 },
-										position: "B",
+										position: { row: 2, column: "B" },
 										price: { amount: 400, currency: "EUR" },
 										wide: true,
 										reference: "123",
@@ -248,8 +241,8 @@ describe("model.Order", () => {
 									{
 										status: "available",
 										class: "first-class",
-										row: { number: 1 },
-										position: "A",
+
+										position: { row: 1, column: "A" },
 										price: { amount: 400, currency: "EUR", offer: 200 },
 										wide: true,
 										reference: "123",
@@ -257,8 +250,8 @@ describe("model.Order", () => {
 									{
 										status: "available",
 										class: "first-class",
-										row: { number: 1 },
-										position: "B",
+
+										position: { row: 1, column: "B" },
 										price: { amount: 400, currency: "EUR" },
 										wide: true,
 										reference: "123",
@@ -277,8 +270,7 @@ describe("model.Order", () => {
 									{
 										status: "occupied",
 										class: "first-class",
-										row: { number: 2 },
-										position: "A",
+										position: { row: 2, column: "A" },
 										price: { amount: 400, currency: "EUR", offer: 200 },
 										wide: true,
 										reference: "123",
@@ -286,8 +278,7 @@ describe("model.Order", () => {
 									{
 										status: "available",
 										class: "first-class",
-										row: { number: 2 },
-										position: "B",
+										position: { row: 2, column: "B" },
 										price: { amount: 400, currency: "EUR" },
 										wide: true,
 										reference: "123",

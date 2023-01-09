@@ -1,10 +1,9 @@
-import { Row } from "../../Row"
-import { Column } from "./Column"
-import { Deck } from "./Deck"
+import { Column as PositionColumn } from "./Column"
+import { Deck as PositionDeck } from "./Deck"
 export interface Position {
-	row: Row
-	column: Column
-	deck?: Deck
+	row: number
+	column: Position.Column
+	deck?: Position.Deck
 }
 
 export namespace Position {
@@ -12,10 +11,13 @@ export namespace Position {
 		return (
 			typeof value == "object" &&
 			value &&
-			Row.is(value.row) &&
+			typeof value.row == "number" &&
 			Column.is(value.column) &&
 			(value.deck == undefined || Deck.is(value.deck))
 		)
 	}
+	export type Column = PositionColumn
+	export const Column = PositionColumn
+	export type Deck = PositionDeck
+	export const Deck = PositionDeck
 }
-export type Row
