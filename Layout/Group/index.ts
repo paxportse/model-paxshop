@@ -52,7 +52,7 @@ export namespace Group {
 						...g,
 						seats: [
 							...g.seats.slice(0, index),
-							{ ...g.seats[index], status: seat.status, price: seat.price } as Seat,
+							{ ...g.seats[index], status: seat.status, price: seat.price, reference: seat.reference } as Seat,
 							...g.seats.slice(index + 1),
 						],
 					}
