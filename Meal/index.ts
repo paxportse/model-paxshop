@@ -37,11 +37,11 @@ export namespace Meal {
 				passengerMeals && meal ? passengerMeals.find(m => m.reference == meal.reference) : undefined
 
 			// Create new meal object
-			const newMeal = existingMeal
+			const newMeal: Meal | undefined = existingMeal
 				? alternative
 					? existingMeal
-					: { ...existingMeal, alternatives: [alternative] }
-				: { ...meal, alternatives: [alternative] }
+					: { ...existingMeal, alternative: alternative }
+				: { ...meal, alternative: alternative }
 
 			// Find the index of this meal in the passenger meal array
 			const indexMeal = existingMeal ? passengerMeals?.findIndex(m => m.reference == newMeal.reference) : undefined

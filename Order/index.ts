@@ -34,7 +34,7 @@ export namespace Order {
 		return order.booking.passengers
 			.map(passenger => [
 				...[...(passenger.departure ?? []), ...(passenger.return ?? [])].map<(Item | undefined)[]>(flight => {
-					const flightDetails = BookingOptions.getFlight(bookingOptions, flight.reference)
+					const flightDetails = Booking.Options.getFlight(bookingOptions, flight.reference)
 					const flightName = flightDetails ? `${flightDetails.from.code} - ${flightDetails.to.code}` : ""
 					return [
 						flight.seat && {
@@ -48,8 +48,8 @@ export namespace Order {
 							reference: "pm-meal-alternative-ref",
 							passenger: Passenger.Name.format(passenger.name),
 							flight: flightName,
-							name: meal.alternatives[0].name ? [meal.name, meal.alternatives[0].name] : meal.name,
-							price: meal.alternatives[0].price,
+							name: meal.alternative.name ? [meal.name, meal.alternative.name] : meal.name,
+							price: meal.alternative.price,
 						})),
 					]
 				}),
@@ -70,7 +70,7 @@ export namespace Order {
 			.map(passenger => [
 				...[...(passenger.departure ?? []), ...(passenger.return ?? [])].map<(Price | undefined)[]>(flight => [
 					flight.seat?.price,
-					...(flight.meal ?? []).map<Price | undefined>(meal => meal.alternatives[0].price),
+					...(flight.meal ?? []).map<Price | undefined>(meal => meal.alternative.price),
 				]),
 				...(passenger.luggage ?? []).map<Price | undefined>(luggage =>
 					// Multiply luggage price with 2 to add price per direction. REMOVE WHEN LUGGAGE IS ADDED TO FLIGHTS
