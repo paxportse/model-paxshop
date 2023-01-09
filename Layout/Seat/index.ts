@@ -1,6 +1,6 @@
 import { Base } from "./Base"
 import { Class as SeatClass } from "./Class"
-import { Position as SeatPosition } from "./Position"
+import { Position as SeatPosition } from "./Position/"
 import { Status as SeatStatus } from "./Status"
 
 export type Seat = Base

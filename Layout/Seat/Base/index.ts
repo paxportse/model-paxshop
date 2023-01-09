@@ -1,8 +1,8 @@
 import { Passenger } from "../../Passenger"
 import { Price } from "../../Price"
 import { Row } from "../Row"
-import { Class } from "./Class"
-import { Position } from "./Position"
+import { Class } from "./Class/Class"
+import { Column } from "./Column"
 import { Status } from "./Status"
 
 export interface Base {
@@ -10,7 +10,6 @@ export interface Base {
 	status: Status
 	class: Class
 	position: Position
-	row: Row.Positioned
 	price?: Price
 	wide?: boolean
 	legroom?: boolean
@@ -47,7 +46,7 @@ export namespace Base {
 	export function selectable(seat: Base, passenger: Passenger): boolean {
 		return seat.row ? seat.status == "available" && (passenger.ageGroup == "adult" || !seat.row.exit) : false
 	}
-	export function get(seat: Base): [number, Position] {
+	export function get(seat: Base): [number, Column] {
 		return [seat.row.number, seat.position]
 	}
 	export function chosen(seat: Base, leg: Passenger.Itinerary.Leg): boolean {
