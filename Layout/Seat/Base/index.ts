@@ -1,8 +1,7 @@
+import { Price } from "../../../Price"
 import { Passenger } from "../../Passenger"
-import { Price } from "../../Price"
-import { Row } from "../Row"
+import { Position } from "../Position"
 import { Class } from "./Class/Class"
-import { Column } from "./Column"
 import { Status } from "./Status"
 
 export interface Base {
@@ -30,7 +29,6 @@ export namespace Base {
 			Status.is(value.status) &&
 			Class.is(value.class) &&
 			Position.is(value.position) &&
-			Row.Positioned.is(value.row) &&
 			(value.price == undefined || Price.is(value.price)) &&
 			(value.wide == undefined || typeof value.wide == "boolean") &&
 			(value.legroom == undefined || typeof value.legroom == "boolean") &&

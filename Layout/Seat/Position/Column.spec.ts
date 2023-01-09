@@ -1,4 +1,4 @@
-import * as model from "../../index"
+import * as model from "../../../index"
 
 describe("model.Flight.Seat.Position", () => {
 	const groups: model.Layout.Group[] = [
