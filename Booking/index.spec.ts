@@ -1,4 +1,4 @@
-import * as model from "./Booking"
+import * as model from "."
 
 describe("model.Booking", () => {
 	const booking: model.Booking = {

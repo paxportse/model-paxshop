@@ -1,15 +1,15 @@
 import * as cryptly from "cryptly"
 import * as isoly from "isoly"
-import { Passenger } from "./Passenger"
+import { Passenger } from "../Passenger"
 
-export interface BookingSpecifier {
+export interface Specifier {
 	reference: string
 	departure: isoly.Date
 	name?: Passenger.Name
 }
 
 export namespace BookingSpecifier {
-	export function is(value: BookingSpecifier | any): value is BookingSpecifier {
+	export function is(value: Specifier | any): value is Specifier {
 		return (
 			typeof value == "object" &&
 			typeof value.reference == "string" &&
@@ -20,8 +20,8 @@ export namespace BookingSpecifier {
 	export function fromAuthorization(
 		authorization: string | undefined,
 		reference: string | undefined
-	): BookingSpecifier | undefined {
-		let result: BookingSpecifier | undefined
+	): Specifier | undefined {
+		let result: Specifier | undefined
 		if (reference && authorization && authorization.substring(0, 6).toLowerCase() == "basic ") {
 			const [departure, name] = new cryptly.TextDecoder()
 				.decode(cryptly.Base64.decode(authorization.substring(6), "standard"))
@@ -32,7 +32,7 @@ export namespace BookingSpecifier {
 		}
 		return result
 	}
-	export function toAuthorization(specifier: BookingSpecifier): string {
+	export function toAuthorization(specifier: Specifier): string {
 		return `Basic ${cryptly.Base64.encode(
 			new cryptly.TextEncoder().encode(specifier.departure + ":" + (specifier.name?.last ?? "")),
 			"standard",

@@ -1,15 +1,15 @@
-import { Booking } from "./Booking"
-import { FlightOptions } from "./FlightOptions"
-import { Luggage } from "./Luggage"
+import { Options as FlightOptions } from "../../Flight/Options"
+import { Luggage } from "../../Luggage"
+import { Booking } from ".."
 
-export interface BookingOptions {
+export interface Options {
 	departure: FlightOptions[]
 	return?: FlightOptions[]
 	luggage: (Luggage | Luggage.Category)[]
 }
 
-export namespace BookingOptions {
-	export function is(value: BookingOptions | any): value is BookingOptions {
+export namespace Options {
+	export function is(value: Options | any): value is Options {
 		return (
 			typeof value == "object" &&
 			value.departure.every(FlightOptions.is) &&
@@ -17,8 +17,8 @@ export namespace BookingOptions {
 			value.luggage.every((l: Luggage | Luggage.Category) => Luggage.is(l) || Luggage.Category.is(l))
 		)
 	}
-	export function reserve(bookingOptions: Readonly<BookingOptions>, booking: Readonly<Booking>): BookingOptions {
-		const result: BookingOptions = { ...bookingOptions }
+	export function reserve(bookingOptions: Readonly<Options>, booking: Readonly<Booking>): Options {
+		const result: Options = { ...bookingOptions }
 		const passengers = booking.passengers
 		passengers.forEach(passenger => {
 			result.departure = result.departure.map(flightOptions =>
@@ -40,7 +40,7 @@ export namespace BookingOptions {
 		})
 		return result
 	}
-	export function isAvailable(options: Readonly<BookingOptions>, booking: Booking): boolean {
+	export function isAvailable(options: Readonly<Options>, booking: Booking): boolean {
 		const available: boolean[] = []
 		let result = true
 		const departureFlights = options.departure
@@ -65,7 +65,7 @@ export namespace BookingOptions {
 		})
 		return result
 	}
-	export function getFlight(bookingOptions: BookingOptions, reference: string): FlightOptions | undefined {
-		return [...(bookingOptions.departure ?? []), ...(bookingOptions.return ?? [])].find(f => f.reference == reference)
+	export function getFlight(options: Options, reference: string): FlightOptions | undefined {
+		return [...(options.departure ?? []), ...(options.return ?? [])].find(f => f.reference == reference)
 	}
 }

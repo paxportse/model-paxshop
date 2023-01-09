@@ -1,4 +1,4 @@
-import { FlightOptions } from "../FlightOptions"
+import { Options } from "../Flight/Options"
 import { Luggage } from "../Luggage"
 import { AgeGroup as PassengerAgeGroup } from "./AgeGroup"
 import { Itinerary as PassengerItinerary } from "./Itinerary"
@@ -34,17 +34,17 @@ export namespace Passenger {
 	export function seatedOnFlight(
 		passenger: Readonly<Passenger>,
 		direction: "departure" | "return",
-		flight: FlightOptions
+		flight: Options
 	): boolean {
 		return passenger ? passenger?.[direction]?.find(f => f?.reference == flight.reference)?.seat != undefined : false
 	}
-	export function isOnFlight(passenger: Passenger, direction: "departure" | "return", flight: FlightOptions): boolean {
+	export function isOnFlight(passenger: Passenger, direction: "departure" | "return", flight: Options): boolean {
 		return passenger[direction]?.some(l => l.reference == flight.reference) || false
 	}
 	export function selectNext(
 		passengers: Readonly<Passenger[]>,
 		direction: "departure" | "return",
-		flight: FlightOptions
+		flight: Options
 	): Passenger | false {
 		const allowedPassengers = passengers.filter(p => p[direction]?.some(l => l.reference == flight.reference) && p)
 		if (allowedPassengers) {

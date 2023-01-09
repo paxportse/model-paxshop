@@ -1,11 +1,11 @@
 import { Airport } from "./Airport"
 import { Booking } from "./Booking"
-import { BookingOptions } from "./BookingOptions"
-import { BookingSpecifier } from "./BookingSpecifier"
+import { Options } from "./Booking/Options"
+import { Specifier } from "./Booking/Specifier"
 import { Client } from "./Client"
 import { Direction } from "./Direction"
 import { Flight } from "./Flight"
-import { FlightOptions } from "./FlightOptions"
+import { Options } from "./Flight/Options"
 import { Layout } from "./Layout"
 import { Luggage } from "./Luggage"
 import { Meal } from "./Meal"
@@ -18,12 +18,12 @@ import { sv } from "./translation/sv"
 export {
 	Airport,
 	Booking,
-	BookingOptions,
-	BookingSpecifier,
+	Options as BookingOptions,
+	Specifier as BookingSpecifier,
 	Client,
 	Direction,
 	Flight,
-	FlightOptions,
+	Options as FlightOptions,
 	Layout,
 	Luggage,
 	Meal,

@@ -1,5 +1,6 @@
 import * as isoly from "isoly"
-import { Airport } from "./Airport"
+import { Airport } from "../Airport"
+import { Options as FlightOptions } from "./Options"
 
 export interface Flight {
 	reference: string
@@ -21,4 +22,6 @@ export namespace Flight {
 			isoly.DateTime.is(value.arrival)
 		)
 	}
+	export type Options = FlightOptions
+	export const Options = FlightOptions
 }

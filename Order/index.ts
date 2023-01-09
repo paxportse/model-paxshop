@@ -1,6 +1,6 @@
 import * as cryptly from "cryptly"
 import { Booking } from "../Booking"
-import { BookingOptions } from "../BookingOptions"
+import { Options } from "../Booking/Options"
 import { Passenger } from "../Passenger"
 import { Price } from "../Price"
 import { Layout } from "./../Layout"
@@ -30,7 +30,7 @@ export namespace Order {
 	export function create(booking: Booking): Order {
 		return { id: cryptly.Identifier.generate(16), booking, total: getTotal(booking) }
 	}
-	export function getItems(order: Order, bookingOptions: BookingOptions): Item[] | undefined {
+	export function getItems(order: Order, bookingOptions: Options): Item[] | undefined {
 		return order.booking.passengers
 			.map(passenger => [
 				...[...(passenger.departure ?? []), ...(passenger.return ?? [])].map<(Item | undefined)[]>(flight => {

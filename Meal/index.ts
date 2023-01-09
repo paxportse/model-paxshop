@@ -4,8 +4,7 @@ import { Alternative as MealAlternative } from "./Alternative"
 export interface Meal {
 	reference: string
 	name: string
-	optional?: boolean
-	alternatives: Meal.Alternative[]
+	alternative: Meal.Alternative
 }
 
 export namespace Meal {
@@ -15,10 +14,10 @@ export namespace Meal {
 			typeof value.reference == "string" &&
 			typeof value.name == "string" &&
 			(value.optional == undefined || typeof value.optional == "boolean") &&
-			Array.isArray(value.alternatives) &&
-			value.alternatives.every(Alternative.is)
+			Alternative.is(value.alternative)
 		)
 	}
+	// ALTERNATIVES IS NO LONGER AN ARRAY. SIMPLIFY FUNCTION
 	export function updatePassengerMeal(
 		meal: Meal | undefined,
 		alternative: Meal.Alternative | undefined,

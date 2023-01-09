@@ -1,4 +1,4 @@
-import { Alternative } from "./Alternative"
+import { Alternative } from "."
 
 describe("model.Flight.Meal.Alternative", () => {
 	const alternative: Alternative = {

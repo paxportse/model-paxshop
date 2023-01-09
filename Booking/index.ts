@@ -1,5 +1,6 @@
 import * as isoly from "isoly"
-import { Passenger } from "./Passenger"
+import { Passenger } from "../Passenger"
+import { Options as BookingOptions } from "./Options"
 
 export interface Booking {
 	reference: string
@@ -19,8 +20,9 @@ export namespace Booking {
 	export function getPassengersWithLuggage(booking: Booking): Passenger[] {
 		return booking.passengers.filter(passenger => passenger.luggage)
 	}
-
 	export function capitalize(word: string): string {
 		return word.charAt(0).toUpperCase() + word.slice(1)
 	}
+	export type Options = BookingOptions
+	export const Options = BookingOptions
 }

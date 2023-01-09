@@ -1,6 +1,6 @@
-import * as model from "./index"
+import * as model from "../../index"
 
-describe("model.BookingOptions", () => {
+describe("model.Booking.Options", () => {
 	const bookingOptions: model.BookingOptions = {
 		departure: [
 			{
@@ -465,21 +465,21 @@ describe("model.BookingOptions", () => {
 		],
 	}
 	it("is", () => {
-		expect(model.BookingOptions.is(bookingOptions)).toEqual(true)
+		expect(model.Booking.Options.is(bookingOptions)).toEqual(true)
 	})
 	it("reserve", () => {
-		expect(model.BookingOptions.reserve(bookingOptions, booking)).toEqual(updatedBookingOptions)
+		expect(model.Booking.Options.reserve(bookingOptions, booking)).toEqual(updatedBookingOptions)
 	})
 	it("isAvailable", () => {
-		expect(model.BookingOptions.isAvailable(bookingOptions, booking)).toEqual(true)
+		expect(model.Booking.Options.isAvailable(bookingOptions, booking)).toEqual(true)
 	})
 	it("isAvailable, false", () => {
-		expect(model.BookingOptions.isAvailable(updatedBookingOptions, booking)).toEqual(false)
+		expect(model.Booking.Options.isAvailable(updatedBookingOptions, booking)).toEqual(false)
 	})
 	it("isArrayOfLuggage", () => {
 		expect(model.Luggage.isArrayOfLuggage(bookingOptions.luggage)).toEqual(true)
 	})
 	it("get flight", () => {
-		expect(model.BookingOptions.getFlight(bookingOptions, "FL-002")).toEqual(bookingOptions.return?.[0])
+		expect(model.Booking.Options.getFlight(bookingOptions, "FL-002")).toEqual(bookingOptions.return?.[0])
 	})
 })

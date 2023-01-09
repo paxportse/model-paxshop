@@ -1,13 +1,12 @@
-import * as model from "./index"
-import * as passenger from "./Passenger/Itinerary/"
+import * as model from "../../index"
+import * as passenger from "../../Passenger/Itinerary"
 
-describe("model.FlightOptions", () => {
-	const layout: model.FlightOptions = {
+describe("model.Flight.Options", () => {
+	const layout: model.Flight.Options = {
 		reference: "AA",
 		number: "PAX001",
 		from: { code: "ARN", name: "Arlanda Airport" },
 		to: { code: "LHR", name: "Heathrow Airport" },
-
 		departure: "2022-09-28T07:22:00.000Z",
 		arrival: "2022-09-28T10:02:00.000Z",
 		seating: [
@@ -185,7 +184,7 @@ describe("model.FlightOptions", () => {
 			},
 		],
 	}
-	const updatedLayout: model.FlightOptions = {
+	const updatedLayout: model.Flight.Options = {
 		reference: "AA",
 		number: "PAX001",
 		from: { code: "ARN", name: "Arlanda Airport" },
@@ -367,7 +366,7 @@ describe("model.FlightOptions", () => {
 			},
 		],
 	}
-	const occupiedLayout: model.FlightOptions = {
+	const occupiedLayout: model.Flight.Options = {
 		reference: "AA",
 		number: "PAX001",
 		from: { code: "ARN", name: "Arlanda Airport" },
@@ -549,7 +548,7 @@ describe("model.FlightOptions", () => {
 			},
 		],
 	}
-	const flights: model.FlightOptions[] = [
+	const flights: model.Flight.Options[] = [
 		{
 			reference: "FL-001",
 			number: "PAX001",
@@ -935,17 +934,17 @@ describe("model.FlightOptions", () => {
 		{ ...seat, row: { number: 2 }, position: "G" },
 	]
 	it("is", () => {
-		expect(model.FlightOptions.is(layout)).toEqual(true)
+		expect(model.Flight.Options.is(layout)).toEqual(true)
 	})
 	it("reserve", () => {
-		expect(model.FlightOptions.reserve(layout, leg)).toEqual(updatedLayout)
+		expect(model.Flight.Options.reserve(layout, leg)).toEqual(updatedLayout)
 	})
 	it("isAvailable", () => {
-		expect(model.FlightOptions.isAvailable(layout, leg)).toEqual(true)
+		expect(model.Flight.Options.isAvailable(layout, leg)).toEqual(true)
 	})
 	it("isAvailable, false", () => {
 		expect(
-			model.FlightOptions.isAvailable(layout, {
+			model.Flight.Options.isAvailable(layout, {
 				...leg,
 				seat: {
 					row: { number: 2 },
@@ -959,15 +958,15 @@ describe("model.FlightOptions", () => {
 		).toEqual(false)
 	})
 	it("Get available flights departure", () => {
-		expect(model.FlightOptions.getAvailableFlights(passenger, flights, "departure")).toEqual([flights[0]])
+		expect(model.Flight.Options.getAvailableFlights(passenger, flights, "departure")).toEqual([flights[0]])
 	})
 	it("Get available flights return", () => {
-		expect(model.FlightOptions.getAvailableFlights(passenger, flights, "return")).toEqual([flights[1], flights[2]])
+		expect(model.Flight.Options.getAvailableFlights(passenger, flights, "return")).toEqual([flights[1], flights[2]])
 	})
 	it("Get available flights, no matching flights", () => {
-		expect(model.FlightOptions.getAvailableFlights(passenger2, flights, "return")).toEqual([])
+		expect(model.Flight.Options.getAvailableFlights(passenger2, flights, "return")).toEqual([])
 	})
 	it("setSeatStatus", () => {
-		expect(model.FlightOptions.setSeats(layout, ...seats)).toEqual(occupiedLayout)
+		expect(model.Flight.Options.setSeats(layout, ...seats)).toEqual(occupiedLayout)
 	})
 })

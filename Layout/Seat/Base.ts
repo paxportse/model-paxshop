@@ -6,6 +6,7 @@ import { Position } from "./Position"
 import { Status } from "./Status"
 
 export interface Base {
+	reference?: string
 	status: Status
 	class: Class
 	position: Position
@@ -20,13 +21,13 @@ export interface Base {
 	description?: string
 	exit?: boolean
 	category?: string
-	reference?: string
 }
 
 export namespace Base {
 	export function is(value: Base | any): value is Base {
 		return (
 			typeof value == "object" &&
+			(value.reference == undefined || typeof value.reference == "string") &&
 			Status.is(value.status) &&
 			Class.is(value.class) &&
 			Position.is(value.position) &&
@@ -40,8 +41,7 @@ export namespace Base {
 			(value.window == undefined || typeof value.window == "boolean") &&
 			(value.exit == undefined || typeof value.exit == "boolean") &&
 			(value.description == undefined || typeof value.description == "string") &&
-			(value.category == undefined || typeof value.category == "string") &&
-			(value.reference == undefined || typeof value.reference == "string")
+			(value.category == undefined || typeof value.category == "string")
 		)
 	}
 	export function selectable(seat: Base, passenger: Passenger): boolean {

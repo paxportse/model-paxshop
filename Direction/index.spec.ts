@@ -1,4 +1,4 @@
-import * as model from "./index"
+import * as model from "../index"
 describe("model.Direction", () => {
 	it("is", () => {
 		expect(model.Direction.is("return")).toEqual(true)

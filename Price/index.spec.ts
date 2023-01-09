@@ -1,4 +1,4 @@
-import { Price } from "./Price"
+import { Price } from "."
 
 describe("model.Flight.Seat", () => {
 	const price: Price = { amount: 200, currency: "SEK", description: "Some text", offer: 20 }
