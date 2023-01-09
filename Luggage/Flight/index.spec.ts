@@ -1,6 +1,6 @@
 import * as model from "../../index"
 
-describe("model.Luggage.FlightReference", () => {
+describe("model.Luggage.Flights", () => {
 	it("is", () => {
 		expect(model.Luggage.Flight.is({ reference: "FL-001", capacity: 2 })).toEqual(true)
 	})

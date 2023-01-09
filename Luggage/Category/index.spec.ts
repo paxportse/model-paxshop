@@ -10,7 +10,6 @@ describe("Category", () => {
 				name: "Extra weight",
 				weight: 20,
 				direction: "departure",
-				price: { amount: 100, currency: "AFN" },
 				description: "Some text",
 			},
 			{
@@ -18,7 +17,6 @@ describe("Category", () => {
 				name: "Golf Bag",
 				weight: 20,
 				direction: "departure",
-				price: { amount: 100, currency: "AFN" },
 				description: "Some text",
 			},
 		],
