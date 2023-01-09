@@ -12,13 +12,13 @@ export class Booking extends rest.Collection<gracely.Error> {
 		language?: Readonly<Locale>[]
 	): Promise<Readonly<modelBooking & { options: Options; order: string }> | gracely.Error> {
 		return this.client.get<modelBooking & { options: Options; order: string }>(`booking/${specifier.reference}`, {
-			authorization: BookingSpecifier.toAuthorization(specifier),
+			authorization: Specifier.toAuthorization(specifier),
 			acceptLanguage: language ?? ["sv-SE", "en-US"],
 		})
 	}
 	update(body: Order, specifier: Specifier): Promise<http.Response.Like | any> {
 		return this.client.put<Order>(`booking/${specifier.reference}`, body, {
-			authorization: BookingSpecifier.toAuthorization(specifier),
+			authorization: Specifier.toAuthorization(specifier),
 			contentType: "application/json",
 		})
 	}

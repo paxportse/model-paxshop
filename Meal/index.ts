@@ -38,7 +38,7 @@ export namespace Meal {
 
 			// Create new meal object
 			const newMeal = existingMeal
-				? existingMeal.alternatives.find(a => a == alternative)
+				? alternative
 					? existingMeal
 					: { ...existingMeal, alternatives: [alternative] }
 				: { ...meal, alternatives: [alternative] }

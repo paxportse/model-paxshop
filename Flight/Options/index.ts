@@ -2,7 +2,7 @@ import { Layout } from "../../Layout"
 import { Luggage } from "../../Luggage"
 import { Meal } from "../../Meal"
 import { Passenger } from "../../Passenger"
-import type { Flight } from ".."
+import type { Flight } from "../index"
 
 export interface Options extends Flight {
 	seating: Layout

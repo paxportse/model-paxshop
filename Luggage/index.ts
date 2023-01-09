@@ -3,7 +3,7 @@ import { Direction } from "../Direction"
 import { Passenger } from "../Passenger"
 import { Price } from "../Price"
 import { Category as LuggageCategory } from "./Category"
-import { FlightReference as LuggageFlightReference } from "./FlightReference"
+import { Flight as LuggageFlight } from "./Flight"
 
 export interface Luggage {
 	reference: string
@@ -13,7 +13,7 @@ export interface Luggage {
 	direction?: Direction //{ departureQuantity?: number; returnQuantity?: number } Is this the approach we want?
 	price?: Price
 	description?: string
-	flights?: LuggageFlightReference[]
+	flights?: Luggage.Flight[]
 }
 export namespace Luggage {
 	export function is(value: Luggage | any): value is Luggage {
@@ -26,8 +26,7 @@ export namespace Luggage {
 			(value.direction == undefined || Direction.is(value.direction)) &&
 			(value.price == undefined || Price.is(value.price)) &&
 			(value.description == undefined || typeof value.description == "string") &&
-			(value.flights == undefined ||
-				(Array.isArray(value.flights) && value.flights.every((f: any) => LuggageFlightReference.is(f))))
+			(value.flights == undefined || (Array.isArray(value.flights) && value.flights.every((f: any) => Flight.is(f))))
 		)
 	}
 	export function isArrayOfLuggage(value: (Luggage | any)[]): value is Luggage[] {
@@ -105,6 +104,6 @@ export namespace Luggage {
 	}
 	export type Category = LuggageCategory
 	export const Category = LuggageCategory
-	export type FlightReference = LuggageFlightReference
-	export const FlightReference = LuggageFlightReference
+	export type Flight = LuggageFlight
+	export const Flight = LuggageFlight
 }

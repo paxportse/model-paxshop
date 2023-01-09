@@ -1,6 +1,5 @@
 import { Meal } from "../../Meal"
 import * as model from "../index"
-
 describe("model.Itinerary", () => {
 	const itinerary: model.Passenger.Itinerary = [
 		{

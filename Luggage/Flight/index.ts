@@ -1,13 +1,13 @@
-import { Price } from "../Price"
+import { Price } from "../../Price"
 
-export interface FlightReference {
+export interface Flight {
 	reference: string
 	capacity?: number
 	price?: Price
 }
 
-export namespace FlightReference {
-	export function is(value: FlightReference | any): value is FlightReference {
+export namespace Flight {
+	export function is(value: Flight | any): value is Flight {
 		return (
 			typeof value == "object" &&
 			typeof value.reference == "string" &&
