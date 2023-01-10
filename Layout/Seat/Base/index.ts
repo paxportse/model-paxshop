@@ -1,3 +1,4 @@
+import { Booking } from "../../../Booking"
 import { Passenger } from "../../../Passenger"
 import { Price } from "../../../Price"
 import { Class } from "../Class"

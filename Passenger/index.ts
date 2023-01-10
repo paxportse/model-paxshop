@@ -1,3 +1,4 @@
+import { Booking } from "../Booking"
 import { Direction } from "../Direction"
 import { Options } from "../Flight/Options"
 import { Luggage } from "../Luggage"
@@ -101,6 +102,11 @@ export namespace Passenger {
 				result = undefined
 				break
 		}
+		return result
+	}
+
+	export function changes(previous: Passenger, current: Passenger): Booking.Changes[] {
+		const result = Passenger.Itinerary.changes()
 		return result
 	}
 	export const AgeGroup = PassengerAgeGroup

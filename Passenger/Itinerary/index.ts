@@ -1,3 +1,5 @@
+import { Booking } from "../../Booking"
+import { Layout } from "../../Layout"
 import { Leg as ItineraryLeg } from "./Leg"
 
 export type Itinerary = Itinerary.Leg[]
@@ -19,6 +21,11 @@ export namespace Itinerary {
 						})
 			  )
 			: itinerary
+	}
+	export function changes(previous: Itinerary, current: Itinerary): Booking.Changes[] {
+		// Meal.changes
+		// Seat.changes
+		// changes = {added: [{}], removed: [{}]}
 	}
 	export type Leg = ItineraryLeg
 	export const Leg = ItineraryLeg

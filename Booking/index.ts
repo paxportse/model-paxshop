@@ -1,5 +1,6 @@
 import * as isoly from "isoly"
 import { Passenger } from "../Passenger"
+import { Changes as BookingChanges } from "./Changes"
 import { Options as BookingOptions } from "./Options"
 import { Specifier as BookingSpecifier } from "./Specifier"
 
@@ -27,6 +28,8 @@ export namespace Booking {
 	}
 	export type Options = BookingOptions
 	export const Options = BookingOptions
+	export type Changes = BookingChanges
+	export const Changes = BookingChanges
 	export type Specifier = BookingSpecifier
 	export namespace Specifier {
 		export const is = BookingSpecifier.is
