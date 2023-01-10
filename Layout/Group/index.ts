@@ -1,3 +1,4 @@
+import { Row } from "../Row"
 import { Seat } from "../Seat"
 import { Base } from "./Base"
 import { Seats as GroupSeats } from "./Seats"
@@ -30,8 +31,7 @@ export namespace Group {
 							index -= g.seats.length ?? 0
 							result = g
 						}
-					} else
-						result = g
+					} else result = g
 					return result
 			  })
 			: groups
@@ -42,7 +42,7 @@ export namespace Group {
 			| undefined
 		return group?.seats.find(s => s?.position.column == position)?.status == "available"
 	}
-	export function setSeats(groups: (Group | undefined)[], seat: Seat): (Group | undefined)[] {
+	export function setSeats(row: Row, groups: (Group | undefined)[], seat: Seat): (Group | undefined)[] {
 		let index = Seat.Position.Column.index(seat.position.column, groups)
 		return groups.map(g => {
 			let result = g
@@ -58,6 +58,7 @@ export namespace Group {
 								status: seat.status,
 								...(seat.price && { price: seat.price }),
 								...(seat.reference && { reference: seat.reference }),
+								...(!!row.toilet && { toilet: true }),
 							},
 							...g.seats.slice(index + 1),
 						],
