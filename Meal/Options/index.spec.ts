@@ -1,10 +1,14 @@
-import * as model from "../index"
+import * as model from "../../index"
 
-describe("model.Meal", () => {
-	const meal: model.Meal = {
+describe("model.Meal.Options", () => {
+	const meal: model.Meal.Options = {
 		name: "dinner",
 		reference: "ref-034",
-		alternative: { name: "meat", price: { amount: 12, currency: "DKK" }, reference: "345" },
+		optional: true,
+		alternatives: [
+			{ name: "chicken", price: { amount: 10, currency: "DKK" }, reference: "345" },
+			{ name: "meat", price: { amount: 12, currency: "DKK" }, reference: "345" },
+		],
 	}
 	const meal2: model.Meal = {
 		name: "dinner",
@@ -30,13 +34,13 @@ describe("model.Meal", () => {
 
 	const leg2: model.Passenger.Itinerary.Leg = { ...leg, reference: "leg-1337", meal: [meal2] }
 	it("is", () => {
-		expect(model.Meal.is(meal)).toEqual(true)
+		expect(model.Meal.Options.is(meal)).toEqual(true)
 	})
 	it("is not optional", () => {
-		expect(model.Meal.is({ ...meal, optional: undefined })).toEqual(true)
+		expect(model.Meal.Options.is({ ...meal, optional: undefined })).toEqual(true)
 	})
 	it("is reference", () => {
-		expect(model.Meal.is({ ...meal, reference: "ref-001" })).toEqual(true)
+		expect(model.Meal.Options.is({ ...meal, reference: "ref-001" })).toEqual(true)
 	})
 
 	it("update passenger meal", () => {
