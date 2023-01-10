@@ -1,6 +1,7 @@
 import * as isoly from "isoly"
 import { Passenger } from "../Passenger"
 import { Options as BookingOptions } from "./Options"
+import { Specifier as BookingSpecifier } from "./Specifier"
 
 export interface Booking {
 	reference: string
@@ -25,4 +26,10 @@ export namespace Booking {
 	}
 	export type Options = BookingOptions
 	export const Options = BookingOptions
+	export type Specifier = BookingSpecifier
+	export namespace Specifier {
+		export const is = BookingSpecifier.is
+		export const fromAuthorization = BookingSpecifier.fromAuthorization
+		export const toAuthorization = BookingSpecifier.toAuthorization
+	}
 }

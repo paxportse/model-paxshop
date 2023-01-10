@@ -1,3 +1,4 @@
+import { Direction } from "../Direction"
 import { Options } from "../Flight/Options"
 import { Luggage } from "../Luggage"
 import { AgeGroup as PassengerAgeGroup } from "./AgeGroup"
@@ -82,6 +83,24 @@ export namespace Passenger {
 				? { ...passenger, return: itinerary }
 				: {}
 		return update(passenger, result)
+	}
+	export function getFlights(passenger: Passenger, direction: Direction): string[] | undefined {
+		let result: string[] | undefined
+		switch (direction) {
+			case "roundtrip":
+				result = [...(passenger.departure ?? []), ...(passenger.return ?? [])].map(f => f.reference)
+				break
+			case "departure":
+				result = (passenger.departure ?? []).map(f => f.reference)
+				break
+			case "return":
+				result = (passenger.return ?? []).map(f => f.reference)
+				break
+			default:
+				result = undefined
+				break
+		}
+		return result
 	}
 	export const AgeGroup = PassengerAgeGroup
 	export type AgeGroup = PassengerAgeGroup

@@ -9,9 +9,10 @@ export namespace Layout {
 	}
 	export function reserve(layout: Readonly<Layout>, seat: Seat): Layout {
 		// NEED TO GET THE ROW, NOT ROW NUMBER. MAYBE CAN DO IT DIFFERENT BECAUSE NUMBER IS ON ROW NOW
+		// const row = seat.position.row && layout.findIndex(r => r.number == seat.position.row)
 		const row = seat.position.row && getRowIndex([...layout], seat.position.row)
 		const result: Layout = [...layout]
-		row && (result[row] = Row.reserve(result[row], seat.position.column))
+		row >= 0 && (result[row] = Row.reserve(result[row], seat.position.column))
 		return result
 	}
 	export function isAvailable(layout: Readonly<Layout>, seat: Seat): boolean {

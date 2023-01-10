@@ -46,8 +46,8 @@ export namespace Base {
 	export function selectable(seat: Base, passenger: Passenger): boolean {
 		return seat.position.row ? seat.status == "available" && (passenger.ageGroup == "adult" || !seat.exit) : false
 	}
-	export function get(seat: Base): [number, Column] | undefined {
-		return seat.position.row && seat.position.column ? [seat.position.row, seat.position.column] : undefined
+	export function get(seat: Base): [number, Column] {
+		return [seat.position.row, seat.position.column]
 	}
 	export function chosen(seat: Base, leg: Passenger.Itinerary.Leg): boolean {
 		const seatNumber = get(seat)

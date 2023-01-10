@@ -8,7 +8,7 @@ export interface Specifier {
 	name?: Passenger.Name
 }
 
-export namespace BookingSpecifier {
+export namespace Specifier {
 	export function is(value: Specifier | any): value is Specifier {
 		return (
 			typeof value == "object" &&

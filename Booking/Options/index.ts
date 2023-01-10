@@ -5,7 +5,7 @@ import { Booking } from ".."
 export interface Options {
 	departure: FlightOptions[]
 	return?: FlightOptions[]
-	luggage: (Luggage | Luggage.Category)[]
+	luggage: (Luggage.Options | Luggage.Options.Category)[]
 }
 
 export namespace Options {
@@ -14,7 +14,9 @@ export namespace Options {
 			typeof value == "object" &&
 			value.departure.every(FlightOptions.is) &&
 			(value.return == undefined || value.return.every(FlightOptions.is)) &&
-			value.luggage.every((l: Luggage | Luggage.Category) => Luggage.is(l) || Luggage.Category.is(l))
+			value.luggage.every(
+				(l: Luggage.Options | Luggage.Options.Category) => Luggage.Options.is(l) || Luggage.Options.Category.is(l)
+			)
 		)
 	}
 	export function reserve(bookingOptions: Readonly<Options>, booking: Readonly<Booking>): Options {
