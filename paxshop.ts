@@ -11,4 +11,3 @@ import { Passenger } from "./Passenger"
 import { Itinerary } from "./Passenger/Itinerary"
 import { Price } from "./Price"
 export { Airport, Booking, Client, Direction, Flight, Layout, Luggage, Meal, Order, Passenger, Itinerary, Price }
-export * as paxshop from "./paxshop"
