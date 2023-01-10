@@ -148,10 +148,17 @@ describe("model.Flight.Layout", () => {
 	const rowUndefined: model.Layout.Row = {
 		groups: undefined,
 	}
-	const layout: model.Layout = [row, row2]
-	const availableLayout: model.Layout = [availableRow, availableRow2]
+	const layout: model.Layout = [
+		{ ...row, number: 1 },
+		{ ...row2, number: 2 },
+	]
+	const availableLayout: model.Layout = [
+		{ ...availableRow, number: 1 },
+		{ ...availableRow2, number: 2 },
+	]
 	const updatedLayout: model.Layout = [
 		{
+			number: 1,
 			groups: [
 				{
 					seats: [
@@ -187,7 +194,7 @@ describe("model.Flight.Layout", () => {
 				},
 			],
 		},
-		row2,
+		{ ...row2, number: 2 },
 	]
 	const seat: model.Layout.Seat = {
 		position: { row: 1, column: "A" },

@@ -11,6 +11,7 @@ describe("model.Flight.Options", () => {
 		arrival: "2022-09-28T10:02:00.000Z",
 		seating: [
 			{
+				number: 1,
 				groups: [
 					{
 						seats: [
@@ -81,6 +82,7 @@ describe("model.Flight.Options", () => {
 				exit: false,
 			},
 			{
+				number: 2,
 				groups: [
 					{
 						seats: [
@@ -179,6 +181,7 @@ describe("model.Flight.Options", () => {
 		arrival: "2022-09-28T10:02:00.000Z",
 		seating: [
 			{
+				number: 1,
 				groups: [
 					{
 						seats: [
@@ -249,6 +252,7 @@ describe("model.Flight.Options", () => {
 				exit: false,
 			},
 			{
+				number: 2,
 				groups: [
 					{
 						seats: [
