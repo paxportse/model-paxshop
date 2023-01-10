@@ -335,7 +335,7 @@ describe("model.Order", () => {
 	}
 	const items: Item[] = [
 		{
-			flight: "",
+			flight: "ARN - LHR",
 			name: "1A",
 			passenger: "Pelle Karlsson",
 			price: {
@@ -345,7 +345,7 @@ describe("model.Order", () => {
 			reference: "pm-seat-ref",
 		},
 		{
-			flight: "",
+			flight: "LHR - ARN",
 			name: "1B",
 			passenger: "Pelle Karlsson",
 			price: {
@@ -355,7 +355,7 @@ describe("model.Order", () => {
 			reference: "pm-seat-ref",
 		},
 		{
-			flight: "",
+			flight: "ARN - LHR",
 			name: "4B",
 			passenger: "Olle Karlsson",
 			price: {
@@ -365,7 +365,7 @@ describe("model.Order", () => {
 			reference: "pm-seat-ref",
 		},
 		{
-			flight: "",
+			flight: "LHR - ARN",
 			name: "6D",
 			passenger: "Olle Karlsson",
 			price: {
