@@ -12,7 +12,7 @@ describe("model.Order", () => {
 			ageGroup: "child",
 			departure: [
 				{
-					reference: "AA",
+					reference: "FL-001",
 					seat: {
 						position: { row: 1, column: "A" },
 						status: "occupied",
@@ -24,7 +24,7 @@ describe("model.Order", () => {
 			],
 			return: [
 				{
-					reference: "d03",
+					reference: "FL-002",
 					seat: {
 						position: { row: 1, column: "B" },
 						status: "occupied",
@@ -41,7 +41,7 @@ describe("model.Order", () => {
 			ageGroup: "adult",
 			departure: [
 				{
-					reference: "CC",
+					reference: "FL-001",
 					seat: {
 						position: { row: 4, column: "B" },
 						status: "occupied",
@@ -53,7 +53,7 @@ describe("model.Order", () => {
 			],
 			return: [
 				{
-					reference: "DD",
+					reference: "FL-002",
 					seat: {
 						position: { row: 6, column: "D" },
 						status: "occupied",
@@ -71,8 +71,8 @@ describe("model.Order", () => {
 					direction: "roundtrip",
 					description: "Extra bag with the maximum weight of 20kg",
 					flights: [
-						{ reference: "BLX504", capacity: 2, price: { amount: 300, currency: "EUR" } },
-						{ reference: "UDE342", capacity: 2, price: { amount: 300, currency: "EUR" } },
+						{ reference: "FL-001", capacity: 2, price: { amount: 300, currency: "EUR" } },
+						{ reference: "FL-002", capacity: 2, price: { amount: 300, currency: "EUR" } },
 					],
 				},
 			],
@@ -379,8 +379,9 @@ describe("model.Order", () => {
 			name: "Extra Bag",
 			passenger: "Olle Karlsson",
 			price: {
-				amount: 300,
+				amount: 600,
 				currency: "EUR",
+				description: "",
 			},
 			quantity: undefined,
 			reference: "lug-006",
