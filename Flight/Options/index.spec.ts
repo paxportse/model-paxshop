@@ -206,7 +206,7 @@ describe("model.Flight.Options", () => {
 					{
 						seats: [
 							{
-								status: "unavailable",
+								status: "available",
 								class: "first-class",
 								position: { row: 1, column: "C" },
 								price: { amount: 100, currency: "SEK" },
@@ -277,7 +277,7 @@ describe("model.Flight.Options", () => {
 					{
 						seats: [
 							{
-								status: "available",
+								status: "unavailable",
 								class: "first-class",
 								position: { row: 2, column: "C" },
 								price: { amount: 100, currency: "SEK" },
@@ -351,13 +351,14 @@ describe("model.Flight.Options", () => {
 		arrival: "2022-09-28T10:02:00.000Z",
 		seating: [
 			{
+				number: 1,
 				groups: [
 					{
 						seats: [
 							{
 								status: "occupied",
 								class: "first-class",
-								position: { row: 2, column: "A" },
+								position: { row: 1, column: "A" },
 								price: { amount: 400, currency: "SEK" },
 								wide: true,
 								reference: "123",
@@ -365,7 +366,7 @@ describe("model.Flight.Options", () => {
 							{
 								status: "occupied",
 								class: "first-class",
-								position: { row: 2, column: "B" },
+								position: { row: 1, column: "B" },
 								price: { amount: 400, currency: "SEK" },
 								wide: true,
 								reference: "123",
@@ -377,21 +378,21 @@ describe("model.Flight.Options", () => {
 							{
 								status: "occupied",
 								class: "first-class",
-								position: { row: 2, column: "C" },
+								position: { row: 1, column: "C" },
 								price: { amount: 400, currency: "SEK" },
 								reference: "123",
 							},
 							{
 								status: "occupied",
 								class: "first-class",
-								position: { row: 2, column: "D" },
+								position: { row: 1, column: "D" },
 								price: { amount: 400, currency: "SEK" },
 								reference: "123",
 							},
 							{
 								status: "occupied",
 								class: "first-class",
-								position: { row: 2, column: "E" },
+								position: { row: 1, column: "E" },
 								price: { amount: 400, currency: "SEK" },
 								reference: "123",
 							},
@@ -402,7 +403,7 @@ describe("model.Flight.Options", () => {
 							{
 								status: "occupied",
 								class: "first-class",
-								position: { row: 2, column: "F" },
+								position: { row: 1, column: "F" },
 								price: { amount: 400, currency: "SEK" },
 								legroom: true,
 								reference: "123",
@@ -410,7 +411,7 @@ describe("model.Flight.Options", () => {
 							{
 								status: "occupied",
 								class: "first-class",
-								position: { row: 2, column: "G" },
+								position: { row: 1, column: "G" },
 								price: { amount: 400, currency: "SEK" },
 								legroom: true,
 								reference: "123",
@@ -421,6 +422,7 @@ describe("model.Flight.Options", () => {
 				exit: false,
 			},
 			{
+				number: 2,
 				groups: [
 					{
 						seats: [
@@ -862,13 +864,13 @@ describe("model.Flight.Options", () => {
 		reference: "123",
 	}
 	const seats: model.Layout.Seat[] = [
-		{ ...seat },
-		{ ...seat, position: { row: 2, column: "B" } },
-		{ ...seat, position: { row: 2, column: "C" } },
-		{ ...seat, position: { row: 2, column: "D" } },
-		{ ...seat, position: { row: 2, column: "E" } },
-		{ ...seat, position: { row: 2, column: "F" } },
-		{ ...seat, position: { row: 2, column: "G" } },
+		{ ...seat, position: { row: 1, column: "A" } },
+		{ ...seat, position: { row: 1, column: "B" } },
+		{ ...seat, position: { row: 1, column: "C" } },
+		{ ...seat, position: { row: 1, column: "D" } },
+		{ ...seat, position: { row: 1, column: "E" } },
+		{ ...seat, position: { row: 1, column: "F" } },
+		{ ...seat, position: { row: 1, column: "G" } },
 		{ ...seat },
 		{ ...seat, position: { row: 2, column: "B" } },
 		{ ...seat, position: { row: 2, column: "C" } },
@@ -909,7 +911,7 @@ describe("model.Flight.Options", () => {
 	it("Get available flights, no matching flights", () => {
 		expect(model.Flight.Options.getAvailableFlights(passenger2, flights, "return")).toEqual([])
 	})
-	it("setSeatStatus", () => {
+	it("set Seats", () => {
 		expect(model.Flight.Options.setSeats(layout, ...seats)).toEqual(occupiedLayout)
 	})
 })
