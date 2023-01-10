@@ -47,17 +47,18 @@ export namespace Group {
 		return groups.map(g => {
 			let result = g
 			if (Seats.is(g)) {
-				if (index >= 0 && index < g.seats.length)
+				const current = g.seats[index]
+				if (current)
 					result = {
 						...g,
 						seats: [
 							...g.seats.slice(0, index),
 							{
-								...g.seats[index],
+								...current,
 								status: seat.status,
-								price: seat.price,
-								reference: seat.reference ? seat.reference : `${seat.row.number}${seat.position}`,
-							} as Seat,
+								...(seat.price && { price: seat.price }),
+								...(seat.reference && { reference: seat.reference }),
+							},
 							...g.seats.slice(index + 1),
 						],
 					}
