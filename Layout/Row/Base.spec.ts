@@ -40,6 +40,7 @@ describe("model.Flight.Row", () => {
 						price: { amount: 400, currency: "SEK", offer: 200 },
 						wide: true,
 						reference: "123",
+						toilet: true,
 					},
 					{
 						status: "available",
@@ -48,6 +49,7 @@ describe("model.Flight.Row", () => {
 						price: { amount: 400, currency: "SEK" },
 						wide: true,
 						reference: "123",
+						toilet: true,
 					},
 				],
 			},
