@@ -12,6 +12,7 @@ export namespace Category {
 	export function is(value: Category | any): value is Category {
 		return (
 			typeof value == "object" &&
+			value &&
 			typeof value.name == "string" &&
 			(value.description == undefined || typeof value.description == "string") &&
 			(value.options == undefined ||

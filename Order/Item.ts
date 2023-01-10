@@ -13,6 +13,7 @@ export namespace Item {
 	export function is(value: Item | any): value is Item {
 		return (
 			typeof value == "object" &&
+			value &&
 			typeof value.reference == "string" &&
 			typeof value.passenger == "string" &&
 			(value.flight == undefined || typeof value.flight == "string") &&

@@ -12,6 +12,7 @@ export namespace Options {
 	export function is(value: Options | any): value is Options {
 		return (
 			typeof value == "object" &&
+			value &&
 			value.departure.every(FlightOptions.is) &&
 			(value.return == undefined || value.return.every(FlightOptions.is)) &&
 			value.luggage.every(

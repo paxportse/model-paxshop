@@ -19,6 +19,7 @@ export namespace Passenger {
 	export function is(value: Passenger | any): value is Passenger {
 		return (
 			typeof value == "object" &&
+			value &&
 			typeof value.reference == "string" &&
 			Passenger.Name.is(value.name) &&
 			AgeGroup.is(value.ageGroup) &&

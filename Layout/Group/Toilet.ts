@@ -6,6 +6,6 @@ export interface Toilet extends Base {
 
 export namespace Toilet {
 	export function is(value: Toilet | any): value is Toilet {
-		return typeof value == "object" && typeof value.toilet == "boolean" && Base.is(value)
+		return typeof value == "object" && value && typeof value.toilet == "boolean" && Base.is(value)
 	}
 }

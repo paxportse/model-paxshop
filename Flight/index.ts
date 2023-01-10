@@ -14,6 +14,7 @@ export namespace Flight {
 	export function is(value: Flight | any): value is Flight {
 		return (
 			typeof value == "object" &&
+			value &&
 			typeof value.reference == "string" &&
 			typeof value.number == "string" &&
 			Airport.is(value.to) &&

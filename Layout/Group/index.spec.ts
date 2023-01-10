@@ -141,8 +141,6 @@ describe("Group", () => {
 	}
 	it("is", () => {
 		expect(model.Layout.Group.is({ ...group, offset: [1, 1] })).toEqual(true)
-	})
-	it("is", () => {
 		expect(model.Layout.Group.is({ toilet: true })).toEqual(true)
 	})
 	it("isArrayOfGroups", () => {

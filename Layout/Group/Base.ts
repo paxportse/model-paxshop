@@ -5,6 +5,7 @@ export namespace Base {
 	export function is(value: Base | any): value is Base {
 		return (
 			typeof value == "object" &&
+			value &&
 			(value.offset == undefined ||
 				(Array.isArray(value.offset) &&
 					value.offset.length == 2 &&

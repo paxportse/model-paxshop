@@ -12,6 +12,7 @@ export namespace Specifier {
 	export function is(value: Specifier | any): value is Specifier {
 		return (
 			typeof value == "object" &&
+			value &&
 			typeof value.reference == "string" &&
 			isoly.Date.is(value.departure) &&
 			(value.name == undefined || Passenger.Name.is(value.name))

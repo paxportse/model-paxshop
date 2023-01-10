@@ -12,6 +12,7 @@ export namespace Meal {
 	export function is(value: Meal | any): value is Meal {
 		return (
 			typeof value == "object" &&
+			value &&
 			typeof value.reference == "string" &&
 			typeof value.name == "string" &&
 			(value.optional == undefined || typeof value.optional == "boolean") &&

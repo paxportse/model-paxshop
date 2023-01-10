@@ -13,6 +13,7 @@ export namespace Booking {
 	export function is(value: Booking | any): value is Booking {
 		return (
 			typeof value == "object" &&
+			value &&
 			typeof value.reference == "string" &&
 			isoly.Date.is(value.departure) &&
 			value.passengers.every(Passenger.is)

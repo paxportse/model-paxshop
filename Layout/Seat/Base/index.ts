@@ -6,7 +6,7 @@ import { Column } from "../Position/Column"
 import { Status } from "../Status"
 
 export interface Base {
-	reference?: string
+	reference: string
 	status: Status
 	class: Class
 	position: Position
@@ -27,7 +27,7 @@ export namespace Base {
 		return (
 			typeof value == "object" &&
 			value &&
-			(value.reference == undefined || typeof value.reference == "string") &&
+			typeof value.reference == "string" &&
 			Status.is(value.status) &&
 			Class.is(value.class) &&
 			Position.is(value.position) &&
