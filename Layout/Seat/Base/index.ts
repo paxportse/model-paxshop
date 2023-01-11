@@ -20,7 +20,6 @@ export interface Base {
 	description?: string
 	exit?: boolean
 	category?: string
-	toilet?: boolean
 }
 
 export namespace Base {
@@ -41,8 +40,7 @@ export namespace Base {
 			(value.window == undefined || typeof value.window == "boolean") &&
 			(value.exit == undefined || typeof value.exit == "boolean") &&
 			(value.description == undefined || typeof value.description == "string") &&
-			(value.category == undefined || typeof value.category == "string") &&
-			(value.toilet == undefined || typeof value.toilet == "boolean")
+			(value.category == undefined || typeof value.category == "string")
 		)
 	}
 	export function selectable(seat: Base, passenger: Passenger): boolean {

@@ -19,7 +19,7 @@ export namespace Row {
 	export function setSeats(row: Row, ...seats: Seat[]): Row {
 		if (row.groups) {
 			let groups = row.groups
-			seats.forEach(seat => (groups = Group.setSeats(row, groups, seat)))
+			seats.forEach(seat => (groups = Group.setSeats(groups, seat)))
 			row = { ...row, groups }
 		}
 		return row
