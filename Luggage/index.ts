@@ -84,6 +84,7 @@ export namespace Luggage {
 		export const Category = LuggageOptions.Category
 		export const filter = LuggageOptions.filter
 		export const is = LuggageOptions.is
+		export const priceTotal = LuggageOptions.priceTotal
 	}
 	export type Flight = LuggageFlight
 	export const Flight = LuggageFlight
