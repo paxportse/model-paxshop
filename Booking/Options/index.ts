@@ -15,9 +15,7 @@ export namespace Options {
 			value &&
 			value.departure.every(FlightOptions.is) &&
 			(value.return == undefined || value.return.every(FlightOptions.is)) &&
-			value.luggage.every(
-				(l: Luggage.Options | Luggage.Options.Category) => Luggage.Options.is(l) || Luggage.Options.Category.is(l)
-			)
+			value.luggage.every((l: unknown) => Luggage.Options.is(l) || Luggage.Options.Category.is(l))
 		)
 	}
 	export function reserve(bookingOptions: Readonly<Options>, booking: Readonly<Booking>): Options {
