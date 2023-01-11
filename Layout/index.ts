@@ -8,14 +8,14 @@ export namespace Layout {
 		return Array.isArray(value) && value.every(Row.is)
 	}
 	export function reserve(layout: Readonly<Layout>, seat: Seat): Layout {
-		const row = seat.position.row && getRowIndex([...layout], seat.position.row)
+		const row = seat.position.row && getRowIndex(layout, seat.position.row)
 		const result: Layout = [...layout]
 		row >= 0 && (result[row] = Row.reserve(result[row], seat.position.column))
 		return result
 	}
 	export function isAvailable(layout: Readonly<Layout>, seat: Seat): boolean {
 		return seat.position.row
-			? Row.isAvailable(layout[getRowIndex([...layout], seat.position.row)], seat.position.column)
+			? Row.isAvailable(layout[getRowIndex(layout, seat.position.row)], seat.position.column)
 			: false
 	}
 	export function setSeats(layout: Readonly<Layout>, ...seats: Layout.Seat[]): Layout {
