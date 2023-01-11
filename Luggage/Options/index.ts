@@ -2,7 +2,6 @@ import { Options as BookingOptions } from "../../Booking/Options"
 import { Passenger } from "../../Passenger"
 import { Price } from "../../Price"
 import type { Luggage } from "../"
-// import { Price } from "../../Price"
 import { Flight } from "../Flight"
 import { Category as LuggageCategory } from "./Category"
 export interface Options {
