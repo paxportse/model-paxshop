@@ -6,7 +6,6 @@ import { Deck as PositionDeck } from "./Position/Deck"
 import { Status as SeatStatus } from "./Status"
 
 export type Seat = Base
-
 export namespace Seat {
 	export const is = Base.is
 	export const get = Base.get

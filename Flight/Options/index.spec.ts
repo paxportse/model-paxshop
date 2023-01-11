@@ -1,5 +1,4 @@
 import * as model from "../../index"
-import * as passenger from "../../Passenger/Itinerary"
 
 describe("model.Flight.Options", () => {
 	const layout: model.Flight.Options = {
@@ -810,7 +809,7 @@ describe("model.Flight.Options", () => {
 			],
 		},
 	]
-	const leg: passenger.Itinerary.Leg = {
+	const leg: model.Passenger.Itinerary.Leg = {
 		reference: "FL-011",
 		seat: {
 			position: { row: 2, column: "C" },
