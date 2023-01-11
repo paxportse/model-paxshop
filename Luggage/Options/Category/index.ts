@@ -16,7 +16,7 @@ export namespace Category {
 			typeof value.name == "string" &&
 			(value.description == undefined || typeof value.description == "string") &&
 			(value.options == undefined ||
-				(Array.isArray(value.options) && value.options.every((o: Luggage) => Luggage.is(o)))) &&
+				(Array.isArray(value.options) && value.options.every((o: unknown) => Luggage.is(o)))) &&
 			(value.open == undefined || typeof value.open == "boolean") &&
 			(value.reference ? false : true) &&
 			(value.flights == undefined || value.flights.every((f: any) => Flight.is(f) as boolean))
