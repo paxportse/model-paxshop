@@ -20,6 +20,7 @@ export interface Base {
 	description?: string
 	exit?: boolean
 	category?: string
+	toilet?: boolean
 }
 
 export namespace Base {
