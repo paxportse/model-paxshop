@@ -35,6 +35,7 @@ export namespace Luggage {
 		flights?.forEach(f => result.push(luggage.flights?.find(l => f == l.reference)?.price))
 		return Price.total(result)
 	}
+	export const priceTotal = LuggageOptions.priceTotal
 	export function update(luggage: Luggage, passenger: Passenger, action: string): Luggage[] | undefined {
 		const existingLuggage =
 			passenger.luggage &&
