@@ -60,7 +60,7 @@ export namespace Order {
 					flight: luggage.direction,
 					name: luggage.name,
 					quantity: luggage.quantity,
-					price: Luggage.getPrice(luggage, passenger), // TODO: check if this works
+					price: Luggage.getPrice(luggage, passenger),
 				})),
 			])
 			.flat(2)

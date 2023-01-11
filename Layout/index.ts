@@ -15,7 +15,7 @@ export namespace Layout {
 	}
 	export function isAvailable(layout: Readonly<Layout>, seat: Seat): boolean {
 		return seat.position.row
-			? Row.isAvailable(layout[getRowIndex([...layout], seat.position.row)], seat.position.column)
+			? Row.isAvailable(layout[getRowIndex(layout, seat.position.row)], seat.position.column)
 			: false
 	}
 	export function setSeats(layout: Readonly<Layout>, ...seats: Layout.Seat[]): Layout {

@@ -8,7 +8,7 @@ export interface Luggage {
 	quantity?: number
 	name: string
 	weight: number
-	direction?: Direction //{ departureQuantity?: number; returnQuantity?: number } Is this the approach we want?
+	direction?: Direction
 	description?: string
 	flights?: Luggage.Flight[]
 }
