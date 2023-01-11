@@ -1,48 +1,39 @@
-import { BookingOptions } from "../BookingOptions"
 import { Direction } from "../Direction"
 import { Passenger } from "../Passenger"
 import { Price } from "../Price"
-import { Category as LuggageCategory } from "./Category"
-import { FlightReference as LuggageFlightReference } from "./FlightReference"
-
+import { Flight as LuggageFlight } from "./Flight"
+import { Options as LuggageOptions } from "./Options"
 export interface Luggage {
 	reference: string
 	quantity?: number
 	name: string
 	weight: number
-	direction?: Direction //{ departureQuantity?: number; returnQuantity?: number } Is this the approach we want?
-	price?: Price
+	direction?: Direction
 	description?: string
-	flights?: LuggageFlightReference[]
+	flights?: Luggage.Flight[]
 }
 export namespace Luggage {
 	export function is(value: Luggage | any): value is Luggage {
 		return (
 			typeof value == "object" &&
+			value &&
 			typeof value.reference == "string" &&
 			(value.quantity == undefined || (typeof value.quantity == "number" && value.quantity > 0)) &&
 			typeof value.name == "string" &&
 			typeof value.weight == "number" &&
 			(value.direction == undefined || Direction.is(value.direction)) &&
-			(value.price == undefined || Price.is(value.price)) &&
 			(value.description == undefined || typeof value.description == "string") &&
 			(value.flights == undefined ||
-				(Array.isArray(value.flights) && value.flights.every((f: any) => LuggageFlightReference.is(f))))
+				(Array.isArray(value.flights) && value.flights.every((f: any) => Luggage.Flight.is(f))))
 		)
 	}
-	export function isArrayOfLuggage(value: (Luggage | any)[]): value is Luggage[] {
-		return (
-			Array.isArray(value) &&
-			value.every(luggage => luggage == undefined || Luggage.is(luggage) || Luggage.Category.is(luggage))
-		)
+	export function getPrice(luggage: Luggage, passenger: Passenger): Price | undefined {
+		const flights = luggage.direction && Passenger.getFlights(passenger, luggage.direction)
+		const result: (Price | undefined)[] = []
+		flights?.forEach(f => result.push(luggage.flights?.find(l => f == l.reference)?.price))
+		return Price.total(result)
 	}
-	export function price(...luggage: Luggage[]): Price | undefined {
-		return Price.total(
-			(luggage.filter(l => l.price) as { quantity?: number; price: Price }[]).map(l =>
-				Price.multiply(l.price, l.quantity)
-			)
-		)
-	}
+	export const priceTotal = LuggageOptions.priceTotal
 	export function update(luggage: Luggage, passenger: Passenger, action: string): Luggage[] | undefined {
 		const existingLuggage =
 			passenger.luggage &&
@@ -71,23 +62,6 @@ export namespace Luggage {
 		}
 		return result
 	}
-	export function filter(booking: BookingOptions, passenger: Passenger): (Luggage | LuggageCategory)[] {
-		// Return luggage that has the same flights as the passenger is flying with
-		const passengerDeparture = passenger.departure ? passenger.departure.map(f => f.reference) : undefined
-		const passengerReturn = passenger.return ? passenger.return.map(f => f.reference) : undefined
-		const passengerFlights =
-			passengerDeparture && passengerReturn
-				? passengerDeparture.concat(passengerReturn)
-				: passengerDeparture ?? passengerReturn ?? undefined
-
-		const departures = booking.departure.map(d => d.reference)
-		const returns = booking.return ? booking.return.map(r => r.reference) : undefined
-		const flights = returns ? departures.concat(returns) : departures
-
-		return booking.luggage.filter(l =>
-			flights.find(f => passengerFlights?.find(pf => l.flights?.find(r => f == r.reference && f == pf)) && l)
-		)
-	}
 	export function undoAdvancedSelection(passenger: Passenger, luggage: Luggage): Luggage[] | undefined {
 		// Remove all luggage selections that has direction "departure" or "return" with this luggage reference.
 		const passengerLuggage = passenger.luggage ? [...passenger.luggage] : []
@@ -97,14 +71,19 @@ export namespace Luggage {
 			  )
 			: undefined
 	}
-
 	export function getQuantity(luggage: Luggage, direction: Direction, passenger: Passenger): number | undefined {
 		return passenger.luggage
 			? passenger.luggage.find(l => luggage.reference == l.reference && l.direction == direction)?.quantity
 			: undefined
 	}
-	export type Category = LuggageCategory
-	export const Category = LuggageCategory
-	export type FlightReference = LuggageFlightReference
-	export const FlightReference = LuggageFlightReference
+	export type Options = LuggageOptions
+	export namespace Options {
+		export type Category = LuggageOptions.Category
+		export const Category = LuggageOptions.Category
+		export const filter = LuggageOptions.filter
+		export const is = LuggageOptions.is
+		export const priceTotal = LuggageOptions.priceTotal
+	}
+	export type Flight = LuggageFlight
+	export const Flight = LuggageFlight
 }

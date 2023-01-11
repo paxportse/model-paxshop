@@ -1,6 +1,7 @@
 import * as cryptly from "cryptly"
 import { Booking } from "../Booking"
-import { BookingOptions } from "../BookingOptions"
+import { Options } from "../Booking/Options"
+import { Luggage } from "../Luggage"
 import { Passenger } from "../Passenger"
 import { Price } from "../Price"
 import { Layout } from "./../Layout"
@@ -30,11 +31,11 @@ export namespace Order {
 	export function create(booking: Booking): Order {
 		return { id: cryptly.Identifier.generate(16), booking, total: getTotal(booking) }
 	}
-	export function getItems(order: Order, bookingOptions: BookingOptions): Item[] | undefined {
+	export function getItems(order: Order, bookingOptions: Options): Item[] | undefined {
 		return order.booking.passengers
 			.map(passenger => [
 				...[...(passenger.departure ?? []), ...(passenger.return ?? [])].map<(Item | undefined)[]>(flight => {
-					const flightDetails = BookingOptions.getFlight(bookingOptions, flight.reference)
+					const flightDetails = Booking.Options.getFlight(bookingOptions, flight.reference)
 					const flightName = flightDetails ? `${flightDetails.from.code} - ${flightDetails.to.code}` : ""
 					return [
 						flight.seat && {
@@ -48,8 +49,8 @@ export namespace Order {
 							reference: "pm-meal-alternative-ref",
 							passenger: Passenger.Name.format(passenger.name),
 							flight: flightName,
-							name: meal.alternatives[0].name ? [meal.name, meal.alternatives[0].name] : meal.name,
-							price: meal.alternatives[0].price,
+							name: meal.alternative.name ? [meal.name, meal.alternative.name] : meal.name,
+							price: meal.alternative.price,
 						})),
 					]
 				}),
@@ -59,7 +60,7 @@ export namespace Order {
 					flight: luggage.direction,
 					name: luggage.name,
 					quantity: luggage.quantity,
-					price: luggage.price,
+					price: Luggage.getPrice(luggage, passenger),
 				})),
 			])
 			.flat(2)
@@ -70,11 +71,10 @@ export namespace Order {
 			.map(passenger => [
 				...[...(passenger.departure ?? []), ...(passenger.return ?? [])].map<(Price | undefined)[]>(flight => [
 					flight.seat?.price,
-					...(flight.meal ?? []).map<Price | undefined>(meal => meal.alternatives[0].price),
+					...(flight.meal ?? []).map<Price | undefined>(meal => meal.alternative.price),
 				]),
-				...(passenger.luggage ?? []).map<Price | undefined>(luggage =>
-					// Multiply luggage price with 2 to add price per direction. REMOVE WHEN LUGGAGE IS ADDED TO FLIGHTS
-					luggage.price ? { ...luggage.price, amount: luggage.price.amount * 2 } : undefined
+				...(passenger.luggage ?? []).map<Price | undefined>(
+					luggage => Luggage.getPrice(luggage, passenger) ?? undefined
 				),
 			])
 			.flat(2)

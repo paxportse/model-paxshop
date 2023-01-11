@@ -1,7 +1,7 @@
 import * as model from "../index"
 
 describe("model.Flight.Luggage", () => {
-	const booking: model.BookingOptions = {
+	const booking: model.Booking.Options = {
 		departure: [
 			{
 				reference: "FL-054",
@@ -29,16 +29,14 @@ describe("model.Flight.Luggage", () => {
 									{
 										status: "available",
 										class: "first-class",
-										row: { number: 1 },
-										position: "A",
+										position: { row: 1, column: "A" },
 										price: { amount: 400, currency: "SEK" },
 										reference: "123",
 									},
 									{
 										status: "available",
 										class: "first-class",
-										row: { number: 1 },
-										position: "B",
+										position: { row: 1, column: "B" },
 										price: { amount: 400, currency: "SEK" },
 										wide: true,
 										reference: "123",
@@ -77,16 +75,14 @@ describe("model.Flight.Luggage", () => {
 									{
 										status: "available",
 										class: "first-class",
-										row: { number: 1 },
-										position: "A",
+										position: { row: 1, column: "A" },
 										price: { amount: 400, currency: "SEK", offer: 200 },
 										reference: "123",
 									},
 									{
 										status: "available",
 										class: "first-class",
-										row: { number: 1 },
-										position: "B",
+										position: { row: 1, column: "B" },
 										price: { amount: 400, currency: "SEK" },
 										wide: true,
 										reference: "123",
@@ -101,54 +97,47 @@ describe("model.Flight.Luggage", () => {
 		luggage: [
 			{
 				name: "Sport",
-				description: "Some description",
+				description: "Sports equipment",
 				options: [
 					{
 						reference: "lug-009",
 						name: "Bicycle",
 						weight: 20,
-						direction: "roundtrip",
-						price: { amount: 300, currency: "SEK" },
 						description: "Adult sized bike",
+						flights: [
+							{ reference: "FL-054", capacity: 2, price: { amount: 300, currency: "SEK" } },
+							{ reference: "UDE-342", capacity: 5, price: { amount: 300, currency: "SEK" } },
+						],
 					},
 				],
 				open: true,
-				flights: [
-					{ reference: "FL-054", capacity: 2 },
-					{ reference: "UDE-342", capacity: 5 },
-				],
+				flights: [{ reference: "FL-054" }, { reference: "UDE-342" }],
 			},
 			{
 				reference: "lug-006",
 				name: "Extra Bag",
 				weight: 20,
-				direction: "roundtrip",
-				price: { amount: 300, currency: "SEK" },
 				description: "Extra bag with the maximum weight of 20kg",
 				flights: [
-					{ reference: "FL-054", capacity: 2 },
-					{ reference: "UDE-342", capacity: 5 },
+					{ reference: "FL-054", capacity: 2, price: { amount: 300, currency: "SEK" } },
+					{ reference: "UDE-342", capacity: 5, price: { amount: 300, currency: "SEK" } },
 				],
 			},
 			{
 				reference: "lug-001",
 				name: "Extra weight",
 				weight: 20,
-				direction: "roundtrip",
-				price: { amount: 100, currency: "SEK" },
 				description: "Added weight when a piece of luggage exceeds weight limit",
-				flights: [{ reference: "FL-054", capacity: 2 }],
+				flights: [{ reference: "FL-054", capacity: 2, price: { amount: 100, currency: "SEK" } }],
 			},
 			{
 				reference: "lug-008",
 				name: "Extra weight",
 				weight: 20,
-				direction: "roundtrip",
-				price: { amount: 100, currency: "SEK" },
 				description: "Added weight when a piece of luggage exceeds weight limit",
 				flights: [
-					{ reference: "FL-054", capacity: 2 },
-					{ reference: "MEH001", capacity: 2 },
+					{ reference: "FL-054", capacity: 2, price: { amount: 100, currency: "SEK" } },
+					{ reference: "MEH001", capacity: 2, price: { amount: 100, currency: "SEK" } },
 				],
 			},
 		],
@@ -159,34 +148,37 @@ describe("model.Flight.Luggage", () => {
 		weight: 20,
 		direction: "departure",
 		quantity: 1,
-		price: { amount: 100, currency: "AFN" },
 		description: "Some text",
 		flights: [
-			{ reference: "FL-054", capacity: 2 },
-			{ reference: "UDE-342", capacity: 5 },
+			{ reference: "FL-054", capacity: 2, price: { amount: 100, currency: "SEK" } },
+			{ reference: "UDE-342", capacity: 5, price: { amount: 100, currency: "SEK" } },
 		],
 	}
-	const luggageArray: model.Luggage[] = [luggage, luggage]
-
-	const category: model.Luggage.Category = {
+	const category: model.Luggage.Options.Category = {
 		name: "sport",
-		description: "Some description",
+		description: "Sports equipment",
 		options: [
 			{
 				reference: "l01",
 				name: "Extra weight",
 				weight: 20,
 				direction: "departure",
-				price: { amount: 100, currency: "AFN" },
 				description: "Some text",
+				flights: [
+					{ reference: "FL-054", capacity: 2, price: { amount: 100, currency: "SEK" } },
+					{ reference: "UDE-342", capacity: 5, price: { amount: 100, currency: "SEK" } },
+				],
 			},
 			{
 				reference: "l02",
 				name: "Golf Bag",
 				weight: 20,
 				direction: "departure",
-				price: { amount: 100, currency: "AFN" },
 				description: "Some text",
+				flights: [
+					{ reference: "FL-054", capacity: 2, price: { amount: 100, currency: "SEK" } },
+					{ reference: "UDE-342", capacity: 5, price: { amount: 100, currency: "SEK" } },
+				],
 			},
 		],
 		open: true,
@@ -200,8 +192,7 @@ describe("model.Flight.Luggage", () => {
 			{
 				reference: "AA",
 				seat: {
-					row: { number: 1 },
-					position: "A",
+					position: { row: 1, column: "A" },
 					status: "occupied",
 					class: "first-class",
 					price: { amount: 400, currency: "SEK" },
@@ -220,9 +211,6 @@ describe("model.Flight.Luggage", () => {
 	it("is - category fail", () => {
 		expect(model.Luggage.is(category)).toEqual(false)
 	})
-	it("isArrayOfLuggage", () => {
-		expect(model.Luggage.isArrayOfLuggage(luggageArray)).toEqual(true)
-	})
 	it("update luggage add", () => {
 		expect(model.Luggage.update({ ...luggage, quantity: undefined }, passenger, "add")).toEqual([
 			{
@@ -231,11 +219,10 @@ describe("model.Flight.Luggage", () => {
 				weight: 20,
 				direction: "departure",
 				quantity: 2,
-				price: { amount: 100, currency: "AFN" },
 				description: "Some text",
 				flights: [
-					{ reference: "FL-054", capacity: 2 },
-					{ reference: "UDE-342", capacity: 5 },
+					{ reference: "FL-054", capacity: 2, price: { amount: 100, currency: "SEK" } },
+					{ reference: "UDE-342", capacity: 5, price: { amount: 100, currency: "SEK" } },
 				],
 			},
 		])
@@ -248,11 +235,10 @@ describe("model.Flight.Luggage", () => {
 				weight: 20,
 				direction: "departure",
 				quantity: 0,
-				price: { amount: 100, currency: "AFN" },
 				description: "Some text",
 				flights: [
-					{ reference: "FL-054", capacity: 2 },
-					{ reference: "UDE-342", capacity: 5 },
+					{ reference: "FL-054", capacity: 2, price: { amount: 100, currency: "SEK" } },
+					{ reference: "UDE-342", capacity: 5, price: { amount: 100, currency: "SEK" } },
 				],
 			},
 		])
@@ -265,11 +251,10 @@ describe("model.Flight.Luggage", () => {
 				weight: 20,
 				direction: "departure",
 				quantity: 1,
-				price: { amount: 100, currency: "AFN" },
 				description: "Some text",
 				flights: [
-					{ reference: "FL-054", capacity: 2 },
-					{ reference: "UDE-342", capacity: 5 },
+					{ reference: "FL-054", capacity: 2, price: { amount: 100, currency: "SEK" } },
+					{ reference: "UDE-342", capacity: 5, price: { amount: 100, currency: "SEK" } },
 				],
 			},
 			{
@@ -278,11 +263,10 @@ describe("model.Flight.Luggage", () => {
 				weight: 20,
 				direction: "return",
 				quantity: 1,
-				price: { amount: 100, currency: "AFN" },
 				description: "Some text",
 				flights: [
-					{ reference: "FL-054", capacity: 2 },
-					{ reference: "UDE-342", capacity: 5 },
+					{ reference: "FL-054", capacity: 2, price: { amount: 100, currency: "SEK" } },
+					{ reference: "UDE-342", capacity: 5, price: { amount: 100, currency: "SEK" } },
 				],
 			},
 		])
@@ -301,11 +285,10 @@ describe("model.Flight.Luggage", () => {
 				weight: 20,
 				direction: "departure",
 				quantity: 1,
-				price: { amount: 100, currency: "AFN" },
 				description: "Some text",
 				flights: [
-					{ reference: "FL-054", capacity: 2 },
-					{ reference: "UDE-342", capacity: 5 },
+					{ reference: "FL-054", capacity: 2, price: { amount: 100, currency: "SEK" } },
+					{ reference: "UDE-342", capacity: 5, price: { amount: 100, currency: "SEK" } },
 				],
 			},
 			{
@@ -314,11 +297,10 @@ describe("model.Flight.Luggage", () => {
 				weight: 20,
 				direction: "return",
 				quantity: 0,
-				price: { amount: 100, currency: "AFN" },
 				description: "Some text",
 				flights: [
-					{ reference: "FL-054", capacity: 2 },
-					{ reference: "UDE-342", capacity: 5 },
+					{ reference: "FL-054", capacity: 2, price: { amount: 100, currency: "SEK" } },
+					{ reference: "UDE-342", capacity: 5, price: { amount: 100, currency: "SEK" } },
 				],
 			},
 		])
@@ -333,11 +315,10 @@ describe("model.Flight.Luggage", () => {
 				weight: 20,
 				direction: "departure",
 				quantity: 1,
-				price: { amount: 100, currency: "AFN" },
 				description: "Some text",
 				flights: [
-					{ reference: "FL-054", capacity: 2 },
-					{ reference: "UDE-342", capacity: 5 },
+					{ reference: "FL-054", capacity: 2, price: { amount: 100, currency: "SEK" } },
+					{ reference: "UDE-342", capacity: 5, price: { amount: 100, currency: "SEK" } },
 				],
 			},
 			{
@@ -346,11 +327,10 @@ describe("model.Flight.Luggage", () => {
 				weight: 20,
 				direction: "departure",
 				quantity: 1,
-				price: { amount: 100, currency: "AFN" },
 				description: "Some text",
 				flights: [
-					{ reference: "FL-054", capacity: 2 },
-					{ reference: "UDE-342", capacity: 5 },
+					{ reference: "FL-054", capacity: 2, price: { amount: 100, currency: "SEK" } },
+					{ reference: "UDE-342", capacity: 5, price: { amount: 100, currency: "SEK" } },
 				],
 			},
 		])
@@ -369,11 +349,10 @@ describe("model.Flight.Luggage", () => {
 				weight: 20,
 				direction: "departure",
 				quantity: 1,
-				price: { amount: 100, currency: "AFN" },
 				description: "Some text",
 				flights: [
-					{ reference: "FL-054", capacity: 2 },
-					{ reference: "UDE-342", capacity: 5 },
+					{ reference: "FL-054", capacity: 2, price: { amount: 100, currency: "SEK" } },
+					{ reference: "UDE-342", capacity: 5, price: { amount: 100, currency: "SEK" } },
 				],
 			},
 		])
@@ -383,14 +362,13 @@ describe("model.Flight.Luggage", () => {
 	})
 	it("filter luggage", () => {
 		expect(
-			model.Luggage.filter(booking, {
+			model.Luggage.Options.filter(booking, {
 				...passenger,
 				departure: [
 					{
 						reference: "UDE-342",
 						seat: {
-							row: { number: 1 },
-							position: "A",
+							position: { row: 1, column: "A" },
 							status: "occupied",
 							class: "first-class",
 							price: { amount: 400, currency: "SEK" },
@@ -402,47 +380,43 @@ describe("model.Flight.Luggage", () => {
 		).toEqual([
 			{
 				name: "Sport",
-				description: "Some description",
+				description: "Sports equipment",
 				options: [
 					{
 						reference: "lug-009",
 						name: "Bicycle",
 						weight: 20,
-						direction: "roundtrip",
-						price: { amount: 300, currency: "SEK" },
 						description: "Adult sized bike",
+						flights: [
+							{ reference: "FL-054", capacity: 2, price: { amount: 300, currency: "SEK" } },
+							{ reference: "UDE-342", capacity: 5, price: { amount: 300, currency: "SEK" } },
+						],
 					},
 				],
 				open: true,
-				flights: [
-					{ reference: "FL-054", capacity: 2 },
-					{ reference: "UDE-342", capacity: 5 },
-				],
+				flights: [{ reference: "FL-054" }, { reference: "UDE-342" }],
 			},
 			{
 				reference: "lug-006",
 				name: "Extra Bag",
 				weight: 20,
-				direction: "roundtrip",
-				price: { amount: 300, currency: "SEK" },
 				description: "Extra bag with the maximum weight of 20kg",
 				flights: [
-					{ reference: "FL-054", capacity: 2 },
-					{ reference: "UDE-342", capacity: 5 },
+					{ reference: "FL-054", capacity: 2, price: { amount: 300, currency: "SEK" } },
+					{ reference: "UDE-342", capacity: 5, price: { amount: 300, currency: "SEK" } },
 				],
 			},
 		])
 	})
 	it("filter luggage", () => {
 		expect(
-			model.Luggage.filter(booking, {
+			model.Luggage.Options.filter(booking, {
 				...passenger,
 				departure: [
 					{
 						reference: "UDE-342",
 						seat: {
-							row: { number: 1 },
-							position: "A",
+							position: { row: 1, column: "A" },
 							status: "occupied",
 							class: "first-class",
 							price: { amount: 400, currency: "SEK" },
@@ -454,47 +428,43 @@ describe("model.Flight.Luggage", () => {
 		).toEqual([
 			{
 				name: "Sport",
-				description: "Some description",
+				description: "Sports equipment",
 				options: [
 					{
 						reference: "lug-009",
 						name: "Bicycle",
 						weight: 20,
-						direction: "roundtrip",
-						price: { amount: 300, currency: "SEK" },
 						description: "Adult sized bike",
+						flights: [
+							{ reference: "FL-054", capacity: 2, price: { amount: 300, currency: "SEK" } },
+							{ reference: "UDE-342", capacity: 5, price: { amount: 300, currency: "SEK" } },
+						],
 					},
 				],
 				open: true,
-				flights: [
-					{ reference: "FL-054", capacity: 2 },
-					{ reference: "UDE-342", capacity: 5 },
-				],
+				flights: [{ reference: "FL-054" }, { reference: "UDE-342" }],
 			},
 			{
 				reference: "lug-006",
 				name: "Extra Bag",
 				weight: 20,
-				direction: "roundtrip",
-				price: { amount: 300, currency: "SEK" },
 				description: "Extra bag with the maximum weight of 20kg",
 				flights: [
-					{ reference: "FL-054", capacity: 2 },
-					{ reference: "UDE-342", capacity: 5 },
+					{ reference: "FL-054", capacity: 2, price: { amount: 300, currency: "SEK" } },
+					{ reference: "UDE-342", capacity: 5, price: { amount: 300, currency: "SEK" } },
 				],
 			},
 		])
 	})
 	it("filter luggage, no luggage", () => {
 		expect(
-			model.Luggage.filter(booking, {
+			model.Luggage.Options.filter(booking, {
 				...passenger,
 				departure: [
 					{
 						reference: "ABC",
 						seat: {
-							row: { number: 1 },
-							position: "A",
+							position: { row: 1, column: "A" },
 							status: "occupied",
 							class: "first-class",
 							price: { amount: 400, currency: "SEK" },
@@ -544,5 +514,13 @@ describe("model.Flight.Luggage", () => {
 	})
 	it("get quantity", () => {
 		expect(model.Luggage.getQuantity(luggage, "departure", passenger)).toEqual(1)
+	})
+	it("get price", () => {
+		expect(
+			model.Luggage.getPrice(
+				{ ...luggage, flights: [{ reference: "AA", capacity: 5, price: { amount: 100, currency: "SEK" } }] },
+				passenger
+			)
+		).toEqual({ amount: 100, currency: "SEK", description: "" })
 	})
 })

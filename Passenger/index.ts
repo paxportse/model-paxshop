@@ -1,4 +1,5 @@
-import { FlightOptions } from "../FlightOptions"
+import { Direction } from "../Direction"
+import { Flight } from "../Flight"
 import { Luggage } from "../Luggage"
 import { AgeGroup as PassengerAgeGroup } from "./AgeGroup"
 import { Itinerary as PassengerItinerary } from "./Itinerary"
@@ -18,6 +19,7 @@ export namespace Passenger {
 	export function is(value: Passenger | any): value is Passenger {
 		return (
 			typeof value == "object" &&
+			value &&
 			typeof value.reference == "string" &&
 			Passenger.Name.is(value.name) &&
 			AgeGroup.is(value.ageGroup) &&
@@ -34,17 +36,17 @@ export namespace Passenger {
 	export function seatedOnFlight(
 		passenger: Readonly<Passenger>,
 		direction: "departure" | "return",
-		flight: FlightOptions
+		flight: Flight.Options
 	): boolean {
 		return passenger ? passenger?.[direction]?.find(f => f?.reference == flight.reference)?.seat != undefined : false
 	}
-	export function isOnFlight(passenger: Passenger, direction: "departure" | "return", flight: FlightOptions): boolean {
+	export function isOnFlight(passenger: Passenger, direction: "departure" | "return", flight: Flight.Options): boolean {
 		return passenger[direction]?.some(l => l.reference == flight.reference) || false
 	}
 	export function selectNext(
 		passengers: Readonly<Passenger[]>,
 		direction: "departure" | "return",
-		flight: FlightOptions
+		flight: Flight.Options
 	): Passenger | false {
 		const allowedPassengers = passengers.filter(p => p[direction]?.some(l => l.reference == flight.reference) && p)
 		if (allowedPassengers) {
@@ -82,6 +84,24 @@ export namespace Passenger {
 				? { ...passenger, return: itinerary }
 				: {}
 		return update(passenger, result)
+	}
+	export function getFlights(passenger: Passenger, direction: Direction): string[] | undefined {
+		let result: string[] | undefined
+		switch (direction) {
+			case "roundtrip":
+				result = [...(passenger.departure ?? []), ...(passenger.return ?? [])].map(f => f.reference)
+				break
+			case "departure":
+				result = (passenger.departure ?? []).map(f => f.reference)
+				break
+			case "return":
+				result = (passenger.return ?? []).map(f => f.reference)
+				break
+			default:
+				result = undefined
+				break
+		}
+		return result
 	}
 	export const AgeGroup = PassengerAgeGroup
 	export type AgeGroup = PassengerAgeGroup

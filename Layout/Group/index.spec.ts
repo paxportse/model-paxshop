@@ -6,8 +6,7 @@ describe("Group", () => {
 			{
 				status: "available",
 				class: "first-class",
-				position: "A",
-				row: { number: 1 },
+				position: { row: 1, column: "A" },
 				price: { amount: 400, currency: "SEK" },
 				legroom: true,
 				reference: "123",
@@ -22,8 +21,7 @@ describe("Group", () => {
 				{
 					status: "available",
 					class: "first-class",
-					position: "B",
-					row: { number: 1 },
+					position: { row: 1, column: "B" },
 					price: { amount: 3200, currency: "SEK" },
 					legroom: true,
 					reference: "123",
@@ -35,8 +33,7 @@ describe("Group", () => {
 				{
 					status: "unavailable",
 					class: "first-class",
-					position: "C",
-					row: { number: 1 },
+					position: { row: 1, column: "C" },
 					price: { amount: 1337, currency: "SEK" },
 					legroom: true,
 					reference: "123",
@@ -44,8 +41,7 @@ describe("Group", () => {
 				{
 					status: "available",
 					class: "first-class",
-					position: "D",
-					row: { number: 1 },
+					position: { row: 1, column: "D" },
 					price: { amount: 8008, currency: "SEK" },
 					legroom: true,
 					reference: "123",
@@ -59,8 +55,7 @@ describe("Group", () => {
 				{
 					status: "available",
 					class: "first-class",
-					position: "A",
-					row: { number: 1 },
+					position: { row: 1, column: "A" },
 					price: { amount: 400, currency: "SEK" },
 					legroom: true,
 					reference: "123",
@@ -73,8 +68,7 @@ describe("Group", () => {
 				{
 					status: "unavailable",
 					class: "first-class",
-					position: "B",
-					row: { number: 1 },
+					position: { row: 1, column: "B" },
 					price: { amount: 3200, currency: "SEK" },
 					legroom: true,
 					reference: "123",
@@ -86,8 +80,7 @@ describe("Group", () => {
 				{
 					status: "unavailable",
 					class: "first-class",
-					position: "C",
-					row: { number: 1 },
+					position: { row: 1, column: "C" },
 					price: { amount: 1337, currency: "SEK" },
 					legroom: true,
 					reference: "123",
@@ -95,8 +88,7 @@ describe("Group", () => {
 				{
 					status: "available",
 					class: "first-class",
-					position: "D",
-					row: { number: 1 },
+					position: { row: 1, column: "D" },
 					price: { amount: 8008, currency: "SEK" },
 					legroom: true,
 					reference: "123",
@@ -112,8 +104,7 @@ describe("Group", () => {
 				{
 					status: "unavailable",
 					class: "first-class",
-					position: "B",
-					row: { number: 1 },
+					position: { row: 1, column: "B" },
 					price: { amount: 400, currency: "SEK" },
 					legroom: true,
 					reference: "123",
@@ -125,8 +116,7 @@ describe("Group", () => {
 				{
 					status: "unavailable",
 					class: "first-class",
-					position: "C",
-					row: { number: 1 },
+					position: { row: 1, column: "C" },
 					price: { amount: 1337, currency: "SEK" },
 					legroom: true,
 					reference: "123",
@@ -134,8 +124,7 @@ describe("Group", () => {
 				{
 					status: "available",
 					class: "first-class",
-					position: "D",
-					row: { number: 1 },
+					position: { row: 1, column: "D" },
 					price: { amount: 8008, currency: "SEK" },
 					legroom: true,
 					reference: "123",
@@ -144,8 +133,7 @@ describe("Group", () => {
 		},
 	]
 	const seat: model.Layout.Seat = {
-		row: { number: 1 },
-		position: "B",
+		position: { row: 1, column: "B" },
 		status: "available",
 		class: "business",
 		price: { amount: 400, currency: "SEK" },
@@ -153,15 +141,13 @@ describe("Group", () => {
 	}
 	it("is", () => {
 		expect(model.Layout.Group.is({ ...group, offset: [1, 1] })).toEqual(true)
-	})
-	it("is", () => {
 		expect(model.Layout.Group.is({ toilet: true })).toEqual(true)
 	})
 	it("isArrayOfGroups", () => {
 		expect(model.Layout.Group.isArray(groups)).toEqual(true)
 	})
 	it("reserve", () => {
-		expect(model.Layout.Group.reserve(groups, seat.position)).toEqual(updatedGroups)
+		expect(model.Layout.Group.reserve(groups, seat.position.column)).toEqual(updatedGroups)
 	})
 	it("reserve - seat index not found", () => {
 		expect(model.Layout.Group.reserve(groups, "I")).toEqual(groups)

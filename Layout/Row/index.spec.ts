@@ -8,8 +8,8 @@ describe("model.Layout.Row", () => {
 					{
 						status: "available",
 						class: "first-class",
-						position: "A",
-						row: { number: 1 },
+						position: { row: 1, column: "A" },
+
 						price: { amount: 400, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -21,8 +21,8 @@ describe("model.Layout.Row", () => {
 					{
 						status: "available",
 						class: "first-class",
-						position: "B",
-						row: { number: 1 },
+						position: { row: 1, column: "B" },
+
 						price: { amount: 2346, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -30,8 +30,8 @@ describe("model.Layout.Row", () => {
 					{
 						status: "unavailable",
 						class: "first-class",
-						position: "C",
-						row: { number: 1 },
+						position: { row: 1, column: "C" },
+
 						price: { amount: 1337, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -43,8 +43,8 @@ describe("model.Layout.Row", () => {
 					{
 						status: "available",
 						class: "business",
-						position: "D",
-						row: { number: 1 },
+						position: { row: 1, column: "D" },
+
 						price: { amount: 556, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -60,8 +60,8 @@ describe("model.Layout.Row", () => {
 					{
 						status: "available",
 						class: "first-class",
-						position: "A",
-						row: { number: 1 },
+						position: { row: 1, column: "A" },
+
 						price: { amount: 400, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -73,8 +73,8 @@ describe("model.Layout.Row", () => {
 					{
 						status: "available",
 						class: "first-class",
-						position: "B",
-						row: { number: 1 },
+						position: { row: 1, column: "B" },
+
 						price: { amount: 2346, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -82,8 +82,8 @@ describe("model.Layout.Row", () => {
 					{
 						status: "unavailable",
 						class: "first-class",
-						position: "C",
-						row: { number: 1 },
+						position: { row: 1, column: "C" },
+
 						price: { amount: 1337, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -95,8 +95,8 @@ describe("model.Layout.Row", () => {
 					{
 						status: "unavailable",
 						class: "business",
-						position: "D",
-						row: { number: 1 },
+						position: { row: 1, column: "D" },
+
 						price: { amount: 556, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -112,8 +112,8 @@ describe("model.Layout.Row", () => {
 					{
 						status: "available",
 						class: "first-class",
-						position: "A",
-						row: { number: 1 },
+						position: { row: 1, column: "A" },
+
 						price: { amount: 400, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -125,8 +125,8 @@ describe("model.Layout.Row", () => {
 					{
 						status: "available",
 						class: "first-class",
-						position: "B",
-						row: { number: 1 },
+						position: { row: 1, column: "B" },
+
 						price: { amount: 2346, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -134,8 +134,8 @@ describe("model.Layout.Row", () => {
 					{
 						status: "unavailable",
 						class: "first-class",
-						position: "C",
-						row: { number: 1 },
+						position: { row: 1, column: "C" },
+
 						price: { amount: 1337, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -147,8 +147,8 @@ describe("model.Layout.Row", () => {
 					{
 						status: "occupied",
 						class: "business",
-						position: "D",
-						row: { number: 1 },
+						position: { row: 1, column: "D" },
+
 						price: { amount: 400, currency: "SEK" },
 						legroom: true,
 						reference: "123",
@@ -158,16 +158,14 @@ describe("model.Layout.Row", () => {
 		],
 	}
 	const seat: model.Layout.Seat = {
-		row: { number: 1 },
-		position: "A",
+		position: { row: 1, column: "A" },
 		status: "available",
 		class: "business",
 		price: { amount: 400, currency: "SEK" },
 		reference: "123",
 	}
 	const occupiedSeat: model.Layout.Seat = {
-		row: { number: 1 },
-		position: "D",
+		position: { row: 1, column: "D" },
 		status: "occupied",
 		class: "business",
 		price: { amount: 400, currency: "SEK" },
@@ -180,7 +178,7 @@ describe("model.Layout.Row", () => {
 		expect(model.Layout.Row.reserve(row, "D")).toEqual(updatedRow)
 	})
 	it("isAvailable", () => {
-		expect(model.Layout.Row.isAvailable(row, seat.position)).toEqual(true)
+		expect(model.Layout.Row.isAvailable(row, seat.position.column)).toEqual(true)
 	})
 	it("isAvailable, false", () => {
 		expect(model.Layout.Row.isAvailable(row, "C")).toEqual(false)

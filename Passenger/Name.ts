@@ -9,6 +9,7 @@ export namespace Name {
 	export function is(value: Name | any): value is Name {
 		return (
 			typeof value == "object" &&
+			value &&
 			(value.first == undefined || typeof value.first == "string") &&
 			typeof value.last == "string" &&
 			(value.title == undefined || (typeof value.title == "string" && types.some(v => v == value.title)))

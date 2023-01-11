@@ -4,6 +4,6 @@ export interface Airport {
 }
 export namespace Airport {
 	export function is(value: Airport | any): value is Airport {
-		return typeof value == "object" && typeof value.code == "string" && typeof value.name == "string"
+		return typeof value == "object" && value && typeof value.code == "string" && typeof value.name == "string"
 	}
 }

@@ -8,8 +8,7 @@ describe("model.Flight.Row", () => {
 					{
 						status: "available",
 						class: "first-class",
-						position: "A",
-						row: { number: 1 },
+						position: { row: 1, column: "A" },
 						price: { amount: 400, currency: "SEK", offer: 200 },
 						wide: true,
 						reference: "123",
@@ -17,8 +16,7 @@ describe("model.Flight.Row", () => {
 					{
 						status: "available",
 						class: "first-class",
-						position: "B",
-						row: { number: 1 },
+						position: { row: 1, column: "B" },
 						price: { amount: 400, currency: "SEK" },
 						wide: true,
 						reference: "123",
@@ -38,8 +36,7 @@ describe("model.Flight.Row", () => {
 					{
 						status: "available",
 						class: "first-class",
-						position: "A",
-						row: { number: 1 },
+						position: { row: 1, column: "A" },
 						price: { amount: 400, currency: "SEK", offer: 200 },
 						wide: true,
 						reference: "123",
@@ -47,8 +44,7 @@ describe("model.Flight.Row", () => {
 					{
 						status: "available",
 						class: "first-class",
-						position: "B",
-						row: { number: 1 },
+						position: { row: 1, column: "B" },
 						price: { amount: 400, currency: "SEK" },
 						wide: true,
 						reference: "123",

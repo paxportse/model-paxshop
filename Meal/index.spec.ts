@@ -1,20 +1,15 @@
 import * as model from "../index"
 
-describe("model.Flight.Meal", () => {
+describe("model.Meal", () => {
 	const meal: model.Meal = {
 		name: "dinner",
 		reference: "ref-034",
-		optional: true,
-		alternatives: [
-			{ name: "chicken", price: { amount: 10, currency: "DKK" }, reference: "345" },
-			{ name: "meat", price: { amount: 12, currency: "DKK" }, reference: "345" },
-		],
+		alternative: { name: "meat", price: { amount: 12, currency: "DKK" }, reference: "345" },
 	}
 	const meal2: model.Meal = {
 		name: "dinner",
 		reference: "D-13",
-		optional: true,
-		alternatives: [{ name: "chicken", price: { amount: 100, currency: "SEK" }, reference: "345" }],
+		alternative: { name: "chicken", price: { amount: 100, currency: "SEK" }, reference: "345" },
 	}
 	const alternative: model.Meal.Alternative = {
 		name: "chicken",
@@ -25,8 +20,7 @@ describe("model.Flight.Meal", () => {
 	const leg: model.Passenger.Itinerary.Leg = {
 		reference: "leg-02",
 		seat: {
-			row: { number: 1 },
-			position: "A",
+			position: { row: 1, column: "A" },
 			status: "available",
 			class: "first-class",
 			price: { amount: 200, currency: "SEK" },

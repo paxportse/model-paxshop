@@ -1,22 +1,22 @@
 import { Itinerary } from "../Passenger/Itinerary"
 import { Alternative as MealAlternative } from "./Alternative"
+import { Options as MealOptions } from "./Options"
 
 export interface Meal {
 	reference: string
 	name: string
-	optional?: boolean
-	alternatives: Meal.Alternative[]
+	alternative: Meal.Alternative
 }
 
 export namespace Meal {
 	export function is(value: Meal | any): value is Meal {
 		return (
 			typeof value == "object" &&
+			value &&
 			typeof value.reference == "string" &&
 			typeof value.name == "string" &&
 			(value.optional == undefined || typeof value.optional == "boolean") &&
-			Array.isArray(value.alternatives) &&
-			value.alternatives.every(Alternative.is)
+			Alternative.is(value.alternative)
 		)
 	}
 	export function updatePassengerMeal(
@@ -39,10 +39,8 @@ export namespace Meal {
 
 			// Create new meal object
 			const newMeal = existingMeal
-				? existingMeal.alternatives.find(a => a == alternative)
-					? existingMeal
-					: { ...existingMeal, alternatives: [alternative] }
-				: { ...meal, alternatives: [alternative] }
+				? { ...existingMeal, alternative: alternative }
+				: { ...meal, alternative: alternative }
 
 			// Find the index of this meal in the passenger meal array
 			const indexMeal = existingMeal ? passengerMeals?.findIndex(m => m.reference == newMeal.reference) : undefined
@@ -62,4 +60,6 @@ export namespace Meal {
 	}
 	export type Alternative = MealAlternative
 	export const Alternative = MealAlternative
+	export type Options = MealOptions
+	export const Options = MealOptions
 }

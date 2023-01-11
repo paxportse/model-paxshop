@@ -9,8 +9,7 @@ describe("model.Passenger", () => {
 			{
 				reference: "AA",
 				seat: {
-					row: { number: 1 },
-					position: "A",
+					position: { row: 1, column: "A" },
 					status: "occupied",
 					class: "first-class",
 					price: { amount: 400, currency: "SEK" },
@@ -22,8 +21,7 @@ describe("model.Passenger", () => {
 			{
 				reference: "d03",
 				seat: {
-					row: { number: 1 },
-					position: "B",
+					position: { row: 1, column: "B" },
 					status: "occupied",
 					class: "first-class",
 					price: { amount: 200, currency: "SEK" },
@@ -40,8 +38,7 @@ describe("model.Passenger", () => {
 			{
 				reference: "1337",
 				seat: {
-					row: { number: 1 },
-					position: "A",
+					position: { row: 1, column: "A" },
 					status: "occupied",
 					class: "first-class",
 					price: { amount: 400, currency: "SEK" },
@@ -53,8 +50,7 @@ describe("model.Passenger", () => {
 			{
 				reference: "d03",
 				seat: {
-					row: { number: 1 },
-					position: "B",
+					position: { row: 1, column: "B" },
 					status: "occupied",
 					class: "first-class",
 					price: { amount: 200, currency: "SEK" },
@@ -98,7 +94,7 @@ describe("model.Passenger", () => {
 		name: { first: "Hasse", last: "Burrito" },
 		ageGroup: "child",
 	}
-	const flight: model.FlightOptions = {
+	const flight: model.Flight.Options = {
 		reference: "AA",
 		number: "PAXAA",
 		from: { code: "ARN", name: "Arlanda Airport" },
@@ -114,8 +110,8 @@ describe("model.Passenger", () => {
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 1 },
-								position: "A",
+
+								position: { row: 1, column: "A" },
 								price: { amount: 400, currency: "SEK" },
 								wide: true,
 								reference: "123",
@@ -123,8 +119,8 @@ describe("model.Passenger", () => {
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 1 },
-								position: "B",
+
+								position: { row: 1, column: "B" },
 								price: { amount: 400, offer: 50, currency: "SEK" },
 								wide: true,
 								reference: "123",
@@ -136,24 +132,24 @@ describe("model.Passenger", () => {
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 1 },
-								position: "B",
+
+								position: { row: 1, column: "B" },
 								price: { amount: 100, currency: "SEK" },
 								reference: "123",
 							},
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 1 },
-								position: "C",
+
+								position: { row: 1, column: "C" },
 								price: { amount: 150, currency: "SEK" },
 								reference: "123",
 							},
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 1 },
-								position: "D",
+
+								position: { row: 1, column: "D" },
 								price: { amount: 250, currency: "SEK" },
 								reference: "123",
 							},
@@ -164,8 +160,8 @@ describe("model.Passenger", () => {
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 1 },
-								position: "E",
+
+								position: { row: 1, column: "E" },
 								price: { amount: 350, currency: "SEK" },
 								reference: "123",
 								legroom: true,
@@ -173,8 +169,8 @@ describe("model.Passenger", () => {
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 1 },
-								position: "F",
+
+								position: { row: 1, column: "F" },
 								price: { amount: 1250, currency: "SEK" },
 								reference: "123",
 								legroom: true,
@@ -191,8 +187,8 @@ describe("model.Passenger", () => {
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 2 },
-								position: "A",
+
+								position: { row: 1, column: "A" },
 								price: { amount: 400, currency: "SEK" },
 								wide: true,
 								reference: "123",
@@ -200,8 +196,8 @@ describe("model.Passenger", () => {
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 2 },
-								position: "B",
+
+								position: { row: 1, column: "B" },
 								price: { amount: 400, offer: 50, currency: "SEK" },
 								wide: true,
 								reference: "123",
@@ -213,24 +209,24 @@ describe("model.Passenger", () => {
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 2 },
-								position: "C",
+
+								position: { row: 1, column: "C" },
 								price: { amount: 100, currency: "SEK" },
 								reference: "123",
 							},
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 2 },
-								position: "D",
+
+								position: { row: 1, column: "D" },
 								price: { amount: 150, currency: "SEK" },
 								reference: "123",
 							},
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 2 },
-								position: "E",
+
+								position: { row: 1, column: "E" },
 								price: { amount: 250, currency: "SEK" },
 								reference: "123",
 							},
@@ -241,8 +237,8 @@ describe("model.Passenger", () => {
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 2 },
-								position: "F",
+
+								position: { row: 1, column: "F" },
 								price: { amount: 350, currency: "SEK" },
 								legroom: true,
 								reference: "123",
@@ -250,8 +246,8 @@ describe("model.Passenger", () => {
 							{
 								status: "unavailable",
 								class: "first-class",
-								row: { number: 2 },
-								position: "G",
+
+								position: { row: 1, column: "G" },
 								price: { amount: 1250, currency: "SEK" },
 								legroom: true,
 								reference: "123",
@@ -281,7 +277,7 @@ describe("model.Passenger", () => {
 			},
 		],
 	}
-	const flight2: model.FlightOptions = {
+	const flight2: model.Flight.Options = {
 		reference: "1337",
 		number: "PAX1337",
 		from: { code: "ARN", name: "Arlanda Airport" },
@@ -297,8 +293,8 @@ describe("model.Passenger", () => {
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 1 },
-								position: "A",
+
+								position: { row: 1, column: "A" },
 								price: { amount: 400, currency: "SEK" },
 								wide: true,
 								reference: "123",
@@ -306,8 +302,8 @@ describe("model.Passenger", () => {
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 1 },
-								position: "B",
+
+								position: { row: 1, column: "B" },
 								price: { amount: 400, offer: 50, currency: "SEK" },
 								wide: true,
 								reference: "123",
@@ -319,24 +315,24 @@ describe("model.Passenger", () => {
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 1 },
-								position: "C",
+
+								position: { row: 1, column: "C" },
 								price: { amount: 100, currency: "SEK" },
 								reference: "123",
 							},
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 1 },
-								position: "D",
+
+								position: { row: 1, column: "D" },
 								price: { amount: 150, currency: "SEK" },
 								reference: "123",
 							},
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 1 },
-								position: "E",
+
+								position: { row: 1, column: "E" },
 								price: { amount: 250, currency: "SEK" },
 								reference: "123",
 							},
@@ -347,8 +343,8 @@ describe("model.Passenger", () => {
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 1 },
-								position: "F",
+
+								position: { row: 1, column: "F" },
 								price: { amount: 350, currency: "SEK" },
 								reference: "123",
 								legroom: true,
@@ -356,8 +352,8 @@ describe("model.Passenger", () => {
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 1 },
-								position: "G",
+
+								position: { row: 1, column: "G" },
 								price: { amount: 1250, currency: "SEK" },
 								reference: "123",
 								legroom: true,
@@ -374,8 +370,8 @@ describe("model.Passenger", () => {
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 2 },
-								position: "A",
+
+								position: { row: 1, column: "A" },
 								price: { amount: 400, currency: "SEK" },
 								wide: true,
 								reference: "123",
@@ -383,8 +379,8 @@ describe("model.Passenger", () => {
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 2 },
-								position: "B",
+
+								position: { row: 1, column: "B" },
 								price: { amount: 400, offer: 50, currency: "SEK" },
 								wide: true,
 								reference: "123",
@@ -396,24 +392,24 @@ describe("model.Passenger", () => {
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 2 },
-								position: "C",
+
+								position: { row: 1, column: "C" },
 								price: { amount: 100, currency: "SEK" },
 								reference: "123",
 							},
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 2 },
-								position: "D",
+
+								position: { row: 1, column: "D" },
 								price: { amount: 150, currency: "SEK" },
 								reference: "123",
 							},
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 2 },
-								position: "E",
+
+								position: { row: 1, column: "E" },
 								price: { amount: 250, currency: "SEK" },
 								reference: "123",
 							},
@@ -424,8 +420,8 @@ describe("model.Passenger", () => {
 							{
 								status: "available",
 								class: "first-class",
-								row: { number: 2 },
-								position: "F",
+
+								position: { row: 1, column: "F" },
 								price: { amount: 350, currency: "SEK" },
 								legroom: true,
 								reference: "123",
@@ -433,8 +429,8 @@ describe("model.Passenger", () => {
 							{
 								status: "unavailable",
 								class: "first-class",
-								row: { number: 2 },
-								position: "G",
+
+								position: { row: 1, column: "G" },
 								price: { amount: 1250, currency: "SEK" },
 								legroom: true,
 								reference: "123",
@@ -464,7 +460,7 @@ describe("model.Passenger", () => {
 			},
 		],
 	}
-	const flights: model.FlightOptions[] = [
+	const flights: model.Flight.Options[] = [
 		{
 			reference: "FL-001",
 			number: "PAX001",
@@ -480,8 +476,8 @@ describe("model.Passenger", () => {
 								{
 									status: "available",
 									class: "first-class",
-									row: { number: 1 },
-									position: "A",
+
+									position: { row: 1, column: "A" },
 									price: { amount: 400, currency: "SEK" },
 									wide: true,
 									reference: "123",
@@ -493,8 +489,8 @@ describe("model.Passenger", () => {
 								{
 									status: "available",
 									class: "first-class",
-									row: { number: 1 },
-									position: "B",
+
+									position: { row: 1, column: "B" },
 									price: { amount: 100, currency: "SEK" },
 									reference: "123",
 								},
@@ -509,8 +505,8 @@ describe("model.Passenger", () => {
 								{
 									status: "available",
 									class: "first-class",
-									row: { number: 2 },
-									position: "A",
+
+									position: { row: 1, column: "A" },
 									price: { amount: 400, currency: "SEK" },
 									wide: true,
 									reference: "123",
@@ -522,8 +518,8 @@ describe("model.Passenger", () => {
 								{
 									status: "available",
 									class: "first-class",
-									row: { number: 2 },
-									position: "B",
+
+									position: { row: 1, column: "B" },
 									price: { amount: 100, currency: "SEK" },
 									reference: "123",
 								},
@@ -566,8 +562,8 @@ describe("model.Passenger", () => {
 								{
 									status: "available",
 									class: "first-class",
-									row: { number: 1 },
-									position: "A",
+
+									position: { row: 1, column: "A" },
 									price: { amount: 400, currency: "SEK" },
 									wide: true,
 									reference: "123",
@@ -579,8 +575,8 @@ describe("model.Passenger", () => {
 								{
 									status: "available",
 									class: "first-class",
-									row: { number: 1 },
-									position: "B",
+
+									position: { row: 1, column: "B" },
 									price: { amount: 100, currency: "SEK" },
 									reference: "123",
 								},
@@ -595,8 +591,8 @@ describe("model.Passenger", () => {
 								{
 									status: "available",
 									class: "first-class",
-									row: { number: 2 },
-									position: "A",
+
+									position: { row: 1, column: "A" },
 									price: { amount: 400, currency: "SEK" },
 									wide: true,
 									reference: "123",
@@ -608,8 +604,8 @@ describe("model.Passenger", () => {
 								{
 									status: "available",
 									class: "first-class",
-									row: { number: 2 },
-									position: "B",
+
+									position: { row: 1, column: "B" },
 									price: { amount: 100, currency: "SEK" },
 									reference: "123",
 								},
@@ -659,8 +655,8 @@ describe("model.Passenger", () => {
 				reference: "l01",
 				name: "Extra weight",
 				weight: 20,
-				price: { amount: 100, currency: "AFN" },
 				description: "A description.",
+				flights: [{ reference: "FL-002", capacity: 5, price: { amount: 100, currency: "AFN" } }],
 			},
 		]
 		expect(model.Passenger.update(passenger, { luggage })).toEqual({ ...passenger, luggage })
@@ -670,16 +666,13 @@ describe("model.Passenger", () => {
 			{
 				name: "Dinner",
 				reference: "ref-34",
-				optional: true,
-				alternatives: [
-					{
-						name: "chicken",
-						price: { amount: 100, currency: "SEK" },
-						default: false,
-						description: "Some text",
-						reference: "345",
-					},
-				],
+				alternative: {
+					name: "chicken",
+					price: { amount: 100, currency: "SEK" },
+					default: false,
+					description: "Some text",
+					reference: "345",
+				},
 			},
 		]
 		expect(model.Passenger.update(passenger, { departure: [{ reference: "AA", meal }] })).toEqual({
@@ -689,8 +682,7 @@ describe("model.Passenger", () => {
 	})
 	it("update seat", () => {
 		const seat: model.Layout.Seat = {
-			row: { number: 1 },
-			position: "H",
+			position: { row: 1, column: "H" },
 			status: "occupied",
 			class: "first-class",
 			price: { amount: 200, currency: "SEK" },
