@@ -13,7 +13,6 @@ export namespace Seat {
 	export const selectable = Base.selectable
 	export const chosen = Base.chosen
 	export type Position = SeatPosition
-	// export const Position = SeatPosition
 	export namespace Position {
 		export const is = SeatPosition.is
 		export type Column = PositionColumn
