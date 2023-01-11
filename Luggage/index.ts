@@ -3,8 +3,6 @@ import { Passenger } from "../Passenger"
 import { Price } from "../Price"
 import { Flight as LuggageFlight } from "./Flight"
 import { Options as LuggageOptions } from "./Options"
-//import { Category } from "./Options/Category"
-
 export interface Luggage {
 	reference: string
 	quantity?: number
